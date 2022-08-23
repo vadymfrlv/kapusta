@@ -14,8 +14,6 @@ export const Balance = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-
-    // dispatch(addContact({ name: name, number: number }));
   };
 
   return (

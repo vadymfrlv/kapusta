@@ -1,3 +1,5 @@
+import { Balance } from './Balance/Balance';
+
 export const App = () => {
   return (
     <div
@@ -8,11 +10,10 @@ export const App = () => {
         alignItems: 'center',
         fontSize: 40,
         color: '#010101',
-        fontWeight: 700
-        
+        fontWeight: 700,
       }}
     >
-      React homework template
+      <Balance />
     </div>
   );
 };
