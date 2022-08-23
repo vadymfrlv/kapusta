@@ -63,3 +63,9 @@
   border: 2px solid #ffffff;
   border-radius: 16px;
 }
+
+.button:hover {
+  color: #fff;
+  border-color: #ff751d;
+  background-color: #ff751d;
+}
