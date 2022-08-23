@@ -1,0 +1,56 @@
+.container {
+    height: 579px;
+    padding: 32px;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 0px 30px 30px 30px;
+}
+
+.calendar {
+    margin-right: 32px;
+}
+
+.input {
+    width: 193px;
+    height: 44px;
+    border: 2px solid #F6F7FC;
+    border-radius: 16px 16px 16px 0px;
+}
+
+.buttonInput {
+    padding: 12px 37px;
+    margin-left: 32px;
+    margin-right: 16px;
+
+    border: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+    background: #FF751D;
+    border-radius: 16px;
+}
+
+.buttonClear {
+    padding: 12px 37px;
+
+    border: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: #52555F;
+    background: #FFFFFF;
+    border-radius: 16px;
+    border: 2px solid #F6F7FC;
+}
