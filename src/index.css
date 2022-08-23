@@ -1,8 +1,17 @@
 @import-normalize; /* bring in normalize.css styles */
 
 :root{
+  --black-text-color: #000000;
+  --primary-text-color: #52555f;
+  --white-color: #ffffff;
+  --description-color: #c7ccdc;
+  --accent-color: #ff751d;
+  --minus-balance-color: #e7192e;
+  --plus-balance-color: #407946;
+
 
  --font-family: 'Roboto', sans-serif;
+ --primary-font-size: 12px;
 }
  .container{
   padding: 10px;
