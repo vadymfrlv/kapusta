@@ -4,7 +4,6 @@ import styled from "styled-components";
 export const Container = styled.div`
   max-width: 1098px;
   margin: 0 auto;
-  padding: 0 16px;
 `;
 
 export const Header = styled.header`
@@ -12,7 +11,6 @@ export const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  border-bottom: 1px solid grey;
   > nav {
     display: flex;
   }
