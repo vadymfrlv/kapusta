@@ -1,9 +1,10 @@
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { changeBalance } from 'redux/balance/balanceOperations';
 import s from './Balance.module.css';
 
 export const Balance = () => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const { input, setInput } = useState(0);
 
   const handleChange = e => {
@@ -14,6 +15,8 @@ export const Balance = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    dispatch(changeBalance(input));
   };
 
   return (
