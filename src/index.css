@@ -1,10 +1,17 @@
 @import-normalize; /* bring in normalize.css styles */
 
+:root{
+
+ --font-family: 'Roboto', sans-serif;
+}
+ .container{
+  padding: 10px;
+  width: 1280px;
+ }
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family:'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -42,4 +49,5 @@ img {
 
 button {
   cursor: pointer;
+  padding: 0;
 }
