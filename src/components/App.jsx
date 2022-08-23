@@ -15,9 +15,7 @@ export const App = () => {
     <div>
       <Header />
       <MainPage />
-
       <Balance />
-
       <Routes>
         <Route element={<SharedLayout />}>
           <Route index element={<ExpensesComponent />} />
