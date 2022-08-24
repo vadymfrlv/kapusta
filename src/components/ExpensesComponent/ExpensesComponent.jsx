@@ -1,11 +1,15 @@
+import { Link } from 'react-router-dom';
 import s from './ExpensesComponent.module.css';
 
 const ExpensesComponent = () => {
   return (
     <div className={s.container}>
-
+      <div>
+        <Link to="/expenses">Expenses</Link>
+        <Link to="/income">Income</Link>
+      </div>
       <form>
-              <span className={s.calendar}>Calendar</span>
+        <span className={s.calendar}>Calendar</span>
         <label>
           <input
             className={s.input}
@@ -19,7 +23,7 @@ const ExpensesComponent = () => {
             // onChange={handleChange}
           />
         </label>
-                <label>
+        <label>
           <input
             className={s.input}
             type="number"
@@ -45,66 +49,69 @@ const ExpensesComponent = () => {
             // onChange={handleChange}
           />
         </label>
-        <button type="submit" className={s.buttonInput}>Input</button>
-        <button type="submit" className={s.buttonClear}>Clear</button>
+        <button type="submit" className={s.buttonInput}>
+          Input
+        </button>
+        <button type="submit" className={s.buttonClear}>
+          Clear
+        </button>
       </form>
 
-
       <table className={s.table}>
-	<thead>
-		<tr>
-			<th>DATE</th>
-			<th>DESCRIPTION</th>
-			<th>CATEGORY</th>
-			<th>SUM</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+        <thead>
+          <tr>
+            <th>DATE</th>
+            <th>DESCRIPTION</th>
+            <th>CATEGORY</th>
+            <th>SUM</th>
+            <th></th>
           </tr>
-          		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
-          		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
-                    		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
-                    		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
-                    		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-	</tbody>
-</table>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };
