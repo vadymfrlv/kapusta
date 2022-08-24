@@ -11,10 +11,12 @@ import {
   REGISTER,
 } from 'redux-persist';
 import balanceReducer from '../redux/balance/balanceSlice';
+import authReducer from '../redux/auth/authSlise';
 
 export const store = configureStore({
   reducer: {
     balance: balanceReducer,
+    auth: authReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

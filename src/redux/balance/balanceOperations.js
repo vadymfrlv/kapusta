@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { changeBalanceApi } from '../../services/balance.api';
+import { changeBalanceApi } from '../../services/balanceApi';
 
 export const changeBalance = createAsyncThunk(
   'balance/change',

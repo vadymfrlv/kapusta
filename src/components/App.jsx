@@ -1,5 +1,5 @@
-import HomePage from 'pages/HomePage/HomePage';
-import MainPage from 'pages/MainPage/MainPage';
+import HomePage from '../pages/HomePage';
+import MainPage from '../pages/MainPage';
 
 import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './SharedLayout/SharedLayout ';

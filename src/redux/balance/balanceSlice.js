@@ -4,7 +4,7 @@ import { changeBalance } from './balanceOperations';
 const balanceSlice = createSlice({
   name: 'balance',
   initialState: {
-    balance: '00.00 UAH',
+    balance: 0,
   },
 
   extraReducers: {
