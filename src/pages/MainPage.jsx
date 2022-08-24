@@ -1,4 +1,6 @@
+import { Auth } from 'components/Auth/Auth';
+
 const MainPage = () => {
-  return <div></div>;
+  return <Auth />;
 };
 export default MainPage;

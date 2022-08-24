@@ -1,6 +1,12 @@
 import ExpensesComponent from 'components/ExpensesComponent/ExpensesComponent';
+import { Balance } from 'components/Balance/Balance';
 
 const HomePage = () => {
-  return <ExpensesComponent />;
+  return (
+    <>
+      <Balance />
+      <ExpensesComponent />
+    </>
+  );
 };
 export default HomePage;

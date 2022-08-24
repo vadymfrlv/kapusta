@@ -1,6 +1,6 @@
 @import-normalize; /* bring in normalize.css styles */
 
-:root{
+:root {
   --black-text-color: #000000;
   --primary-text-color: #52555f;
   --white-color: #ffffff;
@@ -9,20 +9,20 @@
   --minus-balance-color: #e7192e;
   --plus-balance-color: #407946;
 
-
- --font-family: 'Roboto', sans-serif;
- --primary-font-size: 12px;
+  --font-family: 'Roboto', sans-serif;
+  --primary-font-size: 12px;
 }
- .container{
+.container {
   padding: 10px;
   width: 1280px;
- }
+}
 
 body {
   margin: 0;
-  font-family:'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #f2f5fc;
 }
 
 code {
