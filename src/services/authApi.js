@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-// const savedToken = {
-//   set(token) {
-//     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-//   },
-//   unset() {
-//     axios.defaults.headers.common.Authorization = '';
-//   },
-// };
+const savedToken = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = '';
+  },
+};
 
 export const getRegisterApi = async userData => {
   const response = await axios.post(
@@ -29,7 +29,7 @@ export const getLoginApi = async userData => {
 };
 
 export const getCurUserApi = async token => {
-  //   savedToken.set(token);
+  savedToken.set(token);
   const response = await axios.get('https://kapusta-backend.goit.global/user', {
     token,
   });
