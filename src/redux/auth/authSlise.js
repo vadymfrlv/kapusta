@@ -20,23 +20,6 @@ const authSlice = createSlice({
     error: null,
     token: null,
     refreshToken: null,
-
-    // nane: 'transactions',
-    // initialState: {
-    //   income: {
-    //     data: [],
-    //     stats: [],
-    //   },
-    //   expenses: {
-    //     data: [],
-    //     stats: [],
-    //   },
-    // },
-    // name: 'category',
-    // initialState: {
-    //   income: [],
-    //   expenses: [],
-    // },
   },
 
   extraReducers: {
@@ -78,10 +61,11 @@ const authSlice = createSlice({
       state.error = null;
     },
     [getCurUser.fulfilled]: (state, { payload }) => {
+      console.log('🚀 ~ payload', payload);
       const { email, balance } = payload;
       state.isLoading = false;
       state.user.email = email;
-      state.balance = balance;
+      state.user.balance = balance;
     },
     [getCurUser.rejected]: (state, { payload }) => {
       state.isLoading = false;

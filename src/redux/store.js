@@ -10,7 +10,6 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-// import balanceReducer from '../redux/balance/balanceSlice';
 import authReducer from '../redux/auth/authSlise';
 
 const authPersistConfig = {
@@ -21,7 +20,6 @@ const authPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    // balance: authReducer,
     auth: persistReducer(authPersistConfig, authReducer),
   },
   middleware: getDefaultMiddleware =>
