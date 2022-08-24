@@ -1,11 +1,15 @@
+import { Link } from 'react-router-dom';
 import s from './IncomeComponent.module.css';
 
 const IncomeComponent = () => {
   return (
     <div className={s.container}>
-
+      <div>
+        <Link to="/expenses">Expenses</Link>
+        <Link to="/income">Income</Link>
+      </div>
       <form>
-              <span className={s.calendar}>Calendar</span>
+        <span className={s.calendar}>Calendar</span>
         <label>
           <input
             className={s.input}
@@ -19,7 +23,7 @@ const IncomeComponent = () => {
             // onChange={handleChange}
           />
         </label>
-                <label>
+        <label>
           <input
             className={s.input}
             type="number"
@@ -45,8 +49,12 @@ const IncomeComponent = () => {
             // onChange={handleChange}
           />
         </label>
-        <button type="submit" className={s.buttonInput}>Input</button>
-        <button type="submit" className={s.buttonClear}>Clear</button>
+        <button type="submit" className={s.buttonInput}>
+          Input
+        </button>
+        <button type="submit" className={s.buttonClear}>
+          Clear
+        </button>
       </form>
     </div>
   );
