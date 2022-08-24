@@ -3,10 +3,13 @@ import s from './IncomeComponent.module.css';
 
 const IncomeComponent = () => {
   return (
+                  <div>
+          <div className={s.linkContainer}>
+        <Link to="/expenses" className={s.link}>Expenses</Link>
+        <Link to="/income" className={s.activeLink}>Income</Link>
+            </div>
     <div className={s.container}>
       <div>
-        <Link to="/expenses">Expenses</Link>
-        <Link to="/income">Income</Link>
       </div>
       <form>
         <span className={s.calendar}>Calendar</span>
@@ -56,7 +59,8 @@ const IncomeComponent = () => {
           Clear
         </button>
       </form>
-    </div>
+        </div>
+        </div>
   );
 };
 

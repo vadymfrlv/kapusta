@@ -3,11 +3,13 @@ import s from './ExpensesComponent.module.css';
 
 const ExpensesComponent = () => {
   return (
-    <div className={s.container}>
-      <div>
-        <Link to="/expenses">Expenses</Link>
-        <Link to="/income">Income</Link>
+              <div>
+          <div className={s.linkContainer}>
+        <Link to="/expenses" className={s.activeLink}>Expenses</Link>
+        <Link to="/income" className={s.link}>Income</Link>
       </div>
+    
+    <div className={s.container}>
       <form>
         <span className={s.calendar}>Calendar</span>
         <label>
@@ -23,8 +25,8 @@ const ExpensesComponent = () => {
             // onChange={handleChange}
           />
         </label>
-        <label>
-          <input
+        <label placeholder="Product description">
+          {/* <input
             className={s.input}
             type="number"
             name="number"
@@ -34,7 +36,16 @@ const ExpensesComponent = () => {
             required
             // value={form.number}
             // onChange={handleChange}
-          />
+            /> */}
+            
+            <select  >
+              className={s.input}
+                          {/* placeholder="Product description" */}
+  <option value="Transport">Transport</option>
+  <option value="Health">Health</option>
+  <option value="Alcohol">Alcohol</option>
+  <option value="Entertainment">Entertainment</option>
+</select>
         </label>
         <label>
           <input
@@ -112,7 +123,8 @@ const ExpensesComponent = () => {
           </tr>
         </tbody>
       </table>
-    </div>
+      </div>
+      </div>
   );
 };
 
