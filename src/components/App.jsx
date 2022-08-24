@@ -2,7 +2,7 @@ import HomePage from 'pages/HomePage';
 import MainPage from 'pages/MainPage';
 import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './SharedLayout/SharedLayout ';
-import ExpensesComponent from './ExpensesComponent/ExpensesComponent';
+
 import IncomeComponent from './IncomeComponent/IncomeComponent';
 
 export const App = () => {
