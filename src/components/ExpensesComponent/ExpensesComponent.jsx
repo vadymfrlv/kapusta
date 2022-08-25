@@ -47,11 +47,12 @@ const ExpensesComponent = () => {
     const initialForm = {
       description,
       amount,
-      date: date.toLocaleString().slice(0, 10),
+      date: date.toISOString().slice(0, 10),
       category: category.value,
     };
     
     dispatch(addExpenseTransaction(initialForm));
+    // console.log(initialForm);
   };
 
   return (
