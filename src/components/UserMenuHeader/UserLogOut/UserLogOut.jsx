@@ -7,6 +7,7 @@ import styles from '../UserMenuHeader.module.css';
 import { RiLogoutBoxRLine } from 'react-icons/ri';
 import Avatar from 'react-avatar';
 
+
 const UserLogOut = () => {
   const dispatch = useDispatch();
   const name = useSelector(state => state.auth.user.email);
