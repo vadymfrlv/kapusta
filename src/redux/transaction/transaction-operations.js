@@ -1,27 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 // import { getContactsApi, addContactApi, deleteContactApi } from "../../api/connectionsAPI";
-import { addExpenseTransactionApi } from "../../services/transactionAPI";
+import { getExpenseTransactionApi, addExpenseTransactionApi } from "../../services/transactionAPI";
 
-// const token = {
-//   set(token) {
-//     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-//   },
-// //   unset() {
-// //     axios.defaults.headers.common.Authorization = '';
-// //   },
-// };
-
-// export const getContacts = createAsyncThunk(
-//   'getContacts',
-//   async (_, thunkApi) => {
-//     try {
-//       const contacts = await getContactsApi();
-//       return contacts;
-//     } catch (error) {
-//       return thunkApi.rejectWithValue(error.message);
-//     }
-//   }
-// );
+export const getExpenseTransaction = createAsyncThunk(
+  'getExpenseTransaction',
+  async (_, thunkApi) => {
+    try {
+      const transaction = await getExpenseTransactionApi();
+      return transaction;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
 
 export const addExpenseTransaction  = createAsyncThunk(
   'addExpenseTransaction',

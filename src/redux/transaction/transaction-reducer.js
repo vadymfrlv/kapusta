@@ -1,19 +1,18 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
-import { addExpenseTransaction } from './transaction-operations';
+import { getExpenseTransaction, addExpenseTransaction } from './transaction-operations';
 // import { getContacts, addContacts, removeContacts } from './contacts-operations';
 
 const items = createReducer([], {
   [addExpenseTransaction.fulfilled]: (_, { payload }) => payload,
-//   [addContacts.fulfilled]: (state, { payload }) => [...state, payload],
 
 //   [removeContacts.fulfilled]: (state, { payload }) =>
 //     state.filter(({ id }) => id !== payload),
 });
 
 const loading = createReducer(false, {
-//   [getContacts.pending]: () => true,
-//   [getContacts.fulfilled]: () => false,
-//   [getContacts.rejected]: () => false,
+  [getExpenseTransaction.pending]: () => true,
+  [getExpenseTransaction.fulfilled]: () => false,
+  [getExpenseTransaction.rejected]: () => false,
 
   [addExpenseTransaction.pending]: () => true,
   [addExpenseTransaction.fulfilled]: () => false,
@@ -27,8 +26,8 @@ const loading = createReducer(false, {
 const setError = (_, { payload }) => payload;
 
 const error = createReducer(null, {
-//   [getContacts.rejected]: setError,
-//   [getContacts.pending]: () => null,
+  [getExpenseTransaction.rejected]: setError,
+  [getExpenseTransaction.pending]: () => null,
 
   [addExpenseTransaction.rejected]: setError,
   [addExpenseTransaction.pending]: () => null,

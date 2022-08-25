@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import s from './ExpensesComponent.module.css';
 
 import { addExpenseTransaction } from '../../redux/transaction/transaction-operations';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Select from 'react-select';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -10,19 +10,10 @@ import 'react-datepicker/dist/react-datepicker.css';
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 
-const options = [
-  { value: 'Транспорт', label: 'Transport' },
-  { value: 'Продукты', label: 'Products' },
-  { value: 'Здоровье', label: 'Health' },
-  { value: 'Алкоголь', label: 'Alcohol' },
-  { value: 'Развлечения', label: 'Entertainment' },
-  { value: 'Всё для дома', label: 'Housing' },
-  { value: 'Техника', label: 'Technique' },
-  { value: 'Коммуналка и связь', label: 'Communal, communication' },
-  { value: 'Спорт и хобби', label: 'Sports, hobbies' },
-  { value: 'Образование', label: 'Education' },
-  { value: 'Прочее', label: 'Other' },
-];
+import { getExpenseTransaction } from '../../redux/transaction/transaction-operations';
+
+import TransactionList from 'components/TransactionListComponent/TransactionList';
+import options from './ExpensesCategories';
 
 const ExpensesComponent = () => {
     const [date, setDate] = useState(new Date());
@@ -53,6 +44,7 @@ const ExpensesComponent = () => {
     
     dispatch(addExpenseTransaction(initialForm));
     // console.log(initialForm);
+    
   };
 
   return (
@@ -114,61 +106,8 @@ const ExpensesComponent = () => {
           </button>
         </form>
 
-      <table className={s.table}>
-        <thead>
-          <tr>
-            <th>DATE</th>
-            <th>DESCRIPTION</th>
-            <th>CATEGORY</th>
-            <th>SUM</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+        
+        <TransactionList />
       </div>
       </div>
   );
