@@ -7,17 +7,7 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 
 const options = [
-  { value: 'Транспорт', label: 'Transport' },
-  { value: 'Продукты', label: 'Products' },
-  { value: 'Здоровье', label: 'Health' },
-  { value: 'Алкоголь', label: 'Alcohol' },
-  { value: 'Развлечения', label: 'Entertainment' },
-  { value: 'Всё для дома', label: 'Housing' },
-  { value: 'Техника', label: 'Technique' },
-  { value: 'Коммуналка и связь', label: 'Communal, communication' },
-  { value: 'Спорт и хобби', label: 'Sports, hobbies' },
-  { value: 'Образование', label: 'Education' },
-  { value: 'Прочее', label: 'Other' },
+  { value: 'Доход', label: 'Income' },
 ];
 
 const IncomeComponent = () => {
@@ -42,7 +32,7 @@ const IncomeComponent = () => {
     const initialForm = {
       description,
       amount,
-      date: date.toLocaleString().slice(0, 10),
+      date: date.toISOString().slice(0, 10),
       category: category.value,
     };
     console.log(initialForm);
