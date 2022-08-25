@@ -47,6 +47,9 @@ const ExpensesComponent = () => {
     
   };
 
+  // const bla = dispatch(getExpenseTransaction());
+  // console.log(bla)
+
   return (
               <div>
           <div className={s.linkContainer}>

@@ -1,33 +1,37 @@
+import React from 'react';
+import { useSelector} from 'react-redux';
 // import PropTypes from 'prop-types';
 import s from './TransactionList.module.css';
 // import ContactsEl from './ContactsEl';
 // import { removeContacts } from '../../redux/contacts/contacts-operations';
-// import { getVisibleContacts } from '../../redux/contacts/contacts-selectors';
+// import {getTransaction} from '../../redux/transaction/transaction-selector';
 
-import React from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
 // import { useEffect } from "react";
-// import { getExpenseTransaction } from '../../redux/transaction/transaction-operations';
+// import { getExpenseTransactionApi } from 'services/transactionAPI';
+// import { getExpenseTransaction } from 'redux/transaction/transaction-operations';
+
+// import { useDispatch } from 'react-redux';
+
+
 
 
 
 const TransactionList = () => {
+  const transactionList = useSelector(state => state.transactions.items);
+  // const qwe = getExpenseTransactionApi().then(response => response.data);
+  // console.log(qwe)
+  // const dispatch = useDispatch();
+
+  // console.log(transactionList)
+
+    // useEffect(() => {
+    //   dispatch(getExpenseTransaction());
+    // });
+  
 
   return (
       <div>
 
-      {/* <ol>
-        {list && list.map((contacts) => (
-            <li key={contacts.id}>
-                <p>{contacts.amount}</p>
-                <p>{contacts.category}</p>
-                <p>{contacts.date}</p>
-                <p>{contacts.description}</p>
-          </li>
-        ))}
-          </ol> */}
-    
-          
           <table className={s.table}>
         <thead>
           <tr>
@@ -39,27 +43,14 @@ const TransactionList = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-                  </tr>
-                            <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-                  </tr>
-                            <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+                  {transactionList && transactionList.map((contacts) => (
+            <tr key={contacts.id}>
+                <td>{(contacts.date).toLocaleString()}</td>
+                <td>{contacts.description}</td>
+                <td>{contacts.category}</td>
+                <td>{contacts.amount}</td>
           </tr>
+        ))}
         </tbody>
       </table>
     </div>

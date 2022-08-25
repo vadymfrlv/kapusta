@@ -3,7 +3,8 @@ import { getExpenseTransaction, addExpenseTransaction } from './transaction-oper
 // import { getContacts, addContacts, removeContacts } from './contacts-operations';
 
 const items = createReducer([], {
-  [addExpenseTransaction.fulfilled]: (_, { payload }) => payload,
+  [getExpenseTransaction.fulfilled]: (_, { payload }) => payload,
+  [addExpenseTransaction.fulfilled]: (state, { payload }) => [...state, payload],
 
 //   [removeContacts.fulfilled]: (state, { payload }) =>
 //     state.filter(({ id }) => id !== payload),
