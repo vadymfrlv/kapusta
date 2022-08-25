@@ -4,6 +4,12 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './SharedLayout/SharedLayout ';
+<<<<<<< HEAD
+=======
+
+// import ExpensesComponent from './ExpensesComponent/ExpensesComponent';
+
+>>>>>>> dev
 import IncomeComponent from './IncomeComponent/IncomeComponent';
 
 import { getCurUser } from 'redux/auth/authOperations';
@@ -21,13 +27,20 @@ export const App = () => {
     mustCurUser && dispatch(getCurUser());
   }, [dispatch, mustCurUser]);
   return (
+<<<<<<< HEAD
     <Routes>
       <AppBar />
+=======
+    <>
+       <AppBar />
+    <Routes>
+>>>>>>> dev
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<MainPage />} />
         <Route path="expenses" element={<HomePage />} />
         <Route path="income" element={<IncomeComponent />} />
       </Route>
-    </Routes>
+      </Routes>
+      </>
   );
 };
