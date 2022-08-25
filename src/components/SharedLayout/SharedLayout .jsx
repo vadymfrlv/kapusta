@@ -1,6 +1,6 @@
+import AppBar from 'components/AppBar/AppBar';
 import { Suspense } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import Header from '../Header/Header';
 import s from './sharedLayout.module.css';
 // import s from './SharedLayout.module.css';
 
@@ -9,7 +9,7 @@ const SharedLayout = () => {
 
   return (
     <>
-      <Header />
+      <AppBar />
       <section className={pathname === '/' ? s.section : s.sectionHome}>
         {pathname === '/' && (
           <div className={s.bottomSection}>
