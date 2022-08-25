@@ -7,16 +7,17 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 
 const options = [
-  { value: 'transport', label: 'Transport' },
-  { value: 'products', label: 'Products' },
-  { value: 'health', label: 'Health' },
-  { value: 'alcohol', label: 'Alcohol' },
-  { value: 'entertainment', label: 'Entertainment' },
-  { value: 'housing', label: 'Housing' },
-  { value: 'communal, communication', label: 'Communal, communication' },
-  { value: 'sports, hobbies', label: 'Sports, hobbies' },
-  { value: 'education', label: 'Education' },
-  { value: 'other', label: 'Other' },
+  { value: 'Транспорт', label: 'Transport' },
+  { value: 'Продукты', label: 'Products' },
+  { value: 'Здоровье', label: 'Health' },
+  { value: 'Алкоголь', label: 'Alcohol' },
+  { value: 'Развлечения', label: 'Entertainment' },
+  { value: 'Всё для дома', label: 'Housing' },
+  { value: 'Техника', label: 'Technique' },
+  { value: 'Коммуналка и связь', label: 'Communal, communication' },
+  { value: 'Спорт и хобби', label: 'Sports, hobbies' },
+  { value: 'Образование', label: 'Education' },
+  { value: 'Прочее', label: 'Other' },
 ];
 
 const IncomeComponent = () => {
@@ -42,14 +43,13 @@ const IncomeComponent = () => {
       description,
       amount,
       date: date.toLocaleString().slice(0, 10),
-      category: category.label,
+      category: category.value,
     };
     console.log(initialForm);
 
     // dispatch(addContacts(form));
   };
 
-      console.log(description, amount, date, category.label);
 
 
   return (
@@ -68,7 +68,9 @@ const IncomeComponent = () => {
           <span className={s.calendarIcon}></span>
 
           <DatePicker
+            dateFormat="dd.MM.yyyy"
             className={s.date}
+            // calendarClassName="rasta-stripes"
             selected={date}
             onChange={(date: Date) => setDate(date)}
           />
@@ -105,13 +107,13 @@ const IncomeComponent = () => {
           <button type="submit" className={s.buttonInput}>
             Input
           </button>
-        </form>
           <button type="submit" className={s.buttonClear} onChange={()=> (setDate(new Date()),
     setDescription(''),
     setCategory(null),
     setAmount(0))} >
             Clear
           </button>
+        </form>
       </div>
     </div>
   );

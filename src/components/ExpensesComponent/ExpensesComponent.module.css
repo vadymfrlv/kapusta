@@ -1,3 +1,6 @@
+.form {
+    display: flex;
+}
 .linkContainer{
 display: flex;
 }
@@ -44,16 +47,57 @@ background-color: #FAFBFD;
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
         border-radius: 0px 30px 30px 30px;
 }
+.calendarIcon {
+    width: 20px;
+    height: 18px;
+    background-color: tomato;
+}
 
-.calendar {
+.date {
+    color: #52555f;
+    width: 74px;
+    border: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     margin-right: 32px;
 }
 
+/* .rasta-stripes {
+    border: none;
+    color: red;
+      color: #52555f;
+} */
+
 .input {
-    width: 193px;
     height: 44px;
-    border: 2px solid #F6F7FC;
-        border-radius: 16px 16px 16px 0px;
+    border: 2px solid #f6f7fc;
+    border-radius: 16px 16px 16px 0px;
+}
+
+.select {
+    padding: 5px;
+    width: 100%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+
+    color: #c7ccdc;
+}
+
+.selectList {
+    color: red;
 }
 
 .buttonInput {

@@ -58,7 +58,7 @@
 
 .date {
   color: #52555f;
-  /* width: 74px; */
+  width: 74px;
   border: none;
   font-family: 'Roboto';
   font-style: normal;
@@ -71,6 +71,12 @@
   text-transform: uppercase;
   margin-right: 32px;
 }
+
+/* .rasta-stripes {
+    border: none;
+    color: red;
+      color: #52555f;
+} */
 
 .input {
   height: 44px;

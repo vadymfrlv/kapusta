@@ -1,7 +1,59 @@
 import { Link } from 'react-router-dom';
 import s from './ExpensesComponent.module.css';
 
+import { addExpenseTransaction } from '../../redux/transaction/transaction-operations';
+import { useDispatch } from 'react-redux';
+
+import Select from 'react-select';
+import 'react-datepicker/dist/react-datepicker.css';
+
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+
+const options = [
+  { value: 'Транспорт', label: 'Transport' },
+  { value: 'Продукты', label: 'Products' },
+  { value: 'Здоровье', label: 'Health' },
+  { value: 'Алкоголь', label: 'Alcohol' },
+  { value: 'Развлечения', label: 'Entertainment' },
+  { value: 'Всё для дома', label: 'Housing' },
+  { value: 'Техника', label: 'Technique' },
+  { value: 'Коммуналка и связь', label: 'Communal, communication' },
+  { value: 'Спорт и хобби', label: 'Sports, hobbies' },
+  { value: 'Образование', label: 'Education' },
+  { value: 'Прочее', label: 'Other' },
+];
+
 const ExpensesComponent = () => {
+    const [date, setDate] = useState(new Date());
+  const [description, setDescription] = useState('');
+  const [category, setCategory] = useState(null);
+  const [amount, setAmount] = useState(0);
+  const dispatch = useDispatch();
+
+  const handleChange = e => {
+    const { value } = e.target;
+    setDescription(value);
+  };
+
+  const handleChangeAmount = e => {
+    const { value } = e.target;
+    setAmount(value);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    const initialForm = {
+      description,
+      amount,
+      date: date.toLocaleString().slice(0, 10),
+      category: category.value,
+    };
+    
+    dispatch(addExpenseTransaction(initialForm));
+  };
+
   return (
               <div>
           <div className={s.linkContainer}>
@@ -10,63 +62,56 @@ const ExpensesComponent = () => {
       </div>
     
     <div className={s.container}>
-      <form>
-        <span className={s.calendar}>Calendar</span>
-        <label>
-          <input
-            className={s.input}
-            type="text"
-            name="name"
-            placeholder="Product category"
-            // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            // title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-            // value={form.name}
-            // onChange={handleChange}
+        <form onSubmit={handleSubmit} className={s.form}>
+          <span className={s.calendarIcon}></span>
+
+          <DatePicker
+            dateFormat="dd.MM.yyyy"
+            className={s.date}
+            // calendarClassName="rasta-stripes"
+            selected={date}
+            onChange={(date: Date) => setDate(date)}
           />
-        </label>
-        <label placeholder="Product description">
-          {/* <input
-            className={s.input}
-            type="number"
-            name="number"
-            placeholder="Product description"
-            // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            // title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
-            // value={form.number}
-            // onChange={handleChange}
-            /> */}
-            
-            <select  >
+          <label>
+            <input
               className={s.input}
-                          {/* placeholder="Product description" */}
-  <option value="Transport">Transport</option>
-  <option value="Health">Health</option>
-  <option value="Alcohol">Alcohol</option>
-  <option value="Entertainment">Entertainment</option>
-</select>
-        </label>
-        <label>
-          <input
-            className={s.input}
-            type="number"
-            name="number"
-            placeholder="0,00"
-            // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            // title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
-            // value={form.number}
-            // onChange={handleChange}
+              type="text"
+              name="description"
+              placeholder="Product category"
+              required
+              value={description}
+              onChange={handleChange}
+            />
+          </label>
+          <Select
+            placeholder="Product category"
+            className={s.select}
+            classNamePrefix={s.selectList}
+            defaultValue={category}
+            onChange={setCategory}
+            options={options}
           />
-        </label>
-        <button type="submit" className={s.buttonInput}>
-          Input
-        </button>
-        <button type="submit" className={s.buttonClear}>
-          Clear
-        </button>
-      </form>
+          <label>
+            <input
+              className={s.input}
+              type="number"
+              name="number"
+              placeholder="0,00"
+              required
+              value={amount}
+              onChange={handleChangeAmount}
+            />
+          </label>
+          <button type="submit" className={s.buttonInput}>
+            Input
+          </button>
+          <button type="submit" className={s.buttonClear} onChange={()=> (setDate(new Date()),
+    setDescription(''),
+    setCategory(null),
+    setAmount(0))} >
+            Clear
+          </button>
+        </form>
 
       <table className={s.table}>
         <thead>
