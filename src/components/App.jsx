@@ -7,11 +7,11 @@ import SharedLayout from './SharedLayout/SharedLayout ';
 import IncomeComponent from './IncomeComponent/IncomeComponent';
 import { getCurUser } from 'redux/auth/authOperations';
 import { getMustCurUser } from 'redux/auth/AuthSelector';
-
+import { getIsAuth } from 'redux/auth/AuthSelector';
 import AppBar from './AppBar/AppBar';
 
 export const App = () => {
-  // const isAuth = useSelector(getIsAuth);
+  const isAuth = useSelector(getIsAuth);
 
   const dispatch = useDispatch();
   const mustCurUser = useSelector(getMustCurUser);
@@ -24,9 +24,9 @@ export const App = () => {
       <AppBar />
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<MainPage />} />
-          <Route path="expenses" element={<HomePage />} />
-          <Route path="income" element={<IncomeComponent />} />
+          {isAuth && <Route path="income" element={<IncomeComponent />} />}
+          {!isAuth && <Route index element={<MainPage />} />}
+          {isAuth && <Route path="*" element={<HomePage />} />}
         </Route>
       </Routes>
     </>
