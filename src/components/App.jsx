@@ -1,10 +1,16 @@
 import HomePage from '../pages/HomePage';
 import MainPage from '../pages/MainPage';
+import ReportsPage from 'pages/ReportsPage';
+
+import { Navigate, Route, Routes } from 'react-router-dom';
+
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
+
 import SharedLayout from './SharedLayout/SharedLayout ';
 import IncomeComponent from './IncomeComponent/IncomeComponent';
+
 import { getCurUser } from 'redux/auth/authOperations';
 
 import { getMustCurUser } from 'redux/auth/AuthSelector';
@@ -26,10 +32,16 @@ export const App = () => {
       <AppBar />
       <Routes>
         <Route path="/" element={<SharedLayout />}>
+          <Route index element={<MainPage />} />
+          <Route path="expenses" element={<HomePage />} />
+          <Route path="income" element={<IncomeComponent />} />
+          <Route path="reports" element={<ReportsPage />} />
+        </Route>
+        <Route path="*" element={<Navigate to="/" />} />
+
           {isAuth && <Route path="income" element={<IncomeComponent />} />}
           {!isAuth && <Route index element={<MainPage />} />}
           {isAuth && <Route path="*" element={<HomePage />} />}
-        </Route>
       </Routes>
 
     </>
