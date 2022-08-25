@@ -6,7 +6,6 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
 
 import SharedLayout from './SharedLayout/SharedLayout ';
 import IncomeComponent from './IncomeComponent/IncomeComponent';
