@@ -42,8 +42,6 @@ const authSlice = createSlice({
     },
     [loginUser.fulfilled]: (state, { payload }) => {
       const { accessToken, refreshToken, sid, userData } = payload;
-      console.log('🚀 ~ userData', userData);
-      //   const { balance, ...rest } = userData;
       state.isLoading = false;
       state.user = userData;
       state.token = accessToken;
@@ -61,7 +59,6 @@ const authSlice = createSlice({
       state.error = null;
     },
     [getCurUser.fulfilled]: (state, { payload }) => {
-      console.log('🚀 ~ payload', payload);
       const { email, balance } = payload;
       state.isLoading = false;
       state.user.email = email;
@@ -78,10 +75,13 @@ const authSlice = createSlice({
     [logoutUser.fulfilled]: state => {
       state.isLoading = false;
       state.user = {
-        name: null,
+        id: null,
         email: null,
+        balance: 0,
       };
       state.token = null;
+      state.refreshToken = null;
+      state.sid = null;
     },
     [logoutUser.rejected]: (state, { payload }) => {
       state.isLoading = false;

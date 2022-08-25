@@ -19,12 +19,11 @@ export const getRegisterApi = async userData => {
 };
 
 export const getLoginApi = async userData => {
-  //   savedToken.set(token);
   const response = await axios.post(
     'https://kapusta-backend.goit.global/auth/login',
     userData
   );
-  console.log(response.data);
+  savedToken.set(response.data.accessToken);
   return response.data;
 };
 
@@ -33,11 +32,9 @@ export const getCurUserApi = async token => {
   const response = await axios.get('https://kapusta-backend.goit.global/user', {
     token,
   });
-  console.log(response.data);
   return response.data;
 };
 
 export const logoutUserApi = async () => {
   await axios.post('https://kapusta-backend.goit.global/auth/logout');
-  //   savedToken.unset();
 };
