@@ -32,7 +32,7 @@ export const getCurUserApi = async token => {
   const response = await axios.get('https://kapusta-backend.goit.global/user', {
     token,
   });
-  savedToken.set(response.data.token);
+  savedToken.set(token);
   return response.data;
 };
 
