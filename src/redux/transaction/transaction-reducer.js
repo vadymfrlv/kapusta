@@ -1,13 +1,19 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
-import { getExpenseTransaction, addExpenseTransaction } from './transaction-operations';
+import {
+  getExpenseTransaction,
+  addExpenseTransaction,
+} from './transaction-operations';
 // import { getContacts, addContacts, removeContacts } from './contacts-operations';
 
 const items = createReducer([], {
   [getExpenseTransaction.fulfilled]: (_, { payload }) => payload,
-  [addExpenseTransaction.fulfilled]: (state, { payload }) => [...state, payload],
+  [addExpenseTransaction.fulfilled]: (state, { payload }) => [
+    ...state,
+    payload,
+  ],
 
-//   [removeContacts.fulfilled]: (state, { payload }) =>
-//     state.filter(({ id }) => id !== payload),
+  //   [removeContacts.fulfilled]: (state, { payload }) =>
+  //     state.filter(({ id }) => id !== payload),
 });
 
 const loading = createReducer(false, {
@@ -19,9 +25,9 @@ const loading = createReducer(false, {
   [addExpenseTransaction.fulfilled]: () => false,
   [addExpenseTransaction.rejected]: () => false,
 
-//   [removeContacts.pending]: () => true,
-//   [removeContacts.fulfilled]: () => false,
-//   [removeContacts.rejected]: () => false,
+  //   [removeContacts.pending]: () => true,
+  //   [removeContacts.fulfilled]: () => false,
+  //   [removeContacts.rejected]: () => false,
 });
 
 const setError = (_, { payload }) => payload;
@@ -33,8 +39,8 @@ const error = createReducer(null, {
   [addExpenseTransaction.rejected]: setError,
   [addExpenseTransaction.pending]: () => null,
 
-//   [removeContacts.rejected]: setError,
-//   [removeContacts.pending]: () => null,
+  //   [removeContacts.rejected]: setError,
+  //   [removeContacts.pending]: () => null,
 });
 
 export default combineReducers({
