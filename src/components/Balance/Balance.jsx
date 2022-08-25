@@ -5,13 +5,29 @@ import { changeBalance } from 'redux/balance/balanceOperations';
 import s from './Balance.module.css';
 import { AuthModal } from 'components/Auth/AuthModal';
 
+function isAN(value) {
+  return (
+    (value instanceof Number || typeof value === 'number') && !isNaN(value)
+  );
+}
+
+// console.info(isAN(1));
+
+// console.info(isAN(null));
+// console.info(isAN('1'));
+// console.info(isAN(true));
+
 export const Balance = () => {
   const balance = useSelector(state => state.auth.user.balance);
   const dispatch = useDispatch();
   const [input, setInput] = useState('');
 
+  console.info(isAN(Number(input)));
+
   const handleChange = e => {
     const { value } = e.target;
+
+    // if (isAN(Number(input))) return alert('Alarm !!!');
 
     setInput(value);
   };
