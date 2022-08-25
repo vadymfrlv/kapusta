@@ -6,10 +6,12 @@ import axios from 'axios';
 //   },
 // };
 
-export const changeBalanceApi = async () => {
+export const changeBalanceApi = async data => {
+  console.log('🚀 ~ data', data);
   //   savedToken.set(token);
   const response = await axios.patch(
-    'https://kapusta-backend.goit.global/user/balance'
+    'https://kapusta-backend.goit.global/user/balance',
+    data
   );
 
   return response.data;

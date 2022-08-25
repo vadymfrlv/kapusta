@@ -25,7 +25,6 @@ export const loginUser = createAsyncThunk(
   async (userData, thunkApi) => {
     try {
       const loginUserData = await getLoginApi(userData);
-      console.log('🚀 ~ loginUserData', loginUserData);
       return loginUserData;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

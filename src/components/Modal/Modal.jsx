@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { useDispatch } from 'react-redux';
 import styles from './Modal.module.css';
+import { logoutUser } from 'redux/auth/authOperations';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -11,6 +13,8 @@ function Modal({
   modalTitle = 'Do you really want to leave?',
   styleReg,
 }) {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     window.document.body.style.overflowY = 'hidden';
     window.addEventListener('keydown', handleKeyDown);
@@ -32,7 +36,11 @@ function Modal({
     }
   };
 
-  return createPortal(
+  const handleLogout = () => {
+    dispatch(logoutUser());
+  };
+
+  return (
     <div className={styles.modalWrapper} onClick={handleOverlayClick}>
       <div className={`${styles.modalContainer} ${styleReg}`}>
         <span className={styles.closeBtn} onClick={onClose}>
@@ -44,16 +52,16 @@ function Modal({
         </div>
 
         <div className={styles.buttons}>
-          <button className={styles.buttonStyles} onClick={handleClickLeft}>
-            No
+          <button className={styles.buttonStyles} onClick={handleLogout}>
+            Yes
           </button>
           <button className={styles.buttonStyles} onClick={handleClickRight}>
-            Yes
+            No
           </button>
         </div>
       </div>
-    </div>,
-    modalRoot,
+    </div>
+    // modalRoot,
   );
 }
 

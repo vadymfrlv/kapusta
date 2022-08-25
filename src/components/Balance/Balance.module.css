@@ -4,6 +4,7 @@
 }
 
 .label {
+  position: relative;
   display: flex;
   width: 125px;
   height: 44px;
@@ -27,7 +28,7 @@
 }
 
 .input {
-  width: 97px;
+  width: 50px;
   height: 20px;
   margin-right: 20px;
   margin-left: 8px;
@@ -68,4 +69,14 @@
   color: #fff;
   border-color: #ff751d;
   background-color: #ff751d;
+}
+
+.text {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  margin: 0;
+
+  font-size: 12px;
+  font-weight: bold;
 }

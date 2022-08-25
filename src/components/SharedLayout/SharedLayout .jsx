@@ -6,7 +6,6 @@ import s from './sharedLayout.module.css';
 
 const SharedLayout = () => {
   const { pathname } = useLocation();
-  console.log(pathname);
 
   return (
     <>
