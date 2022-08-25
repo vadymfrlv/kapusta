@@ -1,0 +1,50 @@
+.block {
+  width: 1034px;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 30px;
+  background-color: aqua;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 32px;
+}
+
+.expenses,
+.income {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: #52555f;
+}
+
+.income {
+  position: relative;
+  margin-left: 40px;
+}
+
+.incomeTotal::before {
+  content: ' ';
+  position: absolute;
+  bottom: -10px;
+  left: -20px;
+  display: block;
+  width: 1px;
+  height: 36px;
+  background-color: #e0e5eb;
+}
+
+.incomeTotal {
+  letter-spacing: 0.04em;
+  color: #407946;
+  margin-left: 15px;
+}
+
+.expensesTotal {
+  letter-spacing: 0.04em;
+  color: #e53935;
+  margin-left: 15px;
+}
