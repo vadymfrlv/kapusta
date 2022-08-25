@@ -32,15 +32,15 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<MainPage />} />
-          <Route path="expenses" element={<HomePage />} />
+          {isAuth && <Route path="/expenses" element={<HomePage />} />}
           <Route path="income" element={<IncomeComponent />} />
           <Route path="reports" element={<ReportsPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
 
-          {isAuth && <Route path="income" element={<IncomeComponent />} />}
-          {!isAuth && <Route index element={<MainPage />} />}
-          {isAuth && <Route path="*" element={<HomePage />} />}
+        {/* {isAuth && <Route path="income" element={<IncomeComponent />} />}
+        {!isAuth && <Route index element={<MainPage />} />}
+        {isAuth && <Route path="*" element={<HomePage />} />} */}
       </Routes>
 
     </>

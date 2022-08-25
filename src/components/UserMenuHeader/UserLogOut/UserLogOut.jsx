@@ -10,7 +10,6 @@ import Avatar from 'react-avatar';
 const UserLogOut = () => {
   const dispatch = useDispatch();
   const name = useSelector(state => state.auth.user.email);
-  console.log('🚀 ~ name', name);
 
   const toggleModal = () => {
     setShowModal(prevShowModal => !prevShowModal);
