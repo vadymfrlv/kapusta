@@ -11,14 +11,15 @@ import AppBar from './AppBar/AppBar'
 
 export const App = () => {
   return (
-    
-    <Routes>
+    <>
        <AppBar />
+    <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<MainPage />} />
         <Route path="expenses" element={<HomePage />} />
         <Route path="income" element={<IncomeComponent />} />
       </Route>
-    </Routes>
+      </Routes>
+      </>
   );
 };
