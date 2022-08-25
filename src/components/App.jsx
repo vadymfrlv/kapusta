@@ -7,10 +7,13 @@ import SharedLayout from './SharedLayout/SharedLayout ';
 // import ExpensesComponent from './ExpensesComponent/ExpensesComponent';
 
 import IncomeComponent from './IncomeComponent/IncomeComponent';
+import AppBar from './AppBar/AppBar'
 
 export const App = () => {
   return (
+    
     <Routes>
+       <AppBar />
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<MainPage />} />
         <Route path="expenses" element={<HomePage />} />
