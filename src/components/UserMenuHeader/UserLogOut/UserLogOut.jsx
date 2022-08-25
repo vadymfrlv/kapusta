@@ -49,7 +49,7 @@ const UserLogOut = () => {
             onClick={toggleModal}
             className={styles.logOutBtn}
           >
-            <p className={styles.logOutTextBtn}>Выйти</p>
+            <p className={styles.logOutTextBtn}>Exit</p>
           </button>
         </>
       )}

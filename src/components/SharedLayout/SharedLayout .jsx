@@ -9,7 +9,7 @@ const SharedLayout = () => {
 
   return (
     <>
-      <AppBar />
+      {/* <AppBar /> */}
       <section className={pathname === '/' ? s.section : s.sectionHome}>
         {pathname === '/' && (
           <div className={s.bottomSection}>

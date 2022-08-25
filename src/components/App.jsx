@@ -8,7 +8,6 @@ import IncomeComponent from './IncomeComponent/IncomeComponent';
 import { getCurUser } from 'redux/auth/authOperations';
 import { getMustCurUser } from 'redux/auth/AuthSelector';
 import { getIsAuth } from 'redux/auth/AuthSelector';
-
 import AppBar from './AppBar/AppBar';
 
 export const App = () => {
@@ -22,7 +21,7 @@ export const App = () => {
   }, [dispatch, mustCurUser]);
   return (
     <>
-      {/* <AppBar /> */}
+      <AppBar />
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           {isAuth && <Route path="income" element={<IncomeComponent />} />}
