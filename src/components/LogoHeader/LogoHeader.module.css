@@ -1,8 +1,9 @@
 .link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 90px;
-    height: 31px;
-    background-image: url('../../assets/images/svg/logo.svg');
-  }
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 31px;
+  background-image: url('../../assets/images/svg/logo.svg');
+}

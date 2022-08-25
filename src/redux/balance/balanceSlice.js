@@ -1,23 +1,26 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { changeBalance } from './balanceOperations';
+// import { createSlice } from '@reduxjs/toolkit';
+// // import { useSelector } from 'react-redux';
+// import { changeBalance } from './balanceOperations';
 
-const balanceSlice = createSlice({
-  name: 'balance',
-  initialState: {
-    balance: 0,
-  },
+// // const balance = useSelector(state => state.user.balance);
 
-  extraReducers: {
-    [changeBalance.pending]: state => {
-      state.error = null;
-    },
-    [changeBalance.fulfilled]: (state, { payload }) => {
-      state.balance = payload;
-    },
-    [changeBalance.rejected]: (state, { payload }) => {
-      state.error = payload;
-    },
-  },
-});
+// const balanceSlice = createSlice({
+//   // name: 'balance',
+//   // initialState: {
+//   //   balance: 0,
+//   // },
 
-export default balanceSlice.reducer;
+//   extraReducers: {
+//     [changeBalance.pending]: state => {
+//       state.error = null;
+//     },
+//     [changeBalance.fulfilled]: (state, { payload }) => {
+//       state.user.balance = payload;
+//     },
+//     [changeBalance.rejected]: (state, { payload }) => {
+//       state.error = payload;
+//     },
+//   },
+// });
+
+// export default balanceSlice.reducer;

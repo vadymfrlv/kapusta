@@ -5,6 +5,7 @@ import {
   logoutUser,
   getCurUser,
 } from './authOperations';
+import { changeBalance } from 'redux/balance/balanceOperations';
 
 const authSlice = createSlice({
   name: 'auth',
@@ -12,6 +13,7 @@ const authSlice = createSlice({
     user: {
       email: null,
       id: null,
+      balance: 0,
     },
     sid: null,
     isLoading: false,
@@ -40,12 +42,13 @@ const authSlice = createSlice({
     },
     [loginUser.fulfilled]: (state, { payload }) => {
       const { accessToken, refreshToken, sid, userData } = payload;
-      const { balance, ...rest } = userData;
       state.isLoading = false;
-      state.user = rest;
+      state.user = userData;
       state.token = accessToken;
       state.refreshToken = refreshToken;
       state.sid = sid;
+
+      //   state.balance = balance;
     },
     [loginUser.rejected]: (state, { payload }) => {
       state.isLoading = false;
@@ -56,8 +59,10 @@ const authSlice = createSlice({
       state.error = null;
     },
     [getCurUser.fulfilled]: (state, { payload }) => {
+      const { email, balance } = payload;
       state.isLoading = false;
-      state.user = payload;
+      state.user.email = email;
+      state.user.balance = balance;
     },
     [getCurUser.rejected]: (state, { payload }) => {
       state.isLoading = false;
@@ -70,13 +75,26 @@ const authSlice = createSlice({
     [logoutUser.fulfilled]: state => {
       state.isLoading = false;
       state.user = {
-        name: null,
+        id: null,
         email: null,
+        balance: 0,
       };
       state.token = null;
+      state.refreshToken = null;
+      state.sid = null;
     },
     [logoutUser.rejected]: (state, { payload }) => {
       state.isLoading = false;
+      state.error = payload;
+    },
+
+    [changeBalance.pending]: state => {
+      state.error = null;
+    },
+    [changeBalance.fulfilled]: (state, { payload }) => {
+      state.user.balance = payload;
+    },
+    [changeBalance.rejected]: (state, { payload }) => {
       state.error = payload;
     },
   },

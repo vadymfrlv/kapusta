@@ -1,23 +1,23 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal';
-import { authOperations } from 'redux/auth';
+import { logoutUser } from 'redux/auth/authOperations';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
 import styles from '../UserMenuHeader.module.css';
 import { RiLogoutBoxRLine } from 'react-icons/ri';
 import Avatar from 'react-avatar';
 
-
 const UserLogOut = () => {
   const dispatch = useDispatch();
   const name = useSelector(state => state.auth.user.email);
+  console.log('🚀 ~ name', name);
 
   const toggleModal = () => {
     setShowModal(prevShowModal => !prevShowModal);
   };
 
   const logoutModal = () => {
-    dispatch(authOperations.logOut());
+    dispatch(logoutUser());
     toggleModal();
   };
 
@@ -49,7 +49,7 @@ const UserLogOut = () => {
             onClick={toggleModal}
             className={styles.logOutBtn}
           >
-            <p className={styles.logOutTextBtn}>Выйти</p>
+            <p className={styles.logOutTextBtn}>Exit</p>
           </button>
         </>
       )}

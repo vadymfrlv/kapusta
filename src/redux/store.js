@@ -10,16 +10,19 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import balanceReducer from '../redux/balance/balanceSlice';
 import authReducer from '../redux/auth/authSlise';
 import transactionReducer from '../redux/transaction/transaction-reducer';
 
+const authPersistConfig = {
+  key: 'token',
+  storage,
+  whitelist: ['token'],
+};
+
 export const store = configureStore({
   reducer: {
-    balance: balanceReducer,
-    auth: authReducer,
+    auth: persistReducer(authPersistConfig, authReducer),
     transactions: transactionReducer,
-
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
