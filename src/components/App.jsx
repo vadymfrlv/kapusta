@@ -20,6 +20,12 @@ import { getIsAuth } from 'redux/auth/AuthSelector';
 import AppBar from './AppBar/AppBar';
 
 export const App = () => {
+
+ 
+  const isAuth = useSelector(getIsAuth);
+
+
+
   const dispatch = useDispatch();
   const mustCurUser = useSelector(getMustCurUser);
 
@@ -31,6 +37,7 @@ export const App = () => {
       <AppBar />
       <Routes>
         <Route path="/" element={<SharedLayout />}>
+
           <Route
             index
             element={<PublicRoute restricted component={MainPage} />}
@@ -47,6 +54,7 @@ export const App = () => {
             path="reports"
             element={<PrivateRoute component={ReportsPage} />}
           />
+
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
 

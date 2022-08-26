@@ -32,10 +32,11 @@ export const getCurUserApi = async token => {
   const response = await axios.get('https://kapusta-backend.goit.global/user', {
     token,
   });
-  savedToken.set(response.data.token);
+
   return response.data;
 };
 
 export const logoutUserApi = async () => {
   await axios.post('https://kapusta-backend.goit.global/auth/logout');
+  savedToken.unset();
 };
