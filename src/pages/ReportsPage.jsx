@@ -7,8 +7,11 @@ import ReportsTotal from 'components/ReportsTotal/ReportsTotal';
 import ReportsCategories from 'components/ReportsCategories/ReportsCategories';
 import Diagram from 'components/Diagram/Diagram';
 import Loader from 'components/Loader/Loader';
+import { getEmailUser } from 'redux/auth/AuthSelector';
+import { useSelector } from 'react-redux';
 
 const ReportsPage = () => {
+  const email = useSelector(getEmailUser);
   const [month, setMonth] = useState(() => moment().format('YYYY-MM'));
   const [type, setType] = useState('expenses');
   const [category, setCategory] = useState('');
@@ -20,20 +23,22 @@ const ReportsPage = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    setError('');
-    setLoading(true);
-    getDataForPeriod(month)
-      .then(data => {
-        setUserExpenses(data.expenses);
-        setUserIncome(data.incomes);
-      })
-      .catch(error => {
-        setError(error.message);
-        setUserExpenses(null);
-        setUserIncome(null);
-      })
-      .finally(() => setLoading(false));
-  }, [month]);
+    if (email) {
+      setError('');
+      setLoading(true);
+      getDataForPeriod(month)
+        .then(data => {
+          setUserExpenses(data.expenses);
+          setUserIncome(data.incomes);
+        })
+        .catch(error => {
+          setError(error.message);
+          setUserExpenses(null);
+          setUserIncome(null);
+        })
+        .finally(() => setLoading(false));
+    }
+  }, [month, email]);
 
   const onCategoryChange = (value, transactions) => {
     setCategory(value);
