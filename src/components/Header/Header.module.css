@@ -1,11 +1,12 @@
 .header {
-  position: relative;
+  /* position: relative; */
   max-width: 1280px;
   margin: 0 auto;
   padding-top: 12px;
   padding-bottom: 13px;
   padding-left: 19px;
   padding-right: 19px;
+  background-color: var(--white-color);
 }
 
 .headerContaiener {
@@ -14,4 +15,11 @@
   align-items: center;
   justify-content: space-between;
   margin: auto;
+  background-color: var(--white-color);
+}
+@media screen and (min-width: 768px) {
+  .header {
+      padding-left: 26px;
+      padding-right: 26px;
+  }
 }
