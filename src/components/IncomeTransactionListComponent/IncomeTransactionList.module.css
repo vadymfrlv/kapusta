@@ -1,11 +1,11 @@
 .table {
     margin-top: 60px;
-    border: 2px solid #F5F6FB;
+    /* border: 2px solid #F5F6FB; */
     /* border-top-right-radius: 20px; */
     width: 746px;
     margin-bottom: 20px;
     border-collapse: collapse;
-    height: 579px;
+    max-height: 579px;
 
 }
 
@@ -37,4 +37,15 @@
 
 .table th {
     
+}
+
+.expense {
+color: green;
+    font-weight: bold;
+}
+
+.buttonDelete {
+padding: 7px;
+border-radius: 50%;
+margin: 0px 10px;
 }

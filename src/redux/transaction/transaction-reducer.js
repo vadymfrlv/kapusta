@@ -1,13 +1,14 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
-import { getExpenseTransaction, addExpenseTransaction } from './transaction-operations';
-// import { getContacts, addContacts, removeContacts } from './contacts-operations';
+import { getExpenseTransaction, addExpenseTransaction, removeExpenseTransaction, addIncomeTransaction } from './transaction-operations';
 
 const items = createReducer([], {
   [getExpenseTransaction.fulfilled]: (_, { payload }) => payload,
   [addExpenseTransaction.fulfilled]: (state, { payload }) => [...state, payload],
 
-//   [removeContacts.fulfilled]: (state, { payload }) =>
-//     state.filter(({ id }) => id !== payload),
+  [addIncomeTransaction.fulfilled]: (state, { payload }) => [...state, payload],
+
+  [removeExpenseTransaction.fulfilled]: (state, { payload }) =>
+    state.filter(({ id }) => id !== payload),
 });
 
 const loading = createReducer(false, {
@@ -19,9 +20,13 @@ const loading = createReducer(false, {
   [addExpenseTransaction.fulfilled]: () => false,
   [addExpenseTransaction.rejected]: () => false,
 
-//   [removeContacts.pending]: () => true,
-//   [removeContacts.fulfilled]: () => false,
-//   [removeContacts.rejected]: () => false,
+  [addIncomeTransaction.pending]: () => true,
+  [addIncomeTransaction.fulfilled]: () => false,
+  [addIncomeTransaction.rejected]: () => false,
+
+  [removeExpenseTransaction.pending]: () => true,
+  [removeExpenseTransaction.fulfilled]: () => false,
+  [removeExpenseTransaction.rejected]: () => false,
 });
 
 const setError = (_, { payload }) => payload;
@@ -33,8 +38,11 @@ const error = createReducer(null, {
   [addExpenseTransaction.rejected]: setError,
   [addExpenseTransaction.pending]: () => null,
 
-//   [removeContacts.rejected]: setError,
-//   [removeContacts.pending]: () => null,
+  [addIncomeTransaction.rejected]: setError,
+  [addIncomeTransaction.pending]: () => null,
+
+  [removeExpenseTransaction.rejected]: setError,
+  [removeExpenseTransaction.pending]: () => null,
 });
 
 export default combineReducers({
