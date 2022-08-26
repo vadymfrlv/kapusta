@@ -3,7 +3,10 @@ import { getExpenseTransaction, addExpenseTransaction, removeExpenseTransaction,
 
 const items = createReducer([], {
   [getExpenseTransaction.fulfilled]: (_, { payload }) => payload,
-  [addExpenseTransaction.fulfilled]: (state, { payload }) => [...state, payload],
+  [addExpenseTransaction.fulfilled]: (state, { payload }) => [
+    ...state,
+    payload,
+  ],
 
   [addIncomeTransaction.fulfilled]: (state, { payload }) => [...state, payload],
 
@@ -19,6 +22,7 @@ const loading = createReducer(false, {
   [addExpenseTransaction.pending]: () => true,
   [addExpenseTransaction.fulfilled]: () => false,
   [addExpenseTransaction.rejected]: () => false,
+
 
   [addIncomeTransaction.pending]: () => true,
   [addIncomeTransaction.fulfilled]: () => false,
