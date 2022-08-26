@@ -4,6 +4,14 @@
   justify-content: center;
   margin: -20px;
 }
+
+.noInfo {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 40px;
+}
+
 .item {
   max-width: 100px;
   margin: 20px;
