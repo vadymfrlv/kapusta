@@ -2,43 +2,9 @@
   width: 1034px;
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
-  background-color: aqua;
   padding-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
   padding-bottom: 28px;
   margin-bottom: 32px;
-}
-
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.prevBtn {
-  display: block;
-  width: 10px;
-  height: 14px;
-  background-color: transparent;
-  border: none;
-  background-image: url('../../assets/images/svg/array_left.svg');
-  background-repeat: no-repeat;
-  margin-right: 16px;
-}
-.prevBtn:disabled,
-.nextBtn:disabled {
-  cursor: auto;
-}
-
-.nextBtn {
-  display: block;
-  width: 10px;
-  height: 14px;
-  background-color: transparent;
-  background-image: url('../../assets/images/svg/array_right.svg');
-  background-repeat: no-repeat;
-  margin-left: 16px;
-  border: none;
+  margin-left: auto;
+  margin-right: auto;
 }
