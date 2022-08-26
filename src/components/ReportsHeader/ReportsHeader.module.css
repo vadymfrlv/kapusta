@@ -1,13 +1,80 @@
-.list {
+.block {
+  width: 1034px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
-  justify-content: center;
+  align-items: center;
   margin-bottom: 32px;
 }
 
-.item:not(:last-child) {
-  margin-right: 15px;
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 249px;
 }
 
-.button {
-  background-color: red;
+.blockMonth {
+  margin-left: auto;
+}
+
+.btnPrevPage {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  background-image: url('../../assets/images/svg/array_back.svg');
+  background-repeat: no-repeat;
+  margin-right: 16px;
+}
+
+.mainPage {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  color: rgba(82, 85, 95, 0.7);
+}
+
+.prevBtn {
+  display: block;
+  width: 10px;
+  height: 14px;
+  background-color: transparent;
+  border: none;
+  background-image: url('../../assets/images/svg/array_left.svg');
+  background-repeat: no-repeat;
+  margin-right: 5px;
+}
+.prevBtn:disabled,
+.nextBtn:disabled {
+  cursor: auto;
+}
+
+.nextBtn {
+  display: block;
+  width: 10px;
+  height: 14px;
+  background-color: transparent;
+  background-image: url('../../assets/images/svg/array_right.svg');
+  background-repeat: no-repeat;
+  margin-left: 5px;
+  border: none;
+}
+.nextBtn:active {
+  background-color: transparent;
+}
+
+.notActiveBtn {
+  display: none;
+}
+
+.currentPeriod {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  color: rgba(82, 85, 95, 0.7);
+  text-align: center;
+  margin-bottom: 5px;
 }
