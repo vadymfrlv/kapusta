@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { createPortal } from 'react-dom';
+// import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
 import styles from './Modal.module.css';
 import { logoutUser } from 'redux/auth/authOperations';
 
-const modalRoot = document.querySelector('#modal-root');
+// const modalRoot = document.querySelector('#modal-root');
 
 function Modal({
   handleClickLeft,
