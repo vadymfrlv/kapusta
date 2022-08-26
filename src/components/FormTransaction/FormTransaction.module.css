@@ -1,55 +1,7 @@
-.componentContainer {
-    width: 1098px;
-}
 .form {
     display: flex;
 }
-.linkContainer{
-display: flex;
-}
-.link {
-background-color: #FAFBFD;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    color: #000000;
-    padding: 13px 40px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-}
 
-.activeLink {
-    background-color: #FEFEFE;
-        color: #FF751D;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    padding: 13px 40px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-}
-
-.container {
-    background-color: white;
-    height: 579px;
-    padding: 32px;
-    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-        border-radius: 0px 30px 30px 30px;
-}
 .calendarIcon {
     width: 20px;
     height: 18px;
@@ -110,16 +62,16 @@ background-color: #FAFBFD;
 
     border: none;
     font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 14px;
-        text-align: center;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-    
-        color: #FFFFFF;
-background: #FF751D;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+    background: #FF751D;
     border-radius: 16px;
 }
 
@@ -141,4 +93,3 @@ background: #FF751D;
     border-radius: 16px;
     border: 2px solid #F6F7FC;
 }
-

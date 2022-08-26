@@ -1,26 +1,21 @@
-import { Link } from 'react-router-dom';
-import s from './IncomeComponent.module.css';
+import s from './FormTransaction.module.css';
+
+import { addExpenseTransaction } from '../../redux/transaction/transaction-operations';
+import { useDispatch } from 'react-redux';
+
 import Select from 'react-select';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 
-import IncomeTransactionList from 'components/IncomeTransactionListComponent/IncomeTransactionList';
-import { addIncomeTransaction } from '../../redux/transaction/transaction-operations';
-import { useDispatch } from 'react-redux';
+import options from './ExpensesCategories';
 
-const options = [
-  { value: 'З/П', label: 'Salary' },
-  { value: 'Доп. доход', label: 'Add. income' },
-];
-
-const IncomeComponent = () => {
+const FormTransaction = () => {
   const [date, setDate] = useState(new Date());
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState(null);
   const [amount, setAmount] = useState(0);
-
   const dispatch = useDispatch();
 
   const handleChange = e => {
@@ -42,33 +37,19 @@ const IncomeComponent = () => {
       date: date.toISOString().slice(0, 10),
       category: category.value,
     };
-    console.log(initialForm);
 
-    dispatch(addIncomeTransaction(initialForm));
-    // dispatch(addContacts(form));
+    dispatch(addExpenseTransaction(initialForm));
+
   };
 
 
-
   return (
-    <div>
-      <div className={s.linkContainer}>
-        <Link to="/expenses" className={s.link}>
-          Expenses
-        </Link>
-        <Link to="/income" className={s.activeLink}>
-          Income
-        </Link>
-      </div>
-
-      <div className={s.container}>
         <form onSubmit={handleSubmit} className={s.form}>
           <span className={s.calendarIcon}></span>
 
           <DatePicker
             dateFormat="dd.MM.yyyy"
             className={s.date}
-            // calendarClassName="rasta-stripes"
             selected={date}
             onChange={(date: Date) => setDate(date)}
           />
@@ -96,7 +77,7 @@ const IncomeComponent = () => {
               className={s.input}
               type="number"
               name="number"
-              placeholder="0,00"
+              pattern="^[1-9]\d*$"
               required
               value={amount}
               onChange={handleChangeAmount}
@@ -105,17 +86,20 @@ const IncomeComponent = () => {
           <button type="submit" className={s.buttonInput}>
             Input
           </button>
-          <button type="submit" className={s.buttonClear} onChange={()=> (setDate(new Date()),
-    setDescription(''),
-    setCategory(null),
-    setAmount(0))} >
+          <button
+            type="submit"
+            className={s.buttonClear}
+            onChange={() => (
+              setDate(new Date()),
+              setDescription(''),
+              setCategory(null),
+              setAmount(0)
+            )}
+          >
             Clear
           </button>
         </form>
-                <IncomeTransactionList />
-      </div>
-    </div>
   );
 };
 
-export default IncomeComponent;
+export default FormTransaction;
