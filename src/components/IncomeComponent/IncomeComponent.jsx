@@ -9,6 +9,7 @@ import DatePicker from 'react-datepicker';
 import IncomeTransactionList from 'components/IncomeTransactionListComponent/IncomeTransactionList';
 import { addIncomeTransaction } from '../../redux/transaction/transaction-operations';
 import { useDispatch } from 'react-redux';
+import { Balance } from 'components/Balance/Balance';
 
 const options = [
   { value: 'З/П', label: 'Salary' },
@@ -48,10 +49,9 @@ const IncomeComponent = () => {
     // dispatch(addContacts(form));
   };
 
-
-
   return (
     <div>
+      <Balance />
       <div className={s.linkContainer}>
         <Link to="/expenses" className={s.link}>
           Expenses
@@ -105,14 +105,20 @@ const IncomeComponent = () => {
           <button type="submit" className={s.buttonInput}>
             Input
           </button>
-          <button type="submit" className={s.buttonClear} onChange={()=> (setDate(new Date()),
-    setDescription(''),
-    setCategory(null),
-    setAmount(0))} >
+          <button
+            type="submit"
+            className={s.buttonClear}
+            onChange={() => (
+              setDate(new Date()),
+              setDescription(''),
+              setCategory(null),
+              setAmount(0)
+            )}
+          >
             Clear
           </button>
         </form>
-                <IncomeTransactionList />
+        <IncomeTransactionList />
       </div>
     </div>
   );

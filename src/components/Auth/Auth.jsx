@@ -1,11 +1,14 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import { useFormik } from 'formik';
 import { registerUser, loginUser } from 'redux/auth/authOperations';
 import s from './Auth.module.css';
 
 export const Auth = () => {
+  console.log('Auth');
   const dispatch = useDispatch();
+  const error = useSelector(state => state.auth.error);
+
   const formik = useFormik({
     initialValues: {
       password: '',
@@ -71,10 +74,10 @@ export const Auth = () => {
             value={formik.values.email}
           />
         </label>
-        <p className={s.discr}>This is a required field</p>
+        {error !== null && <p className={s.discr}>This is a required field</p>}
       </div>
       <div>
-        <p className={s.text}>
+        <p className={s.text_password}>
           <span className={s.span}>*</span>Password:
         </p>
         <label className={s.label}>
@@ -88,7 +91,7 @@ export const Auth = () => {
             value={formik.values.password}
           />
         </label>
-        <p className={s.discr}>This is a required field</p>
+        {error !== null && <p className={s.discr}>This is a required field</p>}
       </div>
       <>
         <div>
