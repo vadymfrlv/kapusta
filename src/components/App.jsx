@@ -18,6 +18,7 @@ import { getIsAuth } from 'redux/auth/AuthSelector';
 import AppBar from './AppBar/AppBar';
 
 export const App = () => {
+  console.log('App');
   const isAuth = useSelector(getIsAuth);
 
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<MainPage />} />
-          {isAuth && <Route path="/expenses" element={<HomePage />} />}
+          {isAuth && <Route path="expenses" element={<HomePage />} />}
           <Route path="income" element={<IncomeComponent />} />
           <Route path="reports" element={<ReportsPage />} />
         </Route>
@@ -42,7 +43,6 @@ export const App = () => {
         {!isAuth && <Route index element={<MainPage />} />}
         {isAuth && <Route path="*" element={<HomePage />} />} */}
       </Routes>
-
     </>
   );
 };
