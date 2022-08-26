@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import SharedLayout from './SharedLayout/SharedLayout ';
-import IncomeComponent from './IncomeComponent/IncomeComponent';
+import IncomeComponent from './Income/Income';
 
 import { getCurUser } from 'redux/auth/authOperations';
 

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 // import { getContactsApi, addContactApi, deleteContactApi } from "../../api/connectionsAPI";
-import { getExpenseTransactionApi, addExpenseTransactionApi, deleteExpenseTransactionApi, addIncomeTransactionApi } from "../../services/transactionAPI";
+import { getExpenseTransactionApi, addExpenseTransactionApi, deleteTransactionApi, addIncomeTransactionApi } from "../../services/transactionAPI";
 
 export const getExpenseTransaction = createAsyncThunk(
   'getExpenseTransaction',
@@ -27,11 +27,11 @@ export const addExpenseTransaction  = createAsyncThunk(
   }
 );
 
-export const removeExpenseTransaction = createAsyncThunk(
+export const removeTransaction = createAsyncThunk(
   'deleteExpenseTransaction',
   async (id, { rejectWithValue }) => {
     try {
-      await deleteExpenseTransactionApi (id);
+      await deleteTransactionApi (id);
       return id;
     } catch (error) {
       return rejectWithValue(error.message);

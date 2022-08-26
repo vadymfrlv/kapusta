@@ -22,7 +22,7 @@ export const addExpenseTransactionApi = async ({
   return response.data.transaction;
 };
 
-export const deleteExpenseTransactionApi = async id  => {
+export const deleteTransactionApi = async id  => {
   await axios.delete(`/transaction/${id}`);
 
   return id;

@@ -87,9 +87,9 @@ const FormTransaction = () => {
             Input
           </button>
           <button
-            type="submit"
+            type="button"
             className={s.buttonClear}
-            onChange={() => (
+            onClick={() => (
               setDate(new Date()),
               setDescription(''),
               setCategory(null),

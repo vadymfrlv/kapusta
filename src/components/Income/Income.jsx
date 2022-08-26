@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import s from './IncomeComponent.module.css';
+import s from './Income.module.css';
 import Select from 'react-select';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 
-import IncomeTransactionList from 'components/IncomeTransactionListComponent/IncomeTransactionList';
+import IncomeTransactionList from 'components/IncomeTransactionList/IncomeTransactionList';
 import { addIncomeTransaction } from '../../redux/transaction/transaction-operations';
 import { useDispatch } from 'react-redux';
 
@@ -48,8 +48,6 @@ const IncomeComponent = () => {
     // dispatch(addContacts(form));
   };
 
-
-
   return (
     <div>
       <div className={s.linkContainer}>
@@ -68,7 +66,6 @@ const IncomeComponent = () => {
           <DatePicker
             dateFormat="dd.MM.yyyy"
             className={s.date}
-            // calendarClassName="rasta-stripes"
             selected={date}
             onChange={(date: Date) => setDate(date)}
           />
@@ -105,14 +102,20 @@ const IncomeComponent = () => {
           <button type="submit" className={s.buttonInput}>
             Input
           </button>
-          <button type="submit" className={s.buttonClear} onChange={()=> (setDate(new Date()),
-    setDescription(''),
-    setCategory(null),
-    setAmount(0))} >
+          <button
+            type="button"
+            className={s.buttonClear}
+            onClick={() => (
+              setDate(new Date()),
+              setDescription(''),
+              setCategory(null),
+              setAmount(0)
+            )}
+          >
             Clear
           </button>
         </form>
-                <IncomeTransactionList />
+        <IncomeTransactionList />
       </div>
     </div>
   );
