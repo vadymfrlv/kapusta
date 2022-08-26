@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import NumberFormat from 'react-number-format';
 import { changeBalance } from 'redux/balance/balanceOperations';
 import s from './Balance.module.css';
-import { AuthModal } from 'components/Auth/AuthModal';
+import { BalanceModal } from 'components/BalanceModal/BalanceModal';
 
 function isAN(value) {
   return (
@@ -11,23 +11,14 @@ function isAN(value) {
   );
 }
 
-// console.info(isAN(1));
-
-// console.info(isAN(null));
-// console.info(isAN('1'));
-// console.info(isAN(true));
-
 export const Balance = () => {
   const balance = useSelector(state => state.auth.user.balance);
+  const transactions = useSelector(state => state.transactions.items);
   const dispatch = useDispatch();
   const [input, setInput] = useState('');
 
-  console.info(isAN(Number(input)));
-
   const handleChange = e => {
     const { value } = e.target;
-
-    // if (isAN(Number(input))) return alert('Alarm !!!');
 
     setInput(value);
   };
@@ -58,12 +49,17 @@ export const Balance = () => {
             value={input}
             onChange={handleChange}
           />
+          {input === '' && balance === 0 ? (
+            <BalanceModal />
+          ) : (
+            !(<BalanceModal />)
+          )}
         </label>
-        <button className={s.button} type="submit">
+
+        <button disabled={balance !== 0} className={s.button} type="submit">
           CONFIRM
         </button>
       </form>
-      {input === '' && balance === 0 ? <AuthModal /> : !(<AuthModal />)}
     </>
   );
 };

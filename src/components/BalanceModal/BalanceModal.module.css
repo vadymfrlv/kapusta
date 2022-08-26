@@ -1,13 +1,7 @@
-.modalWindow {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 .modal {
   position: absolute;
-  left: 380px;
-  top: 120px;
+  left: 10px;
+  top: 60px;
   z-index: 10;
   width: 225px;
   height: 100px;
@@ -20,8 +14,8 @@
 
 .part {
   position: absolute;
-  top: 115px;
-  left: 426px;
+  top: 58px;
+  left: 55px;
   z-index: 8;
   width: 30px;
   height: 30px;
@@ -34,12 +28,10 @@
   height: 38px;
   margin-bottom: 20px;
 
-  font-family: 'Roboto';
-  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.43;
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 .secondText {
@@ -50,5 +42,5 @@
   font-size: 12px;
   line-height: 1.33;
 
-  color: #ffffff;
+  color: var(--white-color);
 }
