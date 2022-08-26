@@ -5,17 +5,16 @@ import { changeBalance } from 'redux/balance/balanceOperations';
 import s from './Balance.module.css';
 import { BalanceModal } from 'components/BalanceModal/BalanceModal';
 
-function isAN(value) {
-  return (
-    (value instanceof Number || typeof value === 'number') && !isNaN(value)
-  );
-}
+// import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 export const Balance = () => {
   const balance = useSelector(state => state.auth.user.balance);
-  const transactions = useSelector(state => state.transactions.items);
+  // const transactions = useSelector(state => state.transactions.items.length);
+  // let itemIndex = transactions - 1;
+  // let amount = useSelector(state => state.transactions.items[itemIndex]);
   const dispatch = useDispatch();
   const [input, setInput] = useState('');
+  // const viewPort = useWindowDimensions();
 
   const handleChange = e => {
     const { value } = e.target;
@@ -56,7 +55,7 @@ export const Balance = () => {
           )}
         </label>
 
-        <button disabled={balance !== 0} className={s.button} type="submit">
+        <button className={s.button} type="submit">
           CONFIRM
         </button>
       </form>

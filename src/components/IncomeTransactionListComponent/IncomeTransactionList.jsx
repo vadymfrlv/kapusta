@@ -13,6 +13,7 @@ import { useDispatch } from 'react-redux';
 
 const IncomeTransactionList = () => {
   const transactionList = useSelector(state => state.transactions.items);
+  console.log('🚀 ~ transactionList', transactionList);
   // const userEmail = useSelector(state => state.auth.user.email);
   // const qwe = getExpenseTransactionApi().then(response => response.data);
   // console.log(auth)
@@ -51,8 +52,9 @@ const IncomeTransactionList = () => {
                   <button
                     className={s.buttonDelete}
                     onClick={() => dispatch(removeExpenseTransaction(item._id))}
-                  >Del</button>
-                  
+                  >
+                    Del
+                  </button>
                 </td>
               </tr>
             ))}
