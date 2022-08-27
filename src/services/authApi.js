@@ -49,3 +49,6 @@ export const refreshTokenApi = sid => {
     sid: data.newSid,
   }));
 };
+
+export const googleAuth = async () =>
+  await axios.get('https://kapusta-backend.goit.global/auth/google');
