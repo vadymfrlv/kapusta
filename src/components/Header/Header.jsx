@@ -3,6 +3,8 @@ import UserLogOut from 'components/UserLogOut/UserLogOut';
 import styles from './Header.module.css';
 import { getIsAuth } from 'redux/auth/AuthSelector';
 import { useSelector } from 'react-redux';
+import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
+import Sprite from '../../assets/images/svg/sprite.svg';
 
 const Header = () => {
   const isLoggedIn = useSelector(getIsAuth);
@@ -11,8 +13,12 @@ const Header = () => {
       <header className={styles.header}>
         <div className={styles.headerContainer}>
           <Link to="/" alt="homepage">
-            <span className={styles.link} aria-label="logo"></span>
+            {/* <span className={styles.link} aria-label="logo"></span> */}
+            <svg className={styles.link} alt="logo" width="90" height="31">
+              <use href={`${Sprite}#icon-logo`}></use>
+            </svg>
           </Link>
+          <ThemeSwitcher />
           {isLoggedIn && <UserLogOut />}
         </div>
       </header>

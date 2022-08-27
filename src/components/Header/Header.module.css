@@ -31,5 +31,6 @@
   justify-content: center;
   width: 90px;
   height: 31px;
-  background-image: url('../../assets/images/svg/logo.svg');
+  fill: var(--black-text-color);
+  /* background-image: url('../../assets/images/svg/logo.svg'); */
 }
