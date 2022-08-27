@@ -9,6 +9,7 @@ import DatePicker from 'react-datepicker';
 import IncomeTransactionList from 'components/IncomeTransactionList/IncomeTransactionList';
 import { addIncomeTransaction } from '../../redux/transaction/transaction-operations';
 import { useDispatch } from 'react-redux';
+import { Balance } from 'components/Balance/Balance';
 
 const options = [
   { value: 'З/П', label: 'Salary' },
@@ -50,6 +51,7 @@ const IncomeComponent = () => {
 
   return (
     <div>
+      <Balance />
       <div className={s.linkContainer}>
         <Link to="/expenses" className={s.link}>
           Expenses

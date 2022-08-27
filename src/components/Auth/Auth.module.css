@@ -1,24 +1,21 @@
 .form {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  top: 165px;
-  left: 786px;
-  width: 380px;
-  height: 460px;
-  padding-top: 65px;
-  padding-left: 80px;
-  padding-bottom: 47px;
-  left: 763px;
+  right: 91px;
   top: 173px;
+
+  width: 258px;
+
+  /* width: 426px;
+  height: 552px; */
 
   background: var(--white-color);
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
+  padding: 56px 84px;
 }
 
 .google {
-  margin-left: 65px;
+  display: block;
   width: 120px;
   height: 40px;
   margin-bottom: 32px;
@@ -28,39 +25,59 @@
   background-image: url('../../assets/icons/Google.svg');
   background-repeat: no-repeat;
   background-position: 20px;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .item {
-  width: 250px;
-  height: 28px;
-  margin-bottom: 20px;
-
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.04em;
 
   color: var(--primary-text-color);
+  margin-bottom: 20px;
+}
+
+.itemForGoogle {
+  composes: item;
+  text-align: center;
+}
+
+.wrapper {
+  margin-bottom: 16px;
+}
+
+.wrapperPassword {
+  margin-bottom: 24px;
 }
 
 .input {
-  width: 260px;
+  display: block;
+  width: 238px;
   height: 52px;
-  padding-left: 20px;
-  margin-bottom: 4px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  color: #a6abb9;
+  background: #f6f7fb;
+  border-radius: 30px;
   outline: none;
   border: none;
 
-  background: #f6f7fb;
-  border-radius: 30px;
+  padding-left: 20px;
+  margin-bottom: 4px;
 }
 
 .span {
   color: #eb5757;
 }
 
-.discr {
-  margin-bottom: 16px;
+.error {
+  height: 12px;
   font-weight: 400;
   font-size: 10px;
   line-height: 12px;
@@ -69,6 +86,7 @@
 }
 
 .text {
+  display: block;
   margin-bottom: 12px;
   font-weight: 400;
   font-size: 12px;
@@ -78,7 +96,6 @@
 }
 
 .button {
-  margin-right: 15px;
   width: 122px;
   height: 44px;
 
@@ -91,10 +108,34 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
 
-  color: var( --primary-text-color);
+  color: var(--primary-text-color);
+}
+
+.buttonSubmit {
+  composes: button;
+  margin-right: 15px;
+}
+
+.wrapperButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button:hover {
   color: var(--white-color);
-  background-color:var(--accent-color);
+  background-color: var(--accent-color);
+}
+
+.notificationError {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #eb5757;
 }

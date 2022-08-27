@@ -1,6 +1,6 @@
-import s from './AuthModal.module.css';
+import s from './BalanceModal.module.css';
 
-export const AuthModal = () => {
+export const BalanceModal = () => {
   return (
     <div className={s.modalWindow}>
       <div className={s.modal}>
@@ -11,7 +11,7 @@ export const AuthModal = () => {
           You can't spend money until you have it :)
         </p>
       </div>
-      <div className={s.part}></div>;
+      <div className={s.part}></div>
     </div>
   );
 };

@@ -1,11 +1,18 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import { useFormik } from 'formik';
 import { registerUser, loginUser } from 'redux/auth/authOperations';
+import { getAuthError, getAuthLoading } from 'redux/auth/AuthSelector';
+import { toast } from 'react-toastify';
+import * as Yup from 'yup';
 import s from './Auth.module.css';
+import Loader from 'components/Loader/Loader';
 
 export const Auth = () => {
+  const isLoading = useSelector(getAuthLoading);
+  const error = useSelector(getAuthError);
   const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       password: '',
@@ -15,11 +22,26 @@ export const Auth = () => {
     onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
     },
+
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email('Invalid email')
+        .required('This is a required field'),
+      password: Yup.string()
+        .min(7, 'Min length 7')
+        .required('This is a required field'),
+    }),
   });
 
   const handleSubmitRegister = e => {
     e.preventDefault();
-
+    if (formik.errors.email || formik.errors.password) {
+      toast.error('Please, enter correct data!', {
+        autoClose: 2000,
+        theme: 'colored',
+      });
+      return;
+    }
     dispatch(
       registerUser({
         email: formik.values.email,
@@ -32,6 +54,13 @@ export const Auth = () => {
 
   const handleSubmitLogin = e => {
     e.preventDefault();
+    if (formik.errors.email || formik.errors.password) {
+      toast.error('Please, enter correct data!', {
+        autoClose: 2000,
+        theme: 'colored',
+      });
+      return;
+    }
 
     dispatch(
       loginUser({
@@ -47,67 +76,111 @@ export const Auth = () => {
     formik.values.email = '';
     formik.values.password = '';
   };
+
   return (
-    <form className={s.form} onSubmit={formik.handleSubmit}>
-      <p className={s.item}> You can log in with your Google Account:</p>
-      <button className={s.google} type="button">
-        Google
-      </button>
-      <p className={s.item}>
-        Or log in using an email and password, after registering:
-      </p>
-      <div>
-        <p className={s.text}>
-          <span className={s.span}>*</span>Email:
+    <>
+      <form className={s.form} onSubmit={formik.handleSubmit}>
+        <p className={s.itemForGoogle}>
+          You can log in with your Google Account:
         </p>
-        <label className={s.label}>
+        <button className={s.google} type="button">
+          Google
+        </button>
+        <p className={s.item}>
+          Or log in using an email and password, after registering:
+        </p>
+        <div className={s.wrapper}>
+          <label className={s.text} htmlFor="email">
+            {formik.touched.email && formik.errors.email && (
+              <span className={s.span}>*</span>
+            )}
+            Email:
+          </label>
           <input
             className={s.input}
-            id="email"
-            name="email"
             type="email"
+            name="email"
+            id="email"
             placeholder="your@email.com"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.email}
           />
-        </label>
-        <p className={s.discr}>This is a required field</p>
-      </div>
-      <div>
-        <p className={s.text}>
-          <span className={s.span}>*</span>Password:
-        </p>
-        <label className={s.label}>
+          <p className={s.error}>
+            {formik.touched.email && formik.errors.email && formik.errors.email}
+          </p>
+        </div>
+        <div className={s.wrapperPassword}>
+          <label className={s.text} htmlFor="password">
+            {formik.touched.password && formik.errors.password && (
+              <span className={s.span}>*</span>
+            )}
+            Password:
+          </label>
           <input
             className={s.input}
-            id="password"
+            type="password"
             name="password"
-            type="text"
+            id="password"
             placeholder="your password"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.password}
           />
-        </label>
-        <p className={s.discr}>This is a required field</p>
-      </div>
-      <>
-        <div>
-          <button
-            className={s.button}
-            type="submit"
-            onClick={handleSubmitLogin}
-          >
-            LOG IN
-          </button>
-          <button
-            className={s.button}
-            type="submit"
-            onClick={handleSubmitRegister}
-          >
-            REGISTRATION
-          </button>
+          <p className={s.error}>
+            {formik.touched.password &&
+              formik.errors.password &&
+              formik.errors.password}
+          </p>
         </div>
-      </>
-    </form>
+        <>
+          <div className={s.wrapperButtons}>
+            <button
+              className={s.buttonSubmit}
+              type="submit"
+              onClick={handleSubmitLogin}
+            >
+              LOG IN
+            </button>
+            <button
+              className={s.button}
+              type="submit"
+              onClick={handleSubmitRegister}
+            >
+              REGISTRATION
+            </button>
+          </div>
+        </>
+      </form>
+      {isLoading && <Loader />}
+      {error === 'Request failed with status code 400' &&
+        formik.values.email === '' &&
+        formik.values.password === '' &&
+        !formik.errors.email &&
+        !formik.errors.password && (
+          <div className={s.notificationError}>
+            Sorry, but your data isn't correct. Try again
+          </div>
+        )}
+      {error === 'Request failed with status code 409' &&
+        formik.values.email === '' &&
+        formik.values.password === '' &&
+        !formik.errors.email &&
+        !formik.errors.password && (
+          <div className={s.notificationError}>
+            Sorry, but provided email already exists. If it's your account,
+            click log in
+          </div>
+        )}
+      {error === 'Request failed with status code 403' &&
+        formik.values.email === '' &&
+        formik.values.password === '' &&
+        !formik.errors.email &&
+        !formik.errors.password && (
+          <div className={s.notificationError}>
+            Sorry, but email doesn't exist / password is wrong
+          </div>
+        )}
+    </>
   );
 };

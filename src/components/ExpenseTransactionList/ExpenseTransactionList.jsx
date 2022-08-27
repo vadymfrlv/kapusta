@@ -13,6 +13,7 @@ import { useDispatch } from 'react-redux';
 
 const ExpenseTransactionList = () => {
   const transactionList = useSelector(state => state.transactions.items);
+  console.log('🚀 ~ transactionList', transactionList);
   // const userEmail = useSelector(state => state.auth.user.email);
   // const qwe = getExpenseTransactionApi().then(response => response.data);
   // console.log(auth)
@@ -25,7 +26,7 @@ const ExpenseTransactionList = () => {
       dispatch(getExpenseTransaction());
     }, 0);
     // console.log(transactionList)
-  }, [dispatch]);
+  }, [dispatch, transactionList.length]);
 
   return (
     <div>
@@ -52,7 +53,7 @@ const ExpenseTransactionList = () => {
                     className={s.buttonDelete}
                     onClick={() => dispatch(removeTransaction(item._id))}
                   >Del</button>
-                  
+              
                 </td>
               </tr>
             ))}

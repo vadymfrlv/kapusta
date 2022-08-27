@@ -1,7 +1,6 @@
 .header {
   /* position: relative; */
-  max-width: 1280px;
-  margin: 0 auto;
+  margin: 0 auto 40px;
   padding-top: 12px;
   padding-bottom: 13px;
   padding-left: 19px;
@@ -9,7 +8,8 @@
   background-color: var(--white-color);
 }
 
-.headerContaiener {
+.headerContainer {
+  max-width: 1280px;
   display: flex;
   height: 100%;
   align-items: center;
@@ -19,7 +19,17 @@
 }
 @media screen and (min-width: 768px) {
   .header {
-      padding-left: 26px;
-      padding-right: 26px;
+    padding-left: 26px;
+    padding-right: 26px;
   }
+}
+
+.link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 31px;
+  background-image: url('../../assets/images/svg/logo.svg');
 }
