@@ -8,7 +8,9 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SharedLayout from './SharedLayout/SharedLayout ';
-import IncomeComponent from './IncomeComponent/IncomeComponent';
+
+import IncomeComponent from './Income/Income';
+
 import { getCurUser } from 'redux/auth/authOperations';
 import { getMustCurUser } from 'redux/auth/AuthSelector';
 
