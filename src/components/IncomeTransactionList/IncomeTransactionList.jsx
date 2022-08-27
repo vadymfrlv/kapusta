@@ -13,7 +13,9 @@ import { useDispatch } from 'react-redux';
 import { Summary } from 'components/Summary/Summary';
 
 const IncomeTransactionList = () => {
-  const transactionList = useSelector(state => state.transactions.items.incomes);
+  const transactionList = useSelector(
+    state => state.transactions.items.incomes
+  );
   console.log('🚀 ~ transactionList', transactionList);
   // const userEmail = useSelector(state => state.auth.user.email);
   // const qwe = getExpenseTransactionApi().then(response => response.data);
@@ -45,7 +47,7 @@ const IncomeTransactionList = () => {
           {transactionList &&
             transactionList.map(item => (
               <tr key={item._id}>
-                <td>{item.date.split("-").reverse().join(".")}</td>
+                <td>{item.date.split('-').reverse().join('.')}</td>
                 <td>{item.description}</td>
                 <td>{item.category}</td>
                 <td className={s.expense}>+ {item.amount} грн</td>
@@ -53,7 +55,9 @@ const IncomeTransactionList = () => {
                   <button
                     className={s.buttonDelete}
                     onClick={() => dispatch(removeTransaction(item._id))}
-                  >Del</button>
+                  >
+                    Del
+                  </button>
                 </td>
               </tr>
             ))}

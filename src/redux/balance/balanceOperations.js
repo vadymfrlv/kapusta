@@ -6,6 +6,7 @@ export const changeBalance = createAsyncThunk(
   async (data, thunkApi) => {
     try {
       const balance = await changeBalanceApi(data);
+      console.log('🚀 ~ data', data);
       return balance;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

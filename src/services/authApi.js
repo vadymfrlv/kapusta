@@ -40,3 +40,12 @@ export const logoutUserApi = async () => {
   await axios.post('https://kapusta-backend.goit.global/auth/logout');
   savedToken.unset();
 };
+
+export const refreshTokenApi = sid => {
+  return (axios.post('https://kapusta-backend.goit.global/auth/refresh'),
+  { sid: sid }).then(({ data }) => ({
+    token: data.newAccessToken,
+    refreshToken: data.newRefreshToken,
+    sid: data.newSid,
+  }));
+};

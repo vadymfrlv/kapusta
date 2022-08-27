@@ -8,12 +8,15 @@ import {
 } from './transaction-operations';
 
 const items = createReducer([], {
-  [getExpenseTransaction.fulfilled]: (state, { payload }) => { console.log(state); return payload},
+  [getExpenseTransaction.fulfilled]: (state, { payload }) => {
+    console.log(state);
+    return payload;
+  },
   [addExpenseTransaction.fulfilled]: (state, { payload }) => {
-    console.log(payload.transaction); console.log(state); return [
-    ...state,
-    payload.transaction,
-  ]},
+    console.log(payload.transaction);
+    console.log(state);
+    return [...state, payload.transaction];
+  },
 
   [getIncomeTransaction.fulfilled]: (_, { payload }) => payload,
   [addIncomeTransaction.fulfilled]: (state, { payload }) => [...state, payload],
@@ -31,7 +34,7 @@ const loading = createReducer(false, {
   [addExpenseTransaction.fulfilled]: () => false,
   [addExpenseTransaction.rejected]: () => false,
 
-    [getIncomeTransaction.pending]: () => true,
+  [getIncomeTransaction.pending]: () => true,
   [getIncomeTransaction.fulfilled]: () => false,
   [getIncomeTransaction.rejected]: () => false,
 
