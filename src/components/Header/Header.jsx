@@ -13,8 +13,7 @@ const Header = () => {
       <header className={styles.header}>
         <div className={styles.headerContainer}>
           <Link to="/" alt="homepage">
-            {/* <span className={styles.link} aria-label="logo"></span> */}
-            <svg className={styles.link} alt="logo" width="90" height="31">
+            <svg className={styles.logo} alt="logo" width="90" height="31">
               <use href={`${Sprite}#icon-logo`}></use>
             </svg>
           </Link>

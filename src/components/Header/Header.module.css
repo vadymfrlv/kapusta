@@ -14,7 +14,12 @@
   height: 100%;
   align-items: center;
   justify-content: space-between;
-  margin: auto;
+  margin-top: 0;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  line-height: 0;
+
   background-color: var(--white-color);
 }
 @media screen and (min-width: 768px) {
@@ -24,13 +29,13 @@
   }
 }
 
-.link {
+.logo {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 90px;
   height: 31px;
+  margin-bottom: 0;
   fill: var(--black-text-color);
-  /* background-image: url('../../assets/images/svg/logo.svg'); */
 }

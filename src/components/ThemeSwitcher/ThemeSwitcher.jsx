@@ -4,20 +4,21 @@ import s from './ThemeSwitcher.module.css';
 export default function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
 
+  const handleChange = () => {
+    if (theme === 'day') {
+      setTheme('night');
+    } else {
+      setTheme('day');
+    }
+  };
+
   return (
-    <div className={s.toggleBtn} id="toggle">
-      <input
-        type="checkbox"
-        checked={theme === 'night'}
-        onChange={() => {
-          if (theme === 'day') {
-            setTheme('night');
-          } else {
-            setTheme('day');
-          }
-        }}
-      />
-      <span>&nbsp;</span>
-    </div>
+    <>
+      <div id="dol"></div>
+      <div className={s.toggleBtn}>
+        <input type="checkbox" checked={theme === 'night'} onChange={handleChange} />
+        <span>&nbsp;</span>
+      </div>
+    </>
   );
 }
