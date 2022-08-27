@@ -16,11 +16,15 @@ getExpenseMonthsStats
 
 import { useDispatch } from 'react-redux';
 import { Summary } from 'components/Summary/Summary';
+import { getEmailUser } from 'redux/auth/AuthSelector';
+
 
 const ExpenseTransactionList = () => {
   // const [value, setValue] = useState(0);
   const transactionList = useSelector(state => state.transactions.items);
-  // const listLength = useSelector(state => state.transactions.items.length);
+  const listLength = useSelector(state => state.transactions.items.length);
+  const email = useSelector(getEmailUser)
+
   // console.log(listLength);
 
   // console.log('🚀 ~ transactionList', transactionList);
@@ -36,7 +40,7 @@ const ExpenseTransactionList = () => {
       dispatch(getExpenseMonthsStats());
     }, 0);
     // console.log(transactionList)
-  }, [dispatch]);
+  }, [listLength, email]);
 
   // useEffect(() => {
   //     setValue(listLength)
