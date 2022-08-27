@@ -36,7 +36,6 @@ export const Auth = () => {
   const handleSubmitRegister = e => {
     e.preventDefault();
     if (formik.errors.email || formik.errors.password) {
-
       toast.error('Please, enter correct data!', {
         autoClose: 2000,
         theme: 'colored',
@@ -154,23 +153,34 @@ export const Auth = () => {
         </>
       </form>
       {isLoading && <Loader />}
-      {console.log(error)}
-      {error === 'Request failed with status code 400' && (
-        <div className={s.notificationError}>
-          Sorry, but your data isn't correct. Try again
-        </div>
-      )}
-      {error === 'Request failed with status code 409' && (
-        <div className={s.notificationError}>
-          Sorry, but provided email already exists. If it's your account, click
-          log in
-        </div>
-      )}
-      {error === 'Request failed with status code 403' && (
-        <div className={s.notificationError}>
-          Sorry, but email doesn't exist / password is wrong
-        </div>
-      )}
+      {error === 'Request failed with status code 400' &&
+        formik.values.email === '' &&
+        formik.values.password === '' &&
+        !formik.errors.email &&
+        !formik.errors.password && (
+          <div className={s.notificationError}>
+            Sorry, but your data isn't correct. Try again
+          </div>
+        )}
+      {error === 'Request failed with status code 409' &&
+        formik.values.email === '' &&
+        formik.values.password === '' &&
+        !formik.errors.email &&
+        !formik.errors.password && (
+          <div className={s.notificationError}>
+            Sorry, but provided email already exists. If it's your account,
+            click log in
+          </div>
+        )}
+      {error === 'Request failed with status code 403' &&
+        formik.values.email === '' &&
+        formik.values.password === '' &&
+        !formik.errors.email &&
+        !formik.errors.password && (
+          <div className={s.notificationError}>
+            Sorry, but email doesn't exist / password is wrong
+          </div>
+        )}
     </>
   );
 };
