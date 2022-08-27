@@ -8,14 +8,6 @@ import {
   refreshToken,
 } from './authOperations';
 
-import {
-  registerUser,
-  loginUser,
-  logoutUser,
-  getCurUser,
-} from './authOperations';
-import { changeBalance } from 'redux/balance/balanceOperations';
-
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
