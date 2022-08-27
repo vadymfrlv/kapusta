@@ -10,6 +10,7 @@ import {
 } from 'redux/transaction/transaction-operations';
 
 import { useDispatch } from 'react-redux';
+import { Summary } from 'components/Summary/Summary';
 
 const IncomeTransactionList = () => {
   const transactionList = useSelector(state => state.transactions.items);
@@ -29,7 +30,7 @@ const IncomeTransactionList = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={s.transactions}>
       <table className={s.table}>
         <thead>
           <tr>
@@ -60,6 +61,7 @@ const IncomeTransactionList = () => {
             ))}
         </tbody>
       </table>
+      <Summary />
     </div>
   );
 };
