@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import s from './IncomeComponent.module.css';
+import s from './Income.module.css';
 import Select from 'react-select';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 
-import IncomeTransactionList from 'components/IncomeTransactionListComponent/IncomeTransactionList';
+import IncomeTransactionList from 'components/IncomeTransactionList/IncomeTransactionList';
 import { addIncomeTransaction } from '../../redux/transaction/transaction-operations';
 import { useDispatch } from 'react-redux';
 import { Balance } from 'components/Balance/Balance';
@@ -49,6 +49,13 @@ const IncomeComponent = () => {
     // dispatch(addContacts(form));
   };
 
+    const reset = () => {
+    setDate(new Date());
+    setDescription('');
+    setCategory(null);
+    setAmount(0);
+  };
+
   return (
     <div>
       <Balance />
@@ -68,7 +75,6 @@ const IncomeComponent = () => {
           <DatePicker
             dateFormat="dd.MM.yyyy"
             className={s.date}
-            // calendarClassName="rasta-stripes"
             selected={date}
             onChange={(date: Date) => setDate(date)}
           />
@@ -87,7 +93,7 @@ const IncomeComponent = () => {
             placeholder="Product category"
             className={s.select}
             classNamePrefix={s.selectList}
-            defaultValue={category}
+            value={category}
             onChange={setCategory}
             options={options}
           />
@@ -106,14 +112,9 @@ const IncomeComponent = () => {
             Input
           </button>
           <button
-            type="submit"
+            type="button"
             className={s.buttonClear}
-            onChange={() => (
-              setDate(new Date()),
-              setDescription(''),
-              setCategory(null),
-              setAmount(0)
-            )}
+            onClick={reset}
           >
             Clear
           </button>

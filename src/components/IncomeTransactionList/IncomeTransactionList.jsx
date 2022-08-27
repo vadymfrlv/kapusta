@@ -1,19 +1,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 // import PropTypes from 'prop-types';
-import s from './ExpenseTransactionList.module.css';
+import s from './IncomeTransactionList.module.css';
 
 import { useEffect } from 'react';
 import {
-  getExpenseTransaction,
-  removeExpenseTransaction,
+  getIncomeTransaction,
+  removeTransaction,
 } from 'redux/transaction/transaction-operations';
 
 import { useDispatch } from 'react-redux';
 import { Summary } from 'components/Summary/Summary';
 
-const ExpenseTransactionList = () => {
-  const transactionList = useSelector(state => state.transactions.items);
+const IncomeTransactionList = () => {
+  const transactionList = useSelector(state => state.transactions.items.incomes);
   console.log('🚀 ~ transactionList', transactionList);
   // const userEmail = useSelector(state => state.auth.user.email);
   // const qwe = getExpenseTransactionApi().then(response => response.data);
@@ -24,10 +24,10 @@ const ExpenseTransactionList = () => {
     // if(userEmail) {dispatch(getExpenseTransaction())};
 
     setTimeout(() => {
-      dispatch(getExpenseTransaction());
+      dispatch(getIncomeTransaction());
     }, 0);
     // console.log(transactionList)
-  }, [dispatch, transactionList.length]);
+  }, [dispatch]);
 
   return (
     <div className={s.transactions}>
@@ -45,17 +45,15 @@ const ExpenseTransactionList = () => {
           {transactionList &&
             transactionList.map(item => (
               <tr key={item._id}>
-                <td>{item.date}</td>
+                <td>{item.date.split("-").reverse().join(".")}</td>
                 <td>{item.description}</td>
                 <td>{item.category}</td>
-                <td className={s.expense}>- {item.amount} грн</td>
+                <td className={s.expense}>+ {item.amount} грн</td>
                 <td>
                   <button
                     className={s.buttonDelete}
-                    onClick={() => dispatch(removeExpenseTransaction(item._id))}
-                  >
-                    Del
-                  </button>
+                    onClick={() => dispatch(removeTransaction(item._id))}
+                  >Del</button>
                 </td>
               </tr>
             ))}
@@ -77,4 +75,4 @@ const ExpenseTransactionList = () => {
 //   ),
 // };
 
-export default ExpenseTransactionList;
+export default IncomeTransactionList;

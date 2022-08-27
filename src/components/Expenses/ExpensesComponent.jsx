@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import s from './ExpensesComponent.module.css';
 import FormTransaction from 'components/FormTransaction/FormTransaction';
-import ExpenseTransactionList from 'components/ExpenseTransactionListComponent/ExpenseTransactionList';
+import ExpenseTransactionList from 'components/ExpenseTransactionList/ExpenseTransactionList';
 
 const ExpensesComponent = () => {
   return (
