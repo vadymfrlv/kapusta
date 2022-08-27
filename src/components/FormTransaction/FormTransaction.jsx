@@ -15,7 +15,7 @@ const FormTransaction = () => {
   const [date, setDate] = useState(new Date());
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState(null);
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(null);
   const dispatch = useDispatch();
 
   const handleChange = e => {
@@ -45,7 +45,7 @@ const FormTransaction = () => {
     setDate(new Date());
     setDescription('');
     setCategory(null);
-    setAmount(0);
+    setAmount(null);
   };
 
   return (
@@ -63,7 +63,7 @@ const FormTransaction = () => {
           className={s.input}
           type="text"
           name="description"
-          placeholder="Product category"
+          placeholder="Product description"
           required
           value={description}
           onChange={handleChange}
@@ -79,12 +79,12 @@ const FormTransaction = () => {
       />
       <label>
         <input
-          className={s.input}
+          className={s.calcInput}
           type="number"
           name="number"
           pattern="^[1-9]\d*$"
           required
-          value={amount}
+          placeholder="0,00"
           onChange={handleChangeAmount}
         />
       </label>
