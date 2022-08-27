@@ -29,7 +29,7 @@ export const deleteTransactionApi = async id => {
 
 export const getIncomeTransactionApi = async () => {
   const response = await axios.get('/transaction/income');
-
+  console.log(response.data)
   return response.data;
 };
 

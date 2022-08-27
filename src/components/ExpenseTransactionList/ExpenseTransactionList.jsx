@@ -15,8 +15,10 @@ import { useDispatch } from 'react-redux';
 import { Summary } from 'components/Summary/Summary';
 
 const ExpenseTransactionList = () => {
+  // const [value, setValue] = useState(0);
   const transactionList = useSelector(state => state.transactions.items);
-  console.log(transactionList);
+  // const listLength = useSelector(state => state.transactions.items.length);
+  // console.log(listLength);
 
   // console.log('🚀 ~ transactionList', transactionList);
   // const userEmail = useSelector(state => state.auth.user.email);
@@ -25,8 +27,6 @@ const ExpenseTransactionList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // if(userEmail) {dispatch(getExpenseTransaction())};
-
     setTimeout(() => {
       dispatch(getExpenseTransaction());
       dispatch(getExpenseMonthsStats());
@@ -34,7 +34,10 @@ const ExpenseTransactionList = () => {
     // console.log(transactionList)
   }, [dispatch]);
 
-  useEffect(() => {}, [transactionList]);
+  // useEffect(() => {
+  //     setValue(listLength)
+
+  // }, [removeTransaction]);
 
   return (
     <div className={s.transactions}>
@@ -60,9 +63,7 @@ const ExpenseTransactionList = () => {
                   <button
                     className={s.buttonDelete}
                     onClick={() => dispatch(removeTransaction(item._id))}
-                  >
-                    Del
-                  </button>
+                  ></button>
                 </td>
               </tr>
             ))}

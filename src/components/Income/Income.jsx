@@ -20,7 +20,7 @@ const IncomeComponent = () => {
   const [date, setDate] = useState(new Date());
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState(null);
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -31,7 +31,7 @@ const IncomeComponent = () => {
 
   const handleChangeAmount = e => {
     const { value } = e.target;
-    setAmount(value);
+    setAmount(Number(value));
   };
 
   const handleSubmit = e => {
@@ -53,7 +53,7 @@ const IncomeComponent = () => {
     setDate(new Date());
     setDescription('');
     setCategory(null);
-    setAmount(0);
+    setAmount(null);
   };
 
   return (
@@ -99,14 +99,14 @@ const IncomeComponent = () => {
           />
           <label>
             <input
-              className={s.input}
+              className={s.calcInput}
               type="number"
               name="number"
               placeholder="0,00"
               required
-              value={amount}
               onChange={handleChangeAmount}
             />
+            
           </label>
           <button type="submit" className={s.buttonInput}>
             Input

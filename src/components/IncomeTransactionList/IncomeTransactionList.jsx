@@ -12,10 +12,11 @@ import {
 import { useDispatch } from 'react-redux';
 import { Summary } from 'components/Summary/Summary';
 
+import { getIncomeMonthsStats } from 'redux/monthsStats/monthsStats-operations';
+
 const IncomeTransactionList = () => {
   const transactionList = useSelector(state => state.transactions.items);
-
-  console.log('🚀 ~ transactionList', transactionList);
+  console.log(transactionList);
   // const userEmail = useSelector(state => state.auth.user.email);
   // const qwe = getExpenseTransactionApi().then(response => response.data);
   // console.log(auth)
@@ -26,6 +27,7 @@ const IncomeTransactionList = () => {
 
     setTimeout(() => {
       dispatch(getIncomeTransaction());
+      dispatch(getIncomeMonthsStats());
     }, 0);
     // console.log(transactionList)
   }, [dispatch]);
@@ -54,9 +56,7 @@ const IncomeTransactionList = () => {
                   <button
                     className={s.buttonDelete}
                     onClick={() => dispatch(removeTransaction(item._id))}
-                  >
-                    Del
-                  </button>
+                  ></button>
                 </td>
               </tr>
             ))}

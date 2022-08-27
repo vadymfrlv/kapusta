@@ -1,12 +1,10 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
 import {
   getExpenseTransaction,
-  // getExpenseMonthsStats,
   addExpenseTransaction,
   addExpenseBalance,
   removeTransaction,
   getIncomeTransaction,
-  // getIncomeMonthsStats,
   addIncomeTransaction,
   addIncomeBalance,
 } from './transaction-operations';
@@ -14,7 +12,6 @@ import {
 
 const items = createReducer([], {
   [getExpenseTransaction.fulfilled]: (_, { payload }) => payload,
-  // [getExpenseMonthsStats.fulfilled]: (_, { payload }) => payload,
 
   [addExpenseTransaction.fulfilled]: (state, { payload }) => [
     ...state,
@@ -23,9 +20,8 @@ const items = createReducer([], {
   [addExpenseBalance.fulfilled]: (state, { payload }) => [...state, payload],
 
   [getIncomeTransaction.fulfilled]: (_, { payload }) => payload,
-  // [getIncomeMonthsStats.fulfilled]: (_, { payload }) => payload,
 
-  [addIncomeTransaction.fulfilled]: (state, { payload }) => [...state, payload],
+  [addIncomeTransaction.fulfilled]: (state, { payload }) => [...state, payload.transaction],
   [addIncomeBalance.fulfilled]: (state, { payload }) => [...state, payload],
 
   [removeTransaction.fulfilled]: (state, { payload }) =>
@@ -36,10 +32,6 @@ const loading = createReducer(false, {
   [getExpenseTransaction.pending]: () => true,
   [getExpenseTransaction.fulfilled]: () => false,
   [getExpenseTransaction.rejected]: () => false,
-
-  // [getExpenseMonthsStats.pending]: () => true,
-  // [getExpenseMonthsStats.fulfilled]: () => false,
-  // [getExpenseMonthsStats.rejected]: () => false,
 
   [addExpenseTransaction.pending]: () => true,
   [addExpenseTransaction.fulfilled]: () => false,
@@ -52,10 +44,6 @@ const loading = createReducer(false, {
   [getIncomeTransaction.pending]: () => true,
   [getIncomeTransaction.fulfilled]: () => false,
   [getIncomeTransaction.rejected]: () => false,
-
-  // [getIncomeMonthsStats.pending]: () => true,
-  // [getIncomeMonthsStats.fulfilled]: () => false,
-  // [getIncomeMonthsStats.rejected]: () => false,
 
   [addIncomeTransaction.pending]: () => true,
   [addIncomeTransaction.fulfilled]: () => false,
@@ -76,9 +64,6 @@ const error = createReducer(null, {
   [getExpenseTransaction.rejected]: setError,
   [getExpenseTransaction.pending]: () => null,
 
-  // [getExpenseMonthsStats.rejected]: setError,
-  // [getExpenseMonthsStats.pending]: () => null,
-
   [addExpenseTransaction.rejected]: setError,
   [addExpenseTransaction.pending]: () => null,
 
@@ -87,9 +72,6 @@ const error = createReducer(null, {
 
   [getIncomeTransaction.rejected]: setError,
   [getIncomeTransaction.pending]: () => null,
-
-  // [getIncomeMonthsStats.rejected]: setError,
-  // [getIncomeMonthsStats.pending]: () => null,
 
   [addIncomeTransaction.rejected]: setError,
   [addIncomeTransaction.pending]: () => null,
