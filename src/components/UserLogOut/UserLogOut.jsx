@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Modal from '../../Modal/Modal';
-import { logoutUser } from 'redux/auth/authOperations';
-import useWindowDimensions from '../../../hooks/useWindowDimensions';
-import styles from '../UserMenuHeader.module.css';
 import { RiLogoutBoxRLine } from 'react-icons/ri';
 import Avatar from 'react-avatar';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
+import Modal from '../Modal/Modal';
+import { logoutUser } from 'redux/auth/authOperations';
+import styles from './UserLogOut.module.css';
 
 const UserLogOut = () => {
   const dispatch = useDispatch();
