@@ -5,8 +5,8 @@ import Header from 'components/Header/Header';
 import Loader from 'components/Loader/Loader';
 import UserMenuHeader from 'components/UserMenuHeader/UserMenuHeader';
 import { getIsAuth } from 'redux/auth/AuthSelector';
-// import { ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import s from './SharedLayout.module.css';
 
@@ -28,7 +28,7 @@ const SharedLayout = () => {
           <Outlet />
         </Suspense>
       </section>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
     </>
   );
 };

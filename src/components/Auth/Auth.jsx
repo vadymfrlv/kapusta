@@ -3,7 +3,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import { registerUser, loginUser } from 'redux/auth/authOperations';
 import { getAuthError, getAuthLoading } from 'redux/auth/AuthSelector';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import s from './Auth.module.css';
 import Loader from 'components/Loader/Loader';
@@ -36,11 +36,11 @@ export const Auth = () => {
   const handleSubmitRegister = e => {
     e.preventDefault();
     if (formik.errors.email || formik.errors.password) {
-      alert('Please enter correct data');
-      // toast.error('Please, enter correct data!', {
-      //   autoClose: 2000,
-      //   theme: 'colored',
-      // });
+
+      toast.error('Please, enter correct data!', {
+        autoClose: 2000,
+        theme: 'colored',
+      });
       return;
     }
     dispatch(
@@ -56,11 +56,10 @@ export const Auth = () => {
   const handleSubmitLogin = e => {
     e.preventDefault();
     if (formik.errors.email || formik.errors.password) {
-      alert('Please enter correct data');
-      // toast.error('Please, enter correct data!', {
-      //   autoClose: 2000,
-      //   theme: 'colored',
-      // });
+      toast.error('Please, enter correct data!', {
+        autoClose: 2000,
+        theme: 'colored',
+      });
       return;
     }
 
