@@ -1,17 +1,28 @@
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import { useFormik } from 'formik';
-import { registerUser, loginUser } from 'redux/auth/authOperations';
-import { getAuthError, getAuthLoading } from 'redux/auth/AuthSelector';
+import { registerUser, loginUser, getCurUser } from 'redux/auth/authOperations';
+import { getAuthError, getAuthLoading, isLogedIn } from 'redux/auth/AuthSelector';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import s from './Auth.module.css';
 import Loader from 'components/Loader/Loader';
+import Sprite from '../../assets/images/svg/sprite.svg';
+import { useEffect } from 'react';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { googleAuth } from '../../redux/auth/authSlise';
 
 export const Auth = () => {
   const isLoading = useSelector(getAuthLoading);
   const error = useSelector(getAuthError);
+
+  // eslint-disable-next-line
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const { pathname } = useLocation();
+  const token = useSelector(isLogedIn);
 
   const formik = useFormik({
     initialValues: {
@@ -24,14 +35,24 @@ export const Auth = () => {
     },
 
     validationSchema: Yup.object({
-      email: Yup.string()
-        .email('Invalid email')
-        .required('This is a required field'),
-      password: Yup.string()
-        .min(7, 'Min length 7')
-        .required('This is a required field'),
+      email: Yup.string().email('Invalid email').required('This is a required field'),
+      password: Yup.string().min(7, 'Min length 7').required('This is a required field'),
     }),
   });
+
+  useEffect(() => {
+    if (pathname === '/') {
+      const accessToken = searchParams.get('token');
+      const refreshToken = searchParams.get('refreshToken');
+      const sid = searchParams.get('sid');
+      if (token) {
+        dispatch(googleAuth({ accessToken, refreshToken, sid }));
+        dispatch(getCurUser());
+      }
+      token ? navigate('expenses') : navigate('/');
+    }
+    // eslint-disable-next-line
+  }, []);
 
   const handleSubmitRegister = e => {
     e.preventDefault();
@@ -80,20 +101,22 @@ export const Auth = () => {
   return (
     <>
       <form className={s.form} onSubmit={formik.handleSubmit}>
-        <p className={s.itemForGoogle}>
-          You can log in with your Google Account:
-        </p>
-        <button className={s.google} type="button">
-          Google
-        </button>
-        <p className={s.item}>
-          Or log in using an email and password, after registering:
-        </p>
+        <p className={s.itemForGoogle}>You can log in with your Google Account:</p>
+        <a
+          className={s.link}
+          href="https://kapusta-backend.goit.global/auth/google"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <svg className={s.icon} width={18} height={18}>
+            <use href={`${Sprite}#icon-google`} />
+          </svg>
+          <span className={s.google}>Google</span>
+        </a>
+        <p className={s.item}>Or log in using an email and password, after registering:</p>
         <div className={s.wrapper}>
           <label className={s.text} htmlFor="email">
-            {formik.touched.email && formik.errors.email && (
-              <span className={s.span}>*</span>
-            )}
+            {formik.touched.email && formik.errors.email && <span className={s.span}>*</span>}
             Email:
           </label>
           <input
@@ -112,9 +135,7 @@ export const Auth = () => {
         </div>
         <div className={s.wrapperPassword}>
           <label className={s.text} htmlFor="password">
-            {formik.touched.password && formik.errors.password && (
-              <span className={s.span}>*</span>
-            )}
+            {formik.touched.password && formik.errors.password && <span className={s.span}>*</span>}
             Password:
           </label>
           <input
@@ -128,25 +149,15 @@ export const Auth = () => {
             value={formik.values.password}
           />
           <p className={s.error}>
-            {formik.touched.password &&
-              formik.errors.password &&
-              formik.errors.password}
+            {formik.touched.password && formik.errors.password && formik.errors.password}
           </p>
         </div>
         <>
           <div className={s.wrapperButtons}>
-            <button
-              className={s.buttonSubmit}
-              type="submit"
-              onClick={handleSubmitLogin}
-            >
+            <button className={s.buttonSubmit} type="submit" onClick={handleSubmitLogin}>
               LOG IN
             </button>
-            <button
-              className={s.button}
-              type="submit"
-              onClick={handleSubmitRegister}
-            >
+            <button className={s.button} type="submit" onClick={handleSubmitRegister}>
               REGISTRATION
             </button>
           </div>
@@ -158,9 +169,7 @@ export const Auth = () => {
         formik.values.password === '' &&
         !formik.errors.email &&
         !formik.errors.password && (
-          <div className={s.notificationError}>
-            Sorry, but your data isn't correct. Try again
-          </div>
+          <div className={s.notificationError}>Sorry, but your data isn't correct. Try again</div>
         )}
       {error === 'Request failed with status code 409' &&
         formik.values.email === '' &&
@@ -168,8 +177,7 @@ export const Auth = () => {
         !formik.errors.email &&
         !formik.errors.password && (
           <div className={s.notificationError}>
-            Sorry, but provided email already exists. If it's your account,
-            click log in
+            Sorry, but provided email already exists. If it's your account, click log in
           </div>
         )}
       {error === 'Request failed with status code 403' &&
