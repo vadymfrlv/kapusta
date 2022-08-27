@@ -7,8 +7,7 @@ import UserMenuHeader from 'components/UserMenuHeader/UserMenuHeader';
 import { getIsAuth } from 'redux/auth/AuthSelector';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-import s from './SharedLayout.module.css';
+import s from './sharedLayout.module.css';
 
 const SharedLayout = () => {
   const { pathname } = useLocation();
