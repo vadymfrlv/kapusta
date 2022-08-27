@@ -47,7 +47,13 @@
 }
 
 .buttonDelete {
-  padding: 7px;
-  border-radius: 50%;
-  margin: 0px 10px;
+  width: 32px;
+    height: 32px;
+    padding: 7px;
+    border-radius: 50%;
+    margin: 0px 10px;
+    background-image: url('../../assets/icons/deleteTransaction.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 20px;
 }

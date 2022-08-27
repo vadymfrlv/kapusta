@@ -23,7 +23,7 @@ export const getIncomeMonthsStats = createAsyncThunk(
     async (_, thunkApi) => {
         try {
             const transaction = await getIncomeTransactionApi();
-            return transaction.monthStats;
+            return transaction.monthsStats;
         } catch (error) {
             return thunkApi.rejectWithValue(error.message);
         }

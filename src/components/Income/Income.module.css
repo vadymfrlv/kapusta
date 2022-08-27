@@ -79,13 +79,14 @@
 } */
 
 .input {
+  padding-left: 10px;
   height: 44px;
   border: 2px solid #f6f7fc;
-  border-radius: 16px 16px 16px 0px;
+  border-radius: 16px 0px 0px 0px;
 }
 
 .select {
-  padding: 5px;
+  border-radius: 0px;
   width: 100%;
   font-family: 'Roboto';
   font-style: normal;
@@ -93,7 +94,6 @@
   font-size: 12px;
   line-height: 14px;
   display: flex;
-  align-items: center;
   letter-spacing: 0.02em;
 
   color: #c7ccdc;
@@ -101,6 +101,31 @@
 
 .selectList {
   color: red;
+}
+
+.calcInput{
+  color: #C7CCDC;
+  font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.02em;
+  text-align: right;
+  /* padding-left: 85px; */
+  padding-right: 41px;
+  width: 121px;
+  height: 44px;
+    border: 2px solid #f6f7fc;
+    border-radius: 0px 16px 16px 0px;
+    background-image: url('../../assets/icons/transactionCalculator.svg');
+      background-repeat: no-repeat;
+        background-position: 87% 50%;
+        background-size: 20px;
+
 }
 
 .buttonInput {
