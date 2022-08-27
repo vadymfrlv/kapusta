@@ -27,6 +27,12 @@ export const deleteTransactionApi = async id => {
   return id;
 };
 
+export const getIncomeTransactionApi = async () => {
+  const response = await axios.get('/transaction/income');
+
+  return response.data;
+};
+
 export const addIncomeTransactionApi = async ({
   description,
   amount,
@@ -36,11 +42,6 @@ export const addIncomeTransactionApi = async ({
   const transaction = { description, amount, date, category };
 
   const response = await axios.post('/transaction/income', transaction);
-  return response.data;
-};
-
-export const getIncomeTransactionApi = async () => {
-  const response = await axios.get('/transaction/income');
-  // console.log(response.data.expenses)
+  console.log(response.data);
   return response.data;
 };

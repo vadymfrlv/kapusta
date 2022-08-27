@@ -9,15 +9,16 @@ import {
   removeTransaction,
 } from 'redux/transaction/transaction-operations';
 
+import { getExpenseMonthsStats } from 'redux/monthsStats/monthsStats-operations';
+
 import { useDispatch } from 'react-redux';
 import { Summary } from 'components/Summary/Summary';
 
 const ExpenseTransactionList = () => {
-  const transactionList = useSelector(
-    state => state.transactions.items.expenses
-  );
+  const transactionList = useSelector(state => state.transactions.items);
+  console.log(transactionList);
 
-  console.log('🚀 ~ transactionList', transactionList);
+  // console.log('🚀 ~ transactionList', transactionList);
   // const userEmail = useSelector(state => state.auth.user.email);
   // const qwe = getExpenseTransactionApi().then(response => response.data);
   // console.log(auth)
@@ -28,12 +29,12 @@ const ExpenseTransactionList = () => {
 
     setTimeout(() => {
       dispatch(getExpenseTransaction());
+      dispatch(getExpenseMonthsStats());
     }, 0);
     // console.log(transactionList)
   }, [dispatch]);
 
-  //  useEffect(() => {
-  // }, [transactionList]);
+  useEffect(() => {}, [transactionList]);
 
   return (
     <div className={s.transactions}>

@@ -13,9 +13,8 @@ import { useDispatch } from 'react-redux';
 import { Summary } from 'components/Summary/Summary';
 
 const IncomeTransactionList = () => {
-  const transactionList = useSelector(
-    state => state.transactions.items.incomes
-  );
+  const transactionList = useSelector(state => state.transactions.items);
+
   console.log('🚀 ~ transactionList', transactionList);
   // const userEmail = useSelector(state => state.auth.user.email);
   // const qwe = getExpenseTransactionApi().then(response => response.data);
