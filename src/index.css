@@ -12,6 +12,12 @@
   --font-family: 'Roboto', sans-serif;
   --primary-font-size: 12px;
 }
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .container {
   padding: 10px;
   width: 1280px;
