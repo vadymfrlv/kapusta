@@ -14,7 +14,7 @@ import { Summary } from 'components/Summary/Summary';
 
 const IncomeTransactionList = () => {
   const transactionList = useSelector(state => state.transactions.items);
-  console.log('🚀 ~ transactionList', transactionList);
+  console.log(transactionList);
   // const userEmail = useSelector(state => state.auth.user.email);
   // const qwe = getExpenseTransactionApi().then(response => response.data);
   // console.log(auth)

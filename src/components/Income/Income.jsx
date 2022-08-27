@@ -31,7 +31,7 @@ const IncomeComponent = () => {
 
   const handleChangeAmount = e => {
     const { value } = e.target;
-    setAmount(value);
+    setAmount(Number(value));
   };
 
   const handleSubmit = e => {

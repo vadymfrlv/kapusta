@@ -25,7 +25,7 @@ const items = createReducer([], {
   [getIncomeTransaction.fulfilled]: (_, { payload }) => payload,
   // [getIncomeMonthsStats.fulfilled]: (_, { payload }) => payload,
 
-  [addIncomeTransaction.fulfilled]: (state, { payload }) => [...state, payload],
+  [addIncomeTransaction.fulfilled]: (state, { payload }) => [...state, payload.transaction],
   [addIncomeBalance.fulfilled]: (state, { payload }) => [...state, payload],
 
   [removeTransaction.fulfilled]: (state, { payload }) =>
