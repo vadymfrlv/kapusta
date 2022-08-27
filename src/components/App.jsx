@@ -10,12 +10,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import SharedLayout from './SharedLayout/SharedLayout ';
 import IncomeComponent from './IncomeComponent/IncomeComponent';
 import { getCurUser } from 'redux/auth/authOperations';
-import { getMustCurUser, getIsAuth } from 'redux/auth/AuthSelector';
-
-import AppBar from './AppBar/AppBar';
+import { getMustCurUser } from 'redux/auth/AuthSelector';
 
 export const App = () => {
-  const isAuth = useSelector(getIsAuth);
   const dispatch = useDispatch();
   const mustCurUser = useSelector(getMustCurUser);
 
@@ -25,7 +22,6 @@ export const App = () => {
 
   return (
     <>
-      <AppBar />
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route
