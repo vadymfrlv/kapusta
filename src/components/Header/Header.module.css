@@ -1,10 +1,7 @@
 .header {
   /* position: relative; */
-  margin: 0 auto 40px;
-  padding-top: 12px;
-  padding-bottom: 13px;
-  padding-left: 19px;
-  padding-right: 19px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: var(--white-color);
 }
 
@@ -14,7 +11,10 @@
   height: 100%;
   align-items: center;
   justify-content: space-between;
-  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: var(--white-color);
 }
 @media screen and (min-width: 768px) {
