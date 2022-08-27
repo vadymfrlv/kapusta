@@ -2,6 +2,7 @@
   margin-top: 60px;
   /* border: 2px solid #F5F6FB; */
   /* border-top-right-radius: 20px; */
+
   width: 746px;
   margin-bottom: 20px;
   border-collapse: collapse;
@@ -9,6 +10,7 @@
 }
 
 .transactions {
+
   position: relative;
 }
 
