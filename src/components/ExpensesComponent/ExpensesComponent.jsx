@@ -4,9 +4,7 @@ import s from './ExpensesComponent.module.css';
 import FormTransaction from 'components/FormTransaction/FormTransaction';
 import ExpenseTransactionList from 'components/ExpenseTransactionListComponent/ExpenseTransactionList';
 
-
 const ExpensesComponent = () => {
-
   return (
     <div className={s.componentContainer}>
       <div className={s.linkContainer}>
@@ -20,6 +18,7 @@ const ExpensesComponent = () => {
 
       <div className={s.container}>
         <FormTransaction />
+
         <ExpenseTransactionList />
       </div>
     </div>
