@@ -39,66 +39,62 @@ const FormTransaction = () => {
     };
 
     dispatch(addExpenseTransaction(initialForm));
-
   };
 
+  const reset = () => {
+    setDate(new Date());
+    setDescription('');
+    setCategory(null);
+    setAmount(0);
+  };
 
   return (
-        <form onSubmit={handleSubmit} className={s.form}>
-          <span className={s.calendarIcon}></span>
+    <form onSubmit={handleSubmit} className={s.form}>
+      <span className={s.calendarIcon}></span>
 
-          <DatePicker
-            dateFormat="dd.MM.yyyy"
-            className={s.date}
-            selected={date}
-            onChange={(date: Date) => setDate(date)}
-          />
-          <label>
-            <input
-              className={s.input}
-              type="text"
-              name="description"
-              placeholder="Product category"
-              required
-              value={description}
-              onChange={handleChange}
-            />
-          </label>
-          <Select
-            placeholder="Product category"
-            className={s.select}
-            classNamePrefix={s.selectList}
-            defaultValue={category}
-            onChange={setCategory}
-            options={options}
-          />
-          <label>
-            <input
-              className={s.input}
-              type="number"
-              name="number"
-              pattern="^[1-9]\d*$"
-              required
-              value={amount}
-              onChange={handleChangeAmount}
-            />
-          </label>
-          <button type="submit" className={s.buttonInput}>
-            Input
-          </button>
-          <button
-            type="button"
-            className={s.buttonClear}
-            onClick={() => (
-              setDate(new Date()),
-              setDescription(''),
-              setCategory(null),
-              setAmount(0)
-            )}
-          >
-            Clear
-          </button>
-        </form>
+      <DatePicker
+        dateFormat="dd.MM.yyyy"
+        className={s.date}
+        selected={date}
+        onChange={(date: Date) => setDate(date)}
+      />
+      <label>
+        <input
+          className={s.input}
+          type="text"
+          name="description"
+          placeholder="Product category"
+          required
+          value={description}
+          onChange={handleChange}
+        />
+      </label>
+      <Select
+        placeholder="Product category"
+        className={s.select}
+        classNamePrefix={s.selectList}
+        value={category}
+        onChange={setCategory}
+        options={options}
+      />
+      <label>
+        <input
+          className={s.input}
+          type="number"
+          name="number"
+          pattern="^[1-9]\d*$"
+          required
+          value={amount}
+          onChange={handleChangeAmount}
+        />
+      </label>
+      <button type="submit" className={s.buttonInput}>
+        Input
+      </button>
+      <button type="button" className={s.buttonClear} onClick={reset}>
+        Clear
+      </button>
+    </form>
   );
 };
 

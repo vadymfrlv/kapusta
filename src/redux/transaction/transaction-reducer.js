@@ -1,13 +1,21 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
-import { getExpenseTransaction, addExpenseTransaction, removeTransaction, addIncomeTransaction } from './transaction-operations';
+import {
+  getExpenseTransaction,
+  addExpenseTransaction,
+  removeTransaction,
+  addIncomeTransaction,
+  getIncomeTransaction,
+} from './transaction-operations';
 
 const items = createReducer([], {
-  [getExpenseTransaction.fulfilled]: (_, { payload }) => payload,
-  [addExpenseTransaction.fulfilled]: (state, { payload }) => [
+  [getExpenseTransaction.fulfilled]: (state, { payload }) => { console.log(state); return payload},
+  [addExpenseTransaction.fulfilled]: (state, { payload }) => {
+    console.log(payload.transaction); console.log(state); return [
     ...state,
-    payload,
-  ],
+    payload.transaction,
+  ]},
 
+  [getIncomeTransaction.fulfilled]: (_, { payload }) => payload,
   [addIncomeTransaction.fulfilled]: (state, { payload }) => [...state, payload],
 
   [removeTransaction.fulfilled]: (state, { payload }) =>
@@ -23,6 +31,9 @@ const loading = createReducer(false, {
   [addExpenseTransaction.fulfilled]: () => false,
   [addExpenseTransaction.rejected]: () => false,
 
+    [getIncomeTransaction.pending]: () => true,
+  [getIncomeTransaction.fulfilled]: () => false,
+  [getIncomeTransaction.rejected]: () => false,
 
   [addIncomeTransaction.pending]: () => true,
   [addIncomeTransaction.fulfilled]: () => false,
@@ -41,6 +52,9 @@ const error = createReducer(null, {
 
   [addExpenseTransaction.rejected]: setError,
   [addExpenseTransaction.pending]: () => null,
+
+  [getIncomeTransaction.rejected]: setError,
+  [getIncomeTransaction.pending]: () => null,
 
   [addIncomeTransaction.rejected]: setError,
   [addIncomeTransaction.pending]: () => null,

@@ -5,7 +5,7 @@ import s from './IncomeTransactionList.module.css';
 
 import { useEffect } from 'react';
 import {
-  getExpenseTransaction,
+  getIncomeTransaction,
   removeTransaction,
 } from 'redux/transaction/transaction-operations';
 
@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 import { Summary } from 'components/Summary/Summary';
 
 const IncomeTransactionList = () => {
-  const transactionList = useSelector(state => state.transactions.items);
+  const transactionList = useSelector(state => state.transactions.items.incomes);
   console.log('🚀 ~ transactionList', transactionList);
   // const userEmail = useSelector(state => state.auth.user.email);
   // const qwe = getExpenseTransactionApi().then(response => response.data);
@@ -24,10 +24,10 @@ const IncomeTransactionList = () => {
     // if(userEmail) {dispatch(getExpenseTransaction())};
 
     setTimeout(() => {
-      dispatch(getExpenseTransaction());
+      dispatch(getIncomeTransaction());
     }, 0);
     // console.log(transactionList)
-  }, [dispatch, dispatch(removeTransaction)]);
+  }, [dispatch]);
 
   return (
     <div className={s.transactions}>

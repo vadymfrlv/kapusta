@@ -1,6 +1,12 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from '@reduxjs/toolkit';
 // import { getContactsApi, addContactApi, deleteContactApi } from "../../api/connectionsAPI";
-import { getExpenseTransactionApi, addExpenseTransactionApi, deleteTransactionApi, addIncomeTransactionApi } from "../../services/transactionAPI";
+import {
+  getExpenseTransactionApi,
+  addExpenseTransactionApi,
+  deleteTransactionApi,
+  getIncomeTransactionApi,
+  addIncomeTransactionApi,
+} from '../../services/transactionAPI';
 
 export const getExpenseTransaction = createAsyncThunk(
   'getExpenseTransaction',
@@ -14,12 +20,12 @@ export const getExpenseTransaction = createAsyncThunk(
   }
 );
 
-export const addExpenseTransaction  = createAsyncThunk(
+export const addExpenseTransaction = createAsyncThunk(
   'addExpenseTransaction',
   async (transaction, rejectWithValue) => {
     try {
       const newTransaction = await addExpenseTransactionApi(transaction);
-
+      console.log(newTransaction);
       return newTransaction;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -28,10 +34,10 @@ export const addExpenseTransaction  = createAsyncThunk(
 );
 
 export const removeTransaction = createAsyncThunk(
-  'deleteExpenseTransaction',
+  'deleteTransaction',
   async (id, { rejectWithValue }) => {
     try {
-      await deleteTransactionApi (id);
+      await deleteTransactionApi(id);
       return id;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -39,19 +45,19 @@ export const removeTransaction = createAsyncThunk(
   }
 );
 
-// export const getExpenseTransaction = createAsyncThunk(
-//   'getExpenseTransaction',
-//   async (_, thunkApi) => {
-//     try {
-//       const transaction = await getExpenseTransactionApi();
-//       return transaction;
-//     } catch (error) {
-//       return thunkApi.rejectWithValue(error.message);
-//     }
-//   }
-// );
+export const getIncomeTransaction = createAsyncThunk(
+  'getIncomeTransaction',
+  async (_, thunkApi) => {
+    try {
+      const transaction = await getIncomeTransactionApi();
+      return transaction;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
 
-export const addIncomeTransaction  = createAsyncThunk(
+export const addIncomeTransaction = createAsyncThunk(
   'addIncomeTransaction',
   async (transaction, rejectWithValue) => {
     try {
@@ -63,15 +69,3 @@ export const addIncomeTransaction  = createAsyncThunk(
     }
   }
 );
-
-// export const removeExpenseTransaction = createAsyncThunk(
-//   'deleteExpenseTransaction',
-//   async (id, { rejectWithValue }) => {
-//     try {
-//       await deleteExpenseTransactionApi (id);
-//       return id;
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );

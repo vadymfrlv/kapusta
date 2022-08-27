@@ -13,7 +13,8 @@ import { useDispatch } from 'react-redux';
 import { Summary } from 'components/Summary/Summary';
 
 const ExpenseTransactionList = () => {
-  const transactionList = useSelector(state => state.transactions.items);
+  const transactionList = useSelector(state => state.transactions.items.expenses);
+
   console.log('🚀 ~ transactionList', transactionList);
   // const userEmail = useSelector(state => state.auth.user.email);
   // const qwe = getExpenseTransactionApi().then(response => response.data);
@@ -27,7 +28,10 @@ const ExpenseTransactionList = () => {
       dispatch(getExpenseTransaction());
     }, 0);
     // console.log(transactionList)
-  }, [dispatch, transactionList.length]);
+  }, [dispatch]);
+
+  //  useEffect(() => {
+  // }, [transactionList]);
 
   return (
     <div className={s.transactions}>

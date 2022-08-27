@@ -49,6 +49,13 @@ const IncomeComponent = () => {
     // dispatch(addContacts(form));
   };
 
+    const reset = () => {
+    setDate(new Date());
+    setDescription('');
+    setCategory(null);
+    setAmount(0);
+  };
+
   return (
     <div>
       <Balance />
@@ -86,7 +93,7 @@ const IncomeComponent = () => {
             placeholder="Product category"
             className={s.select}
             classNamePrefix={s.selectList}
-            defaultValue={category}
+            value={category}
             onChange={setCategory}
             options={options}
           />
@@ -107,12 +114,7 @@ const IncomeComponent = () => {
           <button
             type="button"
             className={s.buttonClear}
-            onClick={() => (
-              setDate(new Date()),
-              setDescription(''),
-              setCategory(null),
-              setAmount(0)
-            )}
+            onClick={reset}
           >
             Clear
           </button>
