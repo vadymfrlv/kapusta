@@ -19,6 +19,7 @@
   height: 100%;
   align-items: center;
   justify-content: space-between;
+  line-height: 0;
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;
@@ -32,12 +33,13 @@
   }
 }
 
-.link {
+.logo {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 90px;
   height: 31px;
-  background-image: url('../../assets/images/svg/logo.svg');
+  margin-bottom: 0;
+  fill: var(--black-text-color);
 }
