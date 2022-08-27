@@ -31,13 +31,15 @@ const FormTransaction = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
+    if (category === null) {
+      return alert('Виберіть категорію');
+    }
     const initialForm = {
       description,
       amount,
       date: date.toISOString().slice(0, 10),
       category: category.value,
     };
-
     dispatch(addExpenseTransaction(initialForm));
   };
 

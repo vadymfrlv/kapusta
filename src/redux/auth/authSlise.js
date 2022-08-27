@@ -6,7 +6,6 @@ import {
   getCurUser,
   refreshToken,
 } from './authOperations';
-import { changeBalance } from 'redux/balance/balanceOperations';
 
 const authSlice = createSlice({
   name: 'auth',
@@ -14,7 +13,6 @@ const authSlice = createSlice({
     user: {
       email: null,
       id: null,
-      balance: 0,
     },
     sid: null,
     isLoading: false,
@@ -63,7 +61,7 @@ const authSlice = createSlice({
       const { email, balance } = payload;
       state.isLoading = false;
       state.user.email = email;
-      state.user.balance = balance;
+      state.balance = balance;
     },
     [getCurUser.rejected]: (state, { payload }) => {
       state.isLoading = false;
