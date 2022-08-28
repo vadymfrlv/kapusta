@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { getDataForPeriod } from '../services/reportsApi';
-import expensesCategories from '../data/expensesCategories.json';
+import expensesCategories from '../data/expensesReports.json';
 import ReportsHeader from '../components/ReportsHeader/ReportsHeader';
 import ReportsTotal from 'components/ReportsTotal/ReportsTotal';
 import ReportsCategories from 'components/ReportsCategories/ReportsCategories';
