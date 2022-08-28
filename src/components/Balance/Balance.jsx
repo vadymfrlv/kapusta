@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeBalance } from 'redux/balance/balanceOperations';
 import s from './Balance.module.css';
 import { BalanceModal } from 'components/BalanceModal/BalanceModal';
+import { Link } from 'react-router-dom';
+import Sprite from '../../assets/images/svg/sprite.svg';
 
 // import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 export const Balance = () => {
   const balance = useSelector(state => state.balance.balance);
   const email = useSelector(state => state.auth.user.email);
-  console.log('🚀 ~ email', email);
   const dispatch = useDispatch();
   const [input, setInput] = useState('');
 
@@ -40,6 +41,7 @@ export const Balance = () => {
             decimalscale={1}
             maxLength={9}
             onChange={handleChange}
+            disabled={balance !== 0 ? true : false}
           />
           <span className={s.money}>UAH</span>
           {input === '' && balance === 0 && email ? (
@@ -56,6 +58,13 @@ export const Balance = () => {
         >
           CONFIRM
         </button>
+
+        <Link className={s.reportsLinkWrapper} to="/reports">
+          <span className={s.reports}>Reports</span>
+          <svg className={s.iconReports} width="24" height="24">
+            <use href={`${Sprite}#icon-reports`}></use>
+          </svg>
+        </Link>
       </form>
     </>
   );

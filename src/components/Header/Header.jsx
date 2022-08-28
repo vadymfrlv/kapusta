@@ -4,6 +4,7 @@ import styles from './Header.module.css';
 import { getIsAuth } from 'redux/auth/AuthSelector';
 import { useSelector } from 'react-redux';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 import Sprite from '../../assets/images/svg/sprite.svg';
 
 const Header = () => {
@@ -18,6 +19,7 @@ const Header = () => {
             </svg>
           </Link>
           <ThemeSwitcher />
+          <LanguageSwitcher />
           {isLoggedIn && <UserLogOut />}
         </div>
       </header>

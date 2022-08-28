@@ -7,11 +7,9 @@ const savedToken = {
 };
 
 export const changeBalanceApi = async data => {
-  //
   const response = await axios.patch(
     'https://kapusta-backend.goit.global/user/balance',
     data
   );
-  savedToken.set(response.data.token);
   return response.data;
 };

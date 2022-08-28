@@ -7,9 +7,12 @@ import Modal from '../Modal/Modal';
 import { logoutUser } from 'redux/auth/authOperations';
 import styles from './UserLogOut.module.css';
 
+import { useTranslation } from 'react-i18next';
+
 const UserLogOut = () => {
   const dispatch = useDispatch();
   const name = useSelector(state => state.auth.user.email);
+  const { t } = useTranslation();
 
   const toggleModal = () => {
     setShowModal(prevShowModal => !prevShowModal);
@@ -43,23 +46,15 @@ const UserLogOut = () => {
       {viewPort.width >= 768 && (
         <>
           <p className={styles.userName}>{name}</p>
-          <button
-            type="button"
-            onClick={toggleModal}
-            className={styles.logOutBtn}
-          >
-            <p className={styles.logOutTextBtn}>Exit</p>
+          <button type="button" onClick={toggleModal} className={styles.logOutBtn}>
+            <p className={styles.logOutTextBtn}>{t('exit')}</p>
           </button>
         </>
       )}
       {viewPort.width < 768 && (
         <>
           <div className={styles.logOutIcon}>
-            <RiLogoutBoxRLine
-              onClick={toggleModal}
-              color={'#CBCCD0'}
-              size={'16px'}
-            />
+            <RiLogoutBoxRLine onClick={toggleModal} color={'#CBCCD0'} size={'16px'} />
           </div>
         </>
       )}
