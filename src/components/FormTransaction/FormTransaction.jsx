@@ -1,15 +1,9 @@
-import s from './FormTransaction.module.css';
-
-import { addExpenseTransaction } from '../../redux/transaction/transaction-operations';
 import { useDispatch } from 'react-redux';
-
-import Select, { StylesConfig } from 'react-select';
-import 'react-datepicker/dist/react-datepicker.css';
-
 import React, { useState } from 'react';
+import Select, { StylesConfig } from 'react-select';
 import DatePicker from 'react-datepicker';
-
-import options from './ExpensesCategories';
+import 'react-datepicker/dist/react-datepicker.css';
+import s from './FormTransaction.module.css';
 
 const colourStyles: StylesConfig<Select> = {
   control: styles => ({
@@ -21,7 +15,7 @@ const colourStyles: StylesConfig<Select> = {
   }),
 };
 
-const FormTransaction = () => {
+const FormTransaction = ({ operation, options }) => {
   const [date, setDate] = useState(new Date());
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState(null);
@@ -50,7 +44,7 @@ const FormTransaction = () => {
       date: date.toISOString().slice(0, 10),
       category: category.value,
     };
-    dispatch(addExpenseTransaction(initialForm));
+    dispatch(operation(initialForm));
     console.log(initialForm);
   };
 
@@ -63,9 +57,8 @@ const FormTransaction = () => {
 
   return (
     <form onSubmit={handleSubmit} className={s.form}>
-      
       <div className={s.timeDiv}>
-      <span className={s.calendarIcon}></span>
+        <span className={s.calendarIcon}></span>
         <DatePicker
           dateFormat="dd.MM.yyyy"
           className={s.date}
