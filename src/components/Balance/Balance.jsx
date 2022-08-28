@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeBalance } from 'redux/balance/balanceOperations';
 import s from './Balance.module.css';
 import { BalanceModal } from 'components/BalanceModal/BalanceModal';
+import { Link } from 'react-router-dom';
+import Sprite from '../../assets/images/svg/sprite.svg';
 
 // import useWindowDimensions from '../../hooks/useWindowDimensions';
 
@@ -20,8 +22,7 @@ export const Balance = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (input !== '' || balance !== 0)
-      return dispatch(changeBalance({ newBalance: input }));
+    if (input !== '' || balance !== 0) return dispatch(changeBalance({ newBalance: input }));
 
     alert(' сумма повинна бути більще 0 !!!');
   };
@@ -40,16 +41,19 @@ export const Balance = () => {
             onChange={handleChange}
           />
           <span className={s.money}>UAH</span>
-          {input === '' && balance === 0 ? (
-            <BalanceModal />
-          ) : (
-            !(<BalanceModal />)
-          )}
+          {input === '' && balance === 0 ? <BalanceModal /> : !(<BalanceModal />)}
         </label>
 
         <button className={s.button} type="submit">
           CONFIRM
         </button>
+
+        <Link className={s.reportsLinkWrapper} to="/reports">
+          <span className={s.reports}>Reports</span>
+          <svg className={s.iconReports} width="24" height="24">
+            <use href={`${Sprite}#icon-reports`}></use>
+          </svg>
+        </Link>
       </form>
     </>
   );
