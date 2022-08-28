@@ -2,6 +2,9 @@
     display: flex;
 }
 
+.example {
+    background-color: aqua;
+}
 .calendarIcon {
     width: 20px;
     height: 18px;
@@ -33,13 +36,16 @@
 .input {
     padding-left: 10px;
     height: 44px;
+    
     border: 2px solid #f6f7fc;
+    border-right: none;
     border-radius: 16px 0px 0px 0px;
 }
 
 .select {
-    border-radius: 0px;
-    width: 100%;
+    /* border: none;
+    border-radius: 0px; */
+    /* width: 550px; */
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -48,7 +54,7 @@
     display: flex;
     letter-spacing: 0.02em;
 
-    color: #c7ccdc;
+    color: #C7CCDC;
 }
 
 .selectList {
@@ -72,6 +78,7 @@
     max-width: 121px;
     height: 44px;
     border: 2px solid #f6f7fc;
+    border-left: none;
     border-radius: 0px 16px 16px 0px;
     background-image: url('../../assets/icons/transactionCalculator.svg');
     background-repeat: no-repeat;
@@ -117,4 +124,8 @@
     background: #FFFFFF;
     border-radius: 16px;
     border: 2px solid #F6F7FC;
+}
+
+.test {
+    background-color: rebeccapurple;
 }
