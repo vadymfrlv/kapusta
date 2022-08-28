@@ -31,10 +31,8 @@ const ExpenseTransactionList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setTimeout(() => {
       dispatch(getExpenseTransaction());
       dispatch(getExpenseMonthsStats());
-    }, 0);
     // console.log(transactionList)
   }, [listLength, email]);
 
@@ -55,7 +53,7 @@ const ExpenseTransactionList = () => {
             <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className={s.tableBody}>
           {transactionList &&
             transactionList.map(item => (
               <tr key={item._id}>
