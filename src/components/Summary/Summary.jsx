@@ -1,44 +1,21 @@
+import { useSelector } from 'react-redux';
 import s from './Summary.module.css';
 
 export const Summary = () => {
-  // const tr
+  const stats = useSelector(state => state.monthsStats.items);
+  const monthsOfYear = Object.entries(stats);
+  const filteredMonths = monthsOfYear.filter(month => month[1] !== 'N/A');
 
   return (
     <div className={s.summary}>
       <ul className={s.list}>
         <li className={s.title}>SUMMARY</li>
-        <li className={s.item}>
-          <p>Січень</p>
-          <p>200</p>
-        </li>
-        <li className={s.item}>
-          <p>Лютий</p>
-          <p>200</p>
-        </li>
-        <li className={s.item}>
-          <p>Березень</p>
-          <p>200</p>
-        </li>
-        <li className={s.item}>
-          <p>Квітень</p>
-          <p>200</p>
-        </li>
-        <li className={s.item}>
-          <p>Травень</p>
-          <p>200</p>
-        </li>
-        <li className={s.item}>
-          <p>Червень</p>
-          <p>200</p>
-        </li>
-        <li className={s.item}>
-          <p>Липень</p>
-          <p>200</p>
-        </li>
-        <li className={s.item}>
-          <p>Серпень</p>
-          <p>200</p>
-        </li>
+        {filteredMonths.map(month => (
+          <li key={month[0]} className={s.item}>
+            <p>{month[0]}</p>
+            <p>{month[1]}</p>
+          </li>
+        ))}
       </ul>
     </div>
   );

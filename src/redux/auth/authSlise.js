@@ -92,16 +92,6 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.error = payload;
     },
-
-    // [changeBalance.pending]: state => {
-    //   state.error = null;
-    // },
-    // [changeBalance.fulfilled]: (state, { payload }) => {
-    //   state.user.balance = payload;
-    // },
-    // [changeBalance.rejected]: (state, { payload }) => {
-    //   state.error = payload;
-    // },
     [refreshToken.pending]: state => {
       state.isLoading = true;
       state.error = null;
