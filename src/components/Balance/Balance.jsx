@@ -7,7 +7,9 @@ import { BalanceModal } from 'components/BalanceModal/BalanceModal';
 // import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 export const Balance = () => {
-  let balance = useSelector(state => state.balance.balance);
+  const balance = useSelector(state => state.balance.balance);
+  const email = useSelector(state => state.auth.user.email);
+  console.log('🚀 ~ email', email);
   const dispatch = useDispatch();
   const [input, setInput] = useState('');
 
@@ -40,14 +42,18 @@ export const Balance = () => {
             onChange={handleChange}
           />
           <span className={s.money}>UAH</span>
-          {input === '' && balance === 0 ? (
+          {input === '' && balance === 0 && email ? (
             <BalanceModal />
           ) : (
             !(<BalanceModal />)
           )}
         </label>
 
-        <button className={s.button} type="submit">
+        <button
+          className={balance !== 0 ? s.button : s.buttonActive}
+          type="submit"
+          disabled={balance !== 0 ? true : false}
+        >
           CONFIRM
         </button>
       </form>
