@@ -27,10 +27,11 @@ export const getLoginApi = async userData => {
   return response.data;
 };
 
-export const getCurUserApi = async token => {
+export const getCurUserApi = async (token, sid) => {
   savedToken.set(token);
   const response = await axios.get('https://kapusta-backend.goit.global/user', {
     token,
+    sid,
   });
 
   return response.data;
