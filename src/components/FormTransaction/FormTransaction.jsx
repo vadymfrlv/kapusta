@@ -22,7 +22,6 @@ const FormTransaction = () => {
   const [amount, setAmount] = useState('');
   const dispatch = useDispatch();
 
-
   const handleChange = e => {
     const { value } = e.target;
     setDescription(value);

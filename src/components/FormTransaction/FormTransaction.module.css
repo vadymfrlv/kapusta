@@ -2,6 +2,9 @@
     display: flex;
 }
 
+.example {
+    background-color: aqua;
+}
 .calendarIcon {
     width: 20px;
     height: 18px;

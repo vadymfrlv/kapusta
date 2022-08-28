@@ -1,7 +1,6 @@
 .summary {
-  position: absolute;
-  top: 0;
-  right: 0;
+  margin-top: 60px;
+  margin-left: 75px;
   width: 214px;
   background-color: #f5f6fb;
   border-top-left-radius: 20px;
