@@ -2,16 +2,23 @@
     display: flex;
 }
 
-.example {
-    background-color: aqua;
+.timeDiv {
+
+     /* width: 104px; */
+        margin-right: 32px;
+        display: flex;
+        align-items: center;
 }
 .calendarIcon {
-    width: 20px;
-    height: 18px;
-    background-color: tomato;
+    width: 25px;
+    height: 20px;
+background-image: url('../../assets/icons/calendar.svg');
+    background-repeat: no-repeat;
+        background-size: 20px;
 }
 
 .date {
+            margin-left: 10px;
     color: #52555f;
     width: 74px;
     border: none;
@@ -24,7 +31,7 @@
     align-items: center;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    margin-right: 32px;
+
 }
 
 /* .rasta-stripes {
@@ -34,6 +41,7 @@
 } */
 
 .input {
+    width: 290px;
     padding-left: 10px;
     height: 44px;
     
@@ -124,8 +132,4 @@
     background: #FFFFFF;
     border-radius: 16px;
     border: 2px solid #F6F7FC;
-}
-
-.test {
-    background-color: rebeccapurple;
 }
