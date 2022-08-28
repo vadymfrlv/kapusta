@@ -4,7 +4,6 @@ import s from './ReportsTotal.module.css';
 const ReportsTotal = ({ userExpenses, userIncome }) => {
   return (
     <>
-      {console.log(userIncome)}
       <div className={s.block}>
         <p className={s.expenses}>
           Expenses:

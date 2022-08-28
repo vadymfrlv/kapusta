@@ -1,11 +1,9 @@
 import { Suspense } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-
-import Header from 'components/Header/Header';
-
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import Header from 'components/Header/Header';
+import Loader from 'components/Loader/Loader';
 import s from './SharedLayout.module.css';
 
 const SharedLayout = () => {
@@ -28,7 +26,7 @@ const SharedLayout = () => {
                   <p className={s.tittleText}>Smart Finance</p>
                 </div>
               )}
-              <Suspense fallback={<div>Loading page...</div>}>
+              <Suspense fallback={<Loader />}>
                 <Outlet />
               </Suspense>
             </div>

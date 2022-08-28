@@ -1,31 +1,31 @@
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import { Balance } from 'components/Balance/Balance';
-import Pagination from 'components/Pagination/Pagination';
+import Paginator from 'components/Paginator/Paginator';
 import s from './ReportsHeader.module.css';
 
 const ReportsHeader = ({ month, setMonth, setCategory }) => {
   const navigate = useNavigate();
 
-  const onMonthChange = value => {
-    const monthNew = new Date(month);
-    if (value === 'prev') {
-      monthNew.setMonth(monthNew.getMonth() - 1);
-      if (monthNew.getMonth() + 1 <= 9) {
-        setMonth(`${monthNew.getFullYear()}-0${monthNew.getMonth() + 1}`);
-        return;
-      }
-      setMonth(`${monthNew.getFullYear()}-${monthNew.getMonth() + 1}`);
-      return;
-    }
-    if (value === 'next') {
-      monthNew.setMonth(monthNew.getMonth() + 1);
-      if (monthNew.getMonth() + 1 <= 9) {
-        setMonth(`${monthNew.getFullYear()}-0${monthNew.getMonth() + 1}`);
-        return;
-      }
-      setMonth(`${monthNew.getFullYear()}-${monthNew.getMonth() + 1}`);
-    }
+  const PaginatorPeriod = () => {
+    const dateFormatStr = moment().add(month, 'month').format('MMMM YYYY');
+    const onBtnPrevClick = () => {
+      setMonth(prev => prev - 1);
+      setCategory('');
+    };
+    const onBtnNextClick = () => {
+      setMonth(prev => prev + 1);
+      setCategory('');
+    };
+    return (
+      <Paginator
+        clickPrev={onBtnPrevClick}
+        clickNext={onBtnNextClick}
+        descr={dateFormatStr}
+        disableNext={month === 0}
+      />
+    );
   };
 
   return (
@@ -37,19 +37,14 @@ const ReportsHeader = ({ month, setMonth, setCategory }) => {
       <Balance />
       <div className={s.blockMonth}>
         <p className={s.currentPeriod}>Current Period:</p>
-        <Pagination
-          title="month"
-          onMonthChange={onMonthChange}
-          month={month}
-          setCategory={setCategory}
-        />
+        <PaginatorPeriod />
       </div>
     </div>
   );
 };
 
 ReportsHeader.propTypes = {
-  month: PropTypes.string.isRequired,
+  month: PropTypes.number.isRequired,
   setMonth: PropTypes.func.isRequired,
   setCategory: PropTypes.func.isRequired,
 };
