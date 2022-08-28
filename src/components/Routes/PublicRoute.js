@@ -6,7 +6,7 @@ const PublicRoute = ({ restricted, component: Component, ...props }) => {
   const isAuth = useSelector(isLogedIn);
 
   return isAuth && restricted ? (
-    <Navigate to="/expenses" />
+    <Navigate to="/transactions" />
   ) : (
     <Component {...props} />
   );

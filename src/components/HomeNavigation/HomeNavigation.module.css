@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+}
+
+.link {
+  background-color: #fafbfd;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: #000000;
+  padding: 13px 40px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.activeLink {
+  background-color: #fefefe;
+  color: #ff751d;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 13px 40px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
