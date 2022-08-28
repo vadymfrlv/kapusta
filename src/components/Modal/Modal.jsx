@@ -3,17 +3,13 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './Modal.module.css';
 import { logoutUser } from 'redux/auth/authOperations';
+import { useTranslation } from 'react-i18next';
 
 // const modalRoot = document.querySelector('#modal-root');
 
-function Modal({
-  handleClickLeft,
-  handleClickRight,
-  onClose,
-  modalTitle = 'Do you really want to leave?',
-  styleReg,
-}) {
+function Modal({ handleClickLeft, handleClickRight, onClose, modalTitle, styleReg }) {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   useEffect(() => {
     window.document.body.style.overflowY = 'hidden';
@@ -48,15 +44,15 @@ function Modal({
         </span>
 
         <div className={styles.title}>
-          <p>{modalTitle}</p>
+          <p>{t('logout.modalInfo')}</p>
         </div>
 
         <div className={styles.buttons}>
           <button className={styles.buttonStyles} onClick={handleLogout}>
-            Yes
+            {t('logout.yes')}
           </button>
           <button className={styles.buttonStyles} onClick={handleClickRight}>
-            No
+            {t('logout.no')}
           </button>
         </div>
       </div>

@@ -47,7 +47,7 @@ const UserLogOut = () => {
         <>
           <p className={styles.userName}>{name}</p>
           <button type="button" onClick={toggleModal} className={styles.logOutBtn}>
-            <p className={styles.logOutTextBtn}>{t('registration.exit')}</p>
+            <p className={styles.logOutTextBtn}>{t('logout.exit')}</p>
           </button>
         </>
       )}

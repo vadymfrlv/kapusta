@@ -2,8 +2,14 @@ import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
 import Select, { StylesConfig } from 'react-select';
 import DatePicker from 'react-datepicker';
+
+import { useTranslation } from 'react-i18next';
+
+import options from './ExpensesCategories';
+
 import 'react-datepicker/dist/react-datepicker.css';
 import s from './FormTransaction.module.css';
+
 
 const colourStyles: StylesConfig<Select> = {
   control: styles => ({
@@ -21,6 +27,7 @@ const FormTransaction = ({ operation, options }) => {
   const [category, setCategory] = useState(null);
   const [amount, setAmount] = useState('');
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const handleChange = e => {
     const { value } = e.target;
@@ -36,7 +43,7 @@ const FormTransaction = ({ operation, options }) => {
     e.preventDefault();
 
     if (category === null) {
-      return alert('Виберіть категорію');
+      return alert(t('transactions.categoryInfo'));
     }
     const initialForm = {
       description,
@@ -99,10 +106,10 @@ const FormTransaction = ({ operation, options }) => {
         />
       </label>
       <button type="submit" className={s.buttonInput}>
-        Input
+        {t('transactions.input')}
       </button>
       <button type="button" className={s.buttonClear} onClick={reset}>
-        Clear
+        {t('transactions.clear')}
       </button>
     </form>
   );
