@@ -10,7 +10,7 @@ const balanceSlice = createSlice({
   name: 'balance',
   initialState: {
     isLoading: false,
-    balance: '',
+    balance: 0,
     error: null,
   },
 

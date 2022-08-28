@@ -15,33 +15,17 @@ import { useDispatch } from 'react-redux';
 import { Summary } from 'components/Summary/Summary';
 import { getEmailUser } from 'redux/auth/AuthSelector';
 
-
 const ExpenseTransactionList = () => {
   // const [value, setValue] = useState(0);
   const transactionList = useSelector(state => state.transactions.items);
   const listLength = useSelector(state => state.transactions.items.length);
-  const email = useSelector(getEmailUser)
+  const email = useSelector(getEmailUser);
 
-  // console.log(listLength);
-
-  // console.log('🚀 ~ transactionList', transactionList);
-  // const userEmail = useSelector(state => state.auth.user.email);
-  // const qwe = getExpenseTransactionApi().then(response => response.data);
-  // console.log(auth)
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setTimeout(() => {
-      dispatch(getExpenseTransaction());
-      dispatch(getExpenseMonthsStats());
-    }, 0);
-    // console.log(transactionList)
+    if (email) dispatch(getExpenseTransaction());
   }, [listLength, email]);
-
-  // useEffect(() => {
-  //     setValue(listLength)
-
-  // }, [removeTransaction]);
 
   return (
     <div className={s.transactions}>

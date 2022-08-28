@@ -18,7 +18,10 @@ export const BalanceModal = () => {
             </p>{' '}
           </>
         ) : (
-          <p className={s.firstText}>"ВВЕДІТЬ БУДЬ-ЛАСКА СУММУ!!!"</p>
+          <>
+            <p className={s.firstText}>"У вас закінчились гроші"</p>
+            <p className={s.firstText}>"ВВЕДІТЬ БУДЬ-ЛАСКА СУММУ!!!"</p>
+          </>
         )}
       </div>
       <div className={s.part}></div>
