@@ -1,17 +1,17 @@
-.table {
-   width: 746px;
-  margin-top: 60px;
-  /* border: 2px solid #F5F6FB; */
-  /* border-top-right-radius: 20px; */
-  margin-bottom: 20px;
-  border-collapse: collapse;
-}
-
 .transactions {
   position: relative;
 
     display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
+.table {
+   width: 746px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+}
+
 
 .table thead tr th:first-child {
   border-radius: 20px 0 0 0;
