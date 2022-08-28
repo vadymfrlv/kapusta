@@ -1,16 +1,23 @@
 .header {
-  margin: 0 auto 40px;
+  max-width: 1280px;
+  padding-top: 12px;
+  padding-bottom: 13px;
+
+  margin: 0 auto;
+
   padding-left: 19px;
   padding-right: 19px;
+
   background-color: var(--white-color);
 }
 
 .headerContainer {
-  width: 1280px;
+  max-width: 1280px;
   display: flex;
   height: 100%;
   align-items: center;
   justify-content: space-between;
+  max-width: 1280px;
   line-height: 0;
   padding-left: 15px;
   padding-right: 15px;

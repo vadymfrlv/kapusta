@@ -1,10 +1,11 @@
 import { Suspense } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
+
+import Header from 'components/Header/Header';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import Header from 'components/Header/Header';
-import Loader from 'components/Loader/Loader';
 import s from './SharedLayout.module.css';
 
 const SharedLayout = () => {
@@ -14,15 +15,21 @@ const SharedLayout = () => {
     <>
       <Header />
       <section className={pathname === '/' ? s.section : s.sectionHome}>
-        {pathname === '/' && (
-          <div className={s.bottomSection}>
-            <h1 className={s.title}>Kapusta</h1>
-            <p className={s.tittleText}>Smart Finance</p>
+        <div className={s.BottomHomeCabagge}>
+          <div className={s.container}>
+            <div className={pathname === '/' ? s.background : s.backgroundHome}>
+              {pathname === '/' && (
+                <div className={s.bottomSection}>
+                  <h1 className={s.title}>Kapusta</h1>
+                  <p className={s.tittleText}>Smart Finance</p>
+                </div>
+              )}
+              <Suspense fallback={<div>Loading page...</div>}>
+                <Outlet />
+              </Suspense>
+            </div>
           </div>
-        )}
-        <Suspense fallback={<Loader />}>
-          <Outlet />
-        </Suspense>
+        </div>
       </section>
       <ToastContainer />
     </>
