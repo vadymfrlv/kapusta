@@ -9,6 +9,7 @@ const HomePage = () => {
 
   useEffect(() => {
     navigate('expenses');
+    // eslint-disable-next-line
   }, []);
 
   return (
