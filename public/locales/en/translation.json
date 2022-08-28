@@ -1,4 +1,8 @@
 {
+  "general": {
+    "reports": "Reports"
+  },
+
   "registration": {
     "googleTitle": "You can log in with your Google Account:",
     "mainTitle": "Or log in using an email and password, after registering:",
@@ -12,7 +16,31 @@
     "registrationInfo": "Please, enter correct data!",
     "registration_error1": "Sorry, but your data isn't correct. Try again",
     "registration_error2": "Sorry, but provided email already exists. If it's your account, click log in",
-    "registration_error3": "Sorry, but email doesn't exist / password is wrong",
-    "exit": "Exit"
+    "registration_error3": "Sorry, but email doesn't exist / password is wrong"
+  },
+
+  "logout": {
+    "exit": "Exit",
+    "modalInfo": "Do you really want to leave?",
+    "yes": "YES",
+    "no": "NO"
+  },
+
+  "balance": {
+    "inputInfo": "'Please, enter number > 0'",
+    "balanceTitle": "Balance",
+    "currency": "USD",
+    "confirm": "CONFIRM"
+  },
+
+  "nav": {
+    "expenses": "Expenses",
+    "income": "Income"
+  },
+
+  "transactions": {
+    "categoryInfo": "Product category",
+    "input": "Input",
+    "clear": "Clear"
   }
 }

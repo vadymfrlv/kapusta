@@ -9,6 +9,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 
+import { useTranslation } from 'react-i18next';
+
 import options from './ExpensesCategories';
 
 const colourStyles: StylesConfig<Select> = {
@@ -27,6 +29,7 @@ const FormTransaction = () => {
   const [category, setCategory] = useState(null);
   const [amount, setAmount] = useState('');
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const handleChange = e => {
     const { value } = e.target;
@@ -42,7 +45,7 @@ const FormTransaction = () => {
     e.preventDefault();
 
     if (category === null) {
-      return alert('Виберіть категорію');
+      return alert(t('transactions.categoryInfo'));
     }
     const initialForm = {
       description,
@@ -63,9 +66,8 @@ const FormTransaction = () => {
 
   return (
     <form onSubmit={handleSubmit} className={s.form}>
-      
       <div className={s.timeDiv}>
-      <span className={s.calendarIcon}></span>
+        <span className={s.calendarIcon}></span>
         <DatePicker
           dateFormat="dd.MM.yyyy"
           className={s.date}
@@ -106,10 +108,10 @@ const FormTransaction = () => {
         />
       </label>
       <button type="submit" className={s.buttonInput}>
-        Input
+        {t('transactions.input')}
       </button>
       <button type="button" className={s.buttonClear} onClick={reset}>
-        Clear
+        {t('transactions.clear')}
       </button>
     </form>
   );
