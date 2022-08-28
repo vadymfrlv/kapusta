@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import expenses from '../../data/expensesReports.json';
 import { removeTransaction } from 'redux/transaction/transaction-operations';
 import { getEmailUser } from 'redux/auth/AuthSelector';
 import s from './TransactionList.module.css';
@@ -33,8 +34,12 @@ const TransactionList = ({ operation, selector, location }) => {
             <tr key={item._id}>
               <td>{item.date.split('-').reverse().join('.')}</td>
               <td>{item.description}</td>
-              <td>{item.category}</td>
-              <td className={s.expense}>
+              <td>
+                {location === 'expenses'
+                  ? expenses[item.category].title
+                  : item.category}
+              </td>
+              <td className={location === 'expenses' ? s.expenses : s.incomes}>
                 {location === 'expenses' && '-'}
                 &nbsp;
                 {item.amount

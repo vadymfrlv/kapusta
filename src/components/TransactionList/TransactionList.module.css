@@ -42,3 +42,11 @@
   background-position: 50% 50%;
   background-size: 20px;
 }
+
+.expenses {
+  color: #e7192e;
+}
+
+.incomes {
+  color: #407946;
+}

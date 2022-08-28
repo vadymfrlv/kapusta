@@ -1,19 +1,17 @@
-import HomePage from '../pages/HomePage';
-import MainPage from '../pages/MainPage';
-import ReportsPage from 'pages/ReportsPage';
+import { lazy, useEffect } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCurUser } from 'redux/auth/authOperations';
+import { getMustCurUser } from 'redux/auth/AuthSelector';
+import SharedLayout from './SharedLayout/SharedLayout ';
 import PrivateRoute from './Routes/PrivateRoute';
 import PublicRoute from './Routes/PublicRoute';
 
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import SharedLayout from './SharedLayout/SharedLayout ';
-
-import IncomeComponent from './Income/Income';
-
-import { getCurUser } from 'redux/auth/authOperations';
-import { getMustCurUser } from 'redux/auth/AuthSelector';
-import ExpensesComponent from './Expenses/ExpensesComponent';
+const MainPage = lazy(() => import('../pages/MainPage'));
+const HomePage = lazy(() => import('../pages/HomePage'));
+const ReportsPage = lazy(() => import('../pages/ReportsPage'));
+const ExpensesComponent = lazy(() => import('./Expenses/ExpensesComponent'));
+const IncomeComponent = lazy(() => import('./Income/Income'));
 
 export const App = () => {
   const dispatch = useDispatch();
