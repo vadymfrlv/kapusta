@@ -2,10 +2,7 @@ import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
 import Select, { StylesConfig } from 'react-select';
 import DatePicker from 'react-datepicker';
-
 import { useTranslation } from 'react-i18next';
-
-import options from './ExpensesCategories';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import s from './FormTransaction.module.css';
