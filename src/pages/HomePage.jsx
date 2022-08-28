@@ -1,13 +1,24 @@
-import ExpensesComponent from 'components/Expenses/ExpensesComponent';
-import { Balance } from 'components/Balance/Balance';
+import { Suspense, useEffect } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
+import Loader from 'components/Loader/Loader';
 import { DataHeader } from 'components/DataHeader/DataHeader';
+import HomeNavigation from 'components/HomeNavigation/HomeNavigation';
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate('expenses');
+  }, []);
+
   return (
     <>
-      {/* <Balance /> */}
       <DataHeader />
-      <ExpensesComponent />
+      <HomeNavigation />
+
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

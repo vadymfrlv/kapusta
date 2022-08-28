@@ -13,6 +13,7 @@ import IncomeComponent from './Income/Income';
 
 import { getCurUser } from 'redux/auth/authOperations';
 import { getMustCurUser } from 'redux/auth/AuthSelector';
+import ExpensesComponent from './Expenses/ExpensesComponent';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -31,13 +32,18 @@ export const App = () => {
             element={<PublicRoute restricted component={MainPage} />}
           />
           <Route
-            path="expenses"
+            path="transactions"
             element={<PrivateRoute component={HomePage} />}
-          />
-          <Route
-            path="income"
-            element={<PrivateRoute component={IncomeComponent} />}
-          />
+          >
+            <Route
+              path="expenses"
+              element={<PrivateRoute component={ExpensesComponent} />}
+            />
+            <Route
+              path="income"
+              element={<PrivateRoute component={IncomeComponent} />}
+            />
+          </Route>
           <Route
             path="reports"
             element={<PrivateRoute component={ReportsPage} />}
