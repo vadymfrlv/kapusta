@@ -4,11 +4,21 @@ import {
   getIncomeTransaction,
 } from 'redux/transaction/transaction-operations';
 
-const items = createReducer([], {
-  [getExpenseTransaction.fulfilled]: (_, { payload }) => payload.monthsStats,
-  [getIncomeTransaction.fulfilled]: (_, { payload }) => payload.monthsStats,
-});
+const expenses = createReducer(
+  {},
+  {
+    [getExpenseTransaction.fulfilled]: (_, { payload }) => payload.monthsStats,
+  }
+);
+
+const incomes = createReducer(
+  {},
+  {
+    [getIncomeTransaction.fulfilled]: (_, { payload }) => payload.monthsStats,
+  }
+);
 
 export default combineReducers({
-  items,
+  expenses,
+  incomes,
 });
