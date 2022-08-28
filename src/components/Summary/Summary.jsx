@@ -9,8 +9,11 @@ import s from './Summary.module.css';
 
 export const Summary = () => {
   const location = useLocation();
+
   const stats = useSelector(
-    location.pathname === '/expenses' ? expensesStats : incomesStats
+    location.pathname === '/transactions/expenses'
+      ? expensesStats
+      : incomesStats
   );
   const array = Object.entries(stats);
   const filteredMonths = array.filter(el => el[1] !== 'N/A');

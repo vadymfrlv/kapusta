@@ -2,75 +2,36 @@
     width: 1098px;
 } */
 .form {
-    display: flex;
+  display: flex;
 }
-.linkContainer{
-display: flex;
-}
-.link {
-background-color: #FAFBFD;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    color: #000000;
-    padding: 13px 40px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-}
-
-.activeLink {
-    background-color: #FEFEFE;
-        color: #FF751D;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    padding: 13px 40px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-}
-
 .container {
-    max-width: 1098px;
-    background-color: white;
-    height: 579px;
-    padding: 32px;
-    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-        border-radius: 0px 30px 30px 30px;
+  max-width: 1098px;
+  background-color: white;
+  height: 579px;
+  padding: 32px;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 0px 30px 30px 30px;
 }
 .calendarIcon {
-    width: 20px;
-    height: 18px;
-    background-color: tomato;
+  width: 20px;
+  height: 18px;
+  background-color: tomato;
 }
 
 .date {
-    color: #52555f;
-    width: 74px;
-    border: none;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 12px;
-    line-height: 14px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    margin-right: 32px;
+  color: #52555f;
+  width: 74px;
+  border: none;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-right: 32px;
 }
 
 /* .rasta-stripes {
@@ -80,66 +41,65 @@ background-color: #FAFBFD;
 } */
 
 .input {
-    height: 44px;
-    border: 2px solid #f6f7fc;
-    border-radius: 16px 16px 16px 0px;
+  height: 44px;
+  border: 2px solid #f6f7fc;
+  border-radius: 16px 16px 16px 0px;
 }
 
 .select {
-    padding: 5px;
-    width: 100%;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.02em;
+  padding: 5px;
+  width: 100%;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
 
-    color: #c7ccdc;
+  color: #c7ccdc;
 }
 
 .selectList {
-    color: red;
+  color: red;
 }
 
 .buttonInput {
-    padding: 12px 37px;
-    margin-left: 32px;
-    margin-right: 16px;
+  padding: 12px 37px;
+  margin-left: 32px;
+  margin-right: 16px;
 
-    border: none;
-    font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 14px;
-        text-align: center;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-    
-        color: #FFFFFF;
-background: #FF751D;
-    border-radius: 16px;
+  border: none;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #ffffff;
+  background: #ff751d;
+  border-radius: 16px;
 }
 
 .buttonClear {
-    padding: 12px 37px;
+  padding: 12px 37px;
 
-    border: none;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    text-align: center;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
+  border: none;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 
-    color: #52555F;
-    background: #FFFFFF;
-    border-radius: 16px;
-    border: 2px solid #F6F7FC;
+  color: #52555f;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 2px solid #f6f7fc;
 }
-
