@@ -15,7 +15,11 @@ const SharedLayout = () => {
     <>
       <Header />
       <section className={pathname === '/' ? s.section : s.sectionHome}>
-        <div className={s.BottomHomeCabagge}>
+        <div
+          className={
+            pathname === '/' ? s.BottomHomeCabaggeMain : s.BottomHomeCabagge
+          }
+        >
           <div className={s.container}>
             <div className={pathname === '/' ? s.background : s.backgroundHome}>
               {pathname === '/' && (
