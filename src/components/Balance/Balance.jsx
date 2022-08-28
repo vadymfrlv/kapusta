@@ -5,6 +5,7 @@ import s from './Balance.module.css';
 import { BalanceModal } from 'components/BalanceModal/BalanceModal';
 import { Link } from 'react-router-dom';
 import Sprite from '../../assets/images/svg/sprite.svg';
+import { toast } from 'react-toastify';
 
 // import useWindowDimensions from '../../hooks/useWindowDimensions';
 
@@ -23,10 +24,12 @@ export const Balance = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (input !== '' || balance !== 0)
-      return dispatch(changeBalance({ newBalance: input }));
+    if (input !== '') return dispatch(changeBalance({ newBalance: input }));
 
-    alert(' сумма повинна бути більще 0 !!!');
+    toast.error('Please, enter number > 0', {
+      autoClose: 2000,
+      theme: 'colored',
+    });
   };
 
   return (
