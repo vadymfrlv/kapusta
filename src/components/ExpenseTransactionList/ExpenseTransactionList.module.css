@@ -1,11 +1,8 @@
 .table {
+  width: 746px;
   margin-top: 60px;
-  /* border: 2px solid #F5F6FB; */
-  /* border-top-right-radius: 20px; */
   margin-bottom: 20px;
   border-collapse: collapse;
-  /* max-height: 579px;
-    overflow: auto; */
 }
 
 /* .tableBody {
@@ -20,9 +17,7 @@
 } */
 
 .transactions {
-max-width: 746px;
 display: flex;
-flex-direction: column;
   position: relative;
 }
 

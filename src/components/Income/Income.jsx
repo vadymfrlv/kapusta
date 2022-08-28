@@ -72,14 +72,15 @@ const IncomeComponent = () => {
 
       <div className={s.container}>
         <form onSubmit={handleSubmit} className={s.form}>
-          <span className={s.calendarIcon}></span>
-
-          <DatePicker
-            dateFormat="dd.MM.yyyy"
-            className={s.date}
-            selected={date}
-            onChange={(date: Date) => setDate(date)}
-          />
+      <div className={s.timeDiv}>
+      <span className={s.calendarIcon}></span>
+        <DatePicker
+          dateFormat="dd.MM.yyyy"
+          className={s.date}
+          selected={date}
+          onChange={(date: Date) => setDate(date)}
+        />
+      </div>
           <label>
             <input
               className={s.input}
