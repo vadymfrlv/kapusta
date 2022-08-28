@@ -1,18 +1,11 @@
 .sectionHome {
-  background-image: url('../../assets/images/cabbageVector.png');
-  background-repeat: no-repeat;
-  background-position: top 600px left 10px, center;
-}
+  display: flex;
+  width: 100%;
+  background-color: #f5f6fb;
+  border-bottom-left-radius: 110px;
 
-.section {
-  position: relative;
-  border-bottom-left-radius: 40%;
-  padding-top: 308px;
-  padding-bottom: 79px;
-  background-image: url('../../assets/images/cabbageVector.png'),
-    linear-gradient(#f5f6fb 526px, #ffffff 268px);
-  background-repeat: no-repeat;
-  background-position: top 30px left 10px, center;
+  width: 100%;
+  height: 526px;
 }
 
 .bottomSection {
@@ -31,6 +24,20 @@
   height: 100%;
   background-repeat: no-repeat;
 }
+.BottomHomeCabagge {
+  background-image: url('../../assets/images/cabbageVector.png');
+  background-repeat: no-repeat;
+  background-position: top 600px left 10px, center;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  position: absolute;
+}
+.backgroundHome {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -41,7 +48,7 @@
   display: flex;
   width: 100%;
   background-color: #f5f6fb;
-  border-bottom-left-radius: 20%;
+  border-bottom-left-radius: 110px;
 
   width: 100%;
   height: 526px;
@@ -89,15 +96,23 @@
   .section {
     display: inline-block;
   }
+  .BottomHomeCabagge {
+    background-image: url('../../assets/images/cabbageVectorBottom.png');
+    background-repeat: no-repeat;
+    background-position: top 970px left 500px;
+    background-size: auto;
+    height: 1175px;
+  }
   .background {
-    flex-direction: column;
+    position: relative;
+    display: block;
     background-image: url('../../assets/images/cabbageVector.png');
     background-repeat: no-repeat;
     background-position-x: 0px;
   }
   .bottomSection {
-    height: 713px;
-    background-position: top 690px left 103px;
+    height: 850px;
+    background-position: top 770px left 103px;
     padding-top: 80px;
     background-repeat: no-repeat;
   }
@@ -128,24 +143,33 @@
     max-width: 320px;
   }
   .background {
+    position: relative;
+    display: block;
     background-image: url('../../assets/images/cabbageVector.png');
     background-repeat: no-repeat;
-    background-position-x: 0px;
+    background-position-x: 250px;
     flex-direction: column;
+  }
+  .BottomHomeCabagge {
+    background-image: none;
   }
   .section {
     padding-top: 0px;
-
+    height: 260px;
     display: inline-block;
+  }
+  .sectionHome {
+    height: 260px;
   }
   .bottomSection {
     background-image: url('../../assets/images/svg/cabbage.svg');
-    background-position: top 400px left 35px;
-    padding-top: 0px;
+    background-position: top 790px left 35px;
+    padding-top: 86px;
+    height: 800px;
   }
   .title {
     font-size: 40px;
-    margin: 86px 0 0 20px;
+    margin: 0 0 0 20px;
   }
   .tittleText {
     font-size: 13px;
