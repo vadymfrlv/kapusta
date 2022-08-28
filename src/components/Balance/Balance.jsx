@@ -6,6 +6,7 @@ import { BalanceModal } from 'components/BalanceModal/BalanceModal';
 import { Link } from 'react-router-dom';
 import Sprite from '../../assets/images/svg/sprite.svg';
 import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 
 // import useWindowDimensions from '../../hooks/useWindowDimensions';
 
@@ -13,6 +14,7 @@ export const Balance = () => {
   const balance = useSelector(state => state.balance.balance);
   const email = useSelector(state => state.auth.user.email);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const [input, setInput] = useState('');
 
   const handleChange = e => {
@@ -26,7 +28,7 @@ export const Balance = () => {
 
     if (input !== '') return dispatch(changeBalance({ newBalance: input }));
 
-    toast.error('Please, enter number > 0', {
+    toast.error(t('balance.inputInfo'), {
       autoClose: 2000,
       theme: 'colored',
     });
@@ -35,7 +37,7 @@ export const Balance = () => {
   return (
     <>
       <form className={s.balance} onSubmit={handleSubmit}>
-        <h3 className={s.title}>Balance:</h3>
+        <h3 className={s.title}>{t('balance.balanceTitle')}:</h3>
         <label className={s.label}>
           <input
             type="text"
@@ -46,7 +48,7 @@ export const Balance = () => {
             onChange={handleChange}
             disabled={balance !== 0 ? true : false}
           />
-          <span className={s.money}>UAH</span>
+          <span className={s.money}>{t('balance.currency')}</span>
           {input === '' && balance === 0 && email ? <BalanceModal /> : !(<BalanceModal />)}
         </label>
 
@@ -55,7 +57,7 @@ export const Balance = () => {
           type="submit"
           disabled={balance !== 0 ? true : false}
         >
-          CONFIRM
+          {t('balance.confirm')}
         </button>
       </form>
     </>
