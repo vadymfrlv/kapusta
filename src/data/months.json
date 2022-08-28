@@ -1,14 +1,14 @@
-[
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December"
-]
+{
+  "Январь": "January",
+  "Февраль": "February",
+  "Март": "March",
+  "Апрель": "April",
+  "Май": "May",
+  "Июнь": "June",
+  "Июль": "July",
+  "Август": "August",
+  "Сентябрь": "September",
+  "Октябрь": "October",
+  "Ноябрь": "November",
+  "Декабрь": "December"
+}
