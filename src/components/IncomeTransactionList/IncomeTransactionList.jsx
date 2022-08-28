@@ -11,26 +11,20 @@ import {
 
 import { useDispatch } from 'react-redux';
 import { Summary } from 'components/Summary/Summary';
+import { getEmailUser } from 'redux/auth/AuthSelector';
 
-import { getIncomeMonthsStats } from 'redux/monthsStats/monthsStats-operations';
 
 const IncomeTransactionList = () => {
-  const transactionList = useSelector(state => state.transactions.items);
-  console.log(transactionList);
-  // const userEmail = useSelector(state => state.auth.user.email);
-  // const qwe = getExpenseTransactionApi().then(response => response.data);
-  // console.log(auth)
+ const transactionList = useSelector(state => state.transactions.items);
+  const listLength = useSelector(state => state.transactions.items.length);
+  const email = useSelector(getEmailUser);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // if(userEmail) {dispatch(getExpenseTransaction())};
 
-    setTimeout(() => {
-      dispatch(getIncomeTransaction());
-      dispatch(getIncomeMonthsStats());
-    }, 0);
-    // console.log(transactionList)
-  }, [dispatch]);
+    if (email) dispatch(getIncomeTransaction());
+  }, [listLength, email, dispatch]);
 
   return (
     <div className={s.transactions}>

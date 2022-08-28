@@ -21,8 +21,10 @@ const ExpenseTransactionList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+
     if (email) dispatch(getExpenseTransaction());
   }, [listLength, email, dispatch]);
+
 
   return (
     <div className={s.transactions}>
@@ -36,7 +38,7 @@ const ExpenseTransactionList = () => {
             <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className={s.tableBody}>
           {transactionList &&
             transactionList.map(item => (
               <tr key={item._id}>
