@@ -1,17 +1,33 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
-import { getExpenseTransaction, addExpenseTransaction, removeExpenseTransaction, addIncomeTransaction } from './transaction-operations';
+import {
+  getExpenseTransaction,
+  addExpenseTransaction,
+  removeTransaction,
+  getIncomeTransaction,
+  addIncomeTransaction,
+} from './transaction-operations';
+import { logoutUser } from 'redux/auth/authOperations';
+// import itemsReducer from '../redux/transaction/items-reducer';
 
 const items = createReducer([], {
-  [getExpenseTransaction.fulfilled]: (_, { payload }) => payload,
+  [getExpenseTransaction.fulfilled]: (_, { payload }) => payload.expenses,
+
   [addExpenseTransaction.fulfilled]: (state, { payload }) => [
     ...state,
-    payload,
+    payload.transaction,
   ],
 
-  [addIncomeTransaction.fulfilled]: (state, { payload }) => [...state, payload],
+  [getIncomeTransaction.fulfilled]: (_, { payload }) => payload.incomes,
 
-  [removeExpenseTransaction.fulfilled]: (state, { payload }) =>
-    state.filter(({ id }) => id !== payload),
+  [addIncomeTransaction.fulfilled]: (state, { payload }) => [
+    ...state,
+    payload.transaction,
+  ],
+
+  [removeTransaction.fulfilled]: (state, { payload }) =>
+    state.filter(el => el._id !== payload),
+
+  [logoutUser.fulfilled]: () => [],
 });
 
 const loading = createReducer(false, {
@@ -23,14 +39,17 @@ const loading = createReducer(false, {
   [addExpenseTransaction.fulfilled]: () => false,
   [addExpenseTransaction.rejected]: () => false,
 
+  [getIncomeTransaction.pending]: () => true,
+  [getIncomeTransaction.fulfilled]: () => false,
+  [getIncomeTransaction.rejected]: () => false,
 
   [addIncomeTransaction.pending]: () => true,
   [addIncomeTransaction.fulfilled]: () => false,
   [addIncomeTransaction.rejected]: () => false,
 
-  [removeExpenseTransaction.pending]: () => true,
-  [removeExpenseTransaction.fulfilled]: () => false,
-  [removeExpenseTransaction.rejected]: () => false,
+  [removeTransaction.pending]: () => true,
+  [removeTransaction.fulfilled]: () => false,
+  [removeTransaction.rejected]: () => false,
 });
 
 const setError = (_, { payload }) => payload;
@@ -42,14 +61,17 @@ const error = createReducer(null, {
   [addExpenseTransaction.rejected]: setError,
   [addExpenseTransaction.pending]: () => null,
 
+  [getIncomeTransaction.rejected]: setError,
+  [getIncomeTransaction.pending]: () => null,
+
   [addIncomeTransaction.rejected]: setError,
   [addIncomeTransaction.pending]: () => null,
-
-  [removeExpenseTransaction.rejected]: setError,
-  [removeExpenseTransaction.pending]: () => null,
+  [removeTransaction.rejected]: setError,
+  [removeTransaction.pending]: () => null,
 });
 
 export default combineReducers({
+  // items: itemsReducer,
   items,
   loading,
   error,

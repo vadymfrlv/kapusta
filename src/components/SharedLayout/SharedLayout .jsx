@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
-import { useSelector } from 'react-redux';
 import { Outlet, useLocation } from 'react-router-dom';
+
 import Header from 'components/Header/Header';
 import UserMenuHeader from 'components/UserMenuHeader/UserMenuHeader';
 import { getIsAuth } from 'redux/auth/AuthSelector';
@@ -11,11 +11,10 @@ import s from './sharedLayout.module.css';
 
 const SharedLayout = () => {
   const { pathname } = useLocation();
-  const isLoggedIn = useSelector(getIsAuth);
 
   return (
     <>
-      {isLoggedIn ? <UserMenuHeader /> : <Header />}
+      <Header />
       <section className={pathname === '/' ? s.section : s.sectionHome}>
         <div className={s.container}>
           <div className={s.background}>

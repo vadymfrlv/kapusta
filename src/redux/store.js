@@ -13,16 +13,22 @@ import {
 import authReducer from '../redux/auth/authSlise';
 import transactionReducer from '../redux/transaction/transaction-reducer';
 
+import balanceReduser from '../redux/balance/balanceSlice';
+
+import monthsStatsReducer from '../redux/monthsStats/monthsStats-reducer';
+
 const authPersistConfig = {
   key: 'token',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'refreshToken', 'sid'],
 };
 
 export const store = configureStore({
   reducer: {
+    balance: balanceReduser,
     auth: persistReducer(authPersistConfig, authReducer),
     transactions: transactionReducer,
+    monthsStats: monthsStatsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -30,6 +36,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
+  devTools: process.env.NODE_ENV !== 'production',
 });
 
 export const persistor = persistStore(store);

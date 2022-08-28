@@ -1,20 +1,19 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import NumberFormat from 'react-number-format';
 import { changeBalance } from 'redux/balance/balanceOperations';
 import s from './Balance.module.css';
 import { BalanceModal } from 'components/BalanceModal/BalanceModal';
+import { Link } from 'react-router-dom';
+import Sprite from '../../assets/images/svg/sprite.svg';
+import { toast } from 'react-toastify';
 
 // import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 export const Balance = () => {
-  const balance = useSelector(state => state.auth.user.balance);
-  // const transactions = useSelector(state => state.transactions.items.length);
-  // let itemIndex = transactions - 1;
-  // let amount = useSelector(state => state.transactions.items[itemIndex]);
+  const balance = useSelector(state => state.balance.balance);
+  const email = useSelector(state => state.auth.user.email);
   const dispatch = useDispatch();
   const [input, setInput] = useState('');
-  // const viewPort = useWindowDimensions();
 
   const handleChange = e => {
     const { value } = e.target;
@@ -25,10 +24,12 @@ export const Balance = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (input !== '' || balance !== 0)
-      return dispatch(changeBalance({ newBalance: input }));
+    if (input !== '') return dispatch(changeBalance({ newBalance: input }));
 
-    alert(' сумма повинна бути більще 0 !!!');
+    toast.error('Please, enter number > 0', {
+      autoClose: 2000,
+      theme: 'colored',
+    });
   };
 
   return (
@@ -36,26 +37,24 @@ export const Balance = () => {
       <form className={s.balance} onSubmit={handleSubmit}>
         <h3 className={s.title}>Balance:</h3>
         <label className={s.label}>
-          <NumberFormat
-            className={s.text}
-            value={input === '' ? balance : input}
-            displayType={'text'}
-            suffix={' UAH'}
-          />
           <input
             type="text"
             className={s.input}
-            value={input}
+            value={input === '' ? balance : input}
+            decimalscale={1}
+            maxLength={9}
             onChange={handleChange}
+            disabled={balance !== 0 ? true : false}
           />
-          {input === '' && balance === 0 ? (
-            <BalanceModal />
-          ) : (
-            !(<BalanceModal />)
-          )}
+          <span className={s.money}>UAH</span>
+          {input === '' && balance === 0 && email ? <BalanceModal /> : !(<BalanceModal />)}
         </label>
 
-        <button className={s.button} type="submit">
+        <button
+          className={balance !== 0 ? s.button : s.buttonActive}
+          type="submit"
+          disabled={balance !== 0 ? true : false}
+        >
           CONFIRM
         </button>
       </form>

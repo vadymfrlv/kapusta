@@ -1,0 +1,11 @@
+.loclIcon {
+  outline: none;
+  border: none;
+  background: transparent;
+  /* padding: 5px; */
+  cursor: pointer;
+}
+
+.loclIcon:first-child {
+  margin-right: 7px;
+}

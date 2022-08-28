@@ -1,10 +1,12 @@
-import ExpensesComponent from 'components/ExpensesComponent/ExpensesComponent';
+import ExpensesComponent from 'components/Expenses/ExpensesComponent';
 import { Balance } from 'components/Balance/Balance';
+import { DataHeader } from 'components/DataHeader/DataHeader';
 
 const HomePage = () => {
   return (
     <>
-      <Balance />
+      {/* <Balance /> */}
+      <DataHeader />
       <ExpensesComponent />
     </>
   );

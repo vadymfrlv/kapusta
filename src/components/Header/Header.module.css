@@ -1,22 +1,30 @@
 .header {
   max-width: 1280px;
-  margin: 0 auto;
-
   padding-top: 12px;
   padding-bottom: 13px;
+
+  margin: 0 auto 40px;
+
   padding-left: 19px;
   padding-right: 19px;
 
   background-color: var(--white-color);
 }
 
-.headerContaiener {
+.headerContainer {
+  width: 1280px;
   display: flex;
   height: 100%;
   align-items: center;
   justify-content: space-between;
-  margin: auto;
   max-width: 1280px;
+  line-height: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 12px;
+  padding-bottom: 13px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: var(--white-color);
 }
 @media screen and (min-width: 768px) {
@@ -24,4 +32,15 @@
     padding-left: 26px;
     padding-right: 26px;
   }
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 31px;
+  margin-bottom: 0;
+  fill: var(--black-text-color);
 }

@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import {
   registerUser,
   loginUser,
   logoutUser,
   getCurUser,
+  refreshToken,
 } from './authOperations';
-import { changeBalance } from 'redux/balance/balanceOperations';
 
 const authSlice = createSlice({
   name: 'auth',
@@ -13,13 +14,17 @@ const authSlice = createSlice({
     user: {
       email: null,
       id: null,
-      balance: 0,
     },
     sid: null,
     isLoading: false,
     error: null,
     token: null,
     refreshToken: null,
+  },
+  reducers: {
+    googleAuth(state, { payload }) {
+      return { ...state, ...payload };
+    },
   },
 
   extraReducers: {
@@ -43,12 +48,11 @@ const authSlice = createSlice({
     [loginUser.fulfilled]: (state, { payload }) => {
       const { accessToken, refreshToken, sid, userData } = payload;
       state.isLoading = false;
-      state.user = userData;
+      state.user.email = userData.email;
+      state.user.id = userData.id;
       state.token = accessToken;
       state.refreshToken = refreshToken;
       state.sid = sid;
-
-      //   state.balance = balance;
     },
     [loginUser.rejected]: (state, { payload }) => {
       state.isLoading = false;
@@ -62,7 +66,7 @@ const authSlice = createSlice({
       const { email, balance } = payload;
       state.isLoading = false;
       state.user.email = email;
-      state.user.balance = balance;
+      state.balance = balance;
     },
     [getCurUser.rejected]: (state, { payload }) => {
       state.isLoading = false;
@@ -74,11 +78,8 @@ const authSlice = createSlice({
     },
     [logoutUser.fulfilled]: state => {
       state.isLoading = false;
-      state.user = {
-        id: null,
-        email: null,
-        balance: 0,
-      };
+      state.user.id = null;
+      state.user.email = null;
       state.token = null;
       state.refreshToken = null;
       state.sid = null;
@@ -87,17 +88,23 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.error = payload;
     },
-
-    [changeBalance.pending]: state => {
+    [refreshToken.pending]: state => {
+      state.isLoading = true;
       state.error = null;
     },
-    [changeBalance.fulfilled]: (state, { payload }) => {
-      state.user.balance = payload;
+    [refreshToken.fulfilled]: (state, { payload }) => {
+      const { token, refreshToken, sid } = payload;
+      state.isLoading = false;
+      state.token = token;
+      state.refreshToken = refreshToken;
+      state.sid = sid;
     },
-    [changeBalance.rejected]: (state, { payload }) => {
+    [refreshToken.rejected]: (state, { payload }) => {
+      state.isLoading = false;
       state.error = payload;
     },
   },
 });
 
+export const { googleAuth } = authSlice.actions;
 export default authSlice.reducer;

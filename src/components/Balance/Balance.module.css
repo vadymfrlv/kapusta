@@ -1,13 +1,13 @@
 .balance {
-  /* position: relative; */
+  position: relative;
   display: flex;
   justify-content: center;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
 }
 
-@media screen and(min-width:768px) {
+@media screen and (min-width: 772px) {
   .balance {
-    margin-bottom: 60px;
+    /* margin-bottom: 60px; */
   }
 }
 
@@ -35,13 +35,23 @@
   color: rgba(82, 85, 95, 0.7);
 }
 
+.money {
+  margin-right: 20px;
+  margin-top: 3px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+
+  color: #000000;
+}
+
 .input {
   width: 68px;
   height: 20px;
-  margin-right: 20px;
   margin-left: 8px;
 
-  font-weight: 500;
+  font-weight: 700;
   font-size: 12px;
   line-height: 14px;
   display: flex;
@@ -74,10 +84,16 @@
   transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1),
     color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: auto;
   /* color 200ms cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
-.button:hover {
+.buttonActive {
+  composes: button;
+  cursor: pointer;
+}
+
+.buttonActive:hover {
   color: var(--white-color);
   border-color: var(--accent-color);
   background-color: var(--accent-color);
@@ -87,9 +103,14 @@
 
 .text {
   position: absolute;
-  top: 16px;
-  right: 20px;
-  margin: 0;
+  top: 0;
+  left: 450px;
+  width: 125px;
+  height: 44px;
+  margin-right: 16px;
+  border: 2px solid var(--white-color);
+  border-radius: 16px;
+  /* align-items: center; */
 
   font-size: 12px;
   font-weight: bold;

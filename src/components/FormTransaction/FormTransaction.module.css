@@ -2,13 +2,23 @@
     display: flex;
 }
 
+.timeDiv {
+
+     /* width: 104px; */
+        margin-right: 32px;
+        display: flex;
+        align-items: center;
+}
 .calendarIcon {
-    width: 20px;
-    height: 18px;
-    background-color: tomato;
+    width: 25px;
+    height: 20px;
+background-image: url('../../assets/icons/calendar.svg');
+    background-repeat: no-repeat;
+        background-size: 20px;
 }
 
 .date {
+            margin-left: 10px;
     color: #52555f;
     width: 74px;
     border: none;
@@ -21,7 +31,7 @@
     align-items: center;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    margin-right: 32px;
+
 }
 
 /* .rasta-stripes {
@@ -31,31 +41,62 @@
 } */
 
 .input {
+    width: 290px;
+    padding-left: 10px;
     height: 44px;
+    
     border: 2px solid #f6f7fc;
-    border-radius: 16px 16px 16px 0px;
+    border-right: none;
+    border-radius: 16px 0px 0px 0px;
 }
 
 .select {
-    padding: 5px;
-    width: 100%;
+    /* border: none;
+    border-radius: 0px; */
+    /* width: 550px; */
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
     display: flex;
-    align-items: center;
     letter-spacing: 0.02em;
 
-    color: #c7ccdc;
+    color: #C7CCDC;
 }
 
 .selectList {
     color: red;
 }
 
+.calcInput {
+    color: #C7CCDC;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-align: right;
+    /* padding-left: 85px; */
+    padding-right: 41px;
+    max-width: 121px;
+    height: 44px;
+    border: 2px solid #f6f7fc;
+    border-left: none;
+    border-radius: 0px 16px 16px 0px;
+    background-image: url('../../assets/icons/transactionCalculator.svg');
+    background-repeat: no-repeat;
+    background-position: 87% 50%;
+    background-size: 20px;
+
+}
+
 .buttonInput {
+    width: 136px;
     padding: 12px 37px;
     margin-left: 32px;
     margin-right: 16px;
@@ -76,6 +117,7 @@
 }
 
 .buttonClear {
+    width: 136px;
     padding: 12px 37px;
 
     border: none;

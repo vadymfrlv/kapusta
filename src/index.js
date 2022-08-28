@@ -5,13 +5,18 @@ import { store } from 'redux/store';
 import { App } from 'components/App';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
+import './i18n';
+import { Suspense } from 'react';
+import Loader from './components/Loader/Loader';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     {/* <React.StrictMode> */}
-    <BrowserRouter basename="/kapusta/">
-      <App />
-    </BrowserRouter>
+    <Suspense fallback={<Loader />}>
+      <BrowserRouter basename="/kapusta/">
+        <App />
+      </BrowserRouter>
+    </Suspense>
     {/* </React.StrictMode> */}
   </Provider>
 );

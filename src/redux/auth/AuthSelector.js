@@ -6,6 +6,3 @@ export const getMustCurUser = state =>
 export const getEmailUser = state => state.auth.user.email;
 export const getAuthLoading = state => state.auth.isLoading;
 export const getAuthError = state => state.auth.error;
-
-// export const getMustContacts = state =>
-//   state.auth.user.email && !state.contacts.items;
