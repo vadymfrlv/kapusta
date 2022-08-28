@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import monthsArray from '../../data/months.json';
+import months from '../../data/months.json';
 import types from '../../data/types.json';
 import s from './Pagination.module.css';
 
@@ -32,7 +32,9 @@ const Pagination = ({
       ></button>
       <p className={title === 'type' ? s.titleType : s.titleMonth}>
         {title === 'month'
-          ? `${monthsArray[month.split('-')[1] - 1]} ${month.split('-')[0]}`
+          ? `${Object.values(months)[month.split('-')[1] - 1]} ${
+              month.split('-')[0]
+            }`
           : type}
       </p>
       <button

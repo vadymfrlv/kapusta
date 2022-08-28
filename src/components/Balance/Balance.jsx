@@ -3,13 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeBalance } from 'redux/balance/balanceOperations';
 import s from './Balance.module.css';
 import { BalanceModal } from 'components/BalanceModal/BalanceModal';
+import { Link } from 'react-router-dom';
+import Sprite from '../../assets/images/svg/sprite.svg';
+import { toast } from 'react-toastify';
 
 // import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 export const Balance = () => {
   const balance = useSelector(state => state.balance.balance);
   const email = useSelector(state => state.auth.user.email);
-  console.log('🚀 ~ email', email);
   const dispatch = useDispatch();
   const [input, setInput] = useState('');
 
@@ -22,9 +24,12 @@ export const Balance = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (input !== '' || balance !== 0) return dispatch(changeBalance({ newBalance: input }));
+    if (input !== '') return dispatch(changeBalance({ newBalance: input }));
 
-    alert(' сумма повинна бути більще 0 !!!');
+    toast.error('Please, enter number > 0', {
+      autoClose: 2000,
+      theme: 'colored',
+    });
   };
 
   return (
@@ -39,6 +44,7 @@ export const Balance = () => {
             decimalscale={1}
             maxLength={9}
             onChange={handleChange}
+            disabled={balance !== 0 ? true : false}
           />
           <span className={s.money}>UAH</span>
           {input === '' && balance === 0 && email ? <BalanceModal /> : !(<BalanceModal />)}
