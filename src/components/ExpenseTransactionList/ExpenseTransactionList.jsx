@@ -9,14 +9,11 @@ import {
   removeTransaction,
 } from 'redux/transaction/transaction-operations';
 
-import { getExpenseMonthsStats } from 'redux/monthsStats/monthsStats-operations';
-
 import { useDispatch } from 'react-redux';
 import { Summary } from 'components/Summary/Summary';
 import { getEmailUser } from 'redux/auth/AuthSelector';
 
 const ExpenseTransactionList = () => {
-  // const [value, setValue] = useState(0);
   const transactionList = useSelector(state => state.transactions.items);
   const listLength = useSelector(state => state.transactions.items.length);
   const email = useSelector(getEmailUser);
@@ -25,7 +22,7 @@ const ExpenseTransactionList = () => {
 
   useEffect(() => {
     if (email) dispatch(getExpenseTransaction());
-  }, [listLength, email]);
+  }, [listLength, email, dispatch]);
 
   return (
     <div className={s.transactions}>
