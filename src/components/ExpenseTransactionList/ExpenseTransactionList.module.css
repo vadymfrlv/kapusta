@@ -1,24 +1,16 @@
+.transactions {
+display: flex;
+  position: relative;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
 .table {
   width: 746px;
   margin-top: 60px;
   margin-bottom: 20px;
   border-collapse: collapse;
-}
 
-/* .tableBody {
-  display: inline-block;
-  width: 100%;
-    max-height: 410px;
-      overflow: auto;
-} */
-
-/* .tr {
-    max-width: 746px;
-} */
-
-.transactions {
-display: flex;
-  position: relative;
 }
 
 .table thead tr th:first-child {
@@ -45,14 +37,6 @@ display: flex;
   /* border: 1px solid #dddddd; */
   padding: 5px;
   text-align: center;
-}
-
-/* .table th {
-} */
-
-.expense {
-  color: #e7192e;
-  font-weight: bold;
 }
 
 .buttonDelete {

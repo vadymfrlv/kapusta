@@ -140,6 +140,7 @@
 }
 
 .buttonInput {
+  width: 136px;
   padding: 12px 37px;
   margin-left: 32px;
   margin-right: 16px;
@@ -160,6 +161,7 @@
 }
 
 .buttonClear {
+  width: 136px;
   padding: 12px 37px;
 
   border: none;

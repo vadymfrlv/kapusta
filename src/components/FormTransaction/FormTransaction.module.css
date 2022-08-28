@@ -96,6 +96,7 @@ background-image: url('../../assets/icons/calendar.svg');
 }
 
 .buttonInput {
+    width: 136px;
     padding: 12px 37px;
     margin-left: 32px;
     margin-right: 16px;
@@ -116,6 +117,7 @@ background-image: url('../../assets/icons/calendar.svg');
 }
 
 .buttonClear {
+    width: 136px;
     padding: 12px 37px;
 
     border: none;
