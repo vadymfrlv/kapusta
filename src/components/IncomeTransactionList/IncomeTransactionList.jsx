@@ -38,7 +38,7 @@ const IncomeTransactionList = () => {
             <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className={s.tableBody}>
           {transactionList &&
             transactionList.map(item => (
               <tr key={item._id}>

@@ -38,8 +38,9 @@
 }
 
 .select {
+    border: none;
     border-radius: 0px;
-    width: 100%;
+    width: 550px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;

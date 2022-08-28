@@ -2,14 +2,15 @@
   margin-top: 60px;
   /* border: 2px solid #F5F6FB; */
   /* border-top-right-radius: 20px; */
-  max-width: 746px;
   margin-bottom: 20px;
   border-collapse: collapse;
-  max-height: 579px;
 }
 
 .transactions {
   position: relative;
+  max-width: 746px;
+    display: flex;
+    flex-direction: column;
 }
 
 .table thead tr th:first-child {
