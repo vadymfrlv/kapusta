@@ -13,12 +13,9 @@ export default function ThemeSwitcher() {
   };
 
   return (
-    <>
-      <div id="dol"></div>
-      <div className={s.toggleBtn}>
-        <input type="checkbox" checked={theme === 'night'} onChange={handleChange} />
-        <span>&nbsp;</span>
-      </div>
-    </>
+    <div className={s.toggleBtn}>
+      <input type="checkbox" checked={theme === 'night'} onChange={handleChange} />
+      <span>&nbsp;</span>
+    </div>
   );
 }
