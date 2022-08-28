@@ -62,7 +62,7 @@
   border: none;
   outline: none;
 
-  color: var(--black-text-color);
+  color: black;
   background-color: transparent;
 }
 
@@ -114,4 +114,34 @@
 
   font-size: 12px;
   font-weight: bold;
+}
+
+.reportsLinkWrapper {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 772px) {
+  .reportsLinkWrapper {
+    margin-left: 251px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .reportsLinkWrapper {
+    margin-left: 298px;
+  }
+}
+
+.reports {
+  color: #52555f;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.iconReports {
+  fill: #52555f;
+  margin-left: 15px;
 }

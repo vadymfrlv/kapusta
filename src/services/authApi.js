@@ -24,6 +24,7 @@ export const getLoginApi = async userData => {
     userData
   );
   savedToken.set(response.data.accessToken);
+  console.log('RD', response.data);
   return response.data;
 };
 
@@ -33,7 +34,7 @@ export const getCurUserApi = async (token, sid) => {
     token,
     sid,
   });
-
+  console.log('qwe', response.data);
   return response.data;
 };
 
@@ -42,9 +43,9 @@ export const logoutUserApi = async () => {
   savedToken.unset();
 };
 
-export const refreshTokenApi = sid => {
+export const refreshTokenApi = (sid, token) => {
   return (axios.post('https://kapusta-backend.goit.global/auth/refresh'),
-  { sid: sid }).then(({ data }) => ({
+  { sid: sid, token: token }).then(({ data }) => ({
     token: data.newAccessToken,
     refreshToken: data.newRefreshToken,
     sid: data.newSid,

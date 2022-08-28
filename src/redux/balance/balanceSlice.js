@@ -19,6 +19,7 @@ const balanceSlice = createSlice({
 
   extraReducers: {
     [loginUser.fulfilled]: (state, { payload }) => {
+      console.log('🚀 ~ payload', payload);
       state.balance = payload.userData.balance;
     },
     [getCurUser.fulfilled]: (state, { payload }) => {

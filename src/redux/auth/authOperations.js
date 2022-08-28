@@ -51,6 +51,7 @@ export const getCurUser = createAsyncThunk(
     try {
       const { token } = getState().auth;
       const curUserData = await getCurUserApi(token);
+      console.log('curUserData', curUserData);
       return curUserData;
     } catch (error) {
       dispatch(errorHandler({ error, cb: getCurUser }));

@@ -11,18 +11,18 @@ import {
 
 import { useDispatch } from 'react-redux';
 import { Summary } from 'components/Summary/Summary';
-import { getEmailUser } from 'redux/auth/AuthSelector';
+// import { getEmailUser } from 'redux/auth/AuthSelector';
 
 const IncomeTransactionList = () => {
   const transactionList = useSelector(state => state.transactions.items);
 
   const dispatch = useDispatch();
   const listLength = useSelector(state => state.transactions.items.length);
-  const email = useSelector(getEmailUser);
+  // const email = useSelector(getEmailUser);
 
   useEffect(() => {
-    if (email) dispatch(getIncomeTransaction());
-  }, [listLength, email, dispatch]);
+    dispatch(getIncomeTransaction());
+  }, [listLength, dispatch]);
 
   return (
     <div className={s.transactions}>

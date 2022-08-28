@@ -22,14 +22,12 @@ export const addExpenseTransactionApi = async ({
 };
 
 export const deleteTransactionApi = async id => {
-  const response = await axios.delete(`/transaction/${id}`);
-  // console.log('res', response);
-  return response;
+  await axios.delete(`/transaction/${id}`);
+  return id;
 };
 
 export const getIncomeTransactionApi = async () => {
   const response = await axios.get('/transaction/income');
-  console.log(response.data);
   return response.data;
 };
 
@@ -42,6 +40,5 @@ export const addIncomeTransactionApi = async ({
   const transaction = { description, amount, date, category };
 
   const response = await axios.post('/transaction/income', transaction);
-  console.log(response.data);
   return response.data;
 };
