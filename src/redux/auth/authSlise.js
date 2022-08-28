@@ -1,6 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { registerUser, loginUser, logoutUser, getCurUser } from './authOperations';
-import { changeBalance } from 'redux/balance/balanceOperations';
+
+import {
+  registerUser,
+  loginUser,
+  logoutUser,
+  getCurUser,
+  refreshToken,
+} from './authOperations';
 
 const authSlice = createSlice({
   name: 'auth',
@@ -8,7 +14,6 @@ const authSlice = createSlice({
     user: {
       email: null,
       id: null,
-      balance: 0,
     },
     sid: null,
     isLoading: false,
@@ -62,7 +67,7 @@ const authSlice = createSlice({
       const { email, balance } = payload;
       state.isLoading = false;
       state.user.email = email;
-      state.user.balance = balance;
+      state.balance = balance;
     },
     [getCurUser.rejected]: (state, { payload }) => {
       state.isLoading = false;
@@ -88,13 +93,28 @@ const authSlice = createSlice({
       state.error = payload;
     },
 
-    [changeBalance.pending]: state => {
+    // [changeBalance.pending]: state => {
+    //   state.error = null;
+    // },
+    // [changeBalance.fulfilled]: (state, { payload }) => {
+    //   state.user.balance = payload;
+    // },
+    // [changeBalance.rejected]: (state, { payload }) => {
+    //   state.error = payload;
+    // },
+    [refreshToken.pending]: state => {
+      state.isLoading = true;
       state.error = null;
     },
-    [changeBalance.fulfilled]: (state, { payload }) => {
-      state.user.balance = payload;
+    [refreshToken.fulfilled]: (state, { payload }) => {
+      const { token, refreshToken, sid } = payload;
+      state.isLoading = false;
+      state.token = token;
+      state.refreshToken = refreshToken;
+      state.sid = sid;
     },
-    [changeBalance.rejected]: (state, { payload }) => {
+    [refreshToken.rejected]: (state, { payload }) => {
+      state.isLoading = false;
       state.error = payload;
     },
   },

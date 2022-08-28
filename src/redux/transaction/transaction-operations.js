@@ -25,21 +25,7 @@ export const addExpenseTransaction = createAsyncThunk(
   async (transaction, rejectWithValue) => {
     try {
       const newTransaction = await addExpenseTransactionApi(transaction);
-      // console.log(newTransaction);
       return newTransaction;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
-
-export const addExpenseBalance = createAsyncThunk(
-  'addExpenseBalance',
-  async (transaction, rejectWithValue) => {
-    try {
-      const newTransaction = await addExpenseTransactionApi(transaction);
-      // console.log(newTransaction);
-      return newTransaction.newBalance;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -77,19 +63,6 @@ export const addIncomeTransaction = createAsyncThunk(
       const newTransaction = await addIncomeTransactionApi(transaction);
 
       return newTransaction;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
-
-export const addIncomeBalance = createAsyncThunk(
-  'addIncomeBalance',
-  async (transaction, rejectWithValue) => {
-    try {
-      const newTransaction = await addIncomeTransactionApi(transaction);
-      // console.log(newTransaction);
-      return newTransaction.newBalance;
     } catch (error) {
       return rejectWithValue(error.message);
     }

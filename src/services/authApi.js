@@ -10,13 +10,19 @@ const savedToken = {
 };
 
 export const getRegisterApi = async userData => {
-  const response = await axios.post('https://kapusta-backend.goit.global/auth/register', userData);
+  const response = await axios.post(
+    'https://kapusta-backend.goit.global/auth/register',
+    userData
+  );
   console.log(response.data);
   return response.data;
 };
 
 export const getLoginApi = async userData => {
-  const response = await axios.post('https://kapusta-backend.goit.global/auth/login', userData);
+  const response = await axios.post(
+    'https://kapusta-backend.goit.global/auth/login',
+    userData
+  );
   savedToken.set(response.data.accessToken);
   return response.data;
 };
@@ -33,6 +39,15 @@ export const getCurUserApi = async token => {
 export const logoutUserApi = async () => {
   await axios.post('https://kapusta-backend.goit.global/auth/logout');
   savedToken.unset();
+};
+
+export const refreshTokenApi = sid => {
+  return (axios.post('https://kapusta-backend.goit.global/auth/refresh'),
+  { sid: sid }).then(({ data }) => ({
+    token: data.newAccessToken,
+    refreshToken: data.newRefreshToken,
+    sid: data.newSid,
+  }));
 };
 
 export const googleAuth = async () =>

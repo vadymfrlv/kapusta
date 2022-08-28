@@ -49,7 +49,7 @@ const IncomeComponent = () => {
     // dispatch(addContacts(form));
   };
 
-    const reset = () => {
+  const reset = () => {
     setDate(new Date());
     setDescription('');
     setCategory(null);
@@ -111,11 +111,7 @@ const IncomeComponent = () => {
           <button type="submit" className={s.buttonInput}>
             Input
           </button>
-          <button
-            type="button"
-            className={s.buttonClear}
-            onClick={reset}
-          >
+          <button type="button" className={s.buttonClear} onClick={reset}>
             Clear
           </button>
         </form>

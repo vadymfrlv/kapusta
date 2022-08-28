@@ -12,11 +12,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { Summary } from 'components/Summary/Summary';
 
-
-import {
-getIncomeMonthsStats
-} from 'redux/monthsStats/monthsStats-operations';
-
+import { getIncomeMonthsStats } from 'redux/monthsStats/monthsStats-operations';
 
 const IncomeTransactionList = () => {
   const transactionList = useSelector(state => state.transactions.items);
@@ -52,7 +48,7 @@ const IncomeTransactionList = () => {
           {transactionList &&
             transactionList.map(item => (
               <tr key={item._id}>
-                <td>{item.date.split("-").reverse().join(".")}</td>
+                <td>{item.date.split('-').reverse().join('.')}</td>
                 <td>{item.description}</td>
                 <td>{item.category}</td>
                 <td className={s.expense}>+ {item.amount} грн</td>

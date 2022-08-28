@@ -1,6 +1,8 @@
 import s from './Summary.module.css';
 
 export const Summary = () => {
+  // const tr
+
   return (
     <div className={s.summary}>
       <ul className={s.list}>

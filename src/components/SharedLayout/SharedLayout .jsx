@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Header from 'components/Header/Header';
 import Loader from 'components/Loader/Loader';
-import s from './sharedLayout.module.css';
+import s from './SharedLayout.module.css';
 
 const SharedLayout = () => {
   const { pathname } = useLocation();

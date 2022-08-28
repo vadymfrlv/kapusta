@@ -1,26 +1,48 @@
-// import { createSlice } from '@reduxjs/toolkit';
-// // import { useSelector } from 'react-redux';
-// import { changeBalance } from './balanceOperations';
+import { createSlice } from '@reduxjs/toolkit';
+import { changeBalance } from './balanceOperations';
+import { getCurUser } from 'redux/auth/authOperations';
+import {
+  addExpenseTransaction,
+  addIncomeTransaction,
+} from 'redux/transaction/transaction-operations';
 
-// // const balance = useSelector(state => state.user.balance);
+const balanceSlice = createSlice({
+  name: 'balance',
+  initialState: {
+    isLoading: false,
+    balance: '',
+    error: null,
+  },
 
-// const balanceSlice = createSlice({
-//   // name: 'balance',
-//   // initialState: {
-//   //   balance: 0,
-//   // },
+  extraReducers: {
+    [changeBalance.pending]: state => {
+      state.isLoading = true;
+      state.error = null;
+    },
+    [changeBalance.fulfilled]: (state, { payload }) => {
+      state.balance = payload;
+      state.isLoading = false;
+    },
+    [changeBalance.rejected]: (state, { payload }) => {
+      state.error = payload;
+      state.isLoading = false;
+    },
+    [getCurUser.fulfilled]: (state, { payload }) => {
+      const { balance } = payload;
+      state.isLoading = false;
+      state.balance = balance;
+    },
+    [addExpenseTransaction.fulfilled]: (state, { payload }) => {
+      state.error = null;
+      state.isLoading = false;
+      state.balance = payload.newBalance;
+    },
+    [addIncomeTransaction.fulfilled]: (state, { payload }) => {
+      state.error = null;
+      state.isLoading = false;
+      state.balance = payload.newBalance;
+    },
+  },
+});
 
-//   extraReducers: {
-//     [changeBalance.pending]: state => {
-//       state.error = null;
-//     },
-//     [changeBalance.fulfilled]: (state, { payload }) => {
-//       state.user.balance = payload;
-//     },
-//     [changeBalance.rejected]: (state, { payload }) => {
-//       state.error = payload;
-//     },
-//   },
-// });
-
-// export default balanceSlice.reducer;
+export default balanceSlice.reducer;

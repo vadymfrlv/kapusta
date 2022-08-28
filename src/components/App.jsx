@@ -31,7 +31,7 @@ export const App = () => {
             element={<PublicRoute restricted component={MainPage} />}
           />
           <Route
-            path="/expenses"
+            path="expenses"
             element={<PrivateRoute component={HomePage} />}
           />
           <Route

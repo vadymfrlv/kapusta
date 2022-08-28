@@ -12,16 +12,20 @@ import {
 } from 'redux-persist';
 import authReducer from '../redux/auth/authSlise';
 import transactionReducer from '../redux/transaction/transaction-reducer';
+
+import balanceReduser from '../redux/balance/balanceSlice';
+
 import monthsStatsReducer from '../redux/monthsStats/monthsStats-reducer';
 
 const authPersistConfig = {
   key: 'token',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'refreshToken'],
 };
 
 export const store = configureStore({
   reducer: {
+    balance: balanceReduser,
     auth: persistReducer(authPersistConfig, authReducer),
     transactions: transactionReducer,
     monthsStats: monthsStatsReducer,

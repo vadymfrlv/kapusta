@@ -3,16 +3,13 @@ import { useSelector } from 'react-redux';
 // import PropTypes from 'prop-types';
 import s from './ExpenseTransactionList.module.css';
 
-import {useEffect } from 'react';
+import { useEffect } from 'react';
 import {
   getExpenseTransaction,
   removeTransaction,
 } from 'redux/transaction/transaction-operations';
 
-
-import {
-getExpenseMonthsStats
-} from 'redux/monthsStats/monthsStats-operations';
+import { getExpenseMonthsStats } from 'redux/monthsStats/monthsStats-operations';
 
 import { useDispatch } from 'react-redux';
 import { Summary } from 'components/Summary/Summary';
@@ -34,7 +31,6 @@ const ExpenseTransactionList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-
     setTimeout(() => {
       dispatch(getExpenseTransaction());
       dispatch(getExpenseMonthsStats());
