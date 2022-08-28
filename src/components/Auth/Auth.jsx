@@ -2,7 +2,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import { useFormik } from 'formik';
 import { registerUser, loginUser, getCurUser } from 'redux/auth/authOperations';
-import { getAuthError, getAuthLoading, isLogedIn } from 'redux/auth/AuthSelector';
+import {
+  getAuthError,
+  getAuthLoading,
+  getEmailUser,
+  isLogedIn,
+} from 'redux/auth/AuthSelector';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import s from './Auth.module.css';
@@ -13,6 +18,7 @@ import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { googleAuth } from '../../redux/auth/authSlise';
 
 export const Auth = () => {
+  const email = useSelector(getEmailUser);
   const isLoading = useSelector(getAuthLoading);
   const error = useSelector(getAuthError);
 
@@ -35,8 +41,12 @@ export const Auth = () => {
     },
 
     validationSchema: Yup.object({
-      email: Yup.string().email('Invalid email').required('This is a required field'),
-      password: Yup.string().min(7, 'Min length 7').required('This is a required field'),
+      email: Yup.string()
+        .email('Invalid email')
+        .required('This is a required field'),
+      password: Yup.string()
+        .min(7, 'Min length 7')
+        .required('This is a required field'),
     }),
   });
 
@@ -54,6 +64,23 @@ export const Auth = () => {
     // eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    console.log('отправка', {
+      email: formik.values.email,
+      password: formik.values.password,
+    });
+    if (email && !token) {
+      dispatch(
+        loginUser({
+          email: formik.values.email,
+          password: formik.values.password,
+        })
+      );
+    }
+    reset();
+    // eslint-disable-next-line
+  }, [email]);
+
   const handleSubmitRegister = e => {
     e.preventDefault();
     if (formik.errors.email || formik.errors.password) {
@@ -69,8 +96,6 @@ export const Auth = () => {
         password: formik.values.password,
       })
     );
-
-    reset();
   };
 
   const handleSubmitLogin = e => {
@@ -101,7 +126,9 @@ export const Auth = () => {
   return (
     <>
       <form className={s.form} onSubmit={formik.handleSubmit}>
-        <p className={s.itemForGoogle}>You can log in with your Google Account:</p>
+        <p className={s.itemForGoogle}>
+          You can log in with your Google Account:
+        </p>
         <a
           className={s.link}
           href="https://kapusta-backend.goit.global/auth/google"
@@ -113,10 +140,14 @@ export const Auth = () => {
           </svg>
           <span className={s.google}>Google</span>
         </a>
-        <p className={s.item}>Or log in using an email and password, after registering:</p>
+        <p className={s.item}>
+          Or log in using an email and password, after registering:
+        </p>
         <div className={s.wrapper}>
           <label className={s.text} htmlFor="email">
-            {formik.touched.email && formik.errors.email && <span className={s.span}>*</span>}
+            {formik.touched.email && formik.errors.email && (
+              <span className={s.span}>*</span>
+            )}
             Email:
           </label>
           <input
@@ -135,7 +166,9 @@ export const Auth = () => {
         </div>
         <div className={s.wrapperPassword}>
           <label className={s.text} htmlFor="password">
-            {formik.touched.password && formik.errors.password && <span className={s.span}>*</span>}
+            {formik.touched.password && formik.errors.password && (
+              <span className={s.span}>*</span>
+            )}
             Password:
           </label>
           <input
@@ -149,15 +182,25 @@ export const Auth = () => {
             value={formik.values.password}
           />
           <p className={s.error}>
-            {formik.touched.password && formik.errors.password && formik.errors.password}
+            {formik.touched.password &&
+              formik.errors.password &&
+              formik.errors.password}
           </p>
         </div>
         <>
           <div className={s.wrapperButtons}>
-            <button className={s.buttonSubmit} type="submit" onClick={handleSubmitLogin}>
+            <button
+              className={s.buttonSubmit}
+              type="submit"
+              onClick={handleSubmitLogin}
+            >
               LOG IN
             </button>
-            <button className={s.button} type="submit" onClick={handleSubmitRegister}>
+            <button
+              className={s.button}
+              type="submit"
+              onClick={handleSubmitRegister}
+            >
               REGISTRATION
             </button>
           </div>
@@ -169,7 +212,9 @@ export const Auth = () => {
         formik.values.password === '' &&
         !formik.errors.email &&
         !formik.errors.password && (
-          <div className={s.notificationError}>Sorry, but your data isn't correct. Try again</div>
+          <div className={s.notificationError}>
+            Sorry, but your data isn't correct. Try again
+          </div>
         )}
       {error === 'Request failed with status code 409' &&
         formik.values.email === '' &&
@@ -177,7 +222,8 @@ export const Auth = () => {
         !formik.errors.email &&
         !formik.errors.password && (
           <div className={s.notificationError}>
-            Sorry, but provided email already exists. If it's your account, click log in
+            Sorry, but provided email already exists. If it's your account,
+            click log in
           </div>
         )}
       {error === 'Request failed with status code 403' &&
