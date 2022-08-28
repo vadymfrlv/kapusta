@@ -2,8 +2,10 @@
     display: flex;
 }
 
-.example {
-    background-color: aqua;
+.timeDiv {
+     /* width: 104px; */
+        margin-right: 32px;
+        display: flex;
 }
 .calendarIcon {
     width: 20px;
@@ -24,7 +26,7 @@
     align-items: center;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    margin-right: 32px;
+
 }
 
 /* .rasta-stripes {

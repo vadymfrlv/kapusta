@@ -12,7 +12,13 @@ import DatePicker from 'react-datepicker';
 import options from './ExpensesCategories';
 
 const colourStyles: StylesConfig<Select> = {
-  control: (styles) => ({ ...styles, border: ' 2px solid #f6f7fc', width: '170px', borderRadius: '0px',  color: '#C7CCDC',}),
+  control: styles => ({
+    ...styles,
+    border: ' 2px solid #f6f7fc',
+    width: '170px',
+    borderRadius: '0px',
+    color: '#C7CCDC',
+  }),
 };
 
 const FormTransaction = () => {
@@ -45,7 +51,7 @@ const FormTransaction = () => {
       category: category.value,
     };
     dispatch(addExpenseTransaction(initialForm));
-    console.log(initialForm)
+    console.log(initialForm);
   };
 
   const reset = () => {
@@ -57,14 +63,17 @@ const FormTransaction = () => {
 
   return (
     <form onSubmit={handleSubmit} className={s.form}>
+      
+      <div className={s.timeDiv}>
       <span className={s.calendarIcon}></span>
+        <DatePicker
+          dateFormat="dd.MM.yyyy"
+          className={s.date}
+          selected={date}
+          onChange={(date: Date) => setDate(date)}
+        />
+      </div>
 
-      <DatePicker
-        dateFormat="dd.MM.yyyy"
-        className={s.date}
-        selected={date}
-        onChange={(date: Date) => setDate(date)}
-      />
       <label>
         <input
           className={s.input}
