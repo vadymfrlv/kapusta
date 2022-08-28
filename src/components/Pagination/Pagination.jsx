@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import months from '../../data/months.json';
-import types from '../../data/types.json';
 import s from './Pagination.module.css';
 
+const types = ['expenses', 'income'];
 const Pagination = ({
   title,
   month,

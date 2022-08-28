@@ -1,4 +1,4 @@
-import expensesCategories from '../../data/expensesCategories.json';
+import expensesCategories from '../../data/expensesReports.json';
 import PropTypes from 'prop-types';
 import sprite from '../../assets/images/svg/sprite.svg';
 import s from './CategoriesList.module.css';
