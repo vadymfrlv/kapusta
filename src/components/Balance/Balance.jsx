@@ -34,7 +34,7 @@ export const Balance = () => {
           <input
             type="text"
             className={s.input}
-            value={input === '' && typeof input !== 'number' ? balance : input}
+            value={input === '' ? balance : input}
             decimalscale={1}
             maxLength={9}
             onChange={handleChange}

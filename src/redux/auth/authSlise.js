@@ -64,6 +64,7 @@ const authSlice = createSlice({
       state.error = null;
     },
     [getCurUser.fulfilled]: (state, { payload }) => {
+      console.log('payload', payload);
       const { email, balance } = payload;
       state.isLoading = false;
       state.user.email = email;

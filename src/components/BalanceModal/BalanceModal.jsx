@@ -20,7 +20,7 @@ export const BalanceModal = () => {
         ) : (
           <>
             <p className={s.firstText}>"У вас закінчились гроші"</p>
-            <p className={s.firstText}>"ВВЕДІТЬ БУДЬ-ЛАСКА СУММУ!!!"</p>
+            <p className={s.firstText}>"ДОБАВТЕ БУДЬ-ЛАСКА КАПУСТИ!!!"</p>
           </>
         )}
       </div>
