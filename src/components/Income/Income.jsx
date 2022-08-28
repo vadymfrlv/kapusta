@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import s from './Income.module.css';
-import Select from 'react-select';
+import Select, { StylesConfig } from 'react-select';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import React, { useState } from 'react';
@@ -16,11 +16,15 @@ const options = [
   { value: 'Доп. доход', label: 'Add. income' },
 ];
 
+const colourStyles: StylesConfig<Select> = {
+  control: (styles) => ({ ...styles, border: ' 2px solid #f6f7fc', width: '170px', borderRadius: '0px',  color: '#C7CCDC',}),
+};
+
 const IncomeComponent = () => {
   const [date, setDate] = useState(new Date());
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState(null);
-  const [amount, setAmount] = useState(null);
+  const [amount, setAmount] = useState('');
 
   const dispatch = useDispatch();
 
@@ -31,7 +35,7 @@ const IncomeComponent = () => {
 
   const handleChangeAmount = e => {
     const { value } = e.target;
-    setAmount(Number(value));
+    setAmount(value);
   };
 
   const handleSubmit = e => {
@@ -39,21 +43,19 @@ const IncomeComponent = () => {
 
     const initialForm = {
       description,
-      amount,
+      amount: Number(amount),
       date: date.toISOString().slice(0, 10),
       category: category.value,
     };
-    console.log(initialForm);
 
     dispatch(addIncomeTransaction(initialForm));
-    // dispatch(addContacts(form));
   };
 
   const reset = () => {
     setDate(new Date());
     setDescription('');
     setCategory(null);
-    setAmount(null);
+    setAmount('');
   };
 
   return (
@@ -90,9 +92,9 @@ const IncomeComponent = () => {
             />
           </label>
           <Select
+            styles={colourStyles}
             placeholder="Product category"
             className={s.select}
-            classNamePrefix={s.selectList}
             value={category}
             onChange={setCategory}
             options={options}
@@ -103,10 +105,10 @@ const IncomeComponent = () => {
               type="number"
               name="number"
               placeholder="0,00"
+              value={amount}
               required
               onChange={handleChangeAmount}
             />
-            
           </label>
           <button type="submit" className={s.buttonInput}>
             Input

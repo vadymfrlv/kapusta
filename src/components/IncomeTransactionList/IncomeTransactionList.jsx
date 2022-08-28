@@ -11,26 +11,18 @@ import {
 
 import { useDispatch } from 'react-redux';
 import { Summary } from 'components/Summary/Summary';
-
-import { getIncomeMonthsStats } from 'redux/monthsStats/monthsStats-operations';
+import { getEmailUser } from 'redux/auth/AuthSelector';
 
 const IncomeTransactionList = () => {
   const transactionList = useSelector(state => state.transactions.items);
-  console.log(transactionList);
-  // const userEmail = useSelector(state => state.auth.user.email);
-  // const qwe = getExpenseTransactionApi().then(response => response.data);
-  // console.log(auth)
+
   const dispatch = useDispatch();
+  const listLength = useSelector(state => state.transactions.items.length);
+  const email = useSelector(getEmailUser);
 
   useEffect(() => {
-    // if(userEmail) {dispatch(getExpenseTransaction())};
-
-    setTimeout(() => {
-      dispatch(getIncomeTransaction());
-      dispatch(getIncomeMonthsStats());
-    }, 0);
-    // console.log(transactionList)
-  }, [dispatch]);
+    if (email) dispatch(getIncomeTransaction());
+  }, [listLength, email, dispatch]);
 
   return (
     <div className={s.transactions}>
@@ -44,7 +36,7 @@ const IncomeTransactionList = () => {
             <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className={s.tableBody}>
           {transactionList &&
             transactionList.map(item => (
               <tr key={item._id}>

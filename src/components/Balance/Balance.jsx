@@ -9,7 +9,9 @@ import Sprite from '../../assets/images/svg/sprite.svg';
 // import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 export const Balance = () => {
-  let balance = useSelector(state => state.balance.balance);
+  const balance = useSelector(state => state.balance.balance);
+  const email = useSelector(state => state.auth.user.email);
+  console.log('🚀 ~ email', email);
   const dispatch = useDispatch();
   const [input, setInput] = useState('');
 
@@ -35,16 +37,24 @@ export const Balance = () => {
           <input
             type="text"
             className={s.input}
-            value={input === '' && typeof input !== 'number' ? balance : input}
+            value={input === '' ? balance : input}
             decimalscale={1}
             maxLength={9}
             onChange={handleChange}
           />
           <span className={s.money}>UAH</span>
-          {input === '' && balance === 0 ? <BalanceModal /> : !(<BalanceModal />)}
+          {input === '' && balance === 0 && email ? (
+            <BalanceModal />
+          ) : (
+            !(<BalanceModal />)
+          )}
         </label>
 
-        <button className={s.button} type="submit">
+        <button
+          className={balance !== 0 ? s.button : s.buttonActive}
+          type="submit"
+          disabled={balance !== 0 ? true : false}
+        >
           CONFIRM
         </button>
 

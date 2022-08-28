@@ -82,12 +82,11 @@
   padding-left: 10px;
   height: 44px;
   border: 2px solid #f6f7fc;
+  border-right: 0px;
   border-radius: 16px 0px 0px 0px;
 }
 
 .select {
-  border-radius: 0px;
-  width: 100%;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -99,9 +98,6 @@
   color: #c7ccdc;
 }
 
-.selectList {
-  color: red;
-}
 
 .calcInput{
   color: #C7CCDC;
@@ -120,6 +116,7 @@
   width: 121px;
   height: 44px;
     border: 2px solid #f6f7fc;
+    border-left: 0px;
     border-radius: 0px 16px 16px 0px;
     background-image: url('../../assets/icons/transactionCalculator.svg');
       background-repeat: no-repeat;

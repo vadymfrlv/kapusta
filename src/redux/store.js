@@ -20,7 +20,7 @@ import monthsStatsReducer from '../redux/monthsStats/monthsStats-reducer';
 const authPersistConfig = {
   key: 'token',
   storage,
-  whitelist: ['token', 'refreshToken'],
+  whitelist: ['token', 'refreshToken', 'sid'],
 };
 
 export const store = configureStore({
