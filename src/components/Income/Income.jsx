@@ -83,7 +83,7 @@ const IncomeComponent = () => {
               className={s.input}
               type="text"
               name="description"
-              placeholder="Product category"
+              placeholder="Product description"
               required
               value={description}
               onChange={handleChange}

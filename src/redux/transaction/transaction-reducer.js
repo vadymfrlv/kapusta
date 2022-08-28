@@ -25,7 +25,7 @@ const items = createReducer([], {
   [addIncomeBalance.fulfilled]: (state, { payload }) => [...state, payload],
 
   [removeTransaction.fulfilled]: (state, { payload }) =>
-    state.filter(({ id }) => id !== payload),
+    state.filter(el => el._id !== payload),
 });
 
 const loading = createReducer(false, {

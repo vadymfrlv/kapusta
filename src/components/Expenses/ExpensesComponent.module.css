@@ -1,6 +1,6 @@
-.componentContainer {
+/* .componentContainer {
     width: 1098px;
-}
+} */
 .form {
     display: flex;
 }
@@ -44,7 +44,7 @@ background-color: #FAFBFD;
 }
 
 .container {
-    width: 1098px;
+    max-width: 1098px;
     background-color: white;
     height: 579px;
     padding: 32px;
