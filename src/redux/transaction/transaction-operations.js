@@ -36,8 +36,10 @@ export const removeTransaction = createAsyncThunk(
   'deleteTransaction',
   async (id, { rejectWithValue }) => {
     try {
-      await deleteTransactionApi(id);
-      return id;
+      const response = await deleteTransactionApi(id);
+      const balance = response.data.newBalance;
+      console.log({ balance, id });
+      return { balance, id };
     } catch (error) {
       return rejectWithValue(error.message);
     }

@@ -25,7 +25,7 @@ const items = createReducer([], {
   ],
 
   [removeTransaction.fulfilled]: (state, { payload }) =>
-    state.filter(el => el._id !== payload),
+    state.filter(el => el._id !== payload.id),
 
   [logoutUser.fulfilled]: () => [],
 });

@@ -50,8 +50,7 @@ const balanceSlice = createSlice({
       state.balance = payload.newBalance;
     },
     [removeTransaction.fulfilled]: (state, { payload }) => {
-      console.log(payload);
-      state.balance = payload.newBalance;
+      state.balance = payload.balance;
     },
 
     [logoutUser.fulfilled]: state => (state.balance = 0),
