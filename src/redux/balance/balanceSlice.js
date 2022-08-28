@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { changeBalance } from './balanceOperations';
-import { getCurUser } from 'redux/auth/authOperations';
+import { getCurUser, loginUser } from 'redux/auth/authOperations';
 import {
   addExpenseTransaction,
   addIncomeTransaction,
@@ -15,6 +15,14 @@ const balanceSlice = createSlice({
   },
 
   extraReducers: {
+    [loginUser.fulfilled]: (state, { payload }) => {
+      state.balance = payload.userData.balance;
+    },
+    [getCurUser.fulfilled]: (state, { payload }) => {
+      const { balance } = payload;
+      state.isLoading = false;
+      state.balance = balance;
+    },
     [changeBalance.pending]: state => {
       state.isLoading = true;
       state.error = null;
@@ -26,11 +34,6 @@ const balanceSlice = createSlice({
     [changeBalance.rejected]: (state, { payload }) => {
       state.error = payload;
       state.isLoading = false;
-    },
-    [getCurUser.fulfilled]: (state, { payload }) => {
-      const { balance } = payload;
-      state.isLoading = false;
-      state.balance = balance;
     },
     [addExpenseTransaction.fulfilled]: (state, { payload }) => {
       state.error = null;
