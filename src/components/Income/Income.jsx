@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import s from './Income.module.css';
-import Select from 'react-select';
+import Select, { StylesConfig } from 'react-select';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import React, { useState } from 'react';
@@ -15,6 +15,10 @@ const options = [
   { value: 'З/П', label: 'Salary' },
   { value: 'Доп. доход', label: 'Add. income' },
 ];
+
+const colourStyles: StylesConfig<Select> = {
+  control: (styles) => ({ ...styles, border: ' 2px solid #f6f7fc', width: '170px', borderRadius: '0px',  color: '#C7CCDC',}),
+};
 
 const IncomeComponent = () => {
   const [date, setDate] = useState(new Date());
@@ -90,9 +94,9 @@ const IncomeComponent = () => {
             />
           </label>
           <Select
+            styles={colourStyles}
             placeholder="Product category"
             className={s.select}
-            classNamePrefix={s.selectList}
             value={category}
             onChange={setCategory}
             options={options}
