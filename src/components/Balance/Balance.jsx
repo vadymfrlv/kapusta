@@ -47,11 +47,7 @@ export const Balance = () => {
             disabled={balance !== 0 ? true : false}
           />
           <span className={s.money}>UAH</span>
-          {input === '' && balance === 0 && email ? (
-            <BalanceModal />
-          ) : (
-            !(<BalanceModal />)
-          )}
+          {input === '' && balance === 0 && email ? <BalanceModal /> : !(<BalanceModal />)}
         </label>
 
         <button
@@ -61,13 +57,6 @@ export const Balance = () => {
         >
           CONFIRM
         </button>
-
-        <Link className={s.reportsLinkWrapper} to="/reports">
-          <span className={s.reports}>Reports</span>
-          <svg className={s.iconReports} width="24" height="24">
-            <use href={`${Sprite}#icon-reports`}></use>
-          </svg>
-        </Link>
       </form>
     </>
   );

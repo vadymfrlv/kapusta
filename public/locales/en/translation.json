@@ -1,3 +1,11 @@
 {
-  "exit": "Exit"
+  "registration": {
+    "googleTitle": "You can log in with your Google Account:",
+    "mainTitle": "Or log in using an email and password, after registering:",
+    "email": "Email:",
+    "password": "Password:",
+    "enter": "Login",
+    "registration": "Registration",
+    "exit": "Exit"
+  }
 }

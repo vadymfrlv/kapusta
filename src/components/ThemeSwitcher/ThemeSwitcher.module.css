@@ -27,7 +27,7 @@ input[type='checkbox'] {
   overflow: hidden;
   opacity: 1;
   background-color: #fff;
-  border: 1px solid black;
+  border: 1px solid rgb(218, 221, 228);
   border-radius: 50px;
   transition: 0.2s ease background-color, 0.2s ease opacity;
 }
@@ -50,13 +50,13 @@ input[type='checkbox'] {
 }
 
 .toggleBtn span:after {
-  background-color: #000;
+  background-color: rgb(218, 221, 228);
   transform: translate(-3px, 0px);
   z-index: 0;
 }
 
 .toggleBtn input[type='checkbox']:checked + span {
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .toggleBtn input[type='checkbox']:active + span {
@@ -64,11 +64,11 @@ input[type='checkbox'] {
 }
 
 .toggleBtn input[type='checkbox']:checked + span:before {
-  background-color: #fff;
+  background-color: rgb(6, 6, 31);
   transform: translate(32px, -4px);
 }
 
 .toggleBtn input[type='checkbox']:checked + span:after {
-  background-color: #000;
+  background-color: rgb(218, 221, 228);
   transform: translate(33px, 0px);
 }
