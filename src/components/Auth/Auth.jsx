@@ -38,8 +38,10 @@ export const Auth = () => {
     },
 
     validationSchema: Yup.object({
-      email: Yup.string().email('Invalid email').required('This is a required field'),
-      password: Yup.string().min(7, 'Min length 7').required('This is a required field'),
+      email: Yup.string().email(t('registration.emailErr')).required(t('registration.required')),
+      password: Yup.string()
+        .min(7, t('registration.lengthErr'))
+        .required(t('registration.required')),
     }),
   });
 
@@ -73,7 +75,7 @@ export const Auth = () => {
   const handleSubmitRegister = e => {
     e.preventDefault();
     if (formik.errors.email || formik.errors.password) {
-      toast.error('Please, enter correct data!', {
+      toast.error(t('registration.registrationInfo'), {
         autoClose: 2000,
         theme: 'colored',
       });
@@ -90,7 +92,7 @@ export const Auth = () => {
   const handleSubmitLogin = e => {
     e.preventDefault();
     if (formik.errors.email || formik.errors.password) {
-      toast.error('Please, enter correct data!', {
+      toast.error(t('registration.registrationInfo'), {
         autoClose: 2000,
         theme: 'colored',
       });
@@ -157,7 +159,7 @@ export const Auth = () => {
             type="password"
             name="password"
             id="password"
-            placeholder="your password"
+            placeholder="password"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.password}
@@ -169,10 +171,10 @@ export const Auth = () => {
         <>
           <div className={s.wrapperButtons}>
             <button className={s.buttonSubmit} type="submit" onClick={handleSubmitLogin}>
-              LOG IN
+              {t('registration.enter')}
             </button>
             <button className={s.button} type="submit" onClick={handleSubmitRegister}>
-              REGISTRATION
+              {t('registration.registration')}
             </button>
           </div>
         </>
@@ -183,25 +185,21 @@ export const Auth = () => {
         formik.values.password === '' &&
         !formik.errors.email &&
         !formik.errors.password && (
-          <div className={s.notificationError}>Sorry, but your data isn't correct. Try again</div>
+          <div className={s.notificationError}>{t('registration.registrationErr1')}</div>
         )}
       {error === 'Request failed with status code 409' &&
         formik.values.email === '' &&
         formik.values.password === '' &&
         !formik.errors.email &&
         !formik.errors.password && (
-          <div className={s.notificationError}>
-            Sorry, but provided email already exists. If it's your account, click log in
-          </div>
+          <div className={s.notificationError}>{t('registration.registrationErr2')}</div>
         )}
       {error === 'Request failed with status code 403' &&
         formik.values.email === '' &&
         formik.values.password === '' &&
         !formik.errors.email &&
         !formik.errors.password && (
-          <div className={s.notificationError}>
-            Sorry, but email doesn't exist / password is wrong
-          </div>
+          <div className={s.notificationError}>{t('registration.registrationErr3')}</div>
         )}
     </>
   );
