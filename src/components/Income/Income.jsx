@@ -24,7 +24,7 @@ const IncomeComponent = () => {
   const [date, setDate] = useState(new Date());
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState(null);
-  const [amount, setAmount] = useState(null);
+  const [amount, setAmount] = useState('');
 
   const dispatch = useDispatch();
 
@@ -35,7 +35,7 @@ const IncomeComponent = () => {
 
   const handleChangeAmount = e => {
     const { value } = e.target;
-    setAmount(Number(value));
+    setAmount(value);
   };
 
   const handleSubmit = e => {
@@ -43,7 +43,7 @@ const IncomeComponent = () => {
 
     const initialForm = {
       description,
-      amount,
+      amount: Number(amount),
       date: date.toISOString().slice(0, 10),
       category: category.value,
     };
@@ -55,7 +55,7 @@ const IncomeComponent = () => {
     setDate(new Date());
     setDescription('');
     setCategory(null);
-    setAmount(null);
+    setAmount('');
   };
 
   return (
@@ -105,6 +105,7 @@ const IncomeComponent = () => {
               type="number"
               name="number"
               placeholder="0,00"
+              value={amount}
               required
               onChange={handleChangeAmount}
             />
