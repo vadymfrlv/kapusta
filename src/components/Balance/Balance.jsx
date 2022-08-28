@@ -8,6 +8,8 @@ import { BalanceModal } from 'components/BalanceModal/BalanceModal';
 
 export const Balance = () => {
   const balance = useSelector(state => state.balance.balance);
+  const email = useSelector(state => state.auth.user.email);
+  console.log('🚀 ~ email', email);
   const dispatch = useDispatch();
   const [input, setInput] = useState('');
 
@@ -40,7 +42,7 @@ export const Balance = () => {
             onChange={handleChange}
           />
           <span className={s.money}>UAH</span>
-          {input === '' && balance === 0 ? (
+          {input === '' && balance === 0 && email ? (
             <BalanceModal />
           ) : (
             !(<BalanceModal />)
