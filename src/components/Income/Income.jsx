@@ -43,10 +43,8 @@ const IncomeComponent = () => {
       date: date.toISOString().slice(0, 10),
       category: category.value,
     };
-    console.log(initialForm);
 
     dispatch(addIncomeTransaction(initialForm));
-    // dispatch(addContacts(form));
   };
 
   const reset = () => {
@@ -106,7 +104,6 @@ const IncomeComponent = () => {
               required
               onChange={handleChangeAmount}
             />
-            
           </label>
           <button type="submit" className={s.buttonInput}>
             Input

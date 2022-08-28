@@ -15,10 +15,9 @@ import { getEmailUser } from 'redux/auth/AuthSelector';
 
 const ExpenseTransactionList = () => {
   const transactionList = useSelector(state => state.transactions.items);
+  const dispatch = useDispatch();
   const listLength = useSelector(state => state.transactions.items.length);
   const email = useSelector(getEmailUser);
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
 
