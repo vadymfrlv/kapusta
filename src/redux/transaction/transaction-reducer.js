@@ -9,7 +9,7 @@ import {
 import { logoutUser } from 'redux/auth/authOperations';
 // import itemsReducer from '../redux/transaction/items-reducer';
 
-const items = createReducer([], {
+const expenses = createReducer([], {
   [getExpenseTransaction.fulfilled]: (_, { payload }) => payload.expenses,
 
   [addExpenseTransaction.fulfilled]: (state, { payload }) => [
@@ -17,6 +17,13 @@ const items = createReducer([], {
     payload.transaction,
   ],
 
+  [removeTransaction.fulfilled]: (state, { payload }) =>
+    state.filter(el => el._id !== payload.id),
+
+  [logoutUser.fulfilled]: () => [],
+});
+
+const incomes = createReducer([], {
   [getIncomeTransaction.fulfilled]: (_, { payload }) => payload.incomes,
 
   [addIncomeTransaction.fulfilled]: (state, { payload }) => [
@@ -71,8 +78,8 @@ const error = createReducer(null, {
 });
 
 export default combineReducers({
-  // items: itemsReducer,
-  items,
+  expenses,
+  incomes,
   loading,
   error,
 });

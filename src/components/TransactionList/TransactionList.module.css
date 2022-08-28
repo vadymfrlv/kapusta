@@ -1,17 +1,9 @@
-.transactions {
-  position: relative;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
 .table {
-   width: 746px;
+  width: 746px;
   margin-top: 60px;
   margin-bottom: 20px;
   border-collapse: collapse;
 }
-
 
 .table thead tr th:first-child {
   border-radius: 20px 0 0 0;
@@ -37,14 +29,6 @@
   /* border: 1px solid #dddddd; */
   padding: 5px;
   text-align: center;
-}
-
-.table th {
-}
-
-.expense {
-  color: green;
-  font-weight: bold;
 }
 
 .buttonDelete {

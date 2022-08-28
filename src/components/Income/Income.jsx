@@ -1,11 +1,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import IncomeTransactionList from 'components/IncomeTransactionList/IncomeTransactionList';
-import { addIncomeTransaction } from '../../redux/transaction/transaction-operations';
-import { isLoading } from 'redux/transaction/transaction-selector';
+import {
+  getIncomesTransactions,
+  isLoading,
+} from 'redux/transaction/transaction-selector';
 import options from '../../data/incomeForm.json';
 import Loader from 'components/Loader/Loader';
 import FormTransaction from 'components/FormTransaction/FormTransaction';
+import { Summary } from 'components/Summary/Summary';
+import TransactionList from 'components/TransactionList/TransactionList';
+import {
+  addIncomeTransaction,
+  getIncomeTransaction,
+} from 'redux/transaction/transaction-operations';
+import { incomesStats } from 'redux/monthsStats/monthsStats-selector';
 import s from './Income.module.css';
 
 const IncomeComponent = () => {
@@ -13,7 +21,14 @@ const IncomeComponent = () => {
   return (
     <div className={s.container}>
       <FormTransaction operation={addIncomeTransaction} options={options} />
-      <IncomeTransactionList />
+      <div className={s.transactions}>
+        <TransactionList
+          operation={getIncomeTransaction()}
+          selector={getIncomesTransactions}
+          location="incomes"
+        />
+        <Summary selector={incomesStats} />
+      </div>
       {loading && <Loader />}
     </div>
   );
