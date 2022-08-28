@@ -20,7 +20,7 @@ const balanceSlice = createSlice({
       state.error = null;
     },
     [changeBalance.fulfilled]: (state, { payload }) => {
-      state.balance = payload;
+      state.balance = Number(payload.newBalance);
       state.isLoading = false;
     },
     [changeBalance.rejected]: (state, { payload }) => {

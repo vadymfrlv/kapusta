@@ -65,10 +65,6 @@ export const Auth = () => {
   }, []);
 
   useEffect(() => {
-    console.log('отправка', {
-      email: formik.values.email,
-      password: formik.values.password,
-    });
     if (email && !token) {
       dispatch(
         loginUser({
