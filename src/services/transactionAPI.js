@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://kapusta-backend.goit.global/';
+axios.defaults.baseURL = 'https://kapusta-backend.goit.global';
 
 export const getExpenseTransactionApi = async () => {
   const response = await axios.get('/transaction/expense');
@@ -23,7 +23,6 @@ export const addExpenseTransactionApi = async ({
 
 export const deleteTransactionApi = async id => {
   const response = await axios.delete(`/transaction/${id}`);
-  // console.log('res', response);
   return response;
 };
 
