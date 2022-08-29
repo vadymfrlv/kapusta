@@ -4,9 +4,9 @@ import { DataHeader } from 'components/DataHeader/DataHeader';
 import HomeNavigation from 'components/HomeNavigation/HomeNavigation';
 import { useMediaQuery } from 'react-responsive';
 
-import MobileTransactionList from 'components/MobileTransactionList/MobileTransactionList';
-import DataPicker from 'components/DatePicker/DatePickerComp';
-import MobileFormTransaction from 'components/MobileFormTransaction/MobileFormTransaction';
+import MobileTransactionList from '../components/MobileTransactionList/MobileTransactionList';
+import DataPicker from '../components/DatePicker/DatePickerComp';
+import MobileFormTransaction from '../components/MobileFormTransaction/MobileFormTransaction';
 
 const HomePage = () => {
   const navigate = useNavigate();

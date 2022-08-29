@@ -9,10 +9,9 @@
 .calendarIcon {
   width: 25px;
   height: 20px;
-  background-image: url('../../assets/icons/calendar.svg');
-  background-repeat: no-repeat;
-  background-size: 20px;
+  fill: var(--primary-text-color);
 }
+
 .date {
   margin-left: 10px;
   background-color: transparent;
