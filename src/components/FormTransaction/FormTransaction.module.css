@@ -18,7 +18,7 @@
 .date {
   margin-left: 10px;
   color: #52555f;
-width: 74px;
+  width: 74px;
   border: none;
   font-family: 'Roboto';
   font-style: normal;
@@ -32,7 +32,7 @@ width: 74px;
 }
 
 .input {
-width: 290px;
+  width: 280px;
   padding-left: 10px;
   height: 44px;
 
@@ -53,7 +53,6 @@ width: 290px;
   color: #c7ccdc;
 }
 
-
 .calcInput {
   color: #c7ccdc;
   font-family: 'Roboto';
@@ -67,7 +66,7 @@ width: 290px;
   letter-spacing: 0.02em;
   text-align: right;
   padding-right: 41px;
-  max-width: 121px;
+  max-width: 183px;
   height: 44px;
   border: 2px solid #f6f7fc;
   border-left: none;
@@ -79,7 +78,7 @@ width: 290px;
 }
 
 .buttonInput {
-width: 136px;
+  width: 136px;
   padding: 12px 37px;
   margin-left: 32px;
   margin-right: 16px;
@@ -100,7 +99,7 @@ width: 136px;
 }
 
 .buttonClear {
-width: 136px;
+  width: 136px;
   padding: 12px 37px;
 
   border: none;
@@ -117,4 +116,40 @@ width: 136px;
   background: #ffffff;
   border-radius: 16px;
   border: 2px solid #f6f7fc;
+}
+
+@media screen and (min-width: 772px) and (max-width: 1280px) {
+  .buttonInput {
+    margin-top: 32px;
+    width: 125px;
+  }
+  .buttonClear {
+    margin-top: 32px;
+    width: 125px;
+  }
+  .form {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .calcInput {
+    max-width: 110px;
+  }
+  .date {
+    width: 70px;
+  }
+  .input {
+    width: 159px;
+  }
+}
+
+@media screen and (min-width: 1281px) {
+  .calcInput {
+    max-width: 119px;
+  }
+  .date {
+    width: 74px;
+  }
+  .input {
+    width: 290px;
+  }
 }

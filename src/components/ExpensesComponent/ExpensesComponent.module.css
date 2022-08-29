@@ -110,3 +110,14 @@
   border-radius: 16px;
   border: 2px solid #f6f7fc;
 }
+
+@media screen and (min-width: 772px) and (max-width: 1280px) {
+  .transactions {
+      display: flex;
+flex-direction: column;
+    }
+
+
+}
+
+@media screen and (min-width: 1281px) {}
