@@ -7,6 +7,8 @@ import { useTranslation } from 'react-i18next';
 import 'react-datepicker/dist/react-datepicker.css';
 import s from './FormTransaction.module.css';
 import { toast } from 'react-toastify';
+import { useMediaQuery } from 'react-responsive';
+import { useNavigate } from 'react-router-dom';
 import Sprite from '../../assets/images/svg/sprite.svg';
 
 const colourStyles = {
@@ -39,8 +41,9 @@ const FormTransaction = ({ operation, options, date, setDate }) => {
   const [category, setCategory] = useState(null);
   const [amount, setAmount] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { t } = useTranslation();
-
+  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' });
   const handleChange = e => {
     const { value } = e.target;
     setDescription(value);
@@ -67,6 +70,9 @@ const FormTransaction = ({ operation, options, date, setDate }) => {
       category: category.value,
     };
     dispatch(operation(initialForm));
+    if (isMobile) {
+      navigate('transactions');
+    }
   };
 
   const reset = () => {
@@ -90,7 +96,7 @@ const FormTransaction = ({ operation, options, date, setDate }) => {
         />
       </div>
 
-      <label>
+      <label className={s.label}>
         <input
           className={s.input}
           type="text"
@@ -122,12 +128,15 @@ const FormTransaction = ({ operation, options, date, setDate }) => {
           onChange={handleChangeAmount}
         />
       </label>
-      <button type="submit" className={s.buttonInput}>
-        {t('transactions.input')}
-      </button>
-      <button type="button" className={s.buttonClear} onClick={reset}>
-        {t('transactions.clear')}
-      </button>
+      <div className={s.buttonList}>
+        {' '}
+        <button type="submit" className={s.buttonInput}>
+          {t('transactions.input')}
+        </button>{' '}
+        <button type="button" className={s.buttonClear} onClick={reset}>
+          {t('transactions.clear')}
+        </button>
+      </div>
     </form>
   );
 };

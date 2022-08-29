@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  getIncomesTransactions,
-  isLoading,
-} from 'redux/transaction/transaction-selector';
 import options from '../../data/incomeForm.json';
+import { getIncomesTransactions, isLoading } from 'redux/transaction/transaction-selector';
 import Loader from 'components/Loader/Loader';
 import FormTransaction from 'components/FormTransaction/FormTransaction';
 import { Summary } from 'components/Summary/Summary';

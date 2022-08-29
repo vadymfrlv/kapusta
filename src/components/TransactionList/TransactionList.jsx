@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { nanoid } from 'nanoid';
-// import expenses from '../../data/expensesReports.json';
+import expenses from '../../data/expensesReports.json';
 import { removeTransaction } from 'redux/transaction/transaction-operations';
 import s from './TransactionList.module.css';
 
@@ -11,7 +11,7 @@ const TransactionList = ({ transactionsArray, location }) => {
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
-  const expenseReport = t('expenseReport', { returnObjects: true });
+  // const expenseReport = t('expenseReport', { returnObjects: true });
 
   const createNewArray = array => {
     const addArray = Array(10 - array.length)
@@ -27,9 +27,7 @@ const TransactionList = ({ transactionsArray, location }) => {
   };
 
   const arrayTable =
-    transactionsArray.length < 10
-      ? createNewArray(transactionsArray)
-      : transactionsArray;
+    transactionsArray.length < 10 ? createNewArray(transactionsArray) : transactionsArray;
 
   return (
     <table className={s.table}>
@@ -48,17 +46,15 @@ const TransactionList = ({ transactionsArray, location }) => {
             <td>{item.date && item.date.split('-').reverse().join('.')}</td>
             <td>{item.description && item.description}</td>
             <td>
-              {/* {item.category && location === 'expenses'
-                ? expenseReport[index].title
-                : item.category} */}
+              {item.category && location === 'expenses'
+                ? expenses[item.category].title
+                : item.category}
             </td>
             <td className={location === 'expenses' ? s.expenses : s.incomes}>
               {location === 'expenses' && item.amount && '-'}
               &nbsp;
               {item.amount &&
-                `${item.amount
-                  .toFixed(2)
-                  .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')} ${t(
+                `${item.amount.toFixed(2).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')} ${t(
                   'general.currencyName'
                 )}`}
             </td>
