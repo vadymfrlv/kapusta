@@ -14,9 +14,9 @@
     "emailErr": "Invalid email",
     "lengthErr": "Min length 7",
     "registrationInfo": "Please, enter correct data!",
-    "registration_error1": "Sorry, but your data isn't correct. Try again",
-    "registration_error2": "Sorry, but provided email already exists. If it's your account, click log in",
-    "registration_error3": "Sorry, but email doesn't exist / password is wrong"
+    "registrationErr1": "Sorry, but your data isn't correct. Try again",
+    "registrationErr2": "Sorry, but provided email already exists. If it's your account, click log in",
+    "registrationErr3": "Sorry, but email doesn't exist / password is wrong"
   },
 
   "logout": {
