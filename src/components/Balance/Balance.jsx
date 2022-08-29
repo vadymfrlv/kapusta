@@ -11,6 +11,7 @@ import {
 } from 'redux/transaction/transaction-selector';
 import s from './Balance.module.css';
 import { getBalance } from 'redux/balance/balanceSelector';
+import audio from '../../assets/sounds/coins-drop.mp3';
 
 // import useWindowDimensions from '../../hooks/useWindowDimensions';
 
@@ -23,6 +24,8 @@ export const Balance = () => {
   const { t } = useTranslation();
   const [input, setInput] = useState('');
 
+  const soundFX = new Audio(audio);
+
   const handleChange = e => {
     const { value } = e.target;
 
@@ -32,6 +35,7 @@ export const Balance = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
+    soundFX.play();
     if (input !== '') return dispatch(changeBalance({ newBalance: input }));
 
     toast.error(t('balance.inputInfo'), {
@@ -51,9 +55,7 @@ export const Balance = () => {
               className={s.input}
               value={
                 balance !== 0
-                  ? balance
-                      .toFixed(2)
-                      .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')
+                  ? balance.toFixed(2).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')
                   : (expenses.length === 0) & (incomes.length === 0)
                   ? input
                   : 0
@@ -62,10 +64,7 @@ export const Balance = () => {
               maxLength={9}
               onChange={handleChange}
               disabled={
-                balance === 0 &&
-                (expenses.length === 0) & (incomes.length === 0)
-                  ? false
-                  : true
+                balance === 0 && (expenses.length === 0) & (incomes.length === 0) ? false : true
               }
             />
             <span className={s.money}>{t('balance.currency')}</span>
@@ -87,9 +86,7 @@ export const Balance = () => {
             }
             type="submit"
             disabled={
-              balance === 0 && (expenses.length === 0) & (incomes.length === 0)
-                ? false
-                : true
+              balance === 0 && (expenses.length === 0) & (incomes.length === 0) ? false : true
             }
           >
             {t('balance.confirm')}
