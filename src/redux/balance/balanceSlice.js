@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { changeBalance } from './balanceOperations';
 
-import { getCurUser, logoutUser, loginUser } from 'redux/auth/authOperations';
+import { getCurUser, loginUser } from 'redux/auth/authOperations';
 
 import {
   addExpenseTransaction,
@@ -51,11 +51,10 @@ const balanceSlice = createSlice({
       state.balance = payload.newBalance;
     },
     [removeTransaction.fulfilled]: (state, { payload }) => {
-      console.log(payload);
-      state.balance = payload.newBalance;
+      state.balance = payload.balance;
     },
 
-    [logoutUser.fulfilled]: state => (state.balance = 0),
+    // [logoutUser.fulfilled]: state => (state.balance = 0),
   },
 });
 

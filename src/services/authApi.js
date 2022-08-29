@@ -10,19 +10,12 @@ const savedToken = {
 };
 
 export const getRegisterApi = async userData => {
-  const response = await axios.post(
-    'https://kapusta-backend.goit.global/auth/register',
-    userData
-  );
-  console.log(response.data);
+  const response = await axios.post('/auth/register', userData);
   return response.data;
 };
 
 export const getLoginApi = async userData => {
-  const response = await axios.post(
-    'https://kapusta-backend.goit.global/auth/login',
-    userData
-  );
+  const response = await axios.post('/auth/login', userData);
   savedToken.set(response.data.accessToken);
   console.log('RD', response.data);
   return response.data;
@@ -30,7 +23,7 @@ export const getLoginApi = async userData => {
 
 export const getCurUserApi = async (token, sid) => {
   savedToken.set(token);
-  const response = await axios.get('https://kapusta-backend.goit.global/user', {
+  const response = await axios.get('/user', {
     token,
     sid,
   });
@@ -39,18 +32,16 @@ export const getCurUserApi = async (token, sid) => {
 };
 
 export const logoutUserApi = async () => {
-  await axios.post('https://kapusta-backend.goit.global/auth/logout');
+  await axios.post('/auth/logout');
   savedToken.unset();
 };
 
-export const refreshTokenApi = (sid, token) => {
-  return (axios.post('https://kapusta-backend.goit.global/auth/refresh'),
-  { sid: sid, token: token }).then(({ data }) => ({
+export const refreshTokenApi = sid => {
+  return (axios.post('/auth/refresh'), { sid: sid }).then(({ data }) => ({
     token: data.newAccessToken,
     refreshToken: data.newRefreshToken,
     sid: data.newSid,
   }));
 };
 
-export const googleAuth = async () =>
-  await axios.get('https://kapusta-backend.goit.global/auth/google');
+export const googleAuth = async () => await axios.get('/auth/google');
