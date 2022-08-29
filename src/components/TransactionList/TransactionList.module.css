@@ -45,8 +45,10 @@
 
 .expenses {
   color: #e7192e;
+  font-weight: bold;
 }
 
 .incomes {
   color: #407946;
+  font-weight: bold;
 }

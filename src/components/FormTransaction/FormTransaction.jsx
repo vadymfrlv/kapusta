@@ -12,7 +12,7 @@ const colourStyles: StylesConfig<Select> = {
   control: styles => ({
     ...styles,
     border: ' 2px solid #f6f7fc',
-    width: '170px',
+    width: '169px',
     borderRadius: '0px',
     color: '#C7CCDC',
   }),
@@ -97,6 +97,7 @@ const FormTransaction = ({ operation, options }) => {
           className={s.calcInput}
           type="number"
           name="number"
+          min="0"
           pattern="^[1-9]\d*$"
           required
           placeholder="0,00"
