@@ -1,6 +1,5 @@
 import { Suspense, useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import Loader from 'components/Loader/Loader';
 import { DataHeader } from 'components/DataHeader/DataHeader';
 import HomeNavigation from 'components/HomeNavigation/HomeNavigation';
 
@@ -17,7 +16,7 @@ const HomePage = () => {
       <DataHeader />
       <HomeNavigation />
 
-      <Suspense fallback={<Loader />}>
+      <Suspense>
         <Outlet />
       </Suspense>
     </>
