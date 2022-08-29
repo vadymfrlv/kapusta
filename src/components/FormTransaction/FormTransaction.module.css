@@ -102,6 +102,7 @@
 
 .buttonClear {
   display: flex;
+  align-items: center;
   justify-content: center;
   width: 136px;
   padding: 12px 37px;

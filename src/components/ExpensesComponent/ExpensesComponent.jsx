@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import options from '../../data/expensesForm.json';
 import {
   addExpenseTransaction,
   getExpenseTransaction,
@@ -13,6 +12,7 @@ import FormTransaction from 'components/FormTransaction/FormTransaction';
 import TransactionList from 'components/TransactionList/TransactionList';
 import s from './ExpensesComponent.module.css';
 import { getEmailUser } from 'redux/auth/AuthSelector';
+import { useTranslation } from 'react-i18next';
 
 const ExpensesComponent = () => {
   const [date, setDate] = useState(new Date());
@@ -20,6 +20,8 @@ const ExpensesComponent = () => {
   const email = useSelector(getEmailUser);
   const transactions = useSelector(getExpensesTransactions);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+  const expensesCategArray = t('expensesCategArray', { returnObjects: true });
 
   useEffect(() => {
     if (email) dispatch(getExpenseTransaction());
@@ -30,16 +32,14 @@ const ExpensesComponent = () => {
     <>
       <FormTransaction
         operation={addExpenseTransaction}
-        options={options}
+        options={expensesCategArray}
         date={date}
         setDate={setDate}
       />
       <div className={s.transactions}>
         <TransactionList
           location="expenses"
-          transactionsArray={transactions.filter(
-            el => el.date === date.toISOString().slice(0, 10)
-          )}
+          transactionsArray={transactions.filter(el => el.date === date.toISOString().slice(0, 10))}
         />
         <Summary selector={expensesStats} />
       </div>

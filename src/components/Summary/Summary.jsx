@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import month from '../../data/months';
 import s from './Summary.module.css';
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -11,6 +10,7 @@ export const Summary = ({ selector }) => {
   const array = Object.entries(stats);
   const filteredMonths = array.filter((el, index) => index <= currentDate.current);
   const { t } = useTranslation();
+  const month = t('months', { returnObjects: true });
 
   return (
     <div className={s.summary}>
