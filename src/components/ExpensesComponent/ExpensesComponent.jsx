@@ -5,10 +5,7 @@ import {
   addExpenseTransaction,
   getExpenseTransaction,
 } from '../../redux/transaction/transaction-operations';
-import {
-  getExpensesTransactions,
-  isLoading,
-} from 'redux/transaction/transaction-selector';
+import { getExpensesTransactions, isLoading } from 'redux/transaction/transaction-selector';
 import { expensesStats } from 'redux/monthsStats/monthsStats-selector';
 import Loader from 'components/Loader/Loader';
 import { Summary } from 'components/Summary/Summary';

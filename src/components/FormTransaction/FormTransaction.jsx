@@ -1,19 +1,35 @@
 import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
-import Select, { StylesConfig } from 'react-select';
+import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import 'react-datepicker/dist/react-datepicker.css';
 import s from './FormTransaction.module.css';
 import { toast } from 'react-toastify';
+import Sprite from '../../assets/images/svg/sprite.svg';
 
-const colourStyles: StylesConfig<Select> = {
+const colourStyles = {
   control: styles => ({
     ...styles,
-    border: ' 2px solid #f6f7fc',
+    border: ' 2px solid var(--border-light)',
     width: '170px',
     borderRadius: '0px',
+    color: '#C7CCDC',
+    backgroundColor: 'var(--input-bg-color)',
+  }),
+  menuList: styles => ({
+    ...styles,
+    backgroundColor: 'var(--input-bg-color)',
+    border: ' 2px solid var(--border-light)',
+    borderRadius: '4px',
+  }),
+  placeholder: styles => ({
+    ...styles,
+    color: '#C7CCDC',
+  }),
+  singleValue: styles => ({
+    ...styles,
     color: '#C7CCDC',
   }),
 };
@@ -64,7 +80,9 @@ const FormTransaction = ({ operation, options }) => {
   return (
     <form onSubmit={handleSubmit} className={s.form}>
       <div className={s.timeDiv}>
-        <span className={s.calendarIcon}></span>
+        <svg className={s.calendarIcon} width="90" height="31">
+          <use href={`${Sprite}#icon-calendar`}></use>
+        </svg>
         <DatePicker
           dateFormat="dd.MM.yyyy"
           className={s.date}
@@ -85,9 +103,9 @@ const FormTransaction = ({ operation, options }) => {
         />
       </label>
       <Select
+        className={s.select}
         styles={colourStyles}
         placeholder="Product category"
-        className={s.select}
         value={category}
         onChange={setCategory}
         options={options}

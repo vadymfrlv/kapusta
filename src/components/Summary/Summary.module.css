@@ -1,7 +1,7 @@
 .summary {
   margin-top: 60px;
   width: 214px;
-  background-color: var(--bg-color);
+  background-color: var(--table-color);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -21,7 +21,7 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
 
-  color: black;
+  color: var(--black-text-color);
 }
 
 .list {
@@ -43,9 +43,10 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
 
-  color: #52555f;
+  color: var(--primary-text-color);
+  border-bottom: 2px solid #fff;
 }
 
-.item:not(last-child) {
-  border-bottom: 2px solid var(--white-color);
+.item:last-child {
+  border-bottom: 0px solid transparent;
 }

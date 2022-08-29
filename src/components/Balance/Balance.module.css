@@ -17,7 +17,7 @@
   width: 125px;
   height: 44px;
   margin-right: 16px;
-  border: 2px solid var(--white-color);
+  border: 2px solid #fff;
   border-radius: 16px;
   align-items: center;
 }
@@ -32,7 +32,7 @@
   text-align: center;
   letter-spacing: 0.02em;
 
-  color: rgba(82, 85, 95, 0.7);
+  color: var(--text-with-opacity);
 }
 
 .money {
@@ -43,10 +43,13 @@
   line-height: 14px;
   letter-spacing: 0.02em;
 
-  color: #000000;
+  color: var(--black-text-color);
 }
 
 .input {
+  position: relative;
+  top: 1px;
+
   width: 68px;
   height: 20px;
   margin-left: 8px;
@@ -62,7 +65,7 @@
   border: none;
   outline: none;
 
-  color: black;
+  color: var(--black-text-color);
   background-color: transparent;
 }
 
@@ -76,10 +79,10 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
 
-  color: rgba(82, 85, 95, 0.7);
+  color: var(--text-with-opacity);
   background-color: transparent;
 
-  border: 2px solid var(--white-color);
+  border: 2px solid #fff;
   border-radius: 16px;
   transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1), color 200ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -133,7 +136,7 @@
 }
 
 .reports {
-  color: #52555f;
+  color: var(--primary-text-color);
   font-size: 12px;
   line-height: 1.16;
   letter-spacing: 0.04em;
@@ -141,6 +144,6 @@
 }
 
 .iconReports {
-  fill: #52555f;
+  fill: var(--primary-text-color);
   margin-left: 15px;
 }

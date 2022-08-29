@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <>
       <header className={styles.header}>
-        <div className={styles.headerContainer}>
+        <div className={styles.headerWrapper}>
           <Link to="/" alt="homepage">
             <svg className={styles.logo} alt="logo" width="90" height="31">
               <use href={`${Sprite}#icon-logo`}></use>

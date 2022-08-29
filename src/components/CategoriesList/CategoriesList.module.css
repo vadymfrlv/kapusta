@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: -20px;
+  margin-top: 20px;
 }
 
 .noInfo {
@@ -32,13 +33,13 @@
   text-align: center;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #52555f;
+  color: var(--primary-text-color);
 }
 
 .image {
   margin-bottom: 5px;
   cursor: pointer;
-  fill: #000000;
+  fill: var(--black-text-color);
 }
 
 .imageActive {

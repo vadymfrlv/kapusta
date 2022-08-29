@@ -18,15 +18,18 @@
 
   font-weight: bold;
   padding: 5px;
-  background: var(--bg-color);
+  color: var(--black-text-color);
+  background: var(--table-color);
   /* border: 1px solid #dddddd; */
 }
 
 .table td {
+  /* background-color: #fff; */
   height: 40px;
-  border-bottom: 2px solid var(--bg-color);
+  border-bottom: 2px solid #fff;
 
   /* border: 1px solid #dddddd; */
+  color: var(--primary-text-color);
   padding: 5px;
   text-align: center;
 }

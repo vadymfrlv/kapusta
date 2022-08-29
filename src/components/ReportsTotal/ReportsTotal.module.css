@@ -9,6 +9,7 @@
   padding-top: 15px;
   padding-bottom: 15px;
   margin-bottom: 32px;
+  background-color: var(--add-bg-color);
 }
 
 .expenses,
@@ -17,7 +18,7 @@
   font-size: 14px;
   line-height: 16px;
 
-  color: #52555f;
+  color: var(--primary-text-color);
 }
 
 .income {
