@@ -145,8 +145,9 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #eb5757;
+  text-align: center;
 }
-@media (min-width: 768px) and (max-width: 1280px) {
+@media (min-width: 772px) and (max-width: 1280px) {
   .form {
     margin: 0 auto;
     position: absolute;
@@ -155,7 +156,7 @@
     transform: translateX(-50%);
   }
 }
-@media (max-width: 767.9px) {
+@media (max-width: 771.9px) {
   .form {
     margin: 0 auto;
     width: 240px;

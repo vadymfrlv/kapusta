@@ -48,7 +48,13 @@ export const Balance = () => {
           <input
             type="text"
             className={s.input}
-            value={input === '' ? balance : input}
+            value={
+              balance !== 0
+                ? balance
+                : (expenses.length === 0) & (incomes.length === 0)
+                ? input
+                : 0
+            }
             decimalscale={1}
             maxLength={9}
             onChange={handleChange}
