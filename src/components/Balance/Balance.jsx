@@ -13,6 +13,7 @@ import {
 } from 'redux/transaction/transaction-selector';
 import s from './Balance.module.css';
 import { getBalance } from 'redux/balance/balanceSelector';
+import audio from '../../assets/sounds/coins-drop.mp3';
 
 // import useWindowDimensions from '../../hooks/useWindowDimensions';
 
@@ -27,6 +28,8 @@ export const Balance = () => {
   const [input, setInput] = useState('');
   const isTab = useMediaQuery({ query: '(min-width: 1280px)' });
 
+  const soundFX = new Audio(audio);
+
   const handleChange = e => {
     const { value } = e.target;
 
@@ -36,6 +39,7 @@ export const Balance = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
+    soundFX.play();
     if (input !== '') return dispatch(changeBalance({ newBalance: input }));
 
     toast.error(t('balance.inputInfo'), {
