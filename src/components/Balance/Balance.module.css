@@ -5,9 +5,12 @@
   /* margin-bottom: 8px; */
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 771px) {
   .balance {
-    /* margin-bottom: 60px; */
+    display: block;
+    text-align: center;
+
+    margin: 40px 0;
   }
 }
 
@@ -22,8 +25,20 @@
   align-items: center;
 }
 
+@media screen and (max-width: 771px) {
+  .label {
+    width: 140px;
+    height: 40px;
+    margin-right: 0;
+
+    border-right: 1px;
+    border-radius: 22px 0px 0px 22px;
+  }
+}
+
 .title {
   margin-right: 20px;
+
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
@@ -31,8 +46,15 @@
   align-items: center;
   text-align: center;
   letter-spacing: 0.02em;
-
   color: var(--text-with-opacity);
+}
+
+@media screen and (max-width: 771px) {
+  .title {
+    margin-bottom: 8px;
+    margin-right: 0;
+    margin-left: 120px;
+  }
 }
 
 .money {
@@ -46,6 +68,10 @@
   color: var(--black-text-color);
 }
 
+.info {
+  display: flex;
+}
+
 .input {
   position: relative;
   top: 1px;
@@ -53,6 +79,7 @@
   width: 68px;
   height: 20px;
   margin-left: 8px;
+  margin-right: 2px;
 
   font-weight: 700;
   font-size: 12px;
@@ -78,16 +105,23 @@
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
   color: var(--text-with-opacity);
   background-color: transparent;
-
   border: 2px solid #fff;
   border-radius: 16px;
   transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1), color 200ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: auto;
-  /* color 200ms cubic-bezier(0.4, 0, 0.2, 1); */
+}
+
+@media screen and (max-width: 771px) {
+  .button {
+    width: 140px;
+    height: 44px;
+
+    /* border-left: 1px; */
+    border-radius: 0px 22px 22px 0px;
+  }
 }
 
 .buttonActive {

@@ -13,7 +13,7 @@ const colourStyles = {
   control: styles => ({
     ...styles,
     border: ' 2px solid var(--border-light)',
-    width: '170px',
+    width: '169px',
     borderRadius: '0px',
     color: '#C7CCDC',
     backgroundColor: 'var(--input-bg-color)',
@@ -34,8 +34,7 @@ const colourStyles = {
   }),
 };
 
-const FormTransaction = ({ operation, options }) => {
-  const [date, setDate] = useState(new Date());
+const FormTransaction = ({ operation, options, date, setDate }) => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState(null);
   const [amount, setAmount] = useState('');
@@ -115,6 +114,7 @@ const FormTransaction = ({ operation, options }) => {
           className={s.calcInput}
           type="number"
           name="number"
+          min="0"
           pattern="^[1-9]\d*$"
           required
           placeholder="0,00"

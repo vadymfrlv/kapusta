@@ -3,7 +3,6 @@
 }
 
 .timeDiv {
-  /* width: 104px; */
   margin-right: 32px;
   display: flex;
   align-items: center;
@@ -32,14 +31,8 @@
   text-transform: uppercase;
 }
 
-/* .rasta-stripes {
-    border: none;
-    color: red;
-      color: var(--primary-text-color);
-} */
-
 .input {
-  width: 290px;
+  width: 280px;
   padding-left: 10px;
   height: 44px;
 
@@ -51,8 +44,6 @@
 }
 
 .select {
-  /* border: none;
-  border-radius: 0px; */
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -77,9 +68,8 @@
   text-align: center;
   letter-spacing: 0.02em;
   text-align: right;
-  /* padding-left: 85px; */
   padding-right: 41px;
-  max-width: 121px;
+  max-width: 183px;
   height: 44px;
   border: 2px solid var(--border-light);
   border-left: none;
@@ -105,7 +95,6 @@
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
   color: #fff;
   background: #ff751d;
   border-radius: 16px;
@@ -124,9 +113,44 @@
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
   color: var(--primary-text-color);
   background-color: transparent;
   border-radius: 16px;
   border: 2px solid var(--border-light);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .buttonInput {
+    margin-top: 32px;
+    width: 125px;
+  }
+  .buttonClear {
+    margin-top: 32px;
+    width: 125px;
+  }
+  .form {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .calcInput {
+    max-width: 110px;
+  }
+  .date {
+    width: 70px;
+  }
+  .input {
+    width: 159px;
+  }
+}
+
+@media screen and (min-width: 1281px) {
+  .calcInput {
+    max-width: 119px;
+  }
+  .date {
+    width: 74px;
+  }
+  .input {
+    width: 290px;
+  }
 }

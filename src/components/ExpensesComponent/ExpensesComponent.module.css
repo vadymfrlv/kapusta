@@ -81,7 +81,6 @@
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
   color: var(--white-color);
   background: #ff751d;
   border-radius: 16px;
@@ -104,4 +103,14 @@
   background: var(--white-color);
   border-radius: 16px;
   border: 2px solid var(--border-light);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .transactions {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 1281px) {
 }
