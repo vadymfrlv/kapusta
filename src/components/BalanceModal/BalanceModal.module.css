@@ -31,7 +31,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.43;
-  color: var(--white-color);
+  color: #fff;
 }
 
 .secondText {
@@ -42,5 +42,5 @@
   font-size: 12px;
   line-height: 1.33;
 
-  color: var(--white-color);
+  color: #fff;
 }

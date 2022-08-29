@@ -1,6 +1,7 @@
 {
   "general": {
-    "reports": "Reports"
+    "reports": "Reports",
+    "currencyName": "usd"
   },
 
   "registration": {
@@ -34,6 +35,7 @@
   },
 
   "nav": {
+    "mainPage": "Main page",
     "expenses": "Expenses",
     "income": "Income"
   },
@@ -41,6 +43,37 @@
   "transactions": {
     "categoryInfo": "Product category",
     "input": "Input",
-    "clear": "Clear"
+    "clear": "Clear",
+    "prodDescr": "Product description",
+    "prodCateg": "Product category",
+    "date": "DATE",
+    "descr": "DESCRIPTION",
+    "categ": "CATEGORY",
+    "sum": "SUM"
+  },
+
+  "summary": {
+    "summary": "Summary"
+  },
+
+  "reports": {
+    "period": "Current Period:",
+    "expenses": "Expenses:",
+    "income": "Income:"
+  },
+
+  "months": {
+    "Январь": "January",
+    "Февраль": "February",
+    "Март": "March",
+    "Апрель": "April",
+    "Май": "May",
+    "Июнь": "June",
+    "Июль": "July",
+    "Август": "August",
+    "Сентябрь": "September",
+    "Октябрь": "October",
+    "Ноябрь": "November",
+    "Декабрь": "December"
   }
 }
