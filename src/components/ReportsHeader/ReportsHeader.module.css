@@ -8,10 +8,22 @@
   margin-bottom: 32px;
 }
 
+@media screen and (max-width: 1280px) {
+  .block {
+    width: 704px;
+  }
+}
+
 .wrapper {
   display: flex;
   align-items: center;
   margin-right: 249px;
+}
+
+@media screen and (max-width: 1280px) {
+  .wrapper {
+    margin-right: 170px;
+  }
 }
 
 .blockMonth {
@@ -34,6 +46,7 @@
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.04em;
+
   color: var(--text-with-opacity);
 }
 
@@ -75,7 +88,9 @@
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.04em;
+
   color: var(--text-with-opacity);
+
   text-align: center;
   margin-bottom: 5px;
 }

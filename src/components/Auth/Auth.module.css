@@ -115,7 +115,7 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
 
-  color: #52555f;
+  color: var(--primary-text-color);
 }
 
 .buttonSubmit {
@@ -130,7 +130,7 @@
 }
 
 .button:hover {
-  color: #fff;
+  color: var(--white-color);
   background-color: var(--accent-color);
 }
 

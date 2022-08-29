@@ -2,15 +2,15 @@
 
 :root {
   --accent-color: #ff751d;
-  --minus-balance-color: #e7192e;
-  --plus-balance-color: #407946;
 
   --font-family: 'Roboto', sans-serif;
   --primary-font-size: 12px;
 }
 
 html[data-theme='day'] {
-  --black-text-color: #000;
+  --minus-balance-color: #e53935;
+  --plus-balance-color: #407946;
+  --black-text-color: #000000;
   --primary-text-color: #52555f;
   --white-color: #fff;
   --description-color: #c7ccdc;
@@ -27,6 +27,8 @@ html[data-theme='day'] {
 }
 
 html[data-theme='night'] {
+  --minus-balance-color: #ff0000;
+  --plus-balance-color: #02ff1b;
   --black-text-color: #fff;
   --primary-text-color: #fff;
   --white-color: rgb(6, 6, 31);
@@ -62,7 +64,8 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 h1,
 h2,
