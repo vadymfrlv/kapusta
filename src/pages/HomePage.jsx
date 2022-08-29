@@ -37,9 +37,9 @@ const HomePage = () => {
         )
       ) : (
         <>
+          <DataHeader />
+          <HomeNavigation />
           <div className="container_transactions">
-            <DataHeader />
-            <HomeNavigation />
             <Suspense>
               <Outlet />
             </Suspense>
