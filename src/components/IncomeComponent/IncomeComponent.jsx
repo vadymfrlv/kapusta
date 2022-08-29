@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import options from '../../data/incomeForm.json';
 import { getIncomesTransactions, isLoading } from 'redux/transaction/transaction-selector';
 import Loader from 'components/Loader/Loader';
 import FormTransaction from 'components/FormTransaction/FormTransaction';
@@ -25,7 +26,7 @@ const IncomeComponent = () => {
   const incomeCategArray = t('incomeCategArray', { returnObjects: true });
 
   useEffect(() => {
-    if (email) dispatch(getIncomeTransaction());
+    if (email && transactions.length === 0) dispatch(getIncomeTransaction());
     // eslint-disable-next-line
   }, [transactions.length, email]);
 
@@ -40,7 +41,9 @@ const IncomeComponent = () => {
       <div className={s.transactions}>
         <TransactionList
           location="incomes"
-          transactionsArray={transactions.filter(el => el.date === date.toISOString().slice(0, 10))}
+          transactionsArray={transactions.filter(
+            el => el.date === date.toISOString().slice(0, 10)
+          )}
         />
         <Summary monthStats={monthStats} />
       </div>

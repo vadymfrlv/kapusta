@@ -41,11 +41,17 @@ export const addExpenseTransaction = createAsyncThunk(
 
 export const removeTransaction = createAsyncThunk(
   'deleteTransaction',
-  async (id, { rejectWithValue, dispatch }) => {
+  async (id, { rejectWithValue, dispatch, getState }) => {
     try {
       const response = await deleteTransactionApi(id);
       const balance = response.data.newBalance;
-      return { balance, id };
+      const expensesAmount = getState().transactions.expenses.find(
+        el => el._id === id
+      );
+      const incomesAmount = getState().transactions.incomes.find(
+        el => el._id === id
+      );
+      return { balance, id, expensesAmount, incomesAmount };
     } catch (error) {
       setTimeout(() => {
         dispatch(errorHandler({ error, cb: removeTransaction }));
