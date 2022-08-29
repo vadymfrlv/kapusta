@@ -69,7 +69,7 @@
 
 .no {
   background-color: transparent;
-  border: 2px solid #f5f6fb;
+  border: 2px solid var(--bg-color);
   margin-right: 15px;
   padding: 12px 34px;
   border-radius: 16px;
@@ -89,7 +89,7 @@
 .buttonStyles {
   background-color: transparent;
   border-radius: 16px;
-  border: 2px solid #f5f6fb;
+  border: 2px solid var(--bg-color);
   width: 125px;
   height: 44px;
   cursor: pointer;

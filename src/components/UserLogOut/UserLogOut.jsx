@@ -43,7 +43,7 @@ const UserLogOut = () => {
         ])}
         className={styles.userIcon}
       />
-      {viewPort.width >= 772 && (
+      {viewPort.width >= 768 && (
         <>
           <p className={styles.userName}>{name}</p>
           <button type="button" onClick={toggleModal} className={styles.logOutBtn}>
@@ -51,7 +51,7 @@ const UserLogOut = () => {
           </button>
         </>
       )}
-      {viewPort.width < 772 && (
+      {viewPort.width < 768 && (
         <>
           <div className={styles.logOutIcon}>
             <RiLogoutBoxRLine onClick={toggleModal} color={'#CBCCD0'} size={'16px'} />

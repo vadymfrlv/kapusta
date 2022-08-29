@@ -31,7 +31,7 @@ button {
   border-right: 1px solid #e0e5eb;
 }
 
-@media screen and (min-width: 772px) {
+@media screen and (min-width: 768px) {
   .userName {
     display: block;
     padding-right: 20px;
@@ -66,7 +66,7 @@ button {
   font-size: 12px;
   color: var(--primary-text-color);
   cursor: pointer;
-  border-bottom: 1px solid #52555f;
+  border-bottom: 1px solid var(--primary-text-color);
 }
 
 .logOutTextBtn:hover,

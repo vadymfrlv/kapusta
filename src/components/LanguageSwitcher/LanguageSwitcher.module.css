@@ -14,7 +14,7 @@
   width: 25px;
 }
 
-@media screen and (min-width: 772px) {
+@media screen and (min-width: 768px) {
   .icon {
     width: 30px;
   }
