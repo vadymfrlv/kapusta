@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   getIncomesTransactions,
   isLoading,
@@ -15,10 +15,20 @@ import {
 } from 'redux/transaction/transaction-operations';
 import { incomesStats } from 'redux/monthsStats/monthsStats-selector';
 import s from './IncomeComponent.module.css';
+import { getEmailUser } from 'redux/auth/AuthSelector';
 
 const IncomeComponent = () => {
   const [date, setDate] = useState(new Date());
   const loading = useSelector(isLoading);
+  const email = useSelector(getEmailUser);
+  const transactions = useSelector(getIncomesTransactions);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (email) dispatch(getIncomeTransaction());
+    // eslint-disable-next-line
+  }, [transactions.length, email]);
+
   return (
     <>
       <FormTransaction
@@ -29,10 +39,10 @@ const IncomeComponent = () => {
       />
       <div className={s.transactions}>
         <TransactionList
-          operation={getIncomeTransaction()}
-          selector={getIncomesTransactions}
           location="incomes"
-          date={date}
+          transactionsArray={transactions.filter(
+            el => el.date === date.toISOString().slice(0, 10)
+          )}
         />
         <Summary selector={incomesStats} />
       </div>
