@@ -98,5 +98,23 @@
   "incomeCategArray": [
     { "value": "З/П", "label": "Salary" },
     { "value": "Доп. доход", "label": "Add. income" }
+  ],
+
+  "expenseReport": [
+    { "value": "Продукты", "title": "Products", "id": "icon-products" },
+    { "value": "Алкоголь", "title": "Alcohol", "id": "icon-alcohol" },
+    { "value": "Развлечения", "title": "Entertainment", "id": "icon-entertainment" },
+    { "value": "Здоровье", "title": "Health", "id": "icon-health" },
+    { "value": "Транспорт", "title": "Transport", "id": "icon-transport" },
+    { "value": "Всё для дома", "title": "Housing", "id": "icon-housing" },
+    { "value": "Техника", "title": "Technique", "id": "icon-technique" },
+    {
+      "value": "Коммуналка и связь",
+      "title": "Communal, communication",
+      "id": "icon-communal, communication"
+    },
+    { "value": "Спорт и хобби", "title": "Sports, hobbies", "id": "icon-sports, hobbies" },
+    { "value": "Образование", "title": "Education", "id": "icon-education" },
+    { "value": "Прочее", "title": "Other", "id": "icon-other" }
   ]
 }

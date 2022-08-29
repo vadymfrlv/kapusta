@@ -59,9 +59,7 @@ export const Balance = () => {
               className={s.input}
               value={
                 balance !== 0
-                  ? balance
-                      .toFixed(2)
-                      .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')
+                  ? balance.toFixed(2).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')
                   : (expenses.length === 0) & (incomes.length === 0)
                   ? input
                   : 0
@@ -70,10 +68,7 @@ export const Balance = () => {
               maxLength={9}
               onChange={handleChange}
               disabled={
-                balance === 0 &&
-                (expenses.length === 0) & (incomes.length === 0)
-                  ? false
-                  : true
+                balance === 0 && (expenses.length === 0) & (incomes.length === 0) ? false : true
               }
             />
             <span className={s.money}>{t('balance.currency')}</span>
@@ -92,21 +87,16 @@ export const Balance = () => {
               className={
                 isTab && location.pathname === '/reports'
                   ? s.buttonNone
-                  : balance === 0 &&
-                    (expenses.length === 0) & (incomes.length === 0)
+                  : balance === 0 && (expenses.length === 0) & (incomes.length === 0)
                   ? s.buttonActive
                   : s.button
               }
               type="submit"
               disabled={
-                balance === 0 &&
-                (expenses.length === 0) & (incomes.length === 0)
-                  ? false
-                  : true
+                balance === 0 && (expenses.length === 0) & (incomes.length === 0) ? false : true
               }
             >
-              CONFIRM
-              {/* {t('balance.confirm')} */}
+              {t('balance.confirm')}
             </button>
           }
         </div>

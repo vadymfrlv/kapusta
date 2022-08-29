@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import expenses from '../../data/expensesReports.json';
+// import expenses from '../../data/expensesReports.json';
 import { removeTransaction } from 'redux/transaction/transaction-operations';
 import s from './TransactionList.module.css';
 import { useDispatch } from 'react-redux';
@@ -10,6 +10,7 @@ const TransactionList = ({ transactionsArray, location }) => {
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
+  const expenseReport = t('expenseReport', { returnObjects: true });
 
   return (
     <table className={s.table}>
@@ -24,21 +25,15 @@ const TransactionList = ({ transactionsArray, location }) => {
       </thead>
       <tbody className={s.tableBody}>
         {transactionsArray &&
-          transactionsArray.map(item => (
+          transactionsArray.map((item, index) => (
             <tr key={item._id}>
               <td>{item.date.split('-').reverse().join('.')}</td>
               <td>{item.description}</td>
-              <td>
-                {location === 'expenses'
-                  ? expenses[item.category].title
-                  : item.category}
-              </td>
+              <td>{location === 'expenses' ? expenseReport[index].title : item.category}</td>
               <td className={location === 'expenses' ? s.expenses : s.incomes}>
                 {location === 'expenses' && '-'}
                 &nbsp;
-                {item.amount
-                  .toFixed(2)
-                  .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')}
+                {item.amount.toFixed(2).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')}
                 &nbsp; {t('general.currencyName')}
               </td>
               <td>
