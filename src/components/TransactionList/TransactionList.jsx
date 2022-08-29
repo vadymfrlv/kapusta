@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 const TransactionList = ({ transactionsArray, location }) => {
   const dispatch = useDispatch();
+
   const { t } = useTranslation();
 
   return (
@@ -27,11 +28,17 @@ const TransactionList = ({ transactionsArray, location }) => {
             <tr key={item._id}>
               <td>{item.date.split('-').reverse().join('.')}</td>
               <td>{item.description}</td>
-              <td>{location === 'expenses' ? expenses[item.category].title : item.category}</td>
+              <td>
+                {location === 'expenses'
+                  ? expenses[item.category].title
+                  : item.category}
+              </td>
               <td className={location === 'expenses' ? s.expenses : s.incomes}>
                 {location === 'expenses' && '-'}
                 &nbsp;
-                {item.amount.toFixed(2).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')}
+                {item.amount
+                  .toFixed(2)
+                  .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')}
                 &nbsp; {t('general.currencyName')}
               </td>
               <td>
