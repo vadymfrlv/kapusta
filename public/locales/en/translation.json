@@ -101,11 +101,11 @@
   ],
 
   "expenseReport": [
+    { "value": "Транспорт", "title": "Transport", "id": "icon-transport" },
     { "value": "Продукты", "title": "Products", "id": "icon-products" },
+    { "value": "Здоровье", "title": "Health", "id": "icon-health" },
     { "value": "Алкоголь", "title": "Alcohol", "id": "icon-alcohol" },
     { "value": "Развлечения", "title": "Entertainment", "id": "icon-entertainment" },
-    { "value": "Здоровье", "title": "Health", "id": "icon-health" },
-    { "value": "Транспорт", "title": "Transport", "id": "icon-transport" },
     { "value": "Всё для дома", "title": "Housing", "id": "icon-housing" },
     { "value": "Техника", "title": "Technique", "id": "icon-technique" },
     {
