@@ -11,6 +11,7 @@
   font-size: 14px;
   font-weight: 600;
   margin-top: 40px;
+  color: var(--black-text-color);
 }
 
 .item {
@@ -44,5 +45,5 @@
 
 .imageActive {
   composes: image;
-  fill: #ff751d;
+  fill: var(--accent-color);
 }

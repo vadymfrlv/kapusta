@@ -4,9 +4,11 @@ import moment from 'moment';
 import { Balance } from 'components/Balance/Balance';
 import Paginator from 'components/Paginator/Paginator';
 import s from './ReportsHeader.module.css';
+import { useTranslation } from 'react-i18next';
 
 const ReportsHeader = ({ month, setMonth, setCategory }) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const PaginatorPeriod = () => {
     const dateFormatStr = moment().add(month, 'month').format('MMMM YYYY');
@@ -32,11 +34,11 @@ const ReportsHeader = ({ month, setMonth, setCategory }) => {
     <div className={s.block}>
       <div className={s.wrapper}>
         <button className={s.btnPrevPage} onClick={e => navigate(-1)}></button>
-        <p className={s.mainPage}>Main Page</p>
+        <p className={s.mainPage}>{t('nav.mainPage')}</p>
       </div>
       <Balance />
       <div className={s.blockMonth}>
-        <p className={s.currentPeriod}>Current Period:</p>
+        <p className={s.currentPeriod}>{t('reports.period')}</p>
         <PaginatorPeriod />
       </div>
     </div>

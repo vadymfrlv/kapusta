@@ -95,7 +95,7 @@ const FormTransaction = ({ operation, options, date, setDate }) => {
           className={s.input}
           type="text"
           name="description"
-          placeholder="Product description"
+          placeholder={t('transactions.prodDescr')}
           required
           value={description}
           onChange={handleChange}
@@ -104,7 +104,7 @@ const FormTransaction = ({ operation, options, date, setDate }) => {
       <Select
         className={s.select}
         styles={colourStyles}
-        placeholder="Product category"
+        placeholder={t('transactions.prodCateg')}
         value={category}
         onChange={setCategory}
         options={options}

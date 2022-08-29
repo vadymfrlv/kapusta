@@ -1,6 +1,7 @@
 {
   "general": {
-    "reports": "Звіти"
+    "reports": "Звіти",
+    "currencyName": "грн"
   },
 
   "registration": {
@@ -29,11 +30,12 @@
   "balance": {
     "inputInfo": "Будь ласка, введіть число > 0",
     "balanceTitle": "Баланс",
-    "currency": "UAH",
+    "currency": "ГРН",
     "confirm": "ПІДТВЕРДИТИ"
   },
 
   "nav": {
+    "mainPage": "Головна",
     "expenses": "Витрати",
     "income": "Доходи"
   },
@@ -41,6 +43,22 @@
   "transactions": {
     "categoryInfo": "Виберіть категорію",
     "input": "Ввести",
-    "clear": "Видалити"
+    "clear": "Видалити",
+    "prodDescr": "Опис продукту",
+    "prodCateg": "Категорія",
+    "date": "ДАТА",
+    "descr": "ОПИС",
+    "categ": "КАТЕГОРІЯ",
+    "sum": "СУМА"
+  },
+
+  "summary": {
+    "summary": "Зведення"
+  },
+
+  "reports": {
+    "period": "Поточний період:",
+    "expenses": "Витрати:",
+    "income": "Доходи:"
   }
 }

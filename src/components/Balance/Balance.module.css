@@ -5,7 +5,7 @@
   /* margin-bottom: 8px; */
 }
 
-@media screen and (max-width: 771px) {
+@media screen and (max-width: 767.9px) {
   .balance {
     display: block;
     text-align: center;
@@ -25,7 +25,7 @@
   align-items: center;
 }
 
-@media screen and (max-width: 771px) {
+@media screen and (max-width: 767.9px) {
   .label {
     width: 140px;
     height: 40px;
@@ -49,7 +49,7 @@
   color: var(--text-with-opacity);
 }
 
-@media screen and (max-width: 771px) {
+@media screen and (max-width: 767.9px) {
   .title {
     margin-bottom: 8px;
     margin-right: 0;
@@ -110,11 +110,12 @@
   border: 2px solid #fff;
   border-radius: 16px;
   transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1), color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 200ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: auto;
 }
 
-@media screen and (max-width: 771px) {
+@media screen and (max-width: 767.9px) {
   .button {
     width: 140px;
     height: 44px;
@@ -137,6 +138,10 @@
     0px 3px 1px rgba(0, 0, 0, 0.12);
 }
 
+.buttonNone {
+  display: none;
+}
+
 .text {
   position: absolute;
   top: 0;
@@ -157,7 +162,7 @@
   align-items: center;
 }
 
-@media screen and (min-width: 772px) {
+@media screen and (min-width: 768px) {
   .reportsLinkWrapper {
     margin-left: 251px;
   }
