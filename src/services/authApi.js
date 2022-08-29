@@ -27,7 +27,6 @@ export const getCurUserApi = async (token, sid) => {
     token,
     sid,
   });
-  console.log('qwe', response.data);
   return response.data;
 };
 
@@ -36,8 +35,9 @@ export const logoutUserApi = async () => {
   savedToken.unset();
 };
 
-export const refreshTokenApi = sid => {
-  return (axios.post('/auth/refresh'), { sid: sid }).then(({ data }) => ({
+export const refreshTokenApi = ({ sid, refreshToken }) => {
+  savedToken.set(refreshToken);
+  return axios.post('/auth/refresh', { sid: sid }).then(({ data }) => ({
     token: data.newAccessToken,
     refreshToken: data.newRefreshToken,
     sid: data.newSid,

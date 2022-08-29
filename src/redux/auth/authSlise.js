@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-
 import {
   registerUser,
   loginUser,
@@ -70,7 +69,6 @@ const authSlice = createSlice({
       const { email, balance } = payload;
       state.isLoading = false;
       state.user.email = email;
-      state.balance = balance;
     },
     [getCurUser.rejected]: (state, { payload }) => {
       state.isLoading = false;
