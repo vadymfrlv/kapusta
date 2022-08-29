@@ -2,15 +2,15 @@
 
 :root {
   --accent-color: #ff751d;
+  --minus-balance-color: #e7192e;
 
   --font-family: 'Roboto', sans-serif;
   --primary-font-size: 12px;
 }
 
 html[data-theme='day'] {
-  --minus-balance-color: #e53935;
   --plus-balance-color: #407946;
-  --black-text-color: #000000;
+  --black-text-color: #000;
   --primary-text-color: #52555f;
   --white-color: #fff;
   --description-color: #c7ccdc;
@@ -27,8 +27,7 @@ html[data-theme='day'] {
 }
 
 html[data-theme='night'] {
-  --minus-balance-color: #ff0000;
-  --plus-balance-color: #02ff1b;
+  --plus-balance-color: #06ff1f;
   --black-text-color: #fff;
   --primary-text-color: #fff;
   --white-color: rgb(6, 6, 31);

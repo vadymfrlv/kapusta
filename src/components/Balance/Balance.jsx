@@ -26,7 +26,7 @@ export const Balance = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const [input, setInput] = useState('');
-  const isTab = useMediaQuery({ query: '(min-width: 1280px)' });
+  const isTab = useMediaQuery({ query: '(max-width: 1280px)' });
 
   const soundFX = new Audio(audio);
 
@@ -87,11 +87,13 @@ export const Balance = () => {
             )}
           </label>
 
-          {isTab && location.pathname === '/reports' && (
+          {
             <button
               className={
-                balance === 0 &&
-                (expenses.length === 0) & (incomes.length === 0)
+                isTab && location.pathname === '/reports'
+                  ? s.buttonNone
+                  : balance === 0 &&
+                    (expenses.length === 0) & (incomes.length === 0)
                   ? s.buttonActive
                   : s.button
               }
@@ -103,9 +105,10 @@ export const Balance = () => {
                   : true
               }
             >
-              {t('balance.confirm')}
+              CONFIRM
+              {/* {t('balance.confirm')} */}
             </button>
-          )}
+          }
         </div>
       </form>
     </>
