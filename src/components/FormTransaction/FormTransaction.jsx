@@ -18,8 +18,7 @@ const colourStyles: StylesConfig<Select> = {
   }),
 };
 
-const FormTransaction = ({ operation, options }) => {
-  const [date, setDate] = useState(new Date());
+const FormTransaction = ({ operation, options, date, setDate }) => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState(null);
   const [amount, setAmount] = useState('');
