@@ -14,13 +14,15 @@ html[data-theme='day'] {
   --primary-text-color: #52555f;
   --white-color: #ffffff;
   --description-color: #c7ccdc;
+  --bg-color: #f5f6fb;
 }
 
 html[data-theme='night'] {
-  --black-text-color: #ffffff;
-  --primary-text-color: #f6f6f6;
+  --black-text-color: #fff;
+  --primary-text-color: #fff;
   --white-color: rgb(6, 6, 31);
   --description-color: #f6f6f6;
+  --bg-color: #656875;
 }
 
 *::before,

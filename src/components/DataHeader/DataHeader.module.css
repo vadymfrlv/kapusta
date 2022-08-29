@@ -8,7 +8,7 @@
   margin-bottom: 40px;
 }
 
-@media screen and (min-width: 772px) {
+@media screen and (min-width: 768px) {
   .container {
     flex-direction: initial;
     flex-wrap: nowrap;
@@ -32,7 +32,7 @@
   align-items: center;
 }
 
-@media screen and (min-width: 772px) {
+@media screen and (min-width: 768px) {
   .reportsLinkWrapper {
     margin-left: auto;
     position: initial;
