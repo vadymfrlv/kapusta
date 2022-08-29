@@ -13,6 +13,7 @@ import {
 import { incomesStats } from 'redux/monthsStats/monthsStats-selector';
 import s from './IncomeComponent.module.css';
 import { getEmailUser } from 'redux/auth/AuthSelector';
+import { useTranslation } from 'react-i18next';
 
 const IncomeComponent = () => {
   const [date, setDate] = useState(new Date());
@@ -20,6 +21,8 @@ const IncomeComponent = () => {
   const email = useSelector(getEmailUser);
   const transactions = useSelector(getIncomesTransactions);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+  const incomeCategArray = t('incomeCategArray', { returnObjects: true });
 
   useEffect(() => {
     if (email) dispatch(getIncomeTransaction());
@@ -30,7 +33,7 @@ const IncomeComponent = () => {
     <>
       <FormTransaction
         operation={addIncomeTransaction}
-        options={options}
+        options={incomeCategArray}
         date={date}
         setDate={setDate}
       />
