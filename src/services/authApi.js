@@ -17,6 +17,7 @@ export const getRegisterApi = async userData => {
 export const getLoginApi = async userData => {
   const response = await axios.post('/auth/login', userData);
   savedToken.set(response.data.accessToken);
+  console.log('RD', response.data);
   return response.data;
 };
 
@@ -26,7 +27,6 @@ export const getCurUserApi = async (token, sid) => {
     token,
     sid,
   });
-
   return response.data;
 };
 
@@ -35,8 +35,9 @@ export const logoutUserApi = async () => {
   savedToken.unset();
 };
 
-export const refreshTokenApi = sid => {
-  return (axios.post('/auth/refresh'), { sid: sid }).then(({ data }) => ({
+export const refreshTokenApi = ({ sid, refreshToken }) => {
+  savedToken.set(refreshToken);
+  return axios.post('/auth/refresh', { sid: sid }).then(({ data }) => ({
     token: data.newAccessToken,
     refreshToken: data.newRefreshToken,
     sid: data.newSid,

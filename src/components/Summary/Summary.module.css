@@ -11,7 +11,7 @@
   height: 38px;
   padding-left: auto;
   padding-right: auto;
-  border-bottom: 4px solid var(--white-color);
+  border-bottom: 4px solid #fff;
   font-weight: 700;
   font-size: 12px;
   line-height: 1.2;
@@ -21,7 +21,7 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
 
-  color: var(--black-text-color);
+  color: black;
 }
 
 .list {
@@ -43,7 +43,7 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
 
-  color: var(--primary-text-color);
+  color: #52555f;
 }
 
 .item:not(last-child) {

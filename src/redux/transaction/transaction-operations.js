@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { errorHandler } from 'redux/error/errorHandler';
 
 import {
   getExpenseTransactionApi,
@@ -10,23 +11,29 @@ import {
 
 export const getExpenseTransaction = createAsyncThunk(
   'getExpenseTransaction',
-  async (_, thunkApi) => {
+  async (_, { rejectWithValue, dispatch }) => {
     try {
       const transaction = await getExpenseTransactionApi();
       return transaction;
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      setTimeout(() => {
+        dispatch(errorHandler({ error, cb: getExpenseTransaction }));
+      }, 0);
+      return rejectWithValue(error.message);
     }
   }
 );
 
 export const addExpenseTransaction = createAsyncThunk(
   'addExpenseTransaction',
-  async (transaction, rejectWithValue) => {
+  async (transaction, { rejectWithValue, dispatch }) => {
     try {
       const newTransaction = await addExpenseTransactionApi(transaction);
       return newTransaction;
     } catch (error) {
+      setTimeout(() => {
+        dispatch(errorHandler({ error, cb: addExpenseTransaction }));
+      }, 0);
       return rejectWithValue(error.message);
     }
   }
@@ -34,12 +41,15 @@ export const addExpenseTransaction = createAsyncThunk(
 
 export const removeTransaction = createAsyncThunk(
   'deleteTransaction',
-  async (id, { rejectWithValue }) => {
+  async (id, { rejectWithValue, dispatch }) => {
     try {
       const response = await deleteTransactionApi(id);
       const balance = response.data.newBalance;
       return { balance, id };
     } catch (error) {
+      setTimeout(() => {
+        dispatch(errorHandler({ error, cb: removeTransaction }));
+      }, 0);
       return rejectWithValue(error.message);
     }
   }
@@ -47,24 +57,30 @@ export const removeTransaction = createAsyncThunk(
 
 export const getIncomeTransaction = createAsyncThunk(
   'getIncomeTransaction',
-  async (_, thunkApi) => {
+  async (_, { rejectWithValue, dispatch }) => {
     try {
       const transaction = await getIncomeTransactionApi();
       return transaction;
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      setTimeout(() => {
+        dispatch(errorHandler({ error, cb: getIncomeTransaction }));
+      }, 0);
+      return rejectWithValue(error.message);
     }
   }
 );
 
 export const addIncomeTransaction = createAsyncThunk(
   'addIncomeTransaction',
-  async (transaction, rejectWithValue) => {
+  async (transaction, { rejectWithValue, dispatch }) => {
     try {
       const newTransaction = await addIncomeTransactionApi(transaction);
 
       return newTransaction;
     } catch (error) {
+      setTimeout(() => {
+        dispatch(errorHandler({ error, cb: addIncomeTransaction }));
+      }, 0);
       return rejectWithValue(error.message);
     }
   }

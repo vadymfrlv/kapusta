@@ -35,12 +35,15 @@ export const loginUser = createAsyncThunk(
 
 export const logoutUser = createAsyncThunk(
   'auth/logout',
-  async (_, thunkApi) => {
+  async (_, { rejectWithValue, dispatch }) => {
     try {
       await logoutUserApi();
       return;
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      setTimeout(() => {
+        dispatch(errorHandler({ error, cb: getCurUser }));
+      }, 0);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -49,22 +52,24 @@ export const getCurUser = createAsyncThunk(
   'auth/getCurUser',
   async (_, { rejectWithValue, getState, dispatch }) => {
     try {
-      const { token } = getState().auth;
-      const curUserData = await getCurUserApi(token);
+      const { token, sid } = getState().auth;
+      const curUserData = await getCurUserApi(token, sid);
       return curUserData;
     } catch (error) {
-      dispatch(errorHandler({ error, cb: getCurUser }));
+      setTimeout(() => {
+        dispatch(errorHandler({ error, cb: getCurUser }));
+      }, 0);
       return rejectWithValue(error.message);
     }
   }
 );
 
 export const refreshToken = createAsyncThunk(
-  'auth',
+  'auth/refreshToken',
   async (cb, { getState, rejectWithValue, dispatch }) => {
-    const { refreshToken } = getState().auth;
+    const { refreshToken, sid } = getState().auth;
     try {
-      const data = await refreshTokenApi(refreshToken);
+      const data = await refreshTokenApi({ refreshToken, sid });
       setTimeout(() => {
         dispatch(cb());
       }, 0);
