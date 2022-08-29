@@ -1,18 +1,24 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeBalance } from 'redux/balance/balanceOperations';
-import s from './Balance.module.css';
-import { BalanceModal } from 'components/BalanceModal/BalanceModal';
-import { Link } from 'react-router-dom';
-import Sprite from '../../assets/images/svg/sprite.svg';
 import { toast } from 'react-toastify';
+import { changeBalance } from 'redux/balance/balanceOperations';
+import { BalanceModal } from 'components/BalanceModal/BalanceModal';
 import { useTranslation } from 'react-i18next';
+import { getEmailUser } from 'redux/auth/AuthSelector';
+import {
+  getExpensesTransactions,
+  getIncomesTransactions,
+} from 'redux/transaction/transaction-selector';
+import s from './Balance.module.css';
+import { getBalance } from 'redux/balance/balanceSelector';
 
 // import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 export const Balance = () => {
-  const balance = useSelector(state => state.balance.balance);
-  const email = useSelector(state => state.auth.user.email);
+  const balance = useSelector(getBalance);
+  const email = useSelector(getEmailUser);
+  const expenses = useSelector(getExpensesTransactions);
+  const incomes = useSelector(getIncomesTransactions);
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const [input, setInput] = useState('');
@@ -46,16 +52,35 @@ export const Balance = () => {
             decimalscale={1}
             maxLength={9}
             onChange={handleChange}
-            disabled={balance !== 0 ? true : false}
+            disabled={
+              balance === 0 && (expenses.length === 0) & (incomes.length === 0)
+                ? false
+                : true
+            }
           />
           <span className={s.money}>{t('balance.currency')}</span>
-          {input === '' && balance === 0 && email ? <BalanceModal /> : !(<BalanceModal />)}
+          {input === '' &&
+          balance === 0 &&
+          email &&
+          (expenses.length === 0) & (incomes.length === 0) ? (
+            <BalanceModal />
+          ) : (
+            !(<BalanceModal />)
+          )}
         </label>
 
         <button
-          className={balance !== 0 ? s.button : s.buttonActive}
+          className={
+            balance === 0 && (expenses.length === 0) & (incomes.length === 0)
+              ? s.buttonActive
+              : s.button
+          }
           type="submit"
-          disabled={balance !== 0 ? true : false}
+          disabled={
+            balance === 0 && (expenses.length === 0) & (incomes.length === 0)
+              ? false
+              : true
+          }
         >
           {t('balance.confirm')}
         </button>

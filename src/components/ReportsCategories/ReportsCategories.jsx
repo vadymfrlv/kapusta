@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import CategoriesList from 'components/CategoriesList/CategoriesList';
-import Pagination from 'components/Pagination/Pagination';
+import Paginator from 'components/Paginator/Paginator';
 import s from './ReportsCategories.module.css';
 
 const ReportsCategories = ({
@@ -12,14 +12,24 @@ const ReportsCategories = ({
   setType,
   setCategory,
 }) => {
+  const PaginatorTypes = () => {
+    const onBtnClick = () => {
+      if (type === 'expenses') {
+        setType('income');
+        setCategory('');
+        return;
+      }
+      setType('expenses');
+      setCategory('');
+    };
+    return (
+      <Paginator clickPrev={onBtnClick} clickNext={onBtnClick} descr={type} />
+    );
+  };
+
   return (
     <div className={s.block}>
-      <Pagination
-        title="type"
-        setType={setType}
-        type={type}
-        setCategory={setCategory}
-      />
+      <PaginatorTypes />
       <CategoriesList
         transactions={
           type === 'expenses'

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://kapusta-backend.goit.global/';
+axios.defaults.baseURL = 'https://kapusta-backend.goit.global';
 
 export const getExpenseTransactionApi = async () => {
   const response = await axios.get('/transaction/expense');
@@ -23,13 +23,11 @@ export const addExpenseTransactionApi = async ({
 
 export const deleteTransactionApi = async id => {
   const response = await axios.delete(`/transaction/${id}`);
-  // console.log('res', response);
   return response;
 };
 
 export const getIncomeTransactionApi = async () => {
   const response = await axios.get('/transaction/income');
-  console.log(response.data);
   return response.data;
 };
 
@@ -42,6 +40,5 @@ export const addIncomeTransactionApi = async ({
   const transaction = { description, amount, date, category };
 
   const response = await axios.post('/transaction/income', transaction);
-  console.log(response.data);
   return response.data;
 };

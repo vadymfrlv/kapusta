@@ -2,11 +2,11 @@ import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
 import Select, { StylesConfig } from 'react-select';
 import DatePicker from 'react-datepicker';
+import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-
 import 'react-datepicker/dist/react-datepicker.css';
 import s from './FormTransaction.module.css';
-
+import { toast } from 'react-toastify';
 
 const colourStyles: StylesConfig<Select> = {
   control: styles => ({
@@ -40,7 +40,10 @@ const FormTransaction = ({ operation, options }) => {
     e.preventDefault();
 
     if (category === null) {
-      return alert(t('transactions.categoryInfo'));
+      return toast.error(t('transactions.categoryInfo'), {
+        autoClose: 2000,
+        theme: 'colored',
+      });
     }
     const initialForm = {
       description,
@@ -49,7 +52,6 @@ const FormTransaction = ({ operation, options }) => {
       category: category.value,
     };
     dispatch(operation(initialForm));
-    console.log(initialForm);
   };
 
   const reset = () => {
@@ -110,6 +112,11 @@ const FormTransaction = ({ operation, options }) => {
       </button>
     </form>
   );
+};
+
+FormTransaction.propTypes = {
+  operation: PropTypes.func.isRequired,
+  options: PropTypes.array.isRequired,
 };
 
 export default FormTransaction;

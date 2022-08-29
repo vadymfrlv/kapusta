@@ -1,17 +1,9 @@
-.transactions {
-  position: relative;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
 .table {
-   width: 746px;
+  width: 746px;
   margin-top: 60px;
   margin-bottom: 20px;
   border-collapse: collapse;
 }
-
 
 .table thead tr th:first-child {
   border-radius: 20px 0 0 0;
@@ -39,14 +31,6 @@
   text-align: center;
 }
 
-.table th {
-}
-
-.expense {
-  color: green;
-  font-weight: bold;
-}
-
 .buttonDelete {
   width: 32px;
   height: 32px;
@@ -57,4 +41,12 @@
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 20px;
+}
+
+.expenses {
+  color: #e7192e;
+}
+
+.incomes {
+  color: #407946;
 }

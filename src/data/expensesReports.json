@@ -1,16 +1,16 @@
 {
-  "Продукты": { "title": "products", "id": "icon-products" },
-  "Алкоголь": { "title": "alcohol", "id": "icon-alcohol" },
-  "Развлечения": { "title": "entertainment", "id": "icon-entertainment" },
-  "Здоровье": { "title": "health", "id": "icon-health" },
-  "Транспорт": { "title": "transport", "id": "icon-transport" },
-  "Всё для дома": { "title": "housing", "id": "icon-housing" },
-  "Техника": { "title": "technique", "id": "icon-technique" },
+  "Продукты": { "title": "Products", "id": "icon-products" },
+  "Алкоголь": { "title": "Alcohol", "id": "icon-alcohol" },
+  "Развлечения": { "title": "Entertainment", "id": "icon-entertainment" },
+  "Здоровье": { "title": "Health", "id": "icon-health" },
+  "Транспорт": { "title": "Transport", "id": "icon-transport" },
+  "Всё для дома": { "title": "Housing", "id": "icon-housing" },
+  "Техника": { "title": "Technique", "id": "icon-technique" },
   "Коммуналка и связь": {
-    "title": "communal, communication",
+    "title": "Communal, communication",
     "id": "icon-communal, communication"
   },
-  "Спорт и хобби": { "title": "sports, hobbies", "id": "icon-sports, hobbies" },
-  "Образование": { "title": "education", "id": "icon-education" },
-  "Прочее": { "title": "other", "id": "icon-other" }
+  "Спорт и хобби": { "title": "Sports, hobbies", "id": "icon-sports, hobbies" },
+  "Образование": { "title": "Education", "id": "icon-education" },
+  "Прочее": { "title": "Other", "id": "icon-other" }
 }

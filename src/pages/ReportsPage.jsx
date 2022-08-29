@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 
 const ReportsPage = () => {
   const email = useSelector(getEmailUser);
-  const [month, setMonth] = useState(() => moment().format('YYYY-MM'));
+  const [month, setMonth] = useState(0);
   const [type, setType] = useState('expenses');
   const [category, setCategory] = useState('');
   const [userExpenses, setUserExpenses] = useState(null);
@@ -23,10 +23,11 @@ const ReportsPage = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    const dateFormatStr = moment().add(month, 'month').format('YYYY-MM');
     if (email) {
       setError('');
       setLoading(true);
-      getDataForPeriod(month)
+      getDataForPeriod(dateFormatStr)
         .then(data => {
           setUserExpenses(data.expenses);
           setUserIncome(data.incomes);
@@ -52,7 +53,6 @@ const ReportsPage = () => {
 
   return (
     <>
-      {console.log(userIncome)}
       <ReportsHeader
         setMonth={setMonth}
         month={month}
