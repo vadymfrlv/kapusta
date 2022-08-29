@@ -10,12 +10,20 @@
 }
 
 html[data-theme='day'] {
-  --black-text-color: #000000;
+  --black-text-color: #000;
   --primary-text-color: #52555f;
-  --white-color: #ffffff;
+  --white-color: #fff;
   --description-color: #c7ccdc;
   --bg-color: #f5f6fb;
-  --secondary-text-color: rgba(82, 85, 95, 0.7);
+  --table-color: #f5f6fb;
+  --add-bg-color: #fff;
+  --input-bg-color: #fff;
+  --active-link-bg: #fefefe;
+  --not-active-link-bg: #fafbfd;
+  --border-light: #f6f7fc;
+  --text-with-opacity: rgba(82, 85, 95, 0.7);
+
+  --calsIcon: url('./assets/icons/transactionCalculator.svg');
 }
 
 html[data-theme='night'] {
@@ -23,8 +31,16 @@ html[data-theme='night'] {
   --primary-text-color: #fff;
   --white-color: rgb(6, 6, 31);
   --description-color: #f6f6f6;
-  --bg-color: #656875;
-  --secondary-text-color: #fff;
+  --bg-color: #27282d;
+  --table-color: #60646d;
+  --add-bg-color: #4b4e55;
+  --input-bg-color: #60646d;
+  --active-link-bg: #60646d;
+  --not-active-link-bg: #4b4e55;
+  --border-light: #fff;
+  --text-with-opacity: #fff;
+
+  --calsIcon: url('./assets/icons/transactionCalculatorNight.svg');
 }
 
 *::before,
@@ -46,8 +62,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 h1,
 h2,
@@ -84,7 +99,7 @@ button {
 
 .container_transactions {
   max-width: 1098px;
-  background-color: white;
+  background-color: var(--add-bg-color);
   height: 579px;
   padding: 32px;
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);

@@ -70,7 +70,7 @@
   line-height: 16px;
   letter-spacing: 0.04em;
   color: #a6abb9;
-  background: #f6f7fb;
+  background-color: #f6f7fb;
   border-radius: 30px;
   outline: none;
   border: none;
@@ -98,7 +98,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
-
+  color: var(--black-text-color);
   letter-spacing: 0.04em;
 }
 
@@ -106,7 +106,7 @@
   width: 122px;
   height: 44px;
 
-  background: var(--bg-color);
+  background-color: #f5f6fb;
   border-radius: 16px;
 
   font-weight: 700;

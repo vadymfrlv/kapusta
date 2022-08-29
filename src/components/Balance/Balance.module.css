@@ -20,7 +20,7 @@
   width: 125px;
   height: 44px;
   margin-right: 16px;
-  border: 2px solid var(--white-color);
+  border: 2px solid #fff;
   border-radius: 16px;
   align-items: center;
 }
@@ -46,8 +46,7 @@
   align-items: center;
   text-align: center;
   letter-spacing: 0.02em;
-
-  color: var(--secondary-text-color);
+  color: var(--text-with-opacity);
 }
 
 @media screen and (max-width: 771px) {
@@ -74,6 +73,9 @@
 }
 
 .input {
+  position: relative;
+  top: 1px;
+
   width: 68px;
   height: 20px;
   margin-left: 8px;
@@ -103,15 +105,12 @@
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
-  color: var(--secondary-text-color);
+  color: var(--text-with-opacity);
   background-color: transparent;
-
-  border: 2px solid var(--white-color);
+  border: 2px solid #fff;
   border-radius: 16px;
   transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1), color 200ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: auto;
 }
 
@@ -171,7 +170,7 @@
 }
 
 .reports {
-  color: #52555f;
+  color: var(--primary-text-color);
   font-size: 12px;
   line-height: 1.16;
   letter-spacing: 0.04em;
@@ -179,6 +178,6 @@
 }
 
 .iconReports {
-  fill: #52555f;
+  fill: var(--primary-text-color);
   margin-left: 15px;
 }

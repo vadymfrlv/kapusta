@@ -7,17 +7,17 @@
   display: flex;
   align-items: center;
 }
+
 .calendarIcon {
   width: 25px;
   height: 20px;
-  background-image: url('../../assets/icons/calendar.svg');
-  background-repeat: no-repeat;
-  background-size: 20px;
+  fill: var(--primary-text-color);
 }
 
 .date {
   margin-left: 10px;
-  color: #52555f;
+  color: var(--primary-text-color);
+  background-color: transparent;
   width: 74px;
   border: none;
   font-family: 'Roboto';
@@ -36,7 +36,9 @@
   padding-left: 10px;
   height: 44px;
 
-  border: 2px solid #f6f7fc;
+  color: #c7ccdc;
+  border: 2px solid var(--border-light);
+  background-color: var(--input-bg-color);
   border-right: none;
   border-radius: 16px 0px 0px 0px;
 }
@@ -55,6 +57,7 @@
 
 .calcInput {
   color: #c7ccdc;
+  background-color: var(--input-bg-color);
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -68,10 +71,10 @@
   padding-right: 41px;
   max-width: 183px;
   height: 44px;
-  border: 2px solid #f6f7fc;
+  border: 2px solid var(--border-light);
   border-left: none;
   border-radius: 0px 16px 16px 0px;
-  background-image: url('../../assets/icons/transactionCalculator.svg');
+  background-image: var(--calsIcon);
   background-repeat: no-repeat;
   background-position: 87% 50%;
   background-size: 20px;
@@ -92,8 +95,7 @@
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
-  color: #ffffff;
+  color: #fff;
   background: #ff751d;
   border-radius: 16px;
 }
@@ -111,11 +113,10 @@
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
-  color: #52555f;
-  background: #ffffff;
+  color: var(--primary-text-color);
+  background-color: transparent;
   border-radius: 16px;
-  border: 2px solid #f6f7fc;
+  border: 2px solid var(--border-light);
 }
 
 @media screen and (min-width: 768px) and (max-width: 1280px) {

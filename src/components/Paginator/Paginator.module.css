@@ -34,12 +34,13 @@
 }
 
 .title {
+  /* margin-bottom: 40px; */
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: #000000;
+  color: var(--black-text-color);
 }
 
 .titleType {

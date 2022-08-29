@@ -4,11 +4,7 @@ import s from './Paginator.module.css';
 const Paginator = ({ clickPrev, clickNext, descr, disableNext = false }) => {
   return (
     <div className={s.pagination}>
-      <button
-        aria-label="Previous"
-        className={s.prevBtn}
-        onClick={clickPrev}
-      ></button>
+      <button aria-label="Previous" className={s.prevBtn} onClick={clickPrev}></button>
       <p className={s.titleType}>{descr}</p>
       <button
         aria-label="Next"
