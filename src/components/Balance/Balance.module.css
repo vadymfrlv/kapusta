@@ -10,7 +10,8 @@
     display: block;
     text-align: center;
 
-    margin: 40px 0;
+    margin-top: 0;
+    margin-bottom: 37px;
   }
 }
 
@@ -33,6 +34,7 @@
 
     border-right: 1px;
     border-radius: 22px 0px 0px 22px;
+    border: 2px solid #fff;
   }
 }
 
@@ -56,10 +58,34 @@
     justify-content: center;
   }
 }
+.titleMobile {
+  margin-left: 70px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: var(--text-with-opacity);
+}
 
 .money {
   margin-right: 20px;
-  margin-top: 3px;
+  margin-top: 4px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+
+  color: var(--black-text-color);
+}
+
+.moneyMobile {
+  display: inline-flex;
+  margin-right: 14px;
+  margin-top: 16px;
   font-weight: 700;
   font-size: 12px;
   line-height: 14px;
@@ -96,6 +122,23 @@
   background-color: transparent;
 }
 
+.inputMobile {
+  position: relative;
+  top: 0px;
+  margin-right: 2px;
+  font-size: 12px;
+  line-height: 14px;
+  width: 68px;
+  height: 20px;
+  border: none;
+  outline: none;
+  text-align: right;
+  align-items: center;
+
+  color: var(--black-text-color);
+  background-color: transparent;
+}
+
 .button {
   width: 125px;
   font-weight: 400;
@@ -123,6 +166,14 @@
     /* border-left: 1px; */
     border-radius: 0px 22px 22px 0px;
   }
+}
+
+.labelMobile {
+  width: 183px;
+  height: 44px;
+
+  border: 2px solid #fff;
+  border-radius: 22px;
 }
 
 .buttonActive {

@@ -4,7 +4,7 @@ export const BalanceModal = () => {
   return (
     <div className={s.modalWindow}>
       <div className={s.modal}>
-        <p className={s.firstText}>
+        <p className={s.text}>
           Hello! To get started, enter the current balance of your account!
         </p>
         <p className={s.secondText}>

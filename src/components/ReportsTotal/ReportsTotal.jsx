@@ -8,20 +8,33 @@ const ReportsTotal = ({ userExpenses, userIncome }) => {
   return (
     <>
       <div className={s.block}>
-        <p className={s.expenses}>
-          {t('reports.expenses')}
-          <span className={s.expensesTotal}>
-            {userExpenses.expenseTotal.toFixed(2).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')}
-            &nbsp; {t('general.currencyName')}
-          </span>
-        </p>
-        <p className={s.income}>
-          {t('reports.income')}
-          <span className={s.incomeTotal}>
-            {userIncome.incomeTotal.toFixed(2).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')}
-            &nbsp; {t('general.currencyName')}
-          </span>
-        </p>
+        <ul className={s.list}>
+          <li className={s.item}>
+            <p className={s.expenses}>{t('reports.expenses')}</p>
+            <div className={s.total}>
+              <p className={s.expensesTotal}>
+                {userExpenses.expenseTotal
+                  .toFixed(2)
+                  .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')}
+                &nbsp; {t('general.currencyName')}
+              </p>
+            </div>
+          </li>
+          <li>
+            <div className={s.div}></div>
+          </li>
+          <li className={s.item}>
+            <p className={s.income}>{t('reports.income')}</p>
+            <div className={s.total}>
+              <p className={s.incomeTotal}>
+                {userIncome.incomeTotal
+                  .toFixed(2)
+                  .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')}
+                &nbsp; {t('general.currencyName')}
+              </p>
+            </div>
+          </li>
+        </ul>
       </div>
     </>
   );
