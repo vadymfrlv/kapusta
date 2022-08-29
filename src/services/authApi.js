@@ -11,7 +11,6 @@ const savedToken = {
 
 export const getRegisterApi = async userData => {
   const response = await axios.post('/auth/register', userData);
-  console.log(response.data);
   return response.data;
 };
 

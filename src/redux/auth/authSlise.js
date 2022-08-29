@@ -33,7 +33,6 @@ const authSlice = createSlice({
       state.error = null;
     },
     [registerUser.fulfilled]: (state, { payload }) => {
-      console.log('🚀 ~ payload', payload);
       state.isLoading = false;
       state.user = payload;
     },

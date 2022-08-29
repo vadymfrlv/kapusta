@@ -52,7 +52,6 @@ const FormTransaction = ({ operation, options }) => {
       category: category.value,
     };
     dispatch(operation(initialForm));
-    console.log(initialForm);
   };
 
   const reset = () => {
