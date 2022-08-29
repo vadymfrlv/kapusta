@@ -37,3 +37,24 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
+@media (max-width: 767.9px) {
+  .link {
+    height: 53px;
+    width: 50%;
+    justify-content: center;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .activeLink {
+    width: 50%;
+    justify-content: center;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .container {
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+  }
+}

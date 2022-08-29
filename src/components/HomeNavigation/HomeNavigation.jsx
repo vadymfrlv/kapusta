@@ -10,13 +10,17 @@ function HomeNavigation() {
     <div className={s.container}>
       <Link
         to="expenses"
-        className={location.pathname === '/transactions/expenses' ? s.activeLink : s.link}
+        className={
+          location.pathname === '/transactions/expenses' ? s.activeLink : s.link
+        }
       >
         {t('nav.expenses')}
       </Link>
       <Link
         to="income"
-        className={location.pathname === '/transactions/expenses' ? s.link : s.activeLink}
+        className={
+          location.pathname === '/transactions/income' ? s.activeLink : s.link
+        }
       >
         {t('nav.income')}
       </Link>

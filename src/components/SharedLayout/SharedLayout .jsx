@@ -25,6 +25,7 @@ const SharedLayout = () => {
                   <p className={s.tittleText}>Smart Finance</p>
                 </div>
               )}
+
               <Suspense>
                 <Outlet />
               </Suspense>
