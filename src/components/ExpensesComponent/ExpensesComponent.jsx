@@ -28,7 +28,7 @@ const ExpensesComponent = () => {
   const expensesCategArray = t('expensesCategArray', { returnObjects: true });
 
   useEffect(() => {
-    if (email) dispatch(getExpenseTransaction());
+    if (email && transactions.length === 0) dispatch(getExpenseTransaction());
     // eslint-disable-next-line
   }, [transactions.length, email]);
 
@@ -43,7 +43,9 @@ const ExpensesComponent = () => {
       <div className={s.transactions}>
         <TransactionList
           location="expenses"
-          transactionsArray={transactions.filter(el => el.date === date.toISOString().slice(0, 10))}
+          transactionsArray={transactions.filter(
+            el => el.date === date.toISOString().slice(0, 10)
+          )}
         />
         <Summary monthStats={monthStats} />
       </div>

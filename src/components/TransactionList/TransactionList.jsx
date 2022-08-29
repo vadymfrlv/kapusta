@@ -48,9 +48,9 @@ const TransactionList = ({ transactionsArray, location }) => {
             <td>{item.date && item.date.split('-').reverse().join('.')}</td>
             <td>{item.description && item.description}</td>
             <td>
-              {item.category && location === 'expenses'
+              {/* {item.category && location === 'expenses'
                 ? expenseReport[index].title
-                : item.category}
+                : item.category} */}
             </td>
             <td className={location === 'expenses' ? s.expenses : s.incomes}>
               {location === 'expenses' && item.amount && '-'}
