@@ -19,7 +19,7 @@ import s from './Income.module.css';
 const IncomeComponent = () => {
   const loading = useSelector(isLoading);
   return (
-    <div className={s.container}>
+    <>
       <FormTransaction operation={addIncomeTransaction} options={options} />
       <div className={s.transactions}>
         <TransactionList
@@ -30,7 +30,7 @@ const IncomeComponent = () => {
         <Summary selector={incomesStats} />
       </div>
       {loading && <Loader />}
-    </div>
+    </>
   );
 };
 

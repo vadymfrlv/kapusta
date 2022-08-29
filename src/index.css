@@ -42,7 +42,8 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 h1,
 h2,
@@ -75,4 +76,13 @@ img {
 button {
   cursor: pointer;
   padding: 0;
+}
+
+.container_transactions {
+  max-width: 1098px;
+  background-color: white;
+  height: 579px;
+  padding: 32px;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 0px 30px 30px 30px;
 }

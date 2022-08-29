@@ -20,7 +20,7 @@ const ExpensesComponent = () => {
   const loading = useSelector(isLoading);
 
   return (
-    <div className={s.container}>
+    <>
       <FormTransaction operation={addExpenseTransaction} options={options} />
       <div className={s.transactions}>
         <TransactionList
@@ -31,7 +31,7 @@ const ExpensesComponent = () => {
         <Summary selector={expensesStats} />
       </div>
       {loading && <Loader />}
-    </div>
+    </>
   );
 };
 

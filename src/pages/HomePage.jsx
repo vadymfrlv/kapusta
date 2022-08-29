@@ -15,10 +15,11 @@ const HomePage = () => {
     <>
       <DataHeader />
       <HomeNavigation />
-
-      <Suspense>
-        <Outlet />
-      </Suspense>
+      <div className="container_transactions">
+        <Suspense>
+          <Outlet />
+        </Suspense>
+      </div>
     </>
   );
 };
