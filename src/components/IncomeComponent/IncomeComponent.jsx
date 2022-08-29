@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  getIncomesTransactions,
-  isLoading,
-} from 'redux/transaction/transaction-selector';
+import { getIncomesTransactions, isLoading } from 'redux/transaction/transaction-selector';
 import options from '../../data/incomeForm.json';
 import Loader from 'components/Loader/Loader';
 import FormTransaction from 'components/FormTransaction/FormTransaction';
@@ -16,6 +13,7 @@ import {
 import { incomesStats } from 'redux/monthsStats/monthsStats-selector';
 import s from './IncomeComponent.module.css';
 import { getEmailUser } from 'redux/auth/AuthSelector';
+import { useTranslation } from 'react-i18next';
 
 const IncomeComponent = () => {
   const [date, setDate] = useState(new Date());
@@ -24,6 +22,8 @@ const IncomeComponent = () => {
   const transactions = useSelector(getIncomesTransactions);
   const monthStats = useSelector(incomesStats);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+  const incomeCategArray = t('incomeCategArray', { returnObjects: true });
 
   useEffect(() => {
     if (email) dispatch(getIncomeTransaction());
@@ -34,16 +34,14 @@ const IncomeComponent = () => {
     <>
       <FormTransaction
         operation={addIncomeTransaction}
-        options={options}
+        options={incomeCategArray}
         date={date}
         setDate={setDate}
       />
       <div className={s.transactions}>
         <TransactionList
           location="incomes"
-          transactionsArray={transactions.filter(
-            el => el.date === date.toISOString().slice(0, 10)
-          )}
+          transactionsArray={transactions.filter(el => el.date === date.toISOString().slice(0, 10))}
         />
         <Summary monthStats={monthStats} />
       </div>

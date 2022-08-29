@@ -56,6 +56,10 @@
     "summary": "Summary"
   },
 
+  "categories": {
+    "noInfo": "Sorry, you don't have operations for this period"
+  },
+
   "reports": {
     "period": "Current Period:",
     "expenses": "Expenses:",
@@ -75,5 +79,24 @@
     "Октябрь": "October",
     "Ноябрь": "November",
     "Декабрь": "December"
-  }
+  },
+
+  "expensesCategArray": [
+    { "value": "Транспорт", "label": "Transport" },
+    { "value": "Продукты", "label": "Products" },
+    { "value": "Здоровье", "label": "Health" },
+    { "value": "Алкоголь", "label": "Alcohol" },
+    { "value": "Развлечения", "label": "Entertainment" },
+    { "value": "Всё для дома", "label": "Housing" },
+    { "value": "Техника", "label": "Technique" },
+    { "value": "Коммуналка и связь", "label": "Communal, communication" },
+    { "value": "Спорт и хобби", "label": "Sports, hobbies" },
+    { "value": "Образование", "label": "Education" },
+    { "value": "Прочее", "label": "Other" }
+  ],
+
+  "incomeCategArray": [
+    { "value": "З/П", "label": "Salary" },
+    { "value": "Доп. доход", "label": "Add. income" }
+  ]
 }

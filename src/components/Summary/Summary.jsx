@@ -1,20 +1,16 @@
 import PropTypes from 'prop-types';
 import { useRef } from 'react';
-import month from '../../data/months';
 import s from './Summary.module.css';
 import { useTranslation } from 'react-i18next';
 
 export const Summary = ({ monthStats }) => {
   const currentDate = useRef(new Date().getMonth());
   const array = Object.entries(monthStats);
-  const filteredMonthsStats = array.filter(
-    (el, index) => index <= currentDate.current
-  );
+  const filteredMonthsStats = array.filter((el, index) => index <= currentDate.current);
 
-  const filteredMonths = array.filter(
-    (el, index) => index <= currentDate.current
-  );
+  const filteredMonths = array.filter((el, index) => index <= currentDate.current);
   const { t } = useTranslation();
+  const month = t('months', { returnObjects: true });
 
   return (
     <div className={s.summary}>
@@ -27,9 +23,7 @@ export const Summary = ({ monthStats }) => {
               <p>
                 {el[1] === 'N/A'
                   ? 0
-                  : el[1]
-                      .toFixed(2)
-                      .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')}
+                  : el[1].toFixed(2).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')}
               </p>
             </li>
           ))}
