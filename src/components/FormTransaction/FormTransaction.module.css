@@ -76,7 +76,9 @@
   background-position: 87% 50%;
   background-size: 20px;
 }
-
+.buttonList {
+  display: flex;
+}
 .buttonInput {
   width: 136px;
   padding: 12px 37px;
@@ -151,5 +153,51 @@
   }
   .input {
     width: 290px;
+    color: var(--description-color);
+  }
+}
+@media screen and (max-width: 767.9px) {
+  .timeDiv {
+    display: none;
+  }
+  .form {
+    margin-top: 56px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .input {
+    width: 264px;
+    margin: 0 auto;
+    border: 2px solid #ffffff;
+    border-radius: 16px 16px 0px 0px;
+    background-color: transparent;
+  }
+  .select {
+    border: 2px solid #ffffff;
+    background-color: transparent;
+    width: 280px;
+    margin: 0 auto;
+    border: 2px solid #ffffff;
+    border-radius: 0 0 16px 0;
+  }
+  .label {
+    margin: 0 auto;
+  }
+  .calcInput {
+    margin-top: 32px;
+    margin-bottom: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 84px;
+    width: 100px;
+    height: 44px;
+    border: 2px solid #ffffff;
+    border-radius: 22px 22px 22px 22px;
+    background-color: transparent;
+  }
+  .buttonInput {
+    margin-left: 0;
   }
 }

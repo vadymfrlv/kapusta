@@ -47,6 +47,14 @@
   }
 }
 
+@media screen and (max-width: 767.9px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+  .reportsLinkWrapper {
+    margin-bottom: 40px;
+  }
+}
 .reports {
   color: var(--primary-text-color);
   font-size: 12px;
