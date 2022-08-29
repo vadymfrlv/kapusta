@@ -1,19 +1,23 @@
-import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useRef } from 'react';
 import month from '../../data/months';
 import s from './Summary.module.css';
-import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export const Summary = ({ selector }) => {
+
+export const Summary = ({ monthStats }) => {
   const currentDate = useRef(new Date().getMonth());
-  const stats = useSelector(selector);
-  const array = Object.entries(stats);
+  const array = Object.entries(monthStats);
+  const filteredMonthsStats = array.filter(
+    (el, index) => index <= currentDate.current
+  );
+
   const filteredMonths = array.filter((el, index) => index <= currentDate.current);
   const { t } = useTranslation();
 
   return (
     <div className={s.summary}>
+    {filteredMonthsStats.length > 0 && (
       <ul className={s.list}>
         <li className={s.title}>{t('summary.summary')}</li>
         {filteredMonths.map(el => (
@@ -24,11 +28,11 @@ export const Summary = ({ selector }) => {
             </p>
           </li>
         ))}
-      </ul>
+      </ul>}
     </div>
   );
 };
 
 Summary.propTypes = {
-  selector: PropTypes.func.isRequired,
+  monthStats: PropTypes.object.isRequired,
 };

@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 const TransactionList = ({ transactionsArray, location }) => {
   const dispatch = useDispatch();
+
   const { t } = useTranslation();
 
   return (
@@ -40,10 +41,12 @@ const TransactionList = ({ transactionsArray, location }) => {
                   onClick={() => dispatch(removeTransaction(item._id))}
                 ></button>
               </td>
-            </tr>
-          ))}
-      </tbody>
-    </table>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </>
   );
 };
 

@@ -5,7 +5,10 @@ import {
   addExpenseTransaction,
   getExpenseTransaction,
 } from '../../redux/transaction/transaction-operations';
-import { getExpensesTransactions, isLoading } from 'redux/transaction/transaction-selector';
+import {
+  getExpensesTransactions,
+  isLoading,
+} from 'redux/transaction/transaction-selector';
 import { expensesStats } from 'redux/monthsStats/monthsStats-selector';
 import Loader from 'components/Loader/Loader';
 import { Summary } from 'components/Summary/Summary';
@@ -18,6 +21,7 @@ const ExpensesComponent = () => {
   const [date, setDate] = useState(new Date());
   const loading = useSelector(isLoading);
   const email = useSelector(getEmailUser);
+  const monthStats = useSelector(expensesStats);
   const transactions = useSelector(getExpensesTransactions);
   const dispatch = useDispatch();
 
@@ -41,7 +45,7 @@ const ExpensesComponent = () => {
             el => el.date === date.toISOString().slice(0, 10)
           )}
         />
-        <Summary selector={expensesStats} />
+        <Summary monthStats={monthStats} />
       </div>
       {loading && <Loader />}
     </>
