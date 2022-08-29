@@ -7,7 +7,9 @@ import {
   addIncomeTransaction,
 } from '../../redux/transaction/transaction-operations';
 import s from './MobileFormTransaction.module.css';
+import { useState } from 'react';
 const MobileFormTransaction = () => {
+  const [date, setDate] = useState(new Date());
   const navigate = useNavigate();
   const location = useLocation();
   return (
@@ -17,6 +19,8 @@ const MobileFormTransaction = () => {
         <FormTransaction
           operation={addExpenseTransaction}
           options={optionsExpense}
+          date={date}
+          setDate={setDate}
         />
       )}
 
@@ -24,6 +28,8 @@ const MobileFormTransaction = () => {
         <FormTransaction
           operation={addIncomeTransaction}
           options={optionsIncome}
+          date={date}
+          setDate={setDate}
         />
       )}
     </>
