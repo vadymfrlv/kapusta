@@ -22,6 +22,7 @@ const IncomeComponent = () => {
   const loading = useSelector(isLoading);
   const email = useSelector(getEmailUser);
   const transactions = useSelector(getIncomesTransactions);
+  const monthStats = useSelector(incomesStats);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -44,7 +45,7 @@ const IncomeComponent = () => {
             el => el.date === date.toISOString().slice(0, 10)
           )}
         />
-        <Summary selector={incomesStats} />
+        <Summary monthStats={monthStats} />
       </div>
       {loading && <Loader />}
     </>
