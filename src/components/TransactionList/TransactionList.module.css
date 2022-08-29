@@ -2,6 +2,7 @@
   width: 746px;
   margin-top: 60px;
   margin-bottom: 20px;
+
   border-collapse: collapse;
 }
 
@@ -18,15 +19,18 @@
 
   font-weight: bold;
   padding: 5px;
-  background: var(--bg-color);
+  color: var(--black-text-color);
+  background-color: var(--table-color);
   /* border: 1px solid #dddddd; */
 }
 
 .table td {
+  /* background-color: #fff; */
   height: 40px;
-  border-bottom: 2px solid var(--bg-color);
+  border-bottom: 2px solid #fff;
 
   /* border: 1px solid #dddddd; */
+  color: var(--primary-text-color);
   padding: 5px;
   text-align: center;
 }
@@ -55,11 +59,10 @@
 
 @media screen and (min-width: 768px) and (max-width: 1280px) {
   .table {
-      width: 624px;
-      margin-top: 48px;
-      margin-bottom: 40px;
-    }
-
+    width: 624px;
+    margin-top: 48px;
+    margin-bottom: 40px;
+  }
 }
 
 @media screen and (min-width: 1281px) {

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import { useMediaQuery } from 'react-responsive';
+import { useLocation } from 'react-router-dom';
 import { changeBalance } from 'redux/balance/balanceOperations';
 import { BalanceModal } from 'components/BalanceModal/BalanceModal';
 import { useTranslation } from 'react-i18next';
@@ -11,6 +13,7 @@ import {
 } from 'redux/transaction/transaction-selector';
 import s from './Balance.module.css';
 import { getBalance } from 'redux/balance/balanceSelector';
+import audio from '../../assets/sounds/coins-drop.mp3';
 
 // import useWindowDimensions from '../../hooks/useWindowDimensions';
 
@@ -21,7 +24,11 @@ export const Balance = () => {
   const incomes = useSelector(getIncomesTransactions);
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const location = useLocation();
   const [input, setInput] = useState('');
+  const isTab = useMediaQuery({ query: '(max-width: 1280px)' });
+
+  const soundFX = new Audio(audio);
 
   const handleChange = e => {
     const { value } = e.target;
@@ -32,6 +39,7 @@ export const Balance = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
+    soundFX.play();
     if (input !== '') return dispatch(changeBalance({ newBalance: input }));
 
     toast.error(t('balance.inputInfo'), {
@@ -51,7 +59,7 @@ export const Balance = () => {
               className={s.input}
               value={
                 balance !== 0
-                  ? balance
+                  ? balance.toFixed(2).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')
                   : (expenses.length === 0) & (incomes.length === 0)
                   ? input
                   : 0
@@ -60,10 +68,7 @@ export const Balance = () => {
               maxLength={9}
               onChange={handleChange}
               disabled={
-                balance === 0 &&
-                (expenses.length === 0) & (incomes.length === 0)
-                  ? false
-                  : true
+                balance === 0 && (expenses.length === 0) & (incomes.length === 0) ? false : true
               }
             />
             <span className={s.money}>{t('balance.currency')}</span>
@@ -77,21 +82,23 @@ export const Balance = () => {
             )}
           </label>
 
-          <button
-            className={
-              balance === 0 && (expenses.length === 0) & (incomes.length === 0)
-                ? s.buttonActive
-                : s.button
-            }
-            type="submit"
-            disabled={
-              balance === 0 && (expenses.length === 0) & (incomes.length === 0)
-                ? false
-                : true
-            }
-          >
-            {t('balance.confirm')}
-          </button>
+          {
+            <button
+              className={
+                isTab && location.pathname === '/reports'
+                  ? s.buttonNone
+                  : balance === 0 && (expenses.length === 0) & (incomes.length === 0)
+                  ? s.buttonActive
+                  : s.button
+              }
+              type="submit"
+              disabled={
+                balance === 0 && (expenses.length === 0) & (incomes.length === 0) ? false : true
+              }
+            >
+              {t('balance.confirm')}
+            </button>
+          }
         </div>
       </form>
     </>

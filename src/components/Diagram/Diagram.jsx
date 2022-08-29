@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Tooltip,
-} from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import s from './Diagram.module.css';
 
@@ -21,7 +15,7 @@ const options = {
         font: {
           weight: 400,
           size: 12,
-          color: '#52555F',
+          color: 'var(--primary-text-color)',
         },
       },
     },
@@ -31,7 +25,7 @@ const options = {
         font: {
           weight: 400,
           size: 10,
-          color: '#52555F',
+          color: 'var(--primary-text-color)',
         },
         count: 9,
       },

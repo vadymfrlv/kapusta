@@ -3,10 +3,10 @@
 }
 
 .link {
-  background-color: #fafbfd;
+  background-color: var(--not-active-link-bg);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  color: #000000;
+  color: var(--black-text-color);
   padding: 13px 40px;
   font-family: 'Roboto';
   font-style: normal;
@@ -21,7 +21,7 @@
 }
 
 .activeLink {
-  background-color: #fefefe;
+  background-color: var(--active-link-bg);
   color: #ff751d;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;

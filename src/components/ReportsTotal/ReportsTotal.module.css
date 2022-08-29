@@ -9,6 +9,13 @@
   padding-top: 15px;
   padding-bottom: 15px;
   margin-bottom: 32px;
+  background-color: var(--add-bg-color);
+}
+
+@media screen and (max-width: 1280px) {
+  .block {
+    width: 704px;
+  }
 }
 
 .expenses,
@@ -17,7 +24,7 @@
   font-size: 14px;
   line-height: 16px;
 
-  color: #52555f;
+  color: var(--primary-text-color);
 }
 
 .income {
@@ -38,12 +45,12 @@
 
 .incomeTotal {
   letter-spacing: 0.04em;
-  color: #407946;
+  color: var(--plus-balance-color);
   margin-left: 15px;
 }
 
 .expensesTotal {
   letter-spacing: 0.04em;
-  color: #e53935;
+  color: var(--minus-balance-color);
   margin-left: 15px;
 }

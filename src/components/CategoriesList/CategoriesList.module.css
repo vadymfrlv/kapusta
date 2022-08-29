@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: -20px;
+  margin-top: 20px;
 }
 
 .noInfo {
@@ -10,6 +11,7 @@
   font-size: 14px;
   font-weight: 600;
   margin-top: 40px;
+  color: var(--black-text-color);
 }
 
 .item {
@@ -32,16 +34,16 @@
   text-align: center;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #52555f;
+  color: var(--primary-text-color);
 }
 
 .image {
   margin-bottom: 5px;
   cursor: pointer;
-  fill: #000000;
+  fill: var(--black-text-color);
 }
 
 .imageActive {
   composes: image;
-  fill: #ff751d;
+  fill: var(--accent-color);
 }

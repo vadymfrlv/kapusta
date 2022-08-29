@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 // const modalRoot = document.querySelector('#modal-root');
 
-function Modal({ handleClickLeft, handleClickRight, onClose, modalTitle, styleReg }) {
+function Modal({ handleClickLeft, handleClickRight, onClose, styleReg }) {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 

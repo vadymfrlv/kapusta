@@ -1,7 +1,7 @@
 .summary {
   margin-top: 60px;
   width: 214px;
-  background-color: var(--bg-color);
+  background-color: var(--table-color);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -11,7 +11,7 @@
   height: 38px;
   padding-left: auto;
   padding-right: auto;
-  border-bottom: 4px solid var(--white-color);
+  border-bottom: 4px solid #fff;
   font-weight: 700;
   font-size: 12px;
   line-height: 1.2;
@@ -21,7 +21,7 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
 
-  color: black;
+  color: var(--black-text-color);
 }
 
 .list {
@@ -42,7 +42,11 @@
   align-items: center;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  border-top: 2px solid var(--white-color);
 
   color: var(--primary-text-color);
+  border-bottom: 2px solid #fff;
+}
+
+.item:last-child {
+  border-bottom: 0px solid transparent;
 }

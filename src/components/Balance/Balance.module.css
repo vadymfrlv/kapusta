@@ -10,7 +10,7 @@
     display: block;
     text-align: center;
 
-    /* margin-bottom: 60px; */
+    margin: 40px 0;
   }
 }
 
@@ -20,7 +20,7 @@
   width: 125px;
   height: 44px;
   margin-right: 16px;
-  border: 2px solid var(--white-color);
+  border: 2px solid #fff;
   border-radius: 16px;
   align-items: center;
 }
@@ -46,8 +46,7 @@
   align-items: center;
   text-align: center;
   letter-spacing: 0.02em;
-
-  color: var(--secondary-text-color);
+  color: var(--text-with-opacity);
 }
 
 @media screen and (max-width: 767.9px) {
@@ -74,9 +73,13 @@
 }
 
 .input {
+  position: relative;
+  top: 1px;
+
   width: 68px;
   height: 20px;
   margin-left: 8px;
+  margin-right: 2px;
 
   font-weight: 700;
   font-size: 12px;
@@ -102,11 +105,9 @@
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
-  color: var(--secondary-text-color);
+  color: var(--text-with-opacity);
   background-color: transparent;
-
-  border: 2px solid var(--white-color);
+  border: 2px solid #fff;
   border-radius: 16px;
   transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -137,6 +138,10 @@
     0px 3px 1px rgba(0, 0, 0, 0.12);
 }
 
+.buttonNone {
+  display: none;
+}
+
 .text {
   position: absolute;
   top: 0;
@@ -157,7 +162,7 @@
   align-items: center;
 }
 
-@media screen and (min-width: 772px) {
+@media screen and (min-width: 768px) {
   .reportsLinkWrapper {
     margin-left: 251px;
   }
@@ -170,7 +175,7 @@
 }
 
 .reports {
-  color: #52555f;
+  color: var(--primary-text-color);
   font-size: 12px;
   line-height: 1.16;
   letter-spacing: 0.04em;
@@ -178,6 +183,6 @@
 }
 
 .iconReports {
-  fill: #52555f;
+  fill: var(--primary-text-color);
   margin-left: 15px;
 }
