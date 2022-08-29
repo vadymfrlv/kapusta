@@ -52,6 +52,8 @@ export const Balance = () => {
               value={
                 balance !== 0
                   ? balance
+                      .toFixed(2)
+                      .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')
                   : (expenses.length === 0) & (incomes.length === 0)
                   ? input
                   : 0

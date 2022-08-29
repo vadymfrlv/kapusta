@@ -7,7 +7,7 @@ import { removeTransaction } from 'redux/transaction/transaction-operations';
 import { getEmailUser } from 'redux/auth/AuthSelector';
 import s from './TransactionList.module.css';
 
-const TransactionList = ({ operation, selector, location }) => {
+const TransactionList = ({ operation, selector, location, date }) => {
   const transactions = useSelector(selector);
   const dispatch = useDispatch();
   const email = useSelector(getEmailUser);
@@ -30,31 +30,35 @@ const TransactionList = ({ operation, selector, location }) => {
       </thead>
       <tbody className={s.tableBody}>
         {transactions &&
-          transactions.map(item => (
-            <tr key={item._id}>
-              <td>{item.date.split('-').reverse().join('.')}</td>
-              <td>{item.description}</td>
-              <td>
-                {location === 'expenses'
-                  ? expenses[item.category].title
-                  : item.category}
-              </td>
-              <td className={location === 'expenses' ? s.expenses : s.incomes}>
-                {location === 'expenses' && '-'}
-                &nbsp;
-                {item.amount
-                  .toFixed(2)
-                  .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')}
-                &nbsp; грн
-              </td>
-              <td>
-                <button
-                  className={s.buttonDelete}
-                  onClick={() => dispatch(removeTransaction(item._id))}
-                ></button>
-              </td>
-            </tr>
-          ))}
+          transactions
+            .filter(el => el.date === date.toISOString().slice(0, 10))
+            .map(item => (
+              <tr key={item._id}>
+                <td>{item.date.split('-').reverse().join('.')}</td>
+                <td>{item.description}</td>
+                <td>
+                  {location === 'expenses'
+                    ? expenses[item.category].title
+                    : item.category}
+                </td>
+                <td
+                  className={location === 'expenses' ? s.expenses : s.incomes}
+                >
+                  {location === 'expenses' && '-'}
+                  &nbsp;
+                  {item.amount
+                    .toFixed(2)
+                    .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')}
+                  &nbsp; грн
+                </td>
+                <td>
+                  <button
+                    className={s.buttonDelete}
+                    onClick={() => dispatch(removeTransaction(item._id))}
+                  ></button>
+                </td>
+              </tr>
+            ))}
       </tbody>
     </table>
   );
