@@ -25,7 +25,7 @@
   height: 40px;
 
   border-radius: 26px;
-  background-color: #f6f7fb;
+  background-color: var(--bg-color);
 }
 
 .google {
@@ -33,7 +33,7 @@
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
-  color: #000;
+  color: var(--black-text-color);
 }
 
 .item {
@@ -69,9 +69,9 @@
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.04em;
-  color: #a6abb9;
-  background-color: #f6f7fb;
+  color: var(--primary-text-color);
   border-radius: 30px;
+  background-color: var(--bg-color);
   outline: none;
   border: none;
 
@@ -106,7 +106,7 @@
   width: 122px;
   height: 44px;
 
-  background-color: #f5f6fb;
+  background-color: var(--bg-color);
   border-radius: 16px;
 
   font-weight: 700;
@@ -115,7 +115,7 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
 
-  color: #52555f;
+  color: var(--primary-text-color);
 }
 
 .buttonSubmit {
@@ -130,7 +130,7 @@
 }
 
 .button:hover {
-  color: #fff;
+  color: var(--white-color);
   background-color: var(--accent-color);
 }
 

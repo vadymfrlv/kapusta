@@ -9,3 +9,9 @@
   margin-right: auto;
   background-color: var(--add-bg-color);
 }
+
+@media screen and (max-width: 1280px) {
+  .block {
+    width: 704px;
+  }
+}

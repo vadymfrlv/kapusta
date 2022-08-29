@@ -44,5 +44,5 @@
 
 .imageActive {
   composes: image;
-  fill: #ff751d;
+  fill: var(--accent-color);
 }
