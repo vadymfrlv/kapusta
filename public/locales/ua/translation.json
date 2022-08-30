@@ -100,21 +100,20 @@
     { "value": "Доп. доход", "label": "Додатковий дохід" }
   ],
 
-  "expenseReport": [
-    { "value": "Транспорт", "title": "Транспорт", "id": "icon-transport" },
-    { "value": "Продукты", "title": "Продукти", "id": "icon-products" },
-    { "value": "Здоровье", "title": "Здоров'я", "id": "icon-health" },
-    { "value": "Алкоголь", "title": "Алкоголь", "id": "icon-alcohol" },
-    { "value": "Развлечения", "title": "Розваги", "id": "icon-entertainment" },
-    { "value": "Всё для дома", "title": "Житло", "id": "icon-housing" },
-    { "value": "Техника", "title": "Техніка", "id": "icon-technique" },
-    {
-      "value": "Коммуналка и связь",
-      "title": "Комуналка, комунікації",
+  "expenseReport": {
+    "Транспорт": { "title": "Транспорт", "id": "icon-transport" },
+    "Продукты": { "title": "Продукти", "id": "icon-products" },
+    "Здоровье": { "title": "Здоров'я", "id": "icon-health" },
+    "Алкоголь": { "title": "Алкоголь", "id": "icon-alcohol" },
+    "Развлечения": { "title": "Розваги", "id": "icon-entertainment" },
+    "Всё для дома": { "title": "Житло", "id": "icon-housing" },
+    "Техника": { "title": "Техніка", "id": "icon-technique" },
+    "Коммуналка и связь": {
+      "title": "Коммуналка и связь",
       "id": "icon-communal, communication"
     },
-    { "value": "Спорт и хобби", "title": "Спорт, хобі", "id": "icon-sports, hobbies" },
-    { "value": "Образование", "title": "Освіта", "id": "icon-education" },
-    { "value": "Прочее", "title": "Інше", "id": "icon-other" }
-  ]
+    "Спорт и хобби": { "title": "Спорт и хобби", "id": "icon-sports, hobbies" },
+    "Образование": { "title": "Образование", "id": "icon-education" },
+    "Прочее": { "title": "Прочее", "id": "icon-other" }
+  }
 }
