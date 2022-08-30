@@ -13,7 +13,7 @@ const TransactionList = ({ transactionsArray, location }) => {
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
-  // const expenseReport = t('expenseReport', { returnObjects: true });
+  const expenseReport = t('expenseReport', { returnObjects: true });
 
   const createNewArray = array => {
     const addArray = Array(10 - array.length)
@@ -29,9 +29,7 @@ const TransactionList = ({ transactionsArray, location }) => {
   };
 
   const arrayTable =
-    transactionsArray.length < 10
-      ? createNewArray(transactionsArray)
-      : transactionsArray;
+    transactionsArray.length < 10 ? createNewArray(transactionsArray) : transactionsArray;
 
   return (
     <>
@@ -54,7 +52,7 @@ const TransactionList = ({ transactionsArray, location }) => {
                 <td>{item.description && item.description}</td>
                 <td>
                   {item.category && location === 'expenses'
-                    ? expenses[item.category].title
+                    ? expenseReport[item.category].title
                     : item.category}
                 </td>
                 <td
@@ -67,9 +65,7 @@ const TransactionList = ({ transactionsArray, location }) => {
                   {location === 'expenses' && item.amount && '-'}
                   &nbsp;
                   {item.amount &&
-                    `${item.amount
-                      .toFixed(2)
-                      .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')} ${t(
+                    `${item.amount.toFixed(2).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')} ${t(
                       'general.currencyName'
                     )}`}
                 </td>
