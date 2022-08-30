@@ -1,5 +1,11 @@
 import React from 'react';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip } from 'chart.js';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Tooltip,
+} from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { useMediaQuery } from 'react-responsive';
 import s from './Diagram.module.css';
@@ -45,7 +51,7 @@ const Diagram = ({ keysDiagram, valuesDiagram, category }) => {
         stacked: true,
         grid: {
           color: 'transparent',
-          borderColor: 'transparent',
+          borderColor: '#F5F6FB',
           tickColor: 'transparent',
         },
         ticks: {
@@ -62,6 +68,7 @@ const Diagram = ({ keysDiagram, valuesDiagram, category }) => {
       y: {
         grid: {
           color: '#F5F6FB',
+          borderColor: '#F5F6FB',
         },
         ticks: {
           padding: 5,
@@ -94,7 +101,7 @@ const Diagram = ({ keysDiagram, valuesDiagram, category }) => {
           color: '#52555f',
           font: {
             weight: 400,
-            size: 10,
+            size: 8,
             letterSpacing: '0.02em',
             lineHeight: 1.2,
           },
@@ -131,7 +138,9 @@ const Diagram = ({ keysDiagram, valuesDiagram, category }) => {
           height={385}
         />
       )}
-      {isMobile && <Bar options={optionsHorizontal} data={dataHorizontal} width={450} />}
+      {isMobile && (
+        <Bar options={optionsHorizontal} data={dataHorizontal} width={280} />
+      )}
     </div>
   );
 };

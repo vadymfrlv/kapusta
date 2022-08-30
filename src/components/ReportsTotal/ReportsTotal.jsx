@@ -13,6 +13,7 @@ const ReportsTotal = ({ userExpenses, userIncome }) => {
             <p className={s.expenses}>{t('reports.expenses')}</p>
             <div className={s.totale}>
               <p className={s.expensesTotal}>
+                -{' '}
                 {userExpenses.expenseTotal
                   .toFixed(2)
                   .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')}
@@ -27,6 +28,7 @@ const ReportsTotal = ({ userExpenses, userIncome }) => {
             <p className={s.income}>{t('reports.income')}</p>
             <div className={s.totali}>
               <p className={s.incomeTotal}>
+                +{' '}
                 {userIncome.incomeTotal
                   .toFixed(2)
                   .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')}
