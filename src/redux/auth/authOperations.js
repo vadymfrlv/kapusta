@@ -41,7 +41,7 @@ export const logoutUser = createAsyncThunk(
       return;
     } catch (error) {
       setTimeout(() => {
-        dispatch(errorHandler({ error, cb: getCurUser }));
+        dispatch(errorHandler({ error, cb: logoutUser }));
       }, 0);
       return rejectWithValue(error.message);
     }

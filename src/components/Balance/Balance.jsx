@@ -27,6 +27,7 @@ export const Balance = () => {
   const location = useLocation();
   const [input, setInput] = useState('');
   const isTab = useMediaQuery({ query: '(max-width: 1280px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' });
 
   const soundFX = new Audio(audio);
 
@@ -51,15 +52,35 @@ export const Balance = () => {
   return (
     <>
       <form className={s.balance} onSubmit={handleSubmit}>
-        <h3 className={s.title}>{t('balance.balanceTitle')}:</h3>
+        <h3
+          className={
+            isMobile && location.pathname === '/reports'
+              ? s.titleMobile
+              : s.title
+          }
+        >
+          {t('balance.balanceTitle')}:
+        </h3>
         <div className={s.info}>
-          <label className={s.label}>
+          <label
+            className={
+              isMobile && location.pathname === '/reports'
+                ? s.labelMobile
+                : s.label
+            }
+          >
             <input
               type="text"
-              className={s.input}
+              className={
+                isMobile && location.pathname === '/reports'
+                  ? s.inputMobile
+                  : s.input
+              }
               value={
                 balance !== 0
-                  ? balance.toFixed(2).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')
+                  ? balance
+                      .toFixed(2)
+                      .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')
                   : (expenses.length === 0) & (incomes.length === 0)
                   ? input
                   : 0
@@ -68,10 +89,21 @@ export const Balance = () => {
               maxLength={9}
               onChange={handleChange}
               disabled={
-                balance === 0 && (expenses.length === 0) & (incomes.length === 0) ? false : true
+                balance === 0 &&
+                (expenses.length === 0) & (incomes.length === 0)
+                  ? false
+                  : true
               }
             />
-            <span className={s.money}>{t('balance.currency')}</span>
+            <span
+              className={
+                isMobile && location.pathname === '/reports'
+                  ? s.moneyMobile
+                  : s.money
+              }
+            >
+              {t('balance.currency')}
+            </span>
             {input === '' &&
             balance === 0 &&
             email &&
@@ -87,13 +119,17 @@ export const Balance = () => {
               className={
                 isTab && location.pathname === '/reports'
                   ? s.buttonNone
-                  : balance === 0 && (expenses.length === 0) & (incomes.length === 0)
+                  : balance === 0 &&
+                    (expenses.length === 0) & (incomes.length === 0)
                   ? s.buttonActive
                   : s.button
               }
               type="submit"
               disabled={
-                balance === 0 && (expenses.length === 0) & (incomes.length === 0) ? false : true
+                balance === 0 &&
+                (expenses.length === 0) & (incomes.length === 0)
+                  ? false
+                  : true
               }
             >
               {t('balance.confirm')}

@@ -36,10 +36,12 @@ const ReportsHeader = ({ month, setMonth, setCategory }) => {
         <button className={s.btnPrevPage} onClick={e => navigate(-1)}></button>
         <p className={s.mainPage}>{t('nav.mainPage')}</p>
       </div>
-      <Balance />
-      <div className={s.blockMonth}>
-        <p className={s.currentPeriod}>{t('reports.period')}</p>
-        <PaginatorPeriod />
+      <div className={s.reportsSection}>
+        <Balance />
+        <div className={s.blockMonth}>
+          <p className={s.currentPeriod}>{t('reports.period')}</p>
+          <PaginatorPeriod />
+        </div>
       </div>
     </div>
   );
