@@ -16,6 +16,7 @@ html[data-theme='day'] {
   --description-color: #c7ccdc;
   --bg-color: #f5f6fb;
   --table-color: #f5f6fb;
+  --table-line: #f5f6fb;
   --add-bg-color: #fff;
   --input-bg-color: #fff;
   --active-link-bg: #fefefe;
@@ -35,6 +36,7 @@ html[data-theme='night'] {
   --bg-color: #27282d;
   --table-color: #60646d;
   --add-bg-color: #4b4e55;
+  --table-line: #fff;
   --input-bg-color: #60646d;
   --active-link-bg: #60646d;
   --not-active-link-bg: #4b4e55;
@@ -63,8 +65,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 h1,
 h2,
