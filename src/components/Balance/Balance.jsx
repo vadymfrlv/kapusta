@@ -25,7 +25,7 @@ export const Balance = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const location = useLocation();
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState(0);
   const isTab = useMediaQuery({ query: '(max-width: 1280px)' });
   const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' });
 
@@ -104,7 +104,7 @@ export const Balance = () => {
             >
               {t('balance.currency')}
             </span>
-            {input === '' &&
+            {input === 0 &&
             balance === 0 &&
             email &&
             (expenses.length === 0) & (incomes.length === 0) ? (
