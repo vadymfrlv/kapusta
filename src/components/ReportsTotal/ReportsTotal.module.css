@@ -7,8 +7,7 @@
   margin-right: auto;
   display: flex;
   justify-content: center;
-  padding-top: 15px;
-  padding-bottom: 15px;
+
   margin-bottom: 32px;
   background-color: var(--add-bg-color);
 }
@@ -80,8 +79,24 @@
   }
 }
 
+.totale {
+  width: 150px;
+  text-align: right;
+}
+
 @media screen and (max-width: 767.9px) {
-  .total {
+  .totale {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.totali {
+  width: 150px;
+}
+
+@media screen and (max-width: 767.9px) {
+  .totali {
     display: flex;
     justify-content: space-around;
   }
@@ -102,11 +117,17 @@
   margin: 0 20px;
   position: absolute;
   bottom: -8px;
-  left: 213px;
+  left: 234px;
   display: block;
   width: 1px;
   height: 36px;
   background-color: #e0e5eb;
+}
+
+@media screen and (min-width: 1280px) {
+  .div {
+    bottom: 7px;
+  }
 }
 
 @media screen and (max-width: 767.9px) {
