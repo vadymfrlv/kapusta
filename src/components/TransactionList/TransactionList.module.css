@@ -4,10 +4,7 @@
   margin-bottom: 20px;
 
   border-collapse: collapse;
-}
-
-.table thead tr th:first-child {
-  border-radius: 20px 0 0 0;
+  overflow: auto;
 }
 
 .table thead tr th:last-child {
@@ -27,7 +24,7 @@
 .table td {
   /* background-color: #fff; */
   height: 40px;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid var(--table-line);
 
   /* border: 1px solid #dddddd; */
   color: var(--primary-text-color);
