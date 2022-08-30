@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { nanoid } from 'nanoid';
-// import expenses from '../../data/expensesReports.json';
+import incomeCategories from '../../data/incomeReports.json';
 import { removeTransaction } from 'redux/transaction/transaction-operations';
 import s from './TransactionList.module.css';
 import { getEmailUser } from 'redux/auth/AuthSelector';
@@ -14,6 +14,7 @@ const TransactionList = ({ transactionsArray, location }) => {
 
   const { t } = useTranslation();
   const expenseReport = t('expenseReport', { returnObjects: true });
+  const incomeReport = t('incomeReport', { returnObjects: true });
 
   const createNewArray = array => {
     const addArray = Array(10 - array.length)
@@ -53,7 +54,7 @@ const TransactionList = ({ transactionsArray, location }) => {
                 <td>
                   {item.category && location === 'expenses'
                     ? expenseReport[item.category].title
-                    : item.category}
+                    : incomeReport[item.category]}
                 </td>
                 <td
                   style={

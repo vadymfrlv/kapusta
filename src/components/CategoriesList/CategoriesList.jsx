@@ -1,4 +1,3 @@
-// import expensesCategories from '../../data/expensesReports.json';
 import PropTypes from 'prop-types';
 import sprite from '../../assets/images/svg/sprite.svg';
 import s from './CategoriesList.module.css';
@@ -8,6 +7,7 @@ const CategoriesList = ({ type, category, onCategoryChange, transactions }) => {
   const array = Object.entries(transactions);
   const { t } = useTranslation();
   const expenseReport = t('expenseReport', { returnObjects: true });
+  const incomeReport = t('incomeReport', { returnObjects: true });
 
   return (
     <>
@@ -35,7 +35,7 @@ const CategoriesList = ({ type, category, onCategoryChange, transactions }) => {
                 ></use>
               </svg>
               <p className={s.title}>
-                {type === 'expenses' ? expenseReport[el[0]].title : [el[0]]}
+                {type === 'expenses' ? expenseReport[el[0]].title : incomeReport[el[0]]}
               </p>
             </li>
           ))}
