@@ -33,7 +33,7 @@ const MobileTransactionList = () => {
   }, [allTransactions.length, email]);
 
   return (
-    <ul>
+    <ul className={s.listmob}>
       {allTransactions.map(item => {
         return (
           <li key={item._id} className={s.itemLi}>
