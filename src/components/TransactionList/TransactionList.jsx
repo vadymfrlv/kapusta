@@ -35,6 +35,7 @@ const TransactionList = ({ transactionsArray, location }) => {
 
   return (
     <>
+      {console.log(location)}
       {email && (
         <table className={s.table}>
           <thead>
@@ -57,7 +58,11 @@ const TransactionList = ({ transactionsArray, location }) => {
                     : item.category}
                 </td>
                 <td
-                  className={location === 'expenses' ? s.expenses : s.incomes}
+                  style={
+                    location === 'expenses'
+                      ? { color: 'red', fontWeight: 'bold' }
+                      : { color: 'green', fontWeight: 'bold' }
+                  }
                 >
                   {location === 'expenses' && item.amount && '-'}
                   &nbsp;
