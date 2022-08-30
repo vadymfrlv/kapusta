@@ -11,7 +11,7 @@ const ReportsTotal = ({ userExpenses, userIncome }) => {
         <ul className={s.list}>
           <li className={s.item}>
             <p className={s.expenses}>{t('reports.expenses')}</p>
-            <div className={s.total}>
+            <div className={s.totale}>
               <p className={s.expensesTotal}>
                 {userExpenses.expenseTotal
                   .toFixed(2)
@@ -25,7 +25,7 @@ const ReportsTotal = ({ userExpenses, userIncome }) => {
           </li>
           <li className={s.item}>
             <p className={s.income}>{t('reports.income')}</p>
-            <div className={s.total}>
+            <div className={s.totali}>
               <p className={s.incomeTotal}>
                 {userIncome.incomeTotal
                   .toFixed(2)
