@@ -66,6 +66,11 @@
     "income": "Доходи:"
   },
 
+  "pagination": {
+    "expenses": "Витрати",
+    "income": "Доходи"
+  },
+
   "months": {
     "Январь": "Січень",
     "Февраль": "Лютий",
@@ -79,6 +84,21 @@
     "Октябрь": "Жовтень",
     "Ноябрь": "Листопад",
     "Декабрь": "Грудень"
+  },
+
+  "monthsPag": {
+    "January": "Січень",
+    "February": "Лютий",
+    "March": "Березень",
+    "April": "Квітень",
+    "May": "Травень",
+    "June": "Червень",
+    "July": "Липень",
+    "August": "Серпень",
+    "September": "Вересень",
+    "October": "Жовтень",
+    "November": "Листопад",
+    "December": "Грудень"
   },
 
   "expensesCategArray": [
@@ -109,11 +129,11 @@
     "Всё для дома": { "title": "Житло", "id": "icon-housing" },
     "Техника": { "title": "Техніка", "id": "icon-technique" },
     "Коммуналка и связь": {
-      "title": "Коммуналка и связь",
+      "title": "Комуналка, комунікації",
       "id": "icon-communal, communication"
     },
-    "Спорт и хобби": { "title": "Спорт и хобби", "id": "icon-sports, hobbies" },
-    "Образование": { "title": "Образование", "id": "icon-education" },
-    "Прочее": { "title": "Прочее", "id": "icon-other" }
+    "Спорт и хобби": { "title": "Спорт, хобі", "id": "icon-sports, hobbies" },
+    "Образование": { "title": "Освіта", "id": "icon-education" },
+    "Прочее": { "title": "Інше", "id": "icon-other" }
   }
 }

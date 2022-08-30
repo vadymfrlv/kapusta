@@ -1,4 +1,4 @@
-import expensesCategories from '../../data/expensesReports.json';
+// import expensesCategories from '../../data/expensesReports.json';
 import PropTypes from 'prop-types';
 import sprite from '../../assets/images/svg/sprite.svg';
 import s from './CategoriesList.module.css';
@@ -7,8 +7,7 @@ import { useTranslation } from 'react-i18next';
 const CategoriesList = ({ type, category, onCategoryChange, transactions }) => {
   const array = Object.entries(transactions);
   const { t } = useTranslation();
-  // const expensesCategArray = t('expensesCategArray', { returnObjects: true });
-  // const incomeCategArray = t('incomeCategArray', { returnObjects: true });
+  const expenseReport = t('expenseReport', { returnObjects: true });
 
   return (
     <>
@@ -21,7 +20,7 @@ const CategoriesList = ({ type, category, onCategoryChange, transactions }) => {
                 {el[1].total.toFixed(2).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')}
               </p>
               <svg
-                aria-label={type === 'expenses' ? expensesCategories[el[0]].title : [el[0]]}
+                aria-label={type === 'expenses' ? expenseReport[el[0]].title : [el[0]]}
                 className={el[0] === category ? s.imageActive : s.image}
                 width="56"
                 height="56"
@@ -30,13 +29,13 @@ const CategoriesList = ({ type, category, onCategoryChange, transactions }) => {
                 <use
                   href={
                     type === 'expenses'
-                      ? `${sprite}#${expensesCategories[el[0]].id}`
+                      ? `${sprite}#${expenseReport[el[0]].id}`
                       : `${sprite}#icon-${el[0]}`
                   }
                 ></use>
               </svg>
               <p className={s.title}>
-                {type === 'expenses' ? expensesCategories[el[0]].title : [el[0]]}
+                {type === 'expenses' ? expenseReport[el[0]].title : [el[0]]}
               </p>
             </li>
           ))}
