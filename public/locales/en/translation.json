@@ -66,6 +66,11 @@
     "income": "Income:"
   },
 
+  "pagination": {
+    "expenses": "Expenses",
+    "income": "Income"
+  },
+
   "months": {
     "Январь": "January",
     "Февраль": "February",
@@ -79,6 +84,21 @@
     "Октябрь": "October",
     "Ноябрь": "November",
     "Декабрь": "December"
+  },
+
+  "monthsPag": {
+    "January": "January",
+    "February": "February",
+    "March": "March",
+    "April": "April",
+    "May": "May",
+    "June": "June",
+    "July": "July",
+    "August": "August",
+    "September": "September",
+    "October": "October",
+    "November": "November",
+    "December": "December"
   },
 
   "expensesCategArray": [
@@ -115,5 +135,7 @@
     "Спорт и хобби": { "title": "Sports, hobbies", "id": "icon-sports, hobbies" },
     "Образование": { "title": "Education", "id": "icon-education" },
     "Прочее": { "title": "Other", "id": "icon-other" }
-  }
+  },
+
+  "incomeReport": { "З/П": "Salary", "Доп. доход": "Add. income" }
 }

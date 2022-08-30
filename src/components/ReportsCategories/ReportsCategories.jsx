@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import CategoriesList from 'components/CategoriesList/CategoriesList';
 import Paginator from 'components/Paginator/Paginator';
 import s from './ReportsCategories.module.css';
+import { useTranslation } from 'react-i18next';
 
 const ReportsCategories = ({
   userExpenses,
@@ -12,6 +13,9 @@ const ReportsCategories = ({
   setType,
   setCategory,
 }) => {
+  const { t } = useTranslation();
+  const paginationCat = t('pagination', { returnObjects: true });
+
   const PaginatorTypes = () => {
     const onBtnClick = () => {
       if (type === 'expenses') {
@@ -22,20 +26,14 @@ const ReportsCategories = ({
       setType('expenses');
       setCategory('');
     };
-    return (
-      <Paginator clickPrev={onBtnClick} clickNext={onBtnClick} descr={type} />
-    );
+    return <Paginator clickPrev={onBtnClick} clickNext={onBtnClick} descr={paginationCat[type]} />;
   };
 
   return (
     <div className={s.block}>
       <PaginatorTypes />
       <CategoriesList
-        transactions={
-          type === 'expenses'
-            ? userExpenses.expensesData
-            : userIncome.incomesData
-        }
+        transactions={type === 'expenses' ? userExpenses.expensesData : userIncome.incomesData}
         category={category}
         type={type}
         onCategoryChange={onCategoryChange}

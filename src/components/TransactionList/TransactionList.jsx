@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { nanoid } from 'nanoid';
-import expenses from '../../data/expensesReports.json';
 import incomeCategories from '../../data/incomeReports.json';
 import { removeTransaction } from 'redux/transaction/transaction-operations';
 import s from './TransactionList.module.css';
@@ -15,6 +14,7 @@ const TransactionList = ({ transactionsArray, location }) => {
 
   const { t } = useTranslation();
   const expenseReport = t('expenseReport', { returnObjects: true });
+  const incomeReport = t('incomeReport', { returnObjects: true });
 
   const createNewArray = array => {
     const addArray = Array(10 - array.length)
@@ -30,9 +30,7 @@ const TransactionList = ({ transactionsArray, location }) => {
   };
 
   const arrayTable =
-    transactionsArray.length < 10
-      ? createNewArray(transactionsArray)
-      : transactionsArray;
+    transactionsArray.length < 10 ? createNewArray(transactionsArray) : transactionsArray;
 
   return (
     <>
@@ -56,7 +54,7 @@ const TransactionList = ({ transactionsArray, location }) => {
                 <td>
                   {item.category && location === 'expenses'
                     ? expenseReport[item.category].title
-                    : incomeCategories[item.category]}
+                    : incomeReport[item.category]}
                 </td>
                 <td
                   style={
@@ -68,9 +66,7 @@ const TransactionList = ({ transactionsArray, location }) => {
                   {location === 'expenses' && item.amount && '-'}
                   &nbsp;
                   {item.amount &&
-                    `${item.amount
-                      .toFixed(2)
-                      .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')} ${t(
+                    `${item.amount.toFixed(2).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')} ${t(
                       'general.currencyName'
                     )}`}
                 </td>

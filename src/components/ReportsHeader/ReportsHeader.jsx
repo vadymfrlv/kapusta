@@ -9,9 +9,11 @@ import { useTranslation } from 'react-i18next';
 const ReportsHeader = ({ month, setMonth, setCategory }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const monthsPag = t('monthsPag', { returnObjects: true });
 
   const PaginatorPeriod = () => {
-    const dateFormatStr = moment().add(month, 'month').format('MMMM YYYY');
+    const dateFormatStr1 = monthsPag[`${moment().add(month, 'month').format('MMMM')}`];
+    const dateFormatStr2 = moment().add(month, 'month').format('YYYY');
     const onBtnPrevClick = () => {
       setMonth(prev => prev - 1);
       setCategory('');
@@ -24,7 +26,7 @@ const ReportsHeader = ({ month, setMonth, setCategory }) => {
       <Paginator
         clickPrev={onBtnPrevClick}
         clickNext={onBtnNextClick}
-        descr={dateFormatStr}
+        descr={`${dateFormatStr1} ${dateFormatStr2}`}
         disableNext={month === 0}
       />
     );
