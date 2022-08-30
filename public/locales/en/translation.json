@@ -135,5 +135,7 @@
     "Спорт и хобби": { "title": "Sports, hobbies", "id": "icon-sports, hobbies" },
     "Образование": { "title": "Education", "id": "icon-education" },
     "Прочее": { "title": "Other", "id": "icon-other" }
-  }
+  },
+
+  "incomeReport": { "З/П": "Salary", "Доп. доход": "Add. income" }
 }
