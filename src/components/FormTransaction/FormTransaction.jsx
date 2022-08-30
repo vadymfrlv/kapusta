@@ -36,6 +36,31 @@ const colourStyles = {
   }),
 };
 
+const colourStylesMob = {
+  control: styles => ({
+    ...styles,
+    border: ' none',
+    width: '280px',
+    borderRadius: '0px',
+    color: '#C7CCDC',
+    backgroundColor: 'transparent',
+  }),
+  menuList: styles => ({
+    ...styles,
+    backgroundColor: 'var(--input-bg-color)',
+    border: ' 2px solid var(--border-light)',
+    borderRadius: '4px',
+  }),
+  placeholder: styles => ({
+    ...styles,
+    color: '#C7CCDC',
+  }),
+  singleValue: styles => ({
+    ...styles,
+    color: '#C7CCDC',
+  }),
+};
+
 const FormTransaction = ({ operation, options, date, setDate }) => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState(null);
@@ -109,7 +134,7 @@ const FormTransaction = ({ operation, options, date, setDate }) => {
       </label>
       <Select
         className={s.select}
-        styles={colourStyles}
+        styles={isMobile ? colourStylesMob : colourStyles}
         placeholder={t('transactions.prodCateg')}
         value={category}
         onChange={setCategory}

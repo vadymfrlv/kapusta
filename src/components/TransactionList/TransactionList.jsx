@@ -16,7 +16,7 @@ const TransactionList = ({ transactionsArray, location }) => {
   const incomeReport = t('incomeReport', { returnObjects: true });
 
   const createNewArray = array => {
-    const addArray = Array(10 - array.length)
+    const addArray = Array(7 - array.length)
       .fill({
         _id: '',
         description: '',
@@ -29,7 +29,9 @@ const TransactionList = ({ transactionsArray, location }) => {
   };
 
   const arrayTable =
-    transactionsArray.length < 10 ? createNewArray(transactionsArray) : transactionsArray;
+    transactionsArray.length < 7
+      ? createNewArray(transactionsArray)
+      : transactionsArray;
 
   return (
     <>
@@ -65,7 +67,9 @@ const TransactionList = ({ transactionsArray, location }) => {
                   {location === 'expenses' && item.amount && '-'}
                   &nbsp;
                   {item.amount &&
-                    `${item.amount.toFixed(2).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')} ${t(
+                    `${item.amount
+                      .toFixed(2)
+                      .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')} ${t(
                       'general.currencyName'
                     )}`}
                 </td>

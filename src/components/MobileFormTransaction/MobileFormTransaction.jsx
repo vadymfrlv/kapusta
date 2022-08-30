@@ -14,7 +14,10 @@ const MobileFormTransaction = () => {
   const location = useLocation();
   return (
     <>
-      <button className={s.btnPrevPagemob} onClick={e => navigate(-1)}></button>
+      <button
+        className={s.btnPrevPagemob}
+        onClick={e => navigate('transaction')}
+      ></button>
       {location.pathname === '/transactions/expenses' && (
         <FormTransaction
           operation={addExpenseTransaction}

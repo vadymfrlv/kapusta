@@ -50,6 +50,7 @@
 @media screen and (max-width: 767.9px) {
   .container {
     flex-direction: column-reverse;
+    margin-bottom: 0;
   }
   .reportsLinkWrapper {
     margin-bottom: 40px;
