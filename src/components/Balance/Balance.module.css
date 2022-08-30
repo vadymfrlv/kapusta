@@ -124,6 +124,7 @@
 
 .inputMobile {
   position: relative;
+  font-weight: 700;
   top: 0px;
   margin-right: 2px;
   font-size: 12px;
@@ -134,6 +135,8 @@
   outline: none;
   text-align: right;
   align-items: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 
   color: var(--black-text-color);
   background-color: transparent;

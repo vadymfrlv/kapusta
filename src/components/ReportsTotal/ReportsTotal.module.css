@@ -143,32 +143,31 @@
 }
 
 .incomeTotal {
-  letter-spacing: 0.04em;
   color: var(--plus-balance-color);
+  letter-spacing: 0.04em;
+  font-size: 14px;
   margin-left: 15px;
+  line-height: 1.14;
+  font-weight: 700;
 }
 
-@media screen and (max-width: 767.9px) {
+@media screen and (max-width: 768px) {
   .incomeTotal {
-    margin-left: 10px;
+    margin-left: 0;
   }
 }
 
 .expensesTotal {
-  letter-spacing: 0.04em;
   color: var(--minus-balance-color);
+  font-size: 14px;
   margin-left: 15px;
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: 0.04em;
 }
 
-@media screen and (max-width: 767.9px) {
+@media screen and (max-width: 768px) {
   .expensesTotal {
     margin-left: 0;
-    margin-right: 0px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .expensesTotal {
-    margin-right: 0px;
   }
 }
