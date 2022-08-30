@@ -2,11 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import { useFormik } from 'formik';
 import { registerUser, loginUser, getCurUser } from 'redux/auth/authOperations';
-import { getAuthError, getAuthLoading, isLogedIn } from 'redux/auth/AuthSelector';
+import { getAuthError, isLogedIn } from 'redux/auth/AuthSelector';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import s from './Auth.module.css';
-import Loader from 'components/Loader/Loader';
+// import Loader from 'components/Loader/Loader';
 import Sprite from '../../assets/images/svg/sprite.svg';
 import { useEffect } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
@@ -14,7 +14,7 @@ import { googleAuth } from '../../redux/auth/authSlise';
 import { useTranslation } from 'react-i18next';
 
 export const Auth = () => {
-  const isLoading = useSelector(getAuthLoading);
+  // const isLoading = useSelector(getAuthLoading);
   const error = useSelector(getAuthError);
 
   // eslint-disable-next-line
