@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { nanoid } from 'nanoid';
 import expenses from '../../data/expensesReports.json';
 import { removeTransaction } from 'redux/transaction/transaction-operations';
 import s from './TransactionList.module.css';
+import { getEmailUser } from 'redux/auth/AuthSelector';
 
 const TransactionList = ({ transactionsArray, location }) => {
+  const email = useSelector(getEmailUser);
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
@@ -27,49 +29,59 @@ const TransactionList = ({ transactionsArray, location }) => {
   };
 
   const arrayTable =
-    transactionsArray.length < 10 ? createNewArray(transactionsArray) : transactionsArray;
+    transactionsArray.length < 10
+      ? createNewArray(transactionsArray)
+      : transactionsArray;
 
   return (
-    <table className={s.table}>
-      <thead>
-        <tr>
-          <th>{t('transactions.date')}</th>
-          <th>{t('transactions.descr')}</th>
-          <th>{t('transactions.categ')}</th>
-          <th>{t('transactions.sum')}</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody className={s.tableBody}>
-        {arrayTable.map((item, index) => (
-          <tr key={item._id}>
-            <td>{item.date && item.date.split('-').reverse().join('.')}</td>
-            <td>{item.description && item.description}</td>
-            <td>
-              {item.category && location === 'expenses'
-                ? expenses[item.category].title
-                : item.category}
-            </td>
-            <td className={location === 'expenses' ? s.expenses : s.incomes}>
-              {location === 'expenses' && item.amount && '-'}
-              &nbsp;
-              {item.amount &&
-                `${item.amount.toFixed(2).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')} ${t(
-                  'general.currencyName'
-                )}`}
-            </td>
-            <td>
-              {item.amount && (
-                <button
-                  className={s.buttonDelete}
-                  onClick={() => dispatch(removeTransaction(item._id))}
-                ></button>
-              )}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <>
+      {email && (
+        <table className={s.table}>
+          <thead>
+            <tr>
+              <th>{t('transactions.date')}</th>
+              <th>{t('transactions.descr')}</th>
+              <th>{t('transactions.categ')}</th>
+              <th>{t('transactions.sum')}</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody className={s.tableBody}>
+            {arrayTable.map((item, index) => (
+              <tr key={item._id}>
+                <td>{item.date && item.date.split('-').reverse().join('.')}</td>
+                <td>{item.description && item.description}</td>
+                <td>
+                  {item.category && location === 'expenses'
+                    ? expenses[item.category].title
+                    : item.category}
+                </td>
+                <td
+                  className={location === 'expenses' ? s.expenses : s.incomes}
+                >
+                  {location === 'expenses' && item.amount && '-'}
+                  &nbsp;
+                  {item.amount &&
+                    `${item.amount
+                      .toFixed(2)
+                      .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')} ${t(
+                      'general.currencyName'
+                    )}`}
+                </td>
+                <td>
+                  {item.amount && (
+                    <button
+                      className={s.buttonDelete}
+                      onClick={() => dispatch(removeTransaction(item._id))}
+                    ></button>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </>
   );
 };
 
