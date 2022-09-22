@@ -1,8 +1,8 @@
 {
-  "name": "react-homework-template",
+  "name": "kapusta",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pavlopetr.github.io/kapusta/",
+  "homepage": "https://vadymfrlv.github.io/kapusta/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.3",
