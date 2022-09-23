@@ -6,7 +6,6 @@ import { getAuthError, isLogedIn } from 'redux/auth/AuthSelector';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import s from './Auth.module.css';
-// import Loader from 'components/Loader/Loader';
 import Sprite from '../../assets/images/svg/sprite.svg';
 import { useEffect } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
@@ -14,7 +13,6 @@ import { googleAuth } from '../../redux/auth/authSlise';
 import { useTranslation } from 'react-i18next';
 
 export const Auth = () => {
-  // const isLoading = useSelector(getAuthLoading);
   const error = useSelector(getAuthError);
 
   // eslint-disable-next-line
@@ -167,7 +165,6 @@ export const Auth = () => {
           </div>
         </>
       </form>
-      {/* {isLoading && <Loader />} */}
       {error === 'Request failed with status code 400' &&
         formik.values.email === '' &&
         formik.values.password === '' &&
