@@ -2,6 +2,7 @@ import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import s from './datePickerComp.module.css';
 import Sprite from '../../assets/images/svg/sprite.svg';
+
 const DatePickerComp = () => {
   const [date, setDate] = useState(new Date());
   return (
