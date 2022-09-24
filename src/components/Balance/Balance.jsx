@@ -15,8 +15,6 @@ import s from './Balance.module.css';
 import { getBalance } from 'redux/balance/balanceSelector';
 import audio from '../../assets/sounds/coins-drop.mp3';
 
-// import useWindowDimensions from '../../hooks/useWindowDimensions';
-
 export const Balance = () => {
   const balance = useSelector(getBalance);
   const email = useSelector(getEmailUser);
@@ -52,35 +50,17 @@ export const Balance = () => {
   return (
     <>
       <form className={s.balance} onSubmit={handleSubmit}>
-        <h3
-          className={
-            isMobile && location.pathname === '/reports'
-              ? s.titleMobile
-              : s.title
-          }
-        >
+        <h3 className={isMobile && location.pathname === '/reports' ? s.titleMobile : s.title}>
           {t('balance.balanceTitle')}:
         </h3>
         <div className={s.info}>
-          <label
-            className={
-              isMobile && location.pathname === '/reports'
-                ? s.labelMobile
-                : s.label
-            }
-          >
+          <label className={isMobile && location.pathname === '/reports' ? s.labelMobile : s.label}>
             <input
               type="text"
-              className={
-                isMobile && location.pathname === '/reports'
-                  ? s.inputMobile
-                  : s.input
-              }
+              className={isMobile && location.pathname === '/reports' ? s.inputMobile : s.input}
               value={
                 balance !== 0
-                  ? balance
-                      .toFixed(2)
-                      .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')
+                  ? balance.toFixed(2).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')
                   : (expenses.length === 0) & (incomes.length === 0)
                   ? input
                   : 0
@@ -89,18 +69,11 @@ export const Balance = () => {
               maxLength={9}
               onChange={handleChange}
               disabled={
-                balance === 0 &&
-                (expenses.length === 0) & (incomes.length === 0)
-                  ? false
-                  : true
+                balance === 0 && (expenses.length === 0) & (incomes.length === 0) ? false : true
               }
             />
             <span
-              className={
-                isMobile && location.pathname === '/reports'
-                  ? s.moneyMobile
-                  : s.money
-              }
+              className={isMobile && location.pathname === '/reports' ? s.moneyMobile : s.money}
             >
               {t('balance.currency')}
             </span>
@@ -119,17 +92,13 @@ export const Balance = () => {
               className={
                 isTab && location.pathname === '/reports'
                   ? s.buttonNone
-                  : balance === 0 &&
-                    (expenses.length === 0) & (incomes.length === 0)
+                  : balance === 0 && (expenses.length === 0) & (incomes.length === 0)
                   ? s.buttonActive
                   : s.button
               }
               type="submit"
               disabled={
-                balance === 0 &&
-                (expenses.length === 0) & (incomes.length === 0)
-                  ? false
-                  : true
+                balance === 0 && (expenses.length === 0) & (incomes.length === 0) ? false : true
               }
             >
               {t('balance.confirm')}
