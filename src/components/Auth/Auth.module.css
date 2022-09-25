@@ -1,8 +1,6 @@
 .form {
   width: 258px;
   height: 440px;
-  /* width: 426px;
-  height: 552px; */
   margin-top: 117px;
   background: var(--white-color);
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);

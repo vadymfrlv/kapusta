@@ -1,6 +1,3 @@
-/* .componentContainer {
-    width: 1098px;
-} */
 .transactions {
   display: flex;
   position: relative;
@@ -11,6 +8,7 @@
 .form {
   display: flex;
 }
+
 .container {
   max-width: 1098px;
   background-color: white;
@@ -35,12 +33,6 @@
   text-transform: uppercase;
   margin-right: 32px;
 }
-
-/* .rasta-stripes {
-    border: none;
-    color: red;
-      color: var(--primary-text-color);
-} */
 
 .input {
   height: 44px;

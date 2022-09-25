@@ -8,16 +8,14 @@ import {
 } from '../../redux/transaction/transaction-operations';
 import s from './MobileFormTransaction.module.css';
 import { useState } from 'react';
+
 const MobileFormTransaction = () => {
   const [date, setDate] = useState(new Date());
   const navigate = useNavigate();
   const location = useLocation();
   return (
     <>
-      <button
-        className={s.btnPrevPagemob}
-        onClick={e => navigate('transaction')}
-      ></button>
+      <button className={s.btnPrevPagemob} onClick={e => navigate('transaction')}></button>
       {location.pathname === '/transactions/expenses' && (
         <FormTransaction
           operation={addExpenseTransaction}

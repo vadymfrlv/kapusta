@@ -21,15 +21,11 @@
   padding: 5px;
   color: var(--black-text-color);
   background-color: var(--table-color);
-  /* border: 1px solid #dddddd; */
 }
 
 .table td {
-  /* background-color: #fff; */
   height: 40px;
   border-bottom: 2px solid var(--table-line);
-
-  /* border: 1px solid #dddddd; */
   color: var(--primary-text-color);
   padding: 5px;
   text-align: center;

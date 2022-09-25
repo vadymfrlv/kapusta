@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react';
-// import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
 import styles from './Modal.module.css';
 import { logoutUser } from 'redux/auth/authOperations';
 import { useTranslation } from 'react-i18next';
-
-// const modalRoot = document.querySelector('#modal-root');
 
 function Modal({ handleClickLeft, handleClickRight, onClose, styleReg }) {
   const dispatch = useDispatch();
@@ -57,7 +54,6 @@ function Modal({ handleClickLeft, handleClickRight, onClose, styleReg }) {
         </div>
       </div>
     </div>
-    // modalRoot,
   );
 }
 
