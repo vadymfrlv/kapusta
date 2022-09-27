@@ -7,18 +7,13 @@ import {
   addIncomeTransaction,
 } from './transaction-operations';
 import { logoutUser } from 'redux/auth/authOperations';
-// import itemsReducer from '../redux/transaction/items-reducer';
 
 const expenses = createReducer([], {
   [getExpenseTransaction.fulfilled]: (_, { payload }) => payload.expenses,
 
-  [addExpenseTransaction.fulfilled]: (state, { payload }) => [
-    ...state,
-    payload.transaction,
-  ],
+  [addExpenseTransaction.fulfilled]: (state, { payload }) => [...state, payload.transaction],
 
-  [removeTransaction.fulfilled]: (state, { payload }) =>
-    state.filter(el => el._id !== payload.id),
+  [removeTransaction.fulfilled]: (state, { payload }) => state.filter(el => el._id !== payload.id),
 
   [logoutUser.fulfilled]: () => [],
 });
@@ -26,13 +21,9 @@ const expenses = createReducer([], {
 const incomes = createReducer([], {
   [getIncomeTransaction.fulfilled]: (_, { payload }) => payload.incomes,
 
-  [addIncomeTransaction.fulfilled]: (state, { payload }) => [
-    ...state,
-    payload.transaction,
-  ],
+  [addIncomeTransaction.fulfilled]: (state, { payload }) => [...state, payload.transaction],
 
-  [removeTransaction.fulfilled]: (state, { payload }) =>
-    state.filter(el => el._id !== payload.id),
+  [removeTransaction.fulfilled]: (state, { payload }) => state.filter(el => el._id !== payload.id),
 
   [logoutUser.fulfilled]: () => [],
 });
