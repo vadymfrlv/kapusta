@@ -29,13 +29,10 @@ const TransactionList = ({ transactionsArray, location }) => {
   };
 
   const arrayTable =
-    transactionsArray.length < 7
-      ? createNewArray(transactionsArray)
-      : transactionsArray;
+    transactionsArray.length < 7 ? createNewArray(transactionsArray) : transactionsArray;
 
   return (
     <>
-      {console.log(location)}
       {email && (
         <table className={s.table}>
           <thead>
@@ -67,9 +64,7 @@ const TransactionList = ({ transactionsArray, location }) => {
                   {location === 'expenses' && item.amount && '-'}
                   &nbsp;
                   {item.amount &&
-                    `${item.amount
-                      .toFixed(2)
-                      .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')} ${t(
+                    `${item.amount.toFixed(2).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')} ${t(
                       'general.currencyName'
                     )}`}
                 </td>

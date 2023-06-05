@@ -8,64 +8,65 @@ import {
 } from './transaction-operations';
 import { logoutUser } from 'redux/auth/authOperations';
 
-const expenses = createReducer([], {
-  [getExpenseTransaction.fulfilled]: (_, { payload }) => payload.expenses,
-
-  [addExpenseTransaction.fulfilled]: (state, { payload }) => [...state, payload.transaction],
-
-  [removeTransaction.fulfilled]: (state, { payload }) => state.filter(el => el._id !== payload.id),
-
-  [logoutUser.fulfilled]: () => [],
+const expenses = createReducer([], builder => {
+  builder
+    .addCase(getExpenseTransaction.fulfilled, (_, { payload }) => payload.expenses)
+    .addCase(addExpenseTransaction.fulfilled, (state, { payload }) => [
+      ...state,
+      payload.transaction,
+    ])
+    .addCase(removeTransaction.fulfilled, (state, { payload }) =>
+      state.filter(el => el._id !== payload.id)
+    )
+    .addCase(logoutUser.fulfilled, () => []);
 });
 
-const incomes = createReducer([], {
-  [getIncomeTransaction.fulfilled]: (_, { payload }) => payload.incomes,
-
-  [addIncomeTransaction.fulfilled]: (state, { payload }) => [...state, payload.transaction],
-
-  [removeTransaction.fulfilled]: (state, { payload }) => state.filter(el => el._id !== payload.id),
-
-  [logoutUser.fulfilled]: () => [],
+const incomes = createReducer([], builder => {
+  builder
+    .addCase(getIncomeTransaction.fulfilled, (_, { payload }) => payload.incomes)
+    .addCase(addIncomeTransaction.fulfilled, (state, { payload }) => [
+      ...state,
+      payload.transaction,
+    ])
+    .addCase(removeTransaction.fulfilled, (state, { payload }) =>
+      state.filter(el => el._id !== payload.id)
+    )
+    .addCase(logoutUser.fulfilled, () => []);
 });
 
-const loading = createReducer(false, {
-  [getExpenseTransaction.pending]: () => true,
-  [getExpenseTransaction.fulfilled]: () => false,
-  [getExpenseTransaction.rejected]: () => false,
-
-  [addExpenseTransaction.pending]: () => true,
-  [addExpenseTransaction.fulfilled]: () => false,
-  [addExpenseTransaction.rejected]: () => false,
-
-  [getIncomeTransaction.pending]: () => true,
-  [getIncomeTransaction.fulfilled]: () => false,
-  [getIncomeTransaction.rejected]: () => false,
-
-  [addIncomeTransaction.pending]: () => true,
-  [addIncomeTransaction.fulfilled]: () => false,
-  [addIncomeTransaction.rejected]: () => false,
-
-  [removeTransaction.pending]: () => true,
-  [removeTransaction.fulfilled]: () => false,
-  [removeTransaction.rejected]: () => false,
+const loading = createReducer(false, builder => {
+  builder
+    .addCase(getExpenseTransaction.pending, () => true)
+    .addCase(getExpenseTransaction.fulfilled, () => false)
+    .addCase(getExpenseTransaction.rejected, () => false)
+    .addCase(addExpenseTransaction.pending, () => true)
+    .addCase(addExpenseTransaction.fulfilled, () => false)
+    .addCase(addExpenseTransaction.rejected, () => false)
+    .addCase(getIncomeTransaction.pending, () => true)
+    .addCase(getIncomeTransaction.fulfilled, () => false)
+    .addCase(getIncomeTransaction.rejected, () => false)
+    .addCase(addIncomeTransaction.pending, () => true)
+    .addCase(addIncomeTransaction.fulfilled, () => false)
+    .addCase(addIncomeTransaction.rejected, () => false)
+    .addCase(removeTransaction.pending, () => true)
+    .addCase(removeTransaction.fulfilled, () => false)
+    .addCase(removeTransaction.rejected, () => false);
 });
 
 const setError = (_, { payload }) => payload;
 
-const error = createReducer(null, {
-  [getExpenseTransaction.rejected]: setError,
-  [getExpenseTransaction.pending]: () => null,
-
-  [addExpenseTransaction.rejected]: setError,
-  [addExpenseTransaction.pending]: () => null,
-
-  [getIncomeTransaction.rejected]: setError,
-  [getIncomeTransaction.pending]: () => null,
-
-  [addIncomeTransaction.rejected]: setError,
-  [addIncomeTransaction.pending]: () => null,
-  [removeTransaction.rejected]: setError,
-  [removeTransaction.pending]: () => null,
+const error = createReducer(null, builder => {
+  builder
+    .addCase(getExpenseTransaction.rejected, setError)
+    .addCase(getExpenseTransaction.pending, () => null)
+    .addCase(addExpenseTransaction.rejected, setError)
+    .addCase(addExpenseTransaction.pending, () => null)
+    .addCase(getIncomeTransaction.rejected, setError)
+    .addCase(getIncomeTransaction.pending, () => null)
+    .addCase(addIncomeTransaction.rejected, setError)
+    .addCase(addIncomeTransaction.pending, () => null)
+    .addCase(removeTransaction.rejected, setError)
+    .addCase(removeTransaction.pending, () => null);
 });
 
 export default combineReducers({

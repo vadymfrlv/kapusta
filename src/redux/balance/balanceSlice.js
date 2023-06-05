@@ -17,45 +17,44 @@ const balanceSlice = createSlice({
     error: null,
   },
 
-  extraReducers: {
-    [registerUser.fulfilled]: (state, { payload }) => {
-      state.balance = payload.userData.balance;
-    },
-    [loginUser.fulfilled]: (state, { payload }) => {
-      console.log('🚀 ~ payload', payload);
-      state.balance = payload.userData.balance;
-    },
-    [getCurUser.fulfilled]: (state, { payload }) => {
-      const { balance } = payload;
-      state.isLoading = false;
-      state.balance = balance;
-    },
-    [changeBalance.pending]: state => {
-      state.isLoading = true;
-      state.error = null;
-    },
-    [changeBalance.fulfilled]: (state, { payload }) => {
-      state.balance = Number(payload.newBalance);
-
-      state.isLoading = false;
-    },
-    [changeBalance.rejected]: (state, { payload }) => {
-      state.error = payload;
-      state.isLoading = false;
-    },
-    [addExpenseTransaction.fulfilled]: (state, { payload }) => {
-      state.error = null;
-      state.isLoading = false;
-      state.balance = payload.newBalance;
-    },
-    [addIncomeTransaction.fulfilled]: (state, { payload }) => {
-      state.error = null;
-      state.isLoading = false;
-      state.balance = payload.newBalance;
-    },
-    [removeTransaction.fulfilled]: (state, { payload }) => {
-      state.balance = payload.balance;
-    },
+  extraReducers: builder => {
+    builder
+      .addCase(registerUser.fulfilled, (state, { payload }) => {
+        state.balance = payload.userData.balance;
+      })
+      .addCase(loginUser.fulfilled, (state, { payload }) => {
+        state.balance = payload.userData.balance;
+      })
+      .addCase(getCurUser.fulfilled, (state, { payload }) => {
+        const { balance } = payload;
+        state.isLoading = false;
+        state.balance = balance;
+      })
+      .addCase(changeBalance.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(changeBalance.fulfilled, (state, { payload }) => {
+        state.balance = Number(payload.newBalance);
+        state.isLoading = false;
+      })
+      .addCase(changeBalance.rejected, (state, { payload }) => {
+        state.error = payload;
+        state.isLoading = false;
+      })
+      .addCase(addExpenseTransaction.fulfilled, (state, { payload }) => {
+        state.error = null;
+        state.isLoading = false;
+        state.balance = payload.newBalance;
+      })
+      .addCase(addIncomeTransaction.fulfilled, (state, { payload }) => {
+        state.error = null;
+        state.isLoading = false;
+        state.balance = payload.newBalance;
+      })
+      .addCase(removeTransaction.fulfilled, (state, { payload }) => {
+        state.balance = payload.balance;
+      });
   },
 });
 
