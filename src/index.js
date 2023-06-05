@@ -10,13 +10,13 @@ import { Suspense } from 'react';
 import Loader from './components/Loader/Loader';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
-    {/* <React.StrictMode> */}
-    <Suspense fallback={<Loader />}>
-      <BrowserRouter basename="/kapusta/">
-        <App />
-      </BrowserRouter>
-    </Suspense>
-    {/* </React.StrictMode> */}
-  </Provider>
+  <React.StrictMode>
+    <Provider store={store}>
+      <Suspense fallback={<Loader />}>
+        <BrowserRouter basename="/kapusta">
+          <App />
+        </BrowserRouter>
+      </Suspense>
+    </Provider>
+  </React.StrictMode>
 );
