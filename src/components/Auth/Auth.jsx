@@ -32,7 +32,7 @@ export const Auth = () => {
         dispatch(googleAuth({ token: accessToken, refreshToken, sid }));
         dispatch(getCurUser());
       }
-      token ? navigate('expenses') : navigate('/');
+      token ? navigate('/') : navigate('/');
     }
     // eslint-disable-next-line
   }, []);
@@ -106,8 +106,8 @@ export const Auth = () => {
         <a
           className={s.link}
           href="https://kapusta-backend.goit.global/auth/google"
-          target="_blank"
-          rel="noreferrer"
+          // target="_blank"
+          // rel="noreferrer"
         >
           <svg className={s.icon} width={18} height={18}>
             <use href={`${Sprite}#icon-google`} />

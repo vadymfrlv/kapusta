@@ -11,12 +11,12 @@ import Loader from './components/Loader/Loader';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Suspense fallback={<Loader />}>
-        <BrowserRouter>
+    <BrowserRouter>
+      <Provider store={store}>
+        <Suspense fallback={<Loader />}>
           <App />
-        </BrowserRouter>
-      </Suspense>
-    </Provider>
+        </Suspense>
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );

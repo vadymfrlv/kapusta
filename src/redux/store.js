@@ -12,7 +12,7 @@ import {
 } from 'redux-persist';
 import authReducer from '../redux/auth/authSlise';
 import transactionReducer from '../redux/transaction/transaction-reducer';
-import balanceReduser from '../redux/balance/balanceSlice';
+import balanceReducer from '../redux/balance/balanceSlice';
 import monthsStatsReducer from '../redux/monthsStats/monthsStats-reducer';
 
 const authPersistConfig = {
@@ -23,7 +23,7 @@ const authPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    balance: balanceReduser,
+    balance: balanceReducer,
     auth: persistReducer(authPersistConfig, authReducer),
     transactions: transactionReducer,
     monthsStats: monthsStatsReducer,
@@ -34,7 +34,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-  devTools: process.env.NODE_ENV !== 'production',
+  devTools: process.env.NODE_ENV === 'development',
 });
 
 export const persistor = persistStore(store);
