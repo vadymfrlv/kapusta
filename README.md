@@ -46,6 +46,7 @@ endpoints are used:
 - `​/auth​/register` - User registration
 - `​/auth​/login` - User authentication
 - `/auth​/logout` - User logout
+- `/auth​/refresh` - Get new pair of tokens
 
 #### GET
 
