@@ -17,7 +17,7 @@ The application consists of the following routes:
 
 ## Demo 🖥
 
-![Demo](https://raw.githubusercontent.com/vadymfrlv/storage/main/demos/phonebook/phonebook-demo.gif)
+![Demo](https://raw.githubusercontent.com/vadymfrlv/storage/main/demos/kapusta/kapusta-demo.gif)
 
 ## Installation ⚡️
 
