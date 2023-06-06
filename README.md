@@ -105,4 +105,4 @@ The Kapusta application is built using the following technologies:
 
 ## Author 👨🏻‍💻
 
-This app was developed by frlv
+This project was developed by a team of developers who are listed in the Contributors section.
