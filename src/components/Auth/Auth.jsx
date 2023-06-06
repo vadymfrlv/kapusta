@@ -29,7 +29,7 @@ export const Auth = () => {
       const refreshToken = searchParams.get('refreshToken');
       const sid = searchParams.get('sid');
       if (accessToken) {
-        dispatch(googleAuth({ accessToken, refreshToken, sid }));
+        dispatch(googleAuth({ token: accessToken, refreshToken, sid }));
         dispatch(getCurUser());
       }
       token ? navigate('expenses') : navigate('/');
