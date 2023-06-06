@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <Suspense fallback={<Loader />}>
-        <BrowserRouter basename="/kapusta">
+        <BrowserRouter>
           <App />
         </BrowserRouter>
       </Suspense>

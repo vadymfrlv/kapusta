@@ -15,14 +15,27 @@ import { useTranslation } from 'react-i18next';
 export const Auth = () => {
   const error = useSelector(getAuthError);
 
-  // eslint-disable-next-line
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
   const { pathname } = useLocation();
   const token = useSelector(isLogedIn);
+
+  useEffect(() => {
+    if (pathname === '/') {
+      const accessToken = searchParams.get('accessToken');
+      const refreshToken = searchParams.get('refreshToken');
+      const sid = searchParams.get('sid');
+      if (accessToken) {
+        dispatch(googleAuth({ accessToken, refreshToken, sid }));
+        dispatch(getCurUser());
+      }
+      token ? navigate('expenses') : navigate('/');
+    }
+    // eslint-disable-next-line
+  }, []);
 
   const formik = useFormik({
     initialValues: {
@@ -41,20 +54,6 @@ export const Auth = () => {
         .required(t('registration.required')),
     }),
   });
-
-  useEffect(() => {
-    if (pathname === '/') {
-      const accessToken = searchParams.get('token');
-      const refreshToken = searchParams.get('refreshToken');
-      const sid = searchParams.get('sid');
-      if (token) {
-        dispatch(googleAuth({ accessToken, refreshToken, sid }));
-        dispatch(getCurUser());
-      }
-      token ? navigate('expenses') : navigate('/');
-    }
-    // eslint-disable-next-line
-  }, []);
 
   const handleSubmitRegister = e => {
     e.preventDefault();
