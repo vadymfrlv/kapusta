@@ -2,7 +2,6 @@
   "name": "kapusta",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vadymfrlv.github.io/kapusta/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
