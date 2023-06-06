@@ -32,7 +32,7 @@ export const Auth = () => {
         dispatch(googleAuth({ token: accessToken, refreshToken, sid }));
         dispatch(getCurUser());
       }
-      token ? navigate('/') : navigate('/');
+      token ? navigate('expenses') : navigate('/');
     }
     // eslint-disable-next-line
   }, []);
